@@ -34,11 +34,11 @@ if (process.argv.length === 2) {
 }
 
 const knownOpts = {
-    "version":  Boolean,
-    "help":     Boolean,
+    "version": Boolean,
+    "help": Boolean,
     "open": Boolean,
     "port": String,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error']
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error']
 };
 
 const shortHands = {
@@ -68,7 +68,7 @@ log.verbose("argv", argv);
 if (argv.level) {
     delete argv.level;
     if (argv.argv.remain.length === 0 && (Object.keys(argv)).length === 1) {
-        argv.help=true;
+        argv.help = true;
     }
 }
 
@@ -86,7 +86,7 @@ if (op) {
     version.checkNodeVersion(function() {
         async.series([
             op.bind(this)
-        ],finish);
+        ], finish);
     });
 }
 
@@ -98,7 +98,7 @@ function runServer() {
     let killTimer,
         serverUrl = "",
         port = 0,
-        appPath = argv.argv.remain.splice(0,1).join("");
+        appPath = argv.argv.remain.splice(0, 1).join("");
 
     if (!appPath) {
         return finish(errHndl.getErrMsg("EMPTY_VALUE", "APP_DIR"));
