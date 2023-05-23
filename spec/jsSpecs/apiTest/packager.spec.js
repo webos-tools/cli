@@ -138,11 +138,13 @@ describe(aresCmd + '.generatePackage()', function() {
     });
 
     it('Check exclude file option', function(done) {
+        let outputData="";
         packageOptions.rom = true;
         packageOptions.excludefiles = "tmpFile";
         packager.generatePackage([`${sampleAppPath}`], outputPath, packageOptions, function(data){
-            expect(data).toContain("Create");
+            outputData += data;
         }, function(err, value){
+            expect(outputData).toContain("Create");
             expect(value.msg).toContain("Success");
             expect(fs.existsSync(path.join(appPathByRom, "com.webos.sample.app/tmpFile"))).toBe(false);
             done();

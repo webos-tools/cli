@@ -35,6 +35,7 @@ function PalmPackage() {
     this.destination = '.';
     this.options = {};
     this.appCnt = 0;
+    this.dirCounts = {};
 
     const knownOpts = {
         "help": Boolean,
@@ -215,7 +216,6 @@ PalmPackage.prototype = {
     
     setOutputDir: function(next) {
         log.info("setOutputDir()");
-
         if (this.argv.outdir) {
             this.destination = this.argv.outdir;
         }
@@ -229,23 +229,27 @@ PalmPackage.prototype = {
     checkInputDir: function(next) {
         log.info("checkInputDir()");
         const packager = new packageLib.Packager();
-        this.appCnt = packager.checkInputDirectories(this.argv.argv.remain, this.options, next);
+        this.dirCounts = packager.checkInputDirectories(this.argv.argv.remain, this.options, next);
     },
 
     packageApp: function(next) {
         log.info("packageApp()");
         const packager = new packageLib.Packager();
-        if (this.appCnt === 0) { // only service packaging
+        if (this.dirCounts.app === 0) { // packaging without app
             if (Object.prototype.hasOwnProperty.call(this.options, 'pkginfofile') && Object.prototype.hasOwnProperty.call(this.options, 'pkgid')) {
                 this.finish(errHndl.getErrMsg("NOT_USE_WITH_OPTIONS", "pkginfofile, pkgid"));
                 cliControl.end(-1);
             } else if (Object.prototype.hasOwnProperty.call(this.options, 'pkgid') || Object.prototype.hasOwnProperty.call(this.options, 'pkginfofile')) {
-                packager.servicePackaging(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
+                if (this.dirCounts.resource > 0) {
+                    packager.resourcePackaging(this.argv.argv.remain, this.destination, this.options,this.outputTxt, next);
+                } else {
+                    packager.servicePackaging(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
+                }
             } else {
                 this.finish(errHndl.getErrMsg("USE_PKGID_PKGINFO"));
                 cliControl.end(-1);
             }
-        } else { // app+service packaging
+        } else { // packaging with app
             if (Object.prototype.hasOwnProperty.call(this.options, 'pkgid') || Object.prototype.hasOwnProperty.call(this.options, 'pkgversion')) {
                 this.finish(errHndl.getErrMsg("NOT_USE_WITH_OPTIONS", "pkgid, pkgversion"));
             }
