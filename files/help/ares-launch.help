@@ -8,8 +8,9 @@
             "ares-launch [OPTION...] <APP_ID>"
         ]
     },
-    "description" : {
-        "default": [
+    "description" : [
+        {
+          "default" : [
             "This command launches or closes apps on the DEVICE.",
             "",
             "APP_ID is an app id described in appinfo.json.",
@@ -18,14 +19,18 @@
             "If 'hosted' option is used with the directory path",
             "an app with id 'com.sdk.ares.hostedapp' is launched on the DEVICE",
             "and it opens the files in the directory.",
-            "To close this app, use com.sdk.ares.hostedapp as APP_ID.",
+            "To close this app, use com.sdk.ares.hostedapp as APP_ID."
+          ],
+          "ose" : [
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
-        ]
-    },
+          ]
+        }
+    ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["device", "device-list", "close", "running", "display", "params", "hosted", "help", "version", "verbose", "level"],
+        "default" : ["device", "device-list", "close", "running", "params", "hosted", "help", "version", "verbose"],
+        "ose" : ["display", "level"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
             "@TAB@ If not specified, set to default device"
@@ -43,7 +48,6 @@
     },
     "examples" : {
         "default" : [
-            "",
             "# Launch an app on the DEVICE",
             "ares-launch com.examples.app -d DEVICE",
             "",

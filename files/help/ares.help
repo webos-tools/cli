@@ -9,11 +9,17 @@
         ]
     },
     "description" : [
-        "This command lists all ares commands or provides help information of the given command.",
-        "",
-        "COMMAND is a postfix of the ares commands.",
-        "",
-        "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        {
+          "default" : [
+            "This command lists all ares commands or provides help information of the given command.",
+            "",
+            "COMMAND is a postfix of the ares commands."
+          ],
+          "ose" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ]
+        }
     ],
     "examples" : [
         "# List all the ares commands",
@@ -25,7 +31,8 @@
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["list", "<COMMAND>", "help", "version", "verbose", "level"],
+        "default" : ["list", "<COMMAND>", "help", "version"],
+        "ose" : ["verbose", "level"],
         "list" : [
             "-l, --list @TAB@ List all the ares commands"
         ],

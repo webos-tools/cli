@@ -1,0 +1,8 @@
+{
+    "SDKPATH_ENV_NAME": "LG_WEBOS_TV_SDK_HOME",
+    "BROWSER_PATH_IN_SDK": {
+        "win32" : "/IDE/chromium/chrome.exe",
+        "darwin" : "/IDE/chromium/Chromium.app",
+        "linux" : "/IDE/chromium/chrome"
+    }
+}

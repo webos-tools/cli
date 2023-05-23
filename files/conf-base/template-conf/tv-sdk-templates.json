@@ -1,0 +1,53 @@
+{
+    "basic": {
+        "type": "webapp",
+        "path": "$cli-root/files/templates/tv-sdk-templates/bootplate-web",
+        "description": "basic web app for webOS TV",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": ["webicon"],
+        "default": true
+    },
+    "hosted_webapp": {
+        "type": "webapp",
+        "path": "$cli-root/files/templates/tv-sdk-templates/hosted-webapp",
+        "description": "hosted web app for webOS TV",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": ["webicon"]
+    },
+    "webappinfo": {
+        "type": "webappinfo",
+        "path": "$cli-root/files/templates/tv-sdk-templates/appinfo/appinfo.json",
+        "description": "appinfo.json for web app"
+    },
+    "js_service": {
+        "type": "jsservice",
+        "path": "$cli-root/files/templates/tv-sdk-templates/js-service",
+        "description": "js service for webOS TV",
+        "metadata": {
+            "id": "jsserviceinfo"
+        }
+    },
+    "jsserviceinfo": {
+        "type": "jsserviceinfo",
+        "path": [
+            "$cli-root/files/templates/tv-sdk-templates/serviceinfo/services.json",
+            "$cli-root/files/templates/tv-sdk-templates/serviceinfo/package.json"
+        ],
+        "description": "services.json, package.json for JS service"
+    },
+    "webicon": {
+        "type": "icon",
+        "path": "$cli-root/files/templates/tv-sdk-templates/webicon",
+        "description": "web app icon files [80x80, 130x130]",
+        "hide": true
+    },
+    "packageinfo": {
+        "type": "packageinfo",
+        "path": "$cli-root/files/templates/tv-sdk-templates/packageinfo/packageinfo.json",
+        "description": "packageinfo.json for webOS package"
+    }
+}

@@ -62,7 +62,8 @@
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["reset", "list", "listfull", "help", "version", "verbose", "level"],
+        "default" : ["reset", "list", "listfull", "help", "version", "verbose"],
+        "ose" : ["level"],
         "reset" : "-R, --reset @TAB@ Initialize the DEVICE list",
         "list" : "-l, --list @TAB@ List the available DEVICEs",
         "listfull" : "-F, --listfull @TAB@ List the available DEVICEs in detail",

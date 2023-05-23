@@ -9,16 +9,22 @@
         ]
     },
     "description" : [
-        "This command generates files from the template.",
-        "",
-        "APP_DIR is the app directory. It will be created if it does not exist.",
-        "",
-        "PROPERTY defines properties to be used during generation",
-        "Properties can be specified as key-value pairs of the form \"key=value\"",
-        "or as JSON objects of the form \"{'key':'value', 'key2':'value2', ...}\".",
-        "Surrounding quotes are required in both cases.",
-        "",
-        "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        {
+          "default" : [
+            "This command generates files from the template.",
+            "",
+            "APP_DIR is the app directory. It will be created if it does not exist.",
+            "",
+            "PROPERTY defines properties to be used during generation",
+            "Properties can be specified as key-value pairs of the form \"key=value\"",
+            "or as JSON objects of the form \"{'key':'value', 'key2':'value2', ...}\".",
+            "Surrounding quotes are required in both cases."
+          ],
+          "ose" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ]
+        }
     ],
     "examples" : [
         {
@@ -36,7 +42,8 @@
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["template", "list", "property", "servicename", "overwrite", "help", "version", "verbose", "level"],
+        "default" : ["template", "list", "property", "servicename", "overwrite", "help", "version", "verbose"],
+        "ose" : ["level"],
         "template" : [
             "-t, --template <TEMPLATE> @TAB@ Use the template named TEMPLATE"
         ],

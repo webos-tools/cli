@@ -1,0 +1,21 @@
+{
+    "profile": "tv",
+    "config": "tv_sdk",
+    "defaultAppInfo": {
+        "id": "com.domain.app",
+        "type": "web",
+        "title": "new app",
+        "version": "0.0.1",
+        "main": {
+            "web": "index.html",
+            "native": "executable"
+        }
+    },
+    "logFilePath": "/media/developer/log/devlog",
+    "install": {
+        "tempDirForIpk": "/media/developer/temp",
+        "changeTempDir": true,
+        "removeIpkAfterInst": true
+    },
+    "dataDir": ".webos/tv"
+}

@@ -10,16 +10,21 @@
         ]
     },
     "description" : [
-        "This command installs or removes packages on the DEVICE.",
-        "",
-        "PACKAGE_FILE is a webOS package with .ipk extension.",
-        "",
-        "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        {
+          "default" : [
+            "This command installs or removes packages on the DEVICE.",
+            "",
+            "PACKAGE_FILE is a webOS package with .ipk extension."
+          ],
+          "ose" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ]
+        }
     ],
     "examples" : [
         {
             "default" : [
-                "",
                 "# Remove an app on the DEVICE",
                 "ares-install -r com.examples.app -d DEVICE",
                 "",
@@ -33,7 +38,8 @@
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["device", "device-list", "list", "listfull", "type", "help", "version", "verbose", "level"],
+        "default" : ["device", "device-list", "list", "listfull", "type", "help", "version", "verbose"],
+        "ose" : ["level"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
             "@TAB@ If not specified, set to default device"
@@ -62,7 +68,6 @@
     "extraexample" : {
         "cmdOpt" : "hidden",
         "default" : [
-            "",
             "# List the installed web apps on the DEVICE",
             "ares-install <PACKAGE_FILE> -d DEVICE -l -t web",
             "",

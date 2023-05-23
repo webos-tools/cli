@@ -6,6 +6,7 @@
         "shortHands" : {"c":  ["--config"]}
     },
     "ares-device" : {
+        "profile" : ["ose"],
         "description" : "Display the device information",
         "knownOpts" : "info",
         "shortHands" : {"d":  ["--device"]}
@@ -31,6 +32,7 @@
         "shortHands" : {"L":  ["--launch"]}
     },
     "ares-log" : {
+        "profile" : ["ose"],
         "description" : "Show or save logs of webOS apps and services",
         "knownOpts" : "log",
         "shortHands" : {"log":  ["--log"]}
@@ -41,11 +43,13 @@
         "shortHands" : {"p":  ["--package"]}
     },
     "ares-pull" : {
+        "profile" : ["ose"],
         "description" : "Pull file from a device",
         "knownOpts" : "pull",
         "shortHands" : {"pf":  ["--pull"]}
     },
     "ares-push" : {
+        "profile" : ["ose"],
         "description" : "Push the file to target device",
         "knownOpts" : "push",
         "shortHands" : {"pt":  ["--push"]}
@@ -61,6 +65,7 @@
         "shortHands" : {"se":  ["--setup-device"]}
     },
     "ares-shell" : {
+        "profile" : ["ose"],
         "description" : "Open a device terminal or run a command",
         "knownOpts" : "shell",
         "shortHands" : {"sh":  ["--shell"]}

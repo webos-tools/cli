@@ -53,6 +53,11 @@ log.heading = processName;
 log.level = argv.level || 'warn';
 log.verbose("argv", argv);
 
+const curConfigData = appdata.getConfig(true);
+if (curConfigData.profile !== "ose") {
+    return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
+}
+
 const options = {
         device: argv.device,
         display : argv.display

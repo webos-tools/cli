@@ -77,11 +77,13 @@ const options = {
 };
 
 const configFiles = {
-    "ose" : "files/conf-base/profile/config-ose.json"
+    "ose" : "files/conf-base/profile/config-ose.json",
+    "tv": "files/conf-base/profile/config-tv.json"
 };
 
 const templateFiles = {
-    "ose" : "files/conf-base/template-conf/ose-templates.json"
+    "ose" : "files/conf-base/template-conf/ose-templates.json",
+    "tv": "files/conf-base/template-conf/tv-sdk-templates.json",
 };
 
 const queryPaths = {

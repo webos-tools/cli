@@ -17,7 +17,8 @@ const version = commonTools.version,
     cliControl = commonTools.cliControl,
     help = commonTools.help,
     setupDevice = commonTools.setupDevice,
-    appdata = commonTools.appdata;
+    appdata = commonTools.appdata,
+    errHndl = commonTools.errMsg;
 
 const processName = path.basename(process.argv[1]).replace(/.js/, '');
 
@@ -71,6 +72,11 @@ if (argv.level) {
     if (argv.argv.remain.length===0 && (Object.keys(argv)).length === 1) {
         argv.help=true;
     }
+}
+
+const curConfigData = appdata.getConfig(true);
+if (curConfigData.profile !== "ose") {
+    return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
 }
 
 let op;

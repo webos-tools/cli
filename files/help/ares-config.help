@@ -7,10 +7,16 @@
             "ares-config [OPTION...]"
         ]
     },
-    "description" : [
-        "This command used for configuring the webOS devices profile setting to work with CLI.",
-        "",
-        "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        "description" : [
+        {
+          "default" : [
+            "This command used for configuring the webOS devices profile setting to work with CLI."
+          ],
+          "ose" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ]
+        }
     ],
     "examples" : [
         "# Configure profile for platform (ose)",
@@ -22,7 +28,8 @@
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["profile", "profile-details", "help", "version", "verbose", "level"],
+        "default" : ["profile", "profile-details", "help", "version", "verbose"],
+        "ose" : ["level"],
         "profile" : "-p, --profile <DEVICE> @TAB@ Specify a device profile (webOS device type) to configure for CLI",
         "profile-details" : "-c, --profile-details @TAB@ Current configured profile",
         "help" : "-h, --help @TAB@ Display this help",

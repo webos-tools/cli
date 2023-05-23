@@ -10,16 +10,23 @@
         ]
     },
     "description" : [
-        "This command launches Web Inspector for APP_ID or Node's Inspector for SERVICE_ID.",
-        "",
-        "APP_ID is an app id described in appinfo.json.",
-        "SERVICE_ID is a service id described in services.json.",
-        "",
-        "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        {
+          "default" : [
+            "This command launches Web Inspector for APP_ID or Node's Inspector for SERVICE_ID.",
+            "",
+            "APP_ID is an app id described in appinfo.json.",
+            "SERVICE_ID is a service id described in services.json."
+          ],
+          "ose" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ]
+        }
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["open", "device", "device-list", "display", "help", "version", "verbose", "level"],
+        "default" : ["open", "device", "device-list", "help", "version", "verbose"],
+        "ose" : ["display", "level"],
         "open" : "-o, --open @TAB@ Open url with a web browser",
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
@@ -42,7 +49,6 @@
     },
     "examples" : {
         "default": [
-            "",
             "# Display URL to use Web Inspector for debugging a web app",
             "ares-inspect com.yourdomain.app -d DEVICE",
             "",

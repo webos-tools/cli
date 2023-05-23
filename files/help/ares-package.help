@@ -31,7 +31,7 @@
         {
             "default" : [
                 "# Create a package without including all text files and the test directory.",
-                "ares-package -e \"*.txt\" -e \"test\"",
+                "ares-package -e \"*.txt\" -e \"test\" APP_DIR",
                 "",
                 "# Create a package for the webOS app with multiple webOS services",
                 "ares-package ~/projects/app ~/projects/service ~/projects/service2",
@@ -46,7 +46,8 @@
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["check", "outdir", "app-exclude", "rom", "help", "version", "verbose", "level"],
+        "default" : ["check", "outdir", "app-exclude", "rom", "help", "version", "verbose"],
+        "ose" : ["level"],
         "check" : "-c, --check @TAB@ Check whether the app and service are valid, but don't package it",
         "outdir" : "-o, --outdir <OUTPUT_DIR> @TAB@ Use OUTPUT_DIR as the output directory",
         "no-minify" : "-n, --no-minify @TAB@ Skip the minification phase",
@@ -67,7 +68,7 @@
         "default" : {
             "cmdOpt":"option",
             "default" : ["force"],
-            "none" : ["pkgid", "pkgversion", "pkginfofile"],
+            "tv" : ["pkgid", "pkgversion", "pkginfofile"],
             "force" : [
             "-f, --force @TAB@ Make .ipk package forcibly with same file structure in APP_DIR",
             "  (ex) APP_DIR/",
@@ -85,12 +86,15 @@
     },
     "extraexample" : {
         "cmdOpt" : "hidden",
-        "none" : [
+        "tv" : [
           "# Create a package for the multiple webOS services without webOS app",
           "ares-package -pi com.domain SVC1_DIR SVC2_DIR",
           "",
           "# Create a package for the multiple webOS services by existing packgeinfo.json",
           "ares-package -pf packageinfo.json SVC1_DIR SVC2_DIR",
+          "",
+          "# Create a package for the webOS resource",
+          "ares-package -pf packageinfo.json RSC_DIR",
           ""
         ]
     }
