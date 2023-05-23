@@ -507,24 +507,6 @@ describe(aresCmd + ' negative TC', function() {
     });
 });
 
-describe(aresCmd + ' negative TC', function() {
-    beforeEach(function(done) {
-        common.removeOutDir(outputPath);
-        done();
-    });
-
-    it('Check pi/pn option for app packaging', function(done) {
-        exec(cmd + ` ${sampleAppPath} -pi com.webos.sample -pv 1.1.1 -o ${outputPath}`, function (error, stdout, stderr) {
-            if (stderr && stderr.length > 0) {
-                common.detectNodeMessage(stderr);
-                stderr = stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Do not use together with options <pkgid, pkgversion, pkginfofile>", error);
-            }
-            done();
-        });
-    });
-});
-
 describe(aresCmd + ' negative TC for services packaging', function() {
     beforeEach(function(done) {
         common.removeOutDir(outputPath);

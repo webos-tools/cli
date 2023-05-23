@@ -11,7 +11,8 @@ const async = require('async'),
     log = require('npmlog'),
     path = require('path'),
     packageLib = require('../lib/package'),
-    commonTools = require('./../lib/base/common-tools');
+    commonTools = require('./../lib/base/common-tools'),
+    errHndl = require('./../lib/base/error-handler');
 
 const cliControl = commonTools.cliControl,
     version = commonTools.version,
@@ -46,8 +47,8 @@ function PalmPackage() {
         "app-exclude": [String, Array],
         "rom": Boolean,
         "encrypt": Boolean,
-        "sign" : String,
-        "certificate" : String,
+        "sign": String,
+        "certificate": String,
         "force": Boolean,
         "pkgid": String,
         "pkgversion": String,
@@ -57,24 +58,24 @@ function PalmPackage() {
     };
 
     const shortHands = {
-        "h":        "--help",
-        "hh":       "--hidden-help",
-        "V":        "--version",
-        "o":        "--outdir",
-        "c":        "--check",
-        "n":        "--no-minify",
-        "e":        "--app-exclude",
-        "r":        "--rom",
-        "enc":      "--encrypt",
-        "s":        "--sign",
-        "crt":      "--certificate",
-        "f":        "--force",
-        "pi":       "--pkgid",
-        "pv":       "--pkgversion",
-        "pf":       "--pkginfofile",
-        "i":        "--info",
-        "I":       "--info-detail",
-        "v":        ["--level", "verbose"]
+        "h": "--help",
+        "hh": "--hidden-help",
+        "V": "--version",
+        "o": "--outdir",
+        "c": "--check",
+        "n": "--no-minify",
+        "e": "--app-exclude",
+        "r": "--rom",
+        "enc": "--encrypt",
+        "s": "--sign",
+        "crt": "--certificate",
+        "f": "--force",
+        "pi": "--pkgid",
+        "pv": "--pkgversion",
+        "pf": "--pkginfofile",
+        "i": "--info",
+        "I": "--info-detail",
+        "v": ["--level", "verbose"]
     };
 
     this.argv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & basename*/);
@@ -235,8 +236,19 @@ PalmPackage.prototype = {
         log.info("packageApp()");
         const packager = new packageLib.Packager();
         if (this.appCnt === 0) { // only service packaging
-            packager.servicePackaging(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
+            if (Object.prototype.hasOwnProperty.call(this.options, 'pkginfofile') && Object.prototype.hasOwnProperty.call(this.options, 'pkgid')) {
+                this.finish(errHndl.getErrMsg("NOT_USE_WITH_OPTIONS", "pkginfofile, pkgid"));
+                cliControl.end(-1);
+            } else if (Object.prototype.hasOwnProperty.call(this.options, 'pkgid') || Object.prototype.hasOwnProperty.call(this.options, 'pkginfofile')) {
+                packager.servicePackaging(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
+            } else {
+                this.finish(errHndl.getErrMsg("USE_PKGID_PKGINFO"));
+                cliControl.end(-1);
+            }
         } else { // app+service packaging
+            if (Object.prototype.hasOwnProperty.call(this.options, 'pkgid') || Object.prototype.hasOwnProperty.call(this.options, 'pkgversion')) {
+                this.finish(errHndl.getErrMsg("NOT_USE_WITH_OPTIONS", "pkgid, pkgversion"));
+            }
             packager.generatePackage(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
         }
     },
