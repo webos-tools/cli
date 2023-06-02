@@ -250,8 +250,8 @@ PalmPackage.prototype = {
                 cliControl.end(-1);
             }
         } else { // packaging with app
-            if (Object.prototype.hasOwnProperty.call(this.options, 'pkgid') || Object.prototype.hasOwnProperty.call(this.options, 'pkgversion')) {
-                this.finish(errHndl.getErrMsg("NOT_USE_WITH_OPTIONS", "pkgid, pkgversion"));
+            if (Object.prototype.hasOwnProperty.call(this.options, 'pkgversion')) {
+                this.finish(errHndl.getErrMsg("NOT_PACKAGE_WITH_OPTION", "pkgversion"));
             }
             packager.generatePackage(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
         }
