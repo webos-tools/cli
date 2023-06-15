@@ -11,10 +11,10 @@ const path = require('path'),
 
 const tempDirPath = path.join(__dirname, "..", "tempFiles"),
     sampleAppPath = path.join(tempDirPath, "sampleApp"),
-    sampleServicePath =  path.join(tempDirPath, "sampleService"),
+    sampleServicePath = path.join(tempDirPath, "sampleService"),
     sampleResourcePath = path.join(tempDirPath, "sampleResource"),
     nativeDirPath = path.join(tempDirPath, "nativeApp"),
-    pkgInfoPath =  path.join(tempDirPath, "packageinfo.json"),
+    pkgInfoPath = path.join(tempDirPath, "packageinfo.json"),
     outputPath = path.join(tempDirPath, "output"),
     appPathByRom = path.join(outputPath, "usr/palm/applications"),
     appPkgPath = path.join(outputPath, "com.webos.sample.app_1.0.0_all.ipk"),
@@ -149,12 +149,13 @@ describe(aresCmd, function() {
 describe(aresCmd, function() {
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
+
         const appinfo = {
-            "id":"com.webos.sample.app",
+            "id": "com.webos.sample.app",
             "vendor": "My Company",
             "type": "web",
             "main": "index.html",
-            "title":"new app",
+            "title": "new app",
             "icon": "icon.png"
         };
         fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
@@ -176,17 +177,41 @@ describe(aresCmd, function() {
 
 describe(aresCmd, function() {
     const expectedFilePath = path.join(outputPath, "com.webos.sample_1.0.0_all.ipk");
+    beforeAll(function(done) {
+        common.removeOutDir(pkgInfoPath);
+        const pkgInfo = {
+            "id": "com.webos.sample",
+            "version": "1.0.0"
+        };
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
+        done();
+    });
+
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
         done();
     });
-    afterEach(function(done) {
+
+    afterAll(function(done) {
         common.removeOutDir(outputPath);
+        common.removeOutDir(pkgInfoPath);
         done();
     });
 
     it('Package web app with -pi option', function(done) {
         exec(cmd + ` ${sampleAppPath} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain("Create", error);
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(expectedFilePath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Package web app with -pf option', function(done) {
+        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -205,9 +230,9 @@ describe(aresCmd, function() {
     });
 
     it('Package ose native app with -o(--outdir)', function(done) {
-        const nativeAppPath= path.join(nativeDirPath, "ose/pkg_arm");
+        const nativeAppPath = path.join(nativeDirPath, "ose/pkg_arm");
         const expectIpkName = "com.ose.target.native_1.0.0_arm.ipk";
-        const expectIpkPath =  path.join(outputPath, expectIpkName);
+        const expectIpkPath = path.join(outputPath, expectIpkName);
 
         exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
@@ -223,9 +248,9 @@ describe(aresCmd, function() {
 
     // emulator
     it('Package ose emulator native app with -o(--outdir)', function(done) {
-        const nativeAppPath= path.join(nativeDirPath, "oseEmul/pkg_x86");
+        const nativeAppPath = path.join(nativeDirPath, "oseEmul/pkg_x86");
         const expectIpkName = "com.ose.emul.native_1.0.0_x86.ipk";
-        const expectIpkPath =  path.join(outputPath, expectIpkName);
+        const expectIpkPath = path.join(outputPath, expectIpkName);
 
         exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
@@ -241,9 +266,9 @@ describe(aresCmd, function() {
 
     // arm64 target
     it('Package auto native app with -o(--outdir)', function(done) {
-        const nativeAppPath= path.join(nativeDirPath, "auto/pkg_arm64");
+        const nativeAppPath = path.join(nativeDirPath, "auto/pkg_arm64");
         const expectIpkName = "com.sample.gles2_1.0.0_aarch64.ipk";
-        const expectIpkPath =  path.join(outputPath, expectIpkName);
+        const expectIpkPath = path.join(outputPath, expectIpkName);
 
         exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
@@ -259,9 +284,9 @@ describe(aresCmd, function() {
 
     // rsi target
     it('Package rsi native app with -o(--outdir)', function(done) {
-        const nativeAppPath= path.join(nativeDirPath, "rsi/pkg_x86");
+        const nativeAppPath = path.join(nativeDirPath, "rsi/pkg_x86");
         const expectIpkName = "com.sample.gles2_1.0.0_x86_64.ipk";
-        const expectIpkPath =  path.join(outputPath, expectIpkName);
+        const expectIpkPath = path.join(outputPath, expectIpkName);
 
         exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
@@ -277,12 +302,29 @@ describe(aresCmd, function() {
 });
 
 describe(aresCmd, function() {
+    beforeAll(function(done) {
+        common.removeOutDir(pkgInfoPath);
+
+        const pkginfo = {
+            "id": "com.webos.sample",
+            "version": "1.0.0"
+        };
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkginfo), 'utf8');
+        done();
+    });
+
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
         done();
     });
 
-    it('Package Only Service with -o(--outdir)', function(done) {
+    afterAll(function(done) {
+        common.removeOutDir(outputPath);
+        common.removeOutDir(pkgInfoPath);
+        done();
+    });
+
+    it('Package only service with -pi and -o(--outdir)', function(done) {
         exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -293,19 +335,8 @@ describe(aresCmd, function() {
             done();
         });
     });
-});
 
-describe(aresCmd, function() {
-    beforeEach(function(done) {
-        common.removeOutDir(outputPath);
-        const pkginfo = {
-            "id":"com.webos.sample",
-            "version":"1.0.0"
-        };
-        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkginfo), 'utf8');
-        done();
-    });
-    it('Package Only Service by packageinfo.json with -o(--outdir)', function(done) {
+    it('Package only service with -pf and -o(--outdir)', function(done) {
         exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -313,6 +344,19 @@ describe(aresCmd, function() {
             expect(stdout).toContain(outputPath);
             expect(stdout).toContain("Success", error);
             expect(fs.existsSync(svcPkgPath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Package service with -pf and -pv', function(done) {
+        const expectedTmpFile = path.join(outputPath,"com.webos.sample_1.1.1_all.ipk");
+        exec(cmd + ` ${sampleServicePaths[0]} -pf ${pkgInfoPath} -pv 1.1.1 -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain(outputPath);
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(expectedTmpFile)).toBe(true);
             done();
         });
     });
@@ -427,6 +471,7 @@ describe(aresCmd + ' --sign(-s) & --certificate(-crt)', function() {
 
 describe(aresCmd + ' --app-exclude(-e)', function() {
     const tmpFilePath = path.join(sampleAppPath,"tmpFile");
+
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
         fs.writeFileSync(tmpFilePath, "", 'utf8');
@@ -451,14 +496,91 @@ describe(aresCmd + ' --app-exclude(-e)', function() {
     });
 });
 
+describe(aresCmd, function() {
+    const pkgInfo = {
+        "id": "com",
+        "version": "2.2.2"
+    };
+
+    beforeAll(function(done){
+        common.createOutDir(sampleResourcePath);
+
+        const rscInfoDirPath = path.join(sampleResourcePath, "resourceinfo.json"),
+            rscInfo = {
+                "id": "com.domain.app.resource",
+                "bindmountPath": "abcd"
+            };
+        fs.writeFileSync(rscInfoDirPath, JSON.stringify(rscInfo), 'utf8');
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
+        done();
+    });
+
+    beforeEach(function(done) {
+        common.removeOutDir(outputPath);
+        done();
+    });
+
+    afterAll(function(done){
+        common.removeOutDir(outputPath);
+        common.removeOutDir(pkgInfoPath);
+        common.removeOutDir(sampleResourcePath);
+        done();
+    });
+
+    it('Package resource with -pi and -o(--outdir)', function(done) {
+        const expectedPiPkgPath = path.join(outputPath, "com_1.0.0_all.ipk");
+
+        exec(cmd + ` ${sampleResourcePath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain("Create", error);
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(expectedPiPkgPath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Package resource with -pf and -o(--outdir)', function(done) {
+        const expectedPfPkgPath = path.join(outputPath, "com_2.2.2_all.ipk");
+
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain("Create", error);
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(expectedPfPkgPath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Package resource with -pf(App version does not exist in packageinfo.json) and -o(--outdir)', function(done) {
+        const expectedPfPkgPath = path.join(outputPath, "com_1.0.0_all.ipk");
+        common.removeOutDir(pkgInfoPath);
+        delete pkgInfo.version;
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
+
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain("Create", error);
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(expectedPfPkgPath)).toBe(true);
+            done();
+        });
+    });
+});
+
 describe(aresCmd + ' negative TC for app packaging', function() {
     beforeEach(function(done) {
         const appinfo = {
-            "version":"1.0.0",
+            "version": "1.0.0",
             "vendor": "My Company",
             "type": "web",
             "main": "index.html",
-            "title":"new app",
+            "title": "new app",
             "icon": "icon.png"
         };
         fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
@@ -480,8 +602,8 @@ describe(aresCmd + ' negative TC for app packaging', function() {
 describe(aresCmd + ' negative TC for app packaging', function() {
     beforeEach(function(done) {
         const appinfo = {
-            "id":"com.domain.app",
-            "version":"1.0.0",
+            "id": "com.domain.app",
+            "version": "1.0.0",
             "vendor": "My Company"
         };
         fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
@@ -507,12 +629,12 @@ describe(aresCmd + ' negative TC for app packaging', function() {
 describe(aresCmd + ' negative TC for app packaging', function() {
     beforeEach(function(done) {
         const appinfo = {
-            "id":"com.domain.app",
-            "version":"1.0.0",
+            "id": "com.domain.app",
+            "version": "1.0.0",
             "vendor": "My Company",
             "type": "invalidType",
             "main": "index.html",
-            "title":"new app",
+            "title": "new app",
             "icon": "icon.png"
         };
         fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
@@ -534,17 +656,33 @@ describe(aresCmd + ' negative TC for app packaging', function() {
 });
 
 describe(aresCmd + ' negative TC for app packaging', function() {
+    beforeAll(function(done) {
+        common.removeOutDir(pkgInfoPath);
+        common.createOutDir(pkgDirPath);
+
+        const pkgDirInfoPath = path.join(pkgDirPath, "packageinfo.json"),
+            pkgInfo = {
+                "id": "com.test",
+                "version": "1.0.0"
+            };
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
+        fs.writeFileSync(pkgDirInfoPath, JSON.stringify(pkgInfo), 'utf8');
+        done();
+    });
+
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
         done();
     });
 
-    afterEach(function(done) {
+    afterAll(function(done) {
         common.removeOutDir(outputPath);
+        common.removeOutDir(pkgInfoPath);
+        common.removeOutDir(pkgDirPath);
         done();
     });
 
-    it('Check to invalid app id', function(done) {
+    it('Check to invalid app id with -pi option', function(done) {
         exec(cmd + ` ${sampleAppPath} -pi com.test -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -555,27 +693,20 @@ describe(aresCmd + ' negative TC for app packaging', function() {
             done();
         });
     });
- });
 
-describe(aresCmd + ' negative TC for app packaging', function() {
-    beforeEach(function(done) {
-        common.removeOutDir(outputPath);
-        common.removeOutDir(pkgInfoPath);
-        const pkgInfo = {
-            "id":"com",
-            "version":"1.0.0"
-        };
-        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
-        done();
+    it('Check to invalid app id with -pf option', function(done) {
+        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! Error: Invalid value <id> : com.domain.app", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: App ID must start with package ID <com.test>", error);
+            }
+            done();
+        });
     });
 
-    afterEach(function(done) {
-        common.removeOutDir(outputPath);
-        common.removeOutDir(pkgInfoPath);
-        done();
-    });
-
-    it('Check to do not support -pi and -pf options together', function(done) {
+    it('Check to do not support with -pi and -pf options together', function(done) {
         exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -584,29 +715,6 @@ describe(aresCmd + ' negative TC for app packaging', function() {
             }
             done();
         });
-    });
- });
-
- describe(aresCmd + ' negative TC for app packaging', function() {
-    const pkgDirInfoPath = path.join(pkgDirPath, "packageinfo.json");
-    beforeEach(function(done) {
-        common.removeOutDir(outputPath);
-        done();
-    });
-
-    beforeAll(function(done){
-        common.createOutDir(pkgDirPath);
-        const pkgInfo = {
-            "id": "com.domain"
-        };
-        fs.writeFileSync(pkgDirInfoPath, JSON.stringify(pkgInfo), 'utf8');
-        done();
-    });
-
-    afterAll(function(done){
-        common.removeOutDir(outputPath);
-        common.removeOutDir(pkgDirPath);
-        done();
     });
 
     it('Check to do not support with pkgdir', function(done) {
@@ -620,8 +728,8 @@ describe(aresCmd + ' negative TC for app packaging', function() {
         });
     });
 
-    it('Check to do not support with pkgdir and -pf options together', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+    it('Check to do not support with pkgdir and -pi options together', function(done) {
+        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -631,8 +739,8 @@ describe(aresCmd + ' negative TC for app packaging', function() {
         });
     });
 
-    it('Check to do not support with pkgdir and -pi options together', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+    it('Check to do not support with pkgdir and -pf options together', function(done) {
+        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -664,9 +772,10 @@ describe(aresCmd + ' negative TC for services packaging', function() {
 describe(aresCmd + ' negative TC for services packaging', function() {
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
+
         const pkgInfo = {
-            "id":"com.webos.sample",
-            "version":"1.0.0"
+            "id": "com.webos.sample",
+            "version": "1.0.0"
         };
         fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
         done();
@@ -691,70 +800,14 @@ describe(aresCmd + ' negative TC for services packaging', function() {
 });
 
 describe(aresCmd + ' negative TC for services packaging', function() {
-    const pkgDirInfoPath = path.join(pkgDirPath, "packageinfo.json");
-    beforeEach(function(done){
-        common.removeOutDir(outputPath);
-        done();
-    });
-
-    beforeAll(function(done){
-        common.createOutDir(pkgDirPath);
-        const pkgInfo = {
-            "id": "com.domain"
-        };
-        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
-        fs.writeFileSync(pkgDirInfoPath, JSON.stringify(pkgInfo), 'utf8');
-        done();
-    });
-
-    afterAll(function(done){
-        common.removeOutDir(outputPath);
-        common.removeOutDir(pkgInfoPath);
-        common.removeOutDir(pkgDirPath);
-        done();
-    });
-
-    it('Check to do not support with pkgdir', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -o ${outputPath}`, function (error, stdout, stderr) {
-            if (stderr && stderr.length > 0) {
-                common.detectNodeMessage(stderr);
-                stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
-            }
-            done();
-        });
-    });
-
-    it('Check to do not support with pkgdir and -pf options together', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
-            if (stderr && stderr.length > 0) {
-                common.detectNodeMessage(stderr);
-                stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
-            }
-            done();
-        });
-    });
-
-    it('Check to do not support with pkgdir and -pi options together', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
-            if (stderr && stderr.length > 0) {
-                common.detectNodeMessage(stderr);
-                stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
-            }
-            done();
-        });
-    });
-});
-
-describe(aresCmd + ' negative TC for services packaging', function() {
     const tmpPath = path.join(tempDirPath, "pkg.json");
+
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
+
         const pkginfo = {
-            "id":"com.webos.sample",
-            "version":"1.0.0"
+            "id": "com.webos.sample",
+            "version": "1.0.0"
         };
         fs.writeFileSync(tmpPath, JSON.stringify(pkginfo), 'utf8');
         done();
@@ -779,11 +832,13 @@ describe(aresCmd + ' negative TC for services packaging', function() {
 
 describe(aresCmd + ' negative TC for services packaging', function() {
     const tmpPath = path.join(tempDirPath, "pkg.json");
+
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
         common.removeOutDir(pkgInfoPath);
+
         const pkginfo = {
-            "version":"1.0.0"
+            "version": "1.0.0"
         };
         fs.writeFileSync(pkgInfoPath, JSON.stringify(pkginfo), 'utf8');
         done();
@@ -806,35 +861,115 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 });
 
-describe(aresCmd + ' negative TC for Resource packaging', function() {
-    beforeEach(function(done) {
+describe(aresCmd + ' negative TC for services packaging', function() {
+    beforeAll(function(done){
+        common.createOutDir(pkgDirPath);
+
+        const pkgDirInfoPath = path.join(pkgDirPath, "packageinfo.json"),
+            pkgInfo = {
+                "id": "com.test"
+            };
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
+        fs.writeFileSync(pkgDirInfoPath, JSON.stringify(pkgInfo), 'utf8');
+        done();
+    });
+
+    beforeEach(function(done){
         common.removeOutDir(outputPath);
         done();
     });
+
+    afterAll(function(done){
+        common.removeOutDir(outputPath);
+        common.removeOutDir(pkgInfoPath);
+        common.removeOutDir(pkgDirPath);
+        done();
+    });
+
+    it('Check to invalid service id with -pi option', function(done) {
+        exec(cmd + ` ${sampleServicePaths[0]} -pi com.test -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: ServiceID must start with package id <com.test>", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to invalid service id with -pf option', function(done) {
+        exec(cmd + ` ${sampleServicePaths[0]} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: ServiceID must start with package id <com.test>", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to do not support with pkgdir', function(done) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to do not support with pkgdir and -pi options together', function(done) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to do not support with pkgdir and -pf options together', function(done) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+            }
+            done();
+        });
+    });
+});
+
+describe(aresCmd + ' negative TC for resource packaging', function() {
+    const pkgInfo = {
+        "id": "com.test",
+        "version": "2.2.2"
+    };
 
     beforeAll(function(done){
         common.removeOutDir(pkgInfoPath);
         common.createOutDir(pkgDirPath);
         common.createOutDir(sampleResourcePath);
+
         const pkgDirInfoPath = path.join(pkgDirPath, "packageinfo.json"),
-            rscInfoDirPath = path.join(sampleResourcePath, "resourceinfo.json");
-        const pkgInfo ={
-            "id":"com",
-            "version": "2.2.2",
-            "services": [
-                "com.domain.app.svc"
-            ]
-        };
-        const pkgDirInfo= {
-            "id": "com.domain"
-        };
-        const rscInfo = {
-            "id":"com.domain.app.resource",
-            "bindmountPath":"abcd"
-        };
+            rscInfoDirPath = path.join(sampleResourcePath, "resourceinfo.json"),
+            pkgDirInfo = {
+                "id": "com.domain"
+            },
+            rscInfo = {
+                "id": "com.domain.app.resource",
+                "bindmountPath": "abcd"
+            };
         fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
         fs.writeFileSync(pkgDirInfoPath, JSON.stringify(pkgDirInfo), 'utf8');
         fs.writeFileSync(rscInfoDirPath, JSON.stringify(rscInfo), 'utf8');
+        done();
+    });
+
+    beforeEach(function(done) {
+        common.removeOutDir(outputPath);
         done();
     });
 
@@ -846,8 +981,63 @@ describe(aresCmd + ' negative TC for Resource packaging', function() {
         done();
     });
 
+    it('Check to exist pi option', function(done) {
+        exec(cmd + ` ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: packageId must be provided by using either the '--pkgid' or the '--pkginfofile' option", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to invalid resource id with -pi option', function(done) {
+        exec(cmd + ` ${sampleResourcePath} -pi com.test -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Resource ID must start with package ID <com.test>", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to invalid resource id with -pf option', function(done) {
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Resource ID must start with package ID <com.test>", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to do not support with -pi and -pf options together', function(done) {
+        exec(cmd + ` ${sampleResourcePath} -pi com -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Do not use together with options <pkginfofile, pkgid>", error);
+            }
+            done();
+        });
+    });
+
     it('Check to do not support with pkgdir', function(done) {
         exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to do not support with pkgdir and -pi options together', function(done) {
+        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -868,12 +1058,49 @@ describe(aresCmd + ' negative TC for Resource packaging', function() {
         });
     });
 
-    it('Check to do not support with pkgdir and -pi options together', function(done) {
-        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+    it('Check to cannot package with app', function(done) {
+        exec(cmd + ` ${sampleAppPath} ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package app/service with resource", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to cannot package with service', function(done) {
+        exec(cmd + ` ${sampleServicePaths[0]} ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package app/service with resource", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to cannot package with app and service', function(done) {
+        exec(cmd + ` ${sampleAppPath} ${sampleServicePaths[0]} ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package app/service with resource", error);
+            }
+            done();
+        });
+    });
+
+    it('Check to exist id fields in pkg meta file', function(done) {
+        common.removeOutDir(pkgInfoPath);
+        delete pkgInfo.id;
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
+
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr = stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Please input required field <id>", error);
             }
             done();
         });
@@ -882,7 +1109,7 @@ describe(aresCmd + ' negative TC for Resource packaging', function() {
 
 describe(aresCmd + " info/info-detail options", function() {
     it('Info of web app and service package', function(done) {
-        const webIpk= path.join(ipkBasePath, "com.web.app_1.0.0_all.ipk");
+        const webIpk = path.join(ipkBasePath, "com.web.app_1.0.0_all.ipk");
 
         exec(cmd + ` -I ${webIpk}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
@@ -897,7 +1124,7 @@ describe(aresCmd + " info/info-detail options", function() {
     });
 
     it('Info of external native app and service package', function(done) {
-        const externalAppIpk= path.join(ipkBasePath, "com.sample.echo_0.0.1_all.ipk");
+        const externalAppIpk = path.join(ipkBasePath, "com.sample.echo_0.0.1_all.ipk");
 
         exec(cmd + ` -i ${externalAppIpk}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
