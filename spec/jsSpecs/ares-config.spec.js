@@ -32,6 +32,16 @@ describe(aresCmd + ' --profile(-p)', function() {
         });
     });
 
+    it("Set a device profile to tv", function(done) {
+        exec(cmd + ' -p tv', function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain("profile and config data is changed to tv");
+            done();
+        });
+    });
+
     it("Set a device profile input", function(done) {
         exec(cmd + ` -p ${options.profile}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {

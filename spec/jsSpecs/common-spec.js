@@ -27,12 +27,14 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 const knownOpts = {
+    "profile": String,
     "device":  String,
     "ip":  String,
     "port": String,
     "timeInterval": Number
 };
 const shortHands = {
+    "p": ["--profile"],
     "d": ["--device"],
     "ip": ["--ip"],
     "port": ["--port"],
@@ -43,6 +45,9 @@ commonSpec.getOptions = function() {
     return new Promise(function(resolve, reject){
         const argv = nopt(knownOpts, shortHands, process.argv, 2);
 
+        if(argv.profile) {
+            options.profile = argv.profile;
+        }
         if (argv.device) {
             options.device = argv.device;
         }
@@ -56,11 +61,11 @@ commonSpec.getOptions = function() {
             jasmine.DEFAULT_TIMEOUT_INTERVAL = argv.timeInterval;
         }
 
-        console.info(`device : ${options.device}, ip : ${options.ip}, port : ${options.port}, timeInterval : ${jasmine.DEFAULT_TIMEOUT_INTERVAL}`);
+        console.info(`profile : ${options.profile}, device : ${options.device}, ip : ${options.ip}, port : ${options.port}, timeInterval : ${jasmine.DEFAULT_TIMEOUT_INTERVAL}`);
 
         // set profile
         const cmd = commonSpec.makeCmd('ares-config');
-        exec(cmd, function (error, stdout) {
+        exec(cmd + ` -p ${options.profile}`, function (error, stdout) {
             if (error) {
                 console.error("set config error " +  error);
                 reject(stdout);
