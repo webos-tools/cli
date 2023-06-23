@@ -19,5 +19,23 @@
             "qmlapp" : "qmlapp",
             "qmlappinfo" : "qmlappinfo"
         }
+    },
+    "tv" : {
+        "list" : [
+            "ID             Project Type     Description",
+            "-------------  ---------------  ------------------------------------------",
+            "basic          Web App          (default) basic web app for webOS TV",
+            "hosted_webapp  Web App          hosted web app for webOS TV",
+            "webappinfo     Web App Info     appinfo.json for web app",
+            "js_service     JS Service       js service for webOS TV",
+            "jsserviceinfo  JS Service Info  services.json, package.json for JS service",
+            "packageinfo    Package Info     packageinfo.json for webOS package"
+        ],
+        "template" : {
+            "webapp" : "basic",
+            "jsservice" : "js_service",
+            "webappinfo" : ["appinfo.json"],
+            "packageinfo" : ["packageinfo.json"]
+        }
     }
 }

@@ -157,6 +157,10 @@ describe(aresCmd +' --property', function() {
     });
 
     it('Set the properties of qmlappinfo.json', function(done) {
+        if(options.profile === "tv") {
+            pending("Skip qmlappinfo.json check");
+        }
+
         const id = "com.qml.app";
         const version = "2.0.0";
         const title = "First App";
@@ -266,6 +270,10 @@ describe(aresCmd + ' --template', function() {
     });
 
     it('qmlapp : generate qml template app', function(done) {
+        if(options.profile === "tv") {
+            pending("Skip qml template app check");
+        }
+
         exec(cmd + ` -t qmlapp -p "id=com.qml.app" ${sampleAppPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
