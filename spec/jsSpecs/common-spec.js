@@ -19,7 +19,8 @@ const options = {
     pkgId : "com.jasmine.web.app",
     pkgService : "com.jasmine.web.app.service",
     ipkFile : "com.jasmine.web.app_0.0.1_all.ipk",
-    ipkPath : path.join(__dirname, "..", "tempFiles",  "com.jasmine.web.app_0.0.1_all.ipk")
+    ipkPath : path.join(__dirname, "..", "tempFiles",  "com.jasmine.web.app_0.0.1_all.ipk"),
+    passPhrase : ""
 };
 
 if (typeof module !== 'undefined' && module.exports) {
@@ -28,24 +29,26 @@ if (typeof module !== 'undefined' && module.exports) {
 
 const knownOpts = {
     "profile": String,
-    "device":  String,
-    "ip":  String,
+    "device": String,
+    "ip": String,
     "port": String,
-    "timeInterval": Number
+    "timeInterval": Number,
+    "passPhrase": String
 };
 const shortHands = {
     "p": ["--profile"],
     "d": ["--device"],
     "ip": ["--ip"],
     "port": ["--port"],
-    "ti": ["--timeInterval"]
+    "ti": ["--timeInterval"],
+    "pp": ["--passPhrase"]
 };
 
 commonSpec.getOptions = function() {
     return new Promise(function(resolve, reject){
         const argv = nopt(knownOpts, shortHands, process.argv, 2);
 
-        if(argv.profile) {
+        if (argv.profile) {
             options.profile = argv.profile;
         }
         if (argv.device) {
@@ -60,8 +63,12 @@ commonSpec.getOptions = function() {
         if (argv.timeInterval) {
             jasmine.DEFAULT_TIMEOUT_INTERVAL = argv.timeInterval;
         }
-
-        console.info(`profile : ${options.profile}, device : ${options.device}, ip : ${options.ip}, port : ${options.port}, timeInterval : ${jasmine.DEFAULT_TIMEOUT_INTERVAL}`);
+        if (argv.profile === "tv" && !argv.passPhrase) {
+            console.error("[Tips] If you want to run a unit test with for tv profile, need the Passphrase value of the device in use.");
+            process.exit(1);
+        }
+        options.passPhrase = argv.passPhrase;
+        console.info(`profile : ${options.profile}, device : ${options.device}, ip : ${options.ip}, port : ${options.port}, timeInterval : ${jasmine.DEFAULT_TIMEOUT_INTERVAL}, passPhrase : ${options.passPhrase}`);
 
         // set profile
         const cmd = commonSpec.makeCmd('ares-config');
