@@ -1,3 +1,11 @@
+#!/usr/bin/env node
+
+/*
+ * Copyright (c) 2020-2023 LG Electronics Inc.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 const path = require('path'),
     log = require('npmlog'),
     nopt = require('nopt'),
