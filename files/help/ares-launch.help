@@ -6,37 +6,48 @@
     "synopsis" : {
         "default" : [
             "ares-launch [OPTION...] <APP_ID>"
+        ],
+        "tv" : [
+            "ares-launch -H, --hosted <APP_DIR> [OPTION...]",
+            "ares-launch -s, --simulator <WEBOS_TV_VERSION> <APP_DIR> [OPTION...]"
+          ]
+    },
+    "description" : {
+        "default" : [
+        "This command launches or closes apps on the DEVICE.",
+        "",
+        "APP_ID is an app id described in appinfo.json.",
+        "",
+        "PARAMS can be acquired from 'window.PalmSystem.launchParams' of the web app.",
+        "",
+        "APP_DIR is the app's working directory.",
+        "If 'hosted' option is used with the directory path",
+        "an app with id 'com.sdk.ares.hostedapp' is launched on the DEVICE",
+        "and it opens the files in the directory.",
+        "To close this app, use com.sdk.ares.hostedapp as APP_ID."
+        ],
+        "ose" : [
+        "",
+        "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        ],
+        "tv" : [
+        "",
+        "If 'hosted' option does not work with network connection error,",
+        "specify the host's IP address with 'host-ip' option.",
+        ""
         ]
     },
-    "description" : [
-        {
-          "default" : [
-            "This command launches or closes apps on the DEVICE.",
-            "",
-            "APP_ID is an app id described in appinfo.json.",
-            "",
-            "APP_DIR is the app's working directory.",
-            "If 'hosted' option is used with the directory path",
-            "an app with id 'com.sdk.ares.hostedapp' is launched on the DEVICE",
-            "and it opens the files in the directory.",
-            "To close this app, use com.sdk.ares.hostedapp as APP_ID."
-          ],
-          "ose" : [
-            "",
-            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
-          ]
-        }
-    ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["device", "device-list", "close", "running", "params", "hosted", "help", "version", "verbose"],
-        "ose" : ["display", "level"],
+        "default" : ["running", "close", "params", "hosted"],
+        "ose" : ["display", "device", "device-list", "help", "version", "verbose", "level"],
+        "tv" : ["device", "device-list", "help", "version", "verbose"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
             "@TAB@ If not specified, set to default device"
         ],
         "device-list" : "-D, --device-list @TAB@ List the available DEVICEs",
-        "close" : "-c, --close @TAB@ Close a running app",
+        "close" : "-c, --close <APP_ID> @TAB@ Close a running app",
         "running" : "-r, --running @TAB@ List the running apps",
         "params" : "-p, --params <PARAMS> @TAB@ Launch/Close an app with the specified parameters",
         "display" : "-dp,--display <DISPLAY_ID> @TAB@ Launch/Close an app on the specified display",
@@ -45,6 +56,17 @@
         "version" : "-V, --version @TAB@ Display version info",
         "verbose" : "-v @TAB@ Display this verbose log",
         "level" : "--level <LEVEL> @TAB@ Set log LEVEL and display log as set LEVEL"
+    },
+    "extraoption" : {
+        "cmdOpt":"hidden",
+        "default" : {
+            "cmdOpt":"option",
+            "tv" : ["host-ip"],
+            "host-ip" : [
+            "-I, --host-ip <HOST_IP> @TAB@ Specify host IP [default:selected automatically]",
+            "@TAB@ Use it with --hosted"
+            ]
+        }
     },
     "examples" : {
         "default" : [
@@ -55,19 +77,24 @@
             "ares-launch -c com.examples.app -d DEVICE",
             "",
             "# Launch an app with parameters",
-            "ares-launch com.examples.app -d DEVICE -p \"{'data1':'foo', 'data2':'bar'}\"",
+            "ares-launch com.examples.app -p \"{'data1':'foo', 'data2':'bar'}\" -d DEVICE",
             " Or",
-            "ares-launch com.examples.app -d DEVICE -p \"data1=foo\" -p \"data2=bar\""
+            "ares-launch com.examples.app -p \"data1=foo\" -p \"data2=bar\" -d DEVICE",
+            "",
+            "# Run an app without installation",
+            "ares-launch -H APP_DIR -d DEVICE"
+        ],
+        "tv" : [
+            "",
+            "# Run an app without installation using HOST_IP",
+            "ares-launch -H APP_DIR -I 192.168.0.10 -d DEVICE"
         ]
     },
     "extraexample" : {
         "cmdOpt" : "hidden",
-        "default" : [
-            "",
-            "EXAMPLE",
-            "",
-            "# If -P options is not used, a random port will be assigned",
-            "ares-launch com.yourdomain.app -d DEVICE -i"
+        "tv" : [
+            "# Run an app without installation using HOST_IP",
+            "ares-launch -H APP_DIR -I 192.168.0.10 -d DEVICE"
         ]
     }
 }

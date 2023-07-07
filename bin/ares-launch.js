@@ -34,35 +34,37 @@ if (process.argv.length === 2) {
 }
 
 const knownOpts = {
-    "device":   [String, null],
-    "inspect":  Boolean,
+    "running": Boolean,
+    "close": Boolean,
+    "hosted": Boolean,
+    "host-ip": [String, null],
+    "display": [String, null],
+    "params": [String, Array],
+    "inspect": Boolean,
     "open": Boolean,
-    "device-list":  Boolean,
-    "close":    Boolean,
-    "hosted":   Boolean,
-    "running":  Boolean,
-    "display" : [String, null],
-    "params":   [String, Array],
-    "version":  Boolean,
-    "help":     Boolean,
-    "hidden-help":      Boolean,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error']
+    "device": [String, null],
+    "device-list": Boolean,
+    "version": Boolean,
+    "help": Boolean,
+    "hidden-help": Boolean,
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error']
 };
 
 const shortHands = {
-    "d": ["--device"],
-    "i": ["--inspect"],
-    "o": ["--open"],
-    "D": ["--device-list"],
-    "c": ["--close"],
     "r": ["--running"],
+    "c": ["--close"],
+    "H": ["--hosted"],
+    "I": ["--host-ip"],
     "dp": ["--display"],
     "p": ["--params"],
+    "i": ["--inspect"],
+    "o": ["--open"],
+    "d": ["--device"],
+    "D": ["--device-list"],
     "V": ["--version"],
     "h": ["--help"],
     "hh": ["--hidden-help"],
-    "H": ["--hosted"],
-    "v": ["--level", "verbose"]
+    "v": ["--level", "verbose"],
 };
 
 const argv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & 'ares-*.js' */);
@@ -84,8 +86,8 @@ log.verbose("argv", argv);
  */
 if (argv.level) {
     delete argv.level;
-    if (argv.argv.remain.length===0 && (Object.keys(argv)).length === 1) {
-        argv.help=true;
+    if (argv.argv.remain.length ===0 && (Object.keys(argv)).length === 1) {
+        argv.help = true;
     }
 }
 
@@ -94,7 +96,8 @@ const options = {
         inspect: argv.open || argv.inspect,
         open: argv.open,
         installMode: "Installed",
-        display: argv.display
+        display: argv.display,
+        hostIp: argv["host-ip"]
     },
     appId = argv.argv.remain[0];
 
@@ -126,7 +129,7 @@ if (op) {
     version.checkNodeVersion(function() {
         async.series([
             op.bind(this)
-        ],finish);
+        ], finish);
     });
 }
 
@@ -149,16 +152,34 @@ function launch() {
     if (!pkgId) {
         showUsage();
         cliControl.end(-1);
+    } else {
+        launchLib.launch(options, pkgId, params, finish, outputTxt);
     }
-    launchLib.launch(options, pkgId, params, finish);
 }
 
 function launchHostedApp() {
-    const hostedurl = fs.realpathSync(appId);
     const pkgId = "com.sdk.ares.hostedapp";
-    options.hostedurl = hostedurl;
+    log.info("launchHostedApp():", "pkgId:", pkgId, ", appDir:", appId);
+
+    if (!appId) {
+        return finish(errHndl.getErrMsg("EMPTY_VALUE", "APP_DIR"));
+    }
+    if (!fs.existsSync(path.normalize(appId))) {
+        return finish(errHndl.getErrMsg("NOT_EXIST_PATH", appId));
+    }
+    if (options.hostIp) {
+        if (options.hostIp === "true") {
+            return finish(errHndl.getErrMsg("EMPTY_VALUE", "HOST_IP"));
+        } else {
+            const ipFormat = /^(?:(?:\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(?:\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])$/mg;
+            if (!ipFormat.exec(options.hostIp)) {
+                return finish(errHndl.getErrMsg("INVALID_IP", options.hostIp));
+            }
+        }
+    }
+
+    options.hostedurl = fs.realpathSync(appId);
     params = getParams();
-    log.info("launch()", "pkgId:", pkgId);
     launchLib.launch(options, pkgId, params, finish, outputTxt);
 }
 
@@ -166,7 +187,7 @@ function getParams() {
     const inputParams = argv.params || [];
     params = {};
     if (inputParams.length === 1 && inputParams[0].indexOf('{') !== -1 && inputParams[0].indexOf('}') !== -1 &&
-        ( (inputParams[0].split("'").length - 1) % 2) === 0) {
+        ((inputParams[0].split("'").length - 1) % 2) === 0) {
         // eslint-disable-next-line no-useless-escape
         inputParams[0] = inputParams[0].replace(/\'/g,'"');
     }
@@ -236,7 +257,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);
