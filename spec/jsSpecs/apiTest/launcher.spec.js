@@ -124,12 +124,14 @@ describe(aresCmd + '.launch() with hosted option', function() {
     });
 
     it(aresCmd + '.launch() with hosted option', function(done) {
+        let outputData="";
         launchOptions.installMode = "Hosted";
         launchOptions.hostedurl = `${sampleAppPath}`;
         launcher.launch(launchOptions, "com.sdk.ares.hostedapp", {}, function(){
         }, function(output){
-            expect(output).toContain('Ares Hosted App is now running');
+            outputData += output;
             setTimeout(function(){
+                expect(outputData).toContain('Ares Hosted App is now running');
                 done();
             },5000);
         });

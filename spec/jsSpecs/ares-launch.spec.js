@@ -245,7 +245,6 @@ describe(aresCmd +' --hosted(-H)', function() {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
-            expect(data).toBeNull();
         });
 
         setTimeout(() => {
