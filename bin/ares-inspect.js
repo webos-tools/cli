@@ -35,17 +35,17 @@ if (process.argv.length === 2) {
 }
 
 const knownOpts = {
-    "device":   [String, null],
-    "app":  [String, null],
-    "service":  [String, Array],
-    "device-list":  Boolean,
+    "device": [String, null],
+    "app": [String, null],
+    "service": [String, Array],
+    "device-list": Boolean,
     "open": Boolean,
     "host-port": [String, null],
-    "display" : [String, null],
-    "version":  Boolean,
-    "help":     Boolean,
-    "hidden-help":      Boolean,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error']
+    "display": [String, null],
+    "version": Boolean,
+    "help": Boolean,
+    "hidden-help": Boolean,
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error']
 };
 
 const shortHands = {
@@ -80,8 +80,8 @@ log.verbose("argv", argv);
  */
 if (argv.level) {
     delete argv.level;
-    if (argv.argv.remain.length===0 && (Object.keys(argv)).length === 1) {
-        argv.help=true;
+    if (argv.argv.remain.length === 0 && (Object.keys(argv)).length === 1) {
+        argv.help = true;
     }
 }
 
@@ -110,7 +110,7 @@ if (op) {
     version.checkNodeVersion(function() {
         async.series([
             op.bind(this)
-        ],finish);
+        ], finish);
     });
 }
 
@@ -129,12 +129,16 @@ function showUsage(hiddenFlag) {
 function inspect(){
     log.info("inspect()", "AppId:", options.appId, ", ServiceId:", options.serviceId);
 
-    if (!options.appId && !options.serviceId){
+    if (!options.appId && !options.serviceId) {
         showUsage();
         cliControl.end(-1);
+    } else if (options.appId && options.appId[0] === 'true' || options.appId === 'true') {
+        return finish(errHndl.getErrMsg("EMPTY_VALUE", "APP_ID"));
+    } else if (options.serviceId && options.serviceId[0] === 'true') {
+        return finish(errHndl.getErrMsg("EMPTY_VALUE", "SERVICE_ID"));
     }
 
-    if(argv.display !== undefined && isNaN(Number(argv.display))) {
+    if (argv.display !== undefined && isNaN(Number(argv.display))) {
         return finish(errHndl.getErrMsg("INVALID_DISPLAY"));
     }
 
@@ -155,7 +159,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

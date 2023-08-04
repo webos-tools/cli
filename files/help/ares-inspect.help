@@ -2,7 +2,10 @@
     "display" : ["name", "synopsis", "options", "extraoption", "description", "examples", "extraexample"],
     "notitle": ["extraoption", "extraexample"],
     "notab":["examples", "extraexample"],
-    "name" : "ares-inspect - Enable Web Inspector or Node's Inspector for webOS web app or service",
+    "name" : {
+        "ose" : "ares-inspect - Enable Web Inspector or Node's Inspector for webOS web app or service",
+        "tv" : "ares-inspect - Provide URL to use Remote Web Inspector or Node Inspector"
+    },
     "synopsis" : {
         "default" : [
             "ares-inspect [OPTION...] [-a, --app] <APP_ID>",
