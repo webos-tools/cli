@@ -32,12 +32,12 @@ if (process.argv.length === 2) {
 
 const knownOpts = {
     // generic options
-    "help":     Boolean,
-    "version":  Boolean,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error'],
+    "help": Boolean,
+    "version": Boolean,
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error'],
     // command-specific options
-    "profile":   [String, null],
-    "profile-details":   Boolean
+    "profile": [String, null],
+    "profile-details": Boolean
 };
 
 const shortHands = {
@@ -77,12 +77,17 @@ const options = {
 };
 
 const configFiles = {
-    "ose" : "files/conf-base/profile/config-ose.json",
+    "ose": "files/conf-base/profile/config-ose.json",
     "tv": "files/conf-base/profile/config-tv.json"
 };
 
+const envFiles = {
+    "ose": "files/conf-base/env/sdk-ose.json",
+    "tv": "files/conf-base/env/sdk-tv.json"
+};
+
 const templateFiles = {
-    "ose" : "files/conf-base/template-conf/ose-templates.json",
+    "ose": "files/conf-base/template-conf/ose-templates.json",
     "tv": "files/conf-base/template-conf/tv-sdk-templates.json",
 };
 
@@ -106,7 +111,7 @@ if (argv.version) {
 }
 if (op) {
     version.checkNodeVersion(function(err) {
-        if(err)
+        if (err)
             return finish(err);
         async.series([
             op.bind(this)
@@ -116,54 +121,57 @@ if (op) {
 
 function config() {
     log.info("config()", "options:", options);
-
     if (!Object.prototype.hasOwnProperty.call(configFiles, options.profile)) {
+        if (options.profile === 'true') {
+            return finish(errHndl.getErrMsg("EMPTY_VALUE", "profile"));
+        }
         return finish(errHndl.getErrMsg("INVALID_VALUE", "profile", options.profile));
     }
 
     const queryPath = queryPaths.common;
-
-    appdata.setQuery(path.join(__dirname, '..', queryPath), function(err, status){
-        if(typeof status === 'undefined')
+    appdata.setQuery(path.join(__dirname, '..', queryPath), function(err, status) {
+        if (typeof status === 'undefined')
             return finish(errHndl.getErrMsg("INVALID_VALUE", "query configuration"));
     });
 
     const templateData = require(path.join(__dirname, '..', templateFiles[options.profile]));
-    appdata.setTemplate(templateData, function(err, status){
-        if(typeof status === 'undefined')
+    appdata.setTemplate(templateData, function(err, status) {
+        if (typeof status === 'undefined')
             return finish(errHndl.getErrMsg("INVALID_VALUE", "template configuration"));
+    });
+
+    const envData = require(path.join(__dirname, '..', envFiles[options.profile]));
+    appdata.setEnv(envData, function(err, status) {
+        if (typeof status === 'undefined')
+            return finish(errHndl.getErrMsg("INVALID_VALUE", "env configuration"));
     });
 
     let keyFile = "";
     if (keyFiles[options.profile]) {
         keyFile = path.join(__dirname, '..', keyFiles[options.profile]);
     }
-    appdata.setKey(keyFile, function(err){
-        if(err)
+    appdata.setKey(keyFile, function(err) {
+        if (err)
             return finish(errHndl.getErrMsg("INVALID_VALUE", "key configuration"));
     });
 
     const configData = require(path.join(__dirname, '..', configFiles[options.profile]));
-    appdata.setConfig(configData, function(err, status){
-        if(typeof status === 'undefined'){
+    appdata.setConfig(configData, function(err, status) {
+        if (typeof status === 'undefined') {
             return finish(errHndl.getErrMsg("INVALID_VALUE", "configuration"));
-        } else {
-            console.log("profile and config data is changed to " + status.profile);
         }
-        finish(err);
+        finish(err, {msg: "profile and config data is changed to " + status.profile});
     });
 }
 
-function curConfig(next) {
+function curConfig() {
     const curConfigData = appdata.getConfig(true);
     if (typeof curConfigData.profile === 'undefined') {
         return finish(errHndl.getErrMsg("INVALID_VALUE", "profile details"));
     } else if (curConfigData.profile.trim() === "") {
         return finish(errHndl.getErrMsg("EMPTY_PROFILE"));
-    } else {
-        console.log("Current profile set to " + curConfigData.profile);
-        next();
     }
+    finish(null, {msg: "Current profile set to " + curConfigData.profile});
 }
 
 function finish(err, value) {
