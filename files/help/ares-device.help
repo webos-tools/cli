@@ -11,12 +11,16 @@
     },
     "description" : {
         "default": [
-            "This command displays the device information and supports screen capture.",
+            "This command displays the device information or monitor resource usage.",
             "",
             "ID is an ID of the app or service whose resource usage will be displayed.",
             "",
             "CSV_FILE is a file name or path to save the resource usage data.",
-            "The file format can be only \".csv\".",
+            "The file format can be only \".csv\"."
+        ],
+        "ose" : [
+            "",
+            "And This command supports screen capture.",
             "",
             "CAPTURE_FILE is file name or file path of capture file.",
             "The file format can be \".png\", \".jpg\" and \".bmp\". \".png\" is default.",
@@ -26,24 +30,26 @@
     },
     "options" : {
         "cmdOpt":"option",
-        "default" : ["system", "resource", "list", "id-filter", "interval", "save", "capture", "display", "device", "device-list", "help", "version", "verbose", "level"],
+        "default" : ["system", "resource", "list", "id-filter", "interval", "save"],
+        "ose" : ["capture", "display", "device", "device-list", "help", "version", "verbose", "level"],
+        "tv" : ["device", "device-list", "help", "version", "verbose"],
         "system" : "-i, --system-info @TAB@ Display the system information",
         "session" : "-se, --session-info @TAB@ Display the session information",
         "resource" : "-r, --resource-monitor @TAB@ Monitor resource usage",
         "list" : [
-            "-l, --list @TAB@ Monitor resource usage of running apps and services",
+            "    -l, --list @TAB@ Monitor resource usage of running apps and services",
             "@TAB@ Use it with --resource-monitor"
         ],
         "id-filter" : [
-            "-id, --id-filter <ID> @TAB@ Show resource usage of an app or service",
+            "    -id, --id-filter <ID> @TAB@ Show resource usage of an app or service",
             "@TAB@ Use it with --resource-monitor"
         ],
         "interval" : [
-            "-t, --time-interval @TAB@ Set the monitoring interval (seconds)",
+            "    -t, --time-interval @TAB@ Set the monitoring interval (seconds)",
             "@TAB@ Use it with --resource-monitor"
         ],
         "save" : [
-            "-s, --save <CSV_FILE> @TAB@ Save resource usage data to CSV_FILE",
+            "    -s, --save <CSV_FILE> @TAB@ Save resource usage data to CSV_FILE",
             "@TAB@ Use it with --resource-monitor"
         ],
         "capture" : "-c, --capture-screen <CAPTURE_FILE> @TAB@ Capture screen and save the file to the host machine",
@@ -77,7 +83,9 @@
             "",
             "# Display resource usage of specified running app",
             "ares-device -r -id com.examples.app -t 5 -d DEVICE",
-            "",
+            ""
+        ],
+        "ose" : [
             "# Capture the screen of display 1 as screen.png",
             "ares-device -c screen.png -dp 1 -d DEVICE",
             ""

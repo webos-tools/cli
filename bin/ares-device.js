@@ -91,10 +91,6 @@ if (argv.level) {
 }
 
 const curConfigData = appdata.getConfig(true);
-if (curConfigData.profile !== "ose") {
-    return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
-}
-
 const options = {
     device: argv.device,
     display : argv.display || 0,
@@ -145,7 +141,11 @@ function deviceList() {
 }
 
 function getDeviceInfo() {
-    deviceLib.systemInfo(options, finish);
+    if (curConfigData.profile === "ose") {
+        deviceLib.systemInfo(options, finish);
+    } else if (curConfigData.profile === "tv") {
+        deviceLib.tvSystemInfo(options, finish);
+    }
 }
 
 function getSessionInfo() {
@@ -188,6 +188,9 @@ function getResourceMonitor() {
 }
 
 function captureScreen() {
+    if (curConfigData.profile !== "ose") {
+        return finish(errHndl.getErrMsg("NOT_SUPPORT_OPTION", curConfigData.profile));
+    }
     deviceLib.captureScreen(options, finish);
 }
 

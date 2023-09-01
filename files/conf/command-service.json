@@ -63,6 +63,11 @@
             "service" : "com.webos.surfacemanager",
             "method" : "captureCompositorOutput",
             "returnValue" : "return.returnValue"
+        },
+        "deviceInfoSystem" : {
+            "service" : "com.webos.service.tv.systemproperty",
+            "method" : "getSystemInfo",
+            "returnValue" : "return.returnValue"
         }
     }
 }
