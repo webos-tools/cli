@@ -1,73 +1,49 @@
 {
     "ares-config" : {
-        "profile" : ["none"],
-        "description" : "Configure webOS CLI",
-        "knownOpts" : "config",
-        "shortHands" : {"c":  ["--config"]}
+        "description" : "Configure webOS CLI"
     },
     "ares-device" : {
-        "profile" : ["ose"],
-        "description" : "Display the device information",
-        "knownOpts" : "info",
-        "shortHands" : {"d":  ["--device"]}
+        "description" : "Display the device information"
     },
     "ares-generate" : {
-        "description" : "Generate files for a webOS app or service",
-        "knownOpts" : "generate",
-        "shortHands" : {"G":  ["--generate"]}
+        "description" : "Generate files for a webOS app or service"
     },
     "ares-inspect" : {
-        "description" : "Enable Web Inspector or Node's Inspector",
-        "knownOpts" : "inspect",
-        "shortHands" : {"I":  ["--inspect"]}
+        "description" : "Enable Web Inspector or Node's Inspector"
     },
     "ares-install" : {
-        "description" : "Install or Remove app from a device",
-        "knownOpts" : "install",
-        "shortHands" : {"i":  ["--install"]}
+        "description" : "Install or Remove app from a device"
     },
     "ares-launch" : {
-        "description" : "Launch or close apps",
-        "knownOpts" : "launch",
-        "shortHands" : {"L":  ["--launch"]}
+        "description" : "Launch or close apps"
     },
     "ares-log" : {
         "profile" : ["ose"],
-        "description" : "Show or save logs of webOS apps and services",
-        "knownOpts" : "log",
-        "shortHands" : {"log":  ["--log"]}
+        "description" : "Show or save logs of webOS apps and services"
+    },
+    "ares-novacom" : {
+        "profile" : ["tv"],
+        "description" : "Command Line Tool to control target device"
     },
     "ares-package" : {
-        "description" : "Create a package containing a webOS app or service",
-        "knownOpts" : "package",
-        "shortHands" : {"p":  ["--package"]}
+        "description" : "Create a package containing a webOS app or service"
     },
     "ares-pull" : {
         "profile" : ["ose"],
-        "description" : "Pull file from a device",
-        "knownOpts" : "pull",
-        "shortHands" : {"pf":  ["--pull"]}
+        "description" : "Pull file from a device"
     },
     "ares-push" : {
         "profile" : ["ose"],
-        "description" : "Push the file to target device",
-        "knownOpts" : "push",
-        "shortHands" : {"pt":  ["--push"]}
+        "description" : "Push the file to target device"
     },
     "ares-server" : {
-        "description" : "Run a local web server based on path",
-        "knownOpts" : "server",
-        "shortHands" : {"s":  ["--server"]}
+        "description" : "Run a local web server based on path"
     },
     "ares-setup-device" : {
-        "description" : "Add or modify the information of the devices to use",
-        "knownOpts" : "setup-device",
-        "shortHands" : {"se":  ["--setup-device"]}
+        "description" : "Add or modify the information of the devices to use"
     },
     "ares-shell" : {
         "profile" : ["ose"],
-        "description" : "Open a device terminal or run a command",
-        "knownOpts" : "shell",
-        "shortHands" : {"sh":  ["--shell"]}
+        "description" : "Open a device terminal or run a command"
     }
 }

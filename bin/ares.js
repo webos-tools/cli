@@ -45,7 +45,9 @@ const shortHands = {
     "V": ["--version"],
     "v": ["--level", "verbose"]
 };
-const argv = nopt(knownOpts, shortHands, process.argv, 2);
+
+const argv = nopt(knownOpts, shortHands, process.argv, 2),
+    profile = appdata.getConfig(true).profile;
 
 log.heading = processName;
 log.level = argv.level || 'warn';
@@ -88,50 +90,49 @@ if (op) {
     });
 }
 
-function commandList (next) {
+function commandList() {
     log.info("commandList()");
-    let commandsList;
     const table = new Table();
-    const profile = appdata.getConfig(true).profile;
     try {
-        commandsList = JSON.parse(fs.readFileSync(path.join(__dirname, '../', 'files', 'conf', 'ares.json')));
-        Object.keys(commandsList).forEach(function(cmd){
-            if(commandsList[cmd].profile && commandsList[cmd].profile.indexOf(profile) === -1){
+        const commandsList = JSON.parse(fs.readFileSync(path.join(__dirname, '../', 'files', 'conf', 'ares.json')));
+        Object.keys(commandsList).forEach(function(cmd) {
+            if (commandsList[cmd].profile && !commandsList[cmd].profile.includes(profile)) {
                 return;
-            } else if(!fs.existsSync(path.join(__dirname, cmd + '.js'))){
+            } else if (!fs.existsSync(path.join(__dirname, cmd + '.js'))) {
                 return;
             }
             table.cell('CMD', cmd);
             table.cell('Description', commandsList[cmd].description);
             table.newRow();
         });
-        console.log(table.print());
-        next();
-    } catch (e){
-        next(errHndl.getErrMsg("INVALID_JSON_FORMAT"));
+        finish(null, {msg: table.print().trim()});
+    } catch (err) {
+        finish(errHndl.getErrMsg("INVALID_JSON_FORMAT"));
     }
 }
 
 function display (next) {
     log.info("display()");
-    let commandsList;
     let found = false;
     try{
-        commandsList = JSON.parse(fs.readFileSync(path.join(__dirname, '../', 'files', 'conf', 'ares.json')));
-        for(const arg in argv){
-            if(Object.hasOwnProperty.call(commandsList, 'ares-'+ arg) && fs.existsSync(path.join(__dirname, 'ares-'+ arg + '.js'))){
-                help.display('ares-'+arg, appdata.getConfig(true).profile);
-                found = true;
+        const commandsList = JSON.parse(fs.readFileSync(path.join(__dirname, '../', 'files', 'conf', 'ares.json')));
+        for (const arg in argv) {
+            if (Object.hasOwnProperty.call(commandsList, 'ares-'+ arg) && fs.existsSync(path.join(__dirname, 'ares-'+ arg + '.js'))) {
+                if (commandsList['ares-'+ arg].profile && !commandsList['ares-'+ arg].profile.includes(profile)) {
+                    next(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", profile));
+                } else {
+                    help.display('ares-'+arg, appdata.getConfig(true).profile);
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                next(errHndl.getErrMsg("INVALID_COMMAND"));
+            } else {
+                next();
             }
         }
-
-        if (!found) {
-            next(errHndl.getErrMsg("INVALID_COMMAND"));
-        } else {
-            next();
-        }
-        
-    } catch(e){
+    } catch (err) {
         next(errHndl.getErrMsg("INVALID_JSON_FORMAT"));
     }
 }

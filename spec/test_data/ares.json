@@ -1,6 +1,7 @@
 {
     "ose" : {
         "list" : [
+            "ares-config        Configure webOS CLI",
             "ares-device        Display the device information",
             "ares-generate      Generate files for a webOS app or service",
             "ares-inspect       Enable Web Inspector or Node's Inspector",
