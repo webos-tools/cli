@@ -43,6 +43,7 @@ const knownOpts = {
     "inspect": Boolean,
     "open": Boolean,
     "simulator": [String, null],
+    "simulator-path": [String, null],
     "device": [String, null],
     "device-list": Boolean,
     "version": Boolean,
@@ -61,6 +62,7 @@ const shortHands = {
     "i": ["--inspect"],
     "o": ["--open"],
     "s": ["--simulator"],
+    "sp": ["--simulator-path"],
     "d": ["--device"],
     "D": ["--device-list"],
     "V": ["--version"],
@@ -100,7 +102,8 @@ const options = {
         installMode: "Installed",
         display: argv.display,
         hostIp: argv["host-ip"],
-        webOSTV: argv.simulator
+        simulator: argv.simulator,
+        simulatorPath: argv["simulator-path"]
     },
     appId = argv.argv.remain[0];
 
@@ -126,6 +129,10 @@ if (argv.help || argv['hidden-help']) {
     op = launchHostedApp;
 } else if (argv.simulator) {
     op = launchSimulator;
+} else if (argv['simulator-path']) {
+    if (!argv.simulator) {
+        finish(errHndl.getErrMsg("USE_WITH_OPTIONS", "simulator, simulator-path"));
+    }
 } else {
     op = launch;
 }
@@ -253,12 +260,19 @@ function running() {
 }
 
 function launchSimulator() {
-    const curConfigData = appdata.getConfig(true);
+    log.info("launchSimulator():", "simulator:", options.simulator, "/ simulatorPath:", options.simulator, "/ appDir:", appId);
+
+    const curConfigData = appdata.getConfig();
     if (curConfigData.profile !== "tv") {
         return finish(errHndl.getErrMsg("NOT_SUPPORT_OPTION", curConfigData.profile));
     }
+    if (options.simulator === 'true') {
+        return finish(errHndl.getErrMsg("EMPTY_VALUE", "WEBOS_TV_VERSION"));
+    }
+    if (options.simulatorPath === 'true') {
+        return finish(errHndl.getErrMsg("EMPTY_VALUE", "simlator-path"));
+    }
 
-    log.info("launchSimulator():", "webOSTV:", options.webOSTV, "/ appDir:", appId);
     if (!appId) {
         return finish(errHndl.getErrMsg("EMPTY_VALUE", "APP_DIR"));
     } else {
@@ -268,11 +282,9 @@ function launchSimulator() {
         } else if (!fs.statSync(appDir).isDirectory()) {
             return finish(errHndl.getErrMsg("NOT_DIRTYPE_PATH", appId));
         }
-        if (options.webOSTV === 'true') {
-            return finish(errHndl.getErrMsg("EMPTY_VALUE", "WEBOS_TV_VERSION"));
-        }
+
         params = getParams();
-        launchLib.launchSimulator(options, appDir, params, finish);
+        launchLib.launchSimulator(options, appDir, params, finish, outputTxt);
     }
 }
 

@@ -17,5 +17,6 @@
         "changeTempDir": true,
         "removeIpkAfterInst": true
     },
-    "dataDir": ".webos/tv"
+    "dataDir": ".webos/tv",
+    "simulatorConfig": "simulator-config.json"
 }
