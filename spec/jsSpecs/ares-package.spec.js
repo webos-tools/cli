@@ -223,6 +223,48 @@ describe(aresCmd, function() {
     });
 });
 
+describe(aresCmd + ' --pkginfofile(-pf)', function() {
+    const pkgPath = path.join(outputPath, "com_1.0.0_all.ipk");
+    beforeAll(function(done) {
+        common.removeOutDir(pkgInfoPath);
+        common.removeOutDir(outputPath);
+        const pkginfo = {
+            "id":"com",
+            "version":"1.0.0"
+        };
+        fs.writeFileSync(pkgInfoPath, JSON.stringify(pkginfo), 'utf8');
+        done();
+    });
+
+    afterAll(function(done) {
+        common.removeOutDir(pkgInfoPath);
+        common.removeOutDir(outputPath);
+        done();
+    });
+
+    it('Package web app by packageinfo.json and -o(--outdir)', function(done) {
+        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain(outputPath);
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(pkgPath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Check to exist app field in packageinfo.json', function(done) {
+        exec(cmd + ` -I ${pkgPath}`, function (error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain('"app": "com.webos.sample.app"');
+            done();
+        });
+    });
+});
+
 describe(aresCmd, function() {
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
