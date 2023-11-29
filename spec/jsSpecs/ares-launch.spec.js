@@ -63,6 +63,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(options.device);
+            expect(stdout).toContain(options.profile);
             done();
         });
     });
@@ -130,8 +131,11 @@ describe(aresCmd + ' with --display(-dp) option', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
+
+            if (options.profile === "ose") {
+                expect(stdout).toContain("on display 1");
+            }
             expect(stdout).toContain(`Launched application ${options.pkgId}`, error);
-            expect(stdout).toContain("on display 1");
             setTimeout(function(){
                 done();
             },3000);
@@ -145,8 +149,11 @@ describe(aresCmd + ' --running(-r) with --display(-dp) option', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
+
+            if (options.profile === "ose") {
+                expect(stdout).toContain("- display 1");
+            }
             expect(stdout).toContain(`${options.pkgId}`);
-            expect(stdout).toContain("- display 1");
             done();
         });
     });
@@ -158,8 +165,11 @@ describe(aresCmd + ' --close(-c) with --display(-dp) option', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
+
+            if (options.profile === "ose") {
+                expect(stdout).toContain("on display 1");
+            }
             expect(stdout).toContain(`${options.pkgId}`);
-            expect(stdout).toContain("on display 1");
             setTimeout(function(){
                 done();
             },1000);
@@ -173,8 +183,11 @@ describe(aresCmd + ' with -p "{\'displayAffinity\':1}" option', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
+
+            if (options.profile === "ose") {
+                expect(stdout).toContain("on display 0");
+            }
             expect(stdout).toContain(`Launched application ${options.pkgId}`, error);
-            expect(stdout).toContain("on display 0");
             setTimeout(function(){
                 done();
             },3000);
@@ -188,8 +201,11 @@ describe(aresCmd + ' --close(-c) p "{\'displayAffinity\':1}" option', function()
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
+
+            if (options.profile === "ose") {
+                expect(stdout).toContain("on display 0");
+            }
             expect(stdout).toContain(`${options.pkgId}`);
-            expect(stdout).toContain("on display 0");
             setTimeout(function(){
                 done();
             },1000);
@@ -272,8 +288,12 @@ describe(aresCmd + ' negative TC', function() {
         exec(cmd + ' -c com.invalid.app', function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
-                expect(stderr).toContain("ares-launch ERR! [com.webos.applicationManager failure]: luna-send command failed <com.invalid.app is not running>");
-                expect(stderr).toContain("ares-launch ERR! [Tips]: Please check the list of running apps using ares-launch -r");
+                if (options.profile === "ose") {
+                    expect(stderr).toContain("ares-launch ERR! [com.webos.applicationManager failure]: luna-send command failed <com.invalid.app is not running>");
+                    expect(stderr).toContain("ares-launch ERR! [Tips]: Please check the list of running apps using ares-launch -r");
+                } else if (options.profile === "tv") {
+                    expect(stderr).toContain("ares-launch ERR! [com.webos.applicationManager failure]: luna-send command failed <Invalid appId specified: com.invalid.app>");
+                }
             }
             done();
         });

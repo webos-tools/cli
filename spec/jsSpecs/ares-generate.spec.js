@@ -100,8 +100,8 @@ describe(aresCmd +' --property', function() {
     });
 
     it('Set the properties of packageinfo.json', function(done) {
-        if(options.profile === "ose") {
-            pending("Skip packageinfo.json check");
+        if (options.profile === "ose") {
+            pending(options.skipTxt);
         }
 
         const id = "com.sample.pkg";
@@ -157,8 +157,8 @@ describe(aresCmd +' --property', function() {
     });
 
     it('Set the properties of qmlappinfo.json', function(done) {
-        if(options.profile === "tv") {
-            pending("Skip qmlappinfo.json check");
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
         }
 
         const id = "com.qml.app";
@@ -222,8 +222,8 @@ describe(aresCmd + ' --template', function() {
     });
 
     it('packageinfo : packageinfo.json for webOS package', function(done) {
-        if(options.profile === "ose") {
-            pending("Skip packageinfo.json check");
+        if (options.profile === "ose") {
+            pending(options.skipTxt);
         }
 
         exec(cmd + ` -t packageinfo -p "id=com.domain" ${sampleAppPath}`, function (error, stdout, stderr) {
@@ -270,8 +270,8 @@ describe(aresCmd + ' --template', function() {
     });
 
     it('qmlapp : generate qml template app', function(done) {
-        if(options.profile === "tv") {
-            pending("Skip qml template app check");
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
         }
 
         exec(cmd + ` -t qmlapp -p "id=com.qml.app" ${sampleAppPath}`, function (error, stdout, stderr) {

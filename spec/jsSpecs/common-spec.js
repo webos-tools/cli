@@ -79,6 +79,8 @@ commonSpec.getOptions = function() {
             }
             resolve(options);
         });
+
+        options.skipTxt = `In case of ${options.profile}, skip this test case`;
     });
 };
 
@@ -117,6 +119,9 @@ commonSpec.addDeviceInfo = function() {
                 reject(stderr);
             } else {
                 resolve(stdout);
+                if (options.profile === "tv") {
+                    commonSpec.getKey(options.passPhrase);
+                }
             }
         });
     });
@@ -146,4 +151,19 @@ commonSpec.detectNodeMessage = function(stderr) {
     if (stderr.includes("node:")) {
         return fail(stderr);
     }
+};
+
+// get ssh private key
+commonSpec.getKey = function(passPhrase) {
+    return new Promise(function(resolve, reject) {
+        const cmd = commonSpec.makeCmd('ares-novacom');
+        exec(cmd + ` -k -pass ${passPhrase} -d ${options.device}`,
+        function (error, stdout, stderr) {
+            if (stderr) {
+                reject(stderr);
+            } else {
+                resolve(stdout);
+            }
+        });
+    });
 };

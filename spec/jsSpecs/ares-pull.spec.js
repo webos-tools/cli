@@ -25,6 +25,9 @@ beforeAll(function (done) {
 
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ' -v', function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -39,6 +42,9 @@ describe(aresCmd + ' -v', function() {
 
 describe(aresCmd, function() {
     it("Add device with ares-setup-device", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         common.resetDeviceList()
         .then(function(){
             return common.addDeviceInfo();
@@ -54,11 +60,15 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' --device-list(-D)', function() {
     it('Show available device list', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ' -D', function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(options.device);
+            expect(stdout).toContain(options.profile);
             done();
         });
     });
@@ -73,6 +83,9 @@ describe(aresCmd, function() {
     });
 
     it('Copy directory from a device to host machine', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` /tmp/aresfile ${dstPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -88,6 +101,9 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' --ignore(-i)', function() {
     it('Copy directory from a device to host machine', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -i /tmp/aresfile ${dstPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -113,6 +129,9 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it('Copy file to not exist local directory', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` /tmp/aresfile invalidDir`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -124,6 +143,9 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it('Copy invalid file from target', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` /tmp/invalidFile tempDir`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);

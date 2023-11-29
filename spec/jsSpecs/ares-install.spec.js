@@ -57,6 +57,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(options.device);
+            expect(stdout).toContain(options.profile);
             done();
         });
     });

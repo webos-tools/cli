@@ -57,6 +57,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(options.device, error);
+            expect(stdout).toContain(options.profile);
             done();
         });
     });
@@ -227,9 +228,13 @@ describe(aresCmd + ' negative TC', function() {
         exec(cmd + ' com.invalid.app', function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
-                expect(stderr).toContain("ares-inspect ERR! [com.webos.applicationManager failure]:" +
-                                        " luna-send command failed <Cannot find proper launchPoint>");
-                expect(stderr).toContain("ares-inspect ERR! [Tips]: The app is not installed app. Please check the list by ares-install -l");
+                if (options.profile === "ose") {
+                    expect(stderr).toContain("ares-inspect ERR! [com.webos.applicationManager failure]:" +
+                                            " luna-send command failed <Cannot find proper launchPoint>");
+                    expect(stderr).toContain("ares-inspect ERR! [Tips]: The app is not installed app. Please check the list by ares-install -l");
+                } else if (options.profile === "tv") {
+                    expect(stderr).toContain("ares-inspect ERR! [com.webos.applicationManager failure]: luna-send command failed <not exist>");
+                }
             }
             done();
         });

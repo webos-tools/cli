@@ -69,6 +69,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(options.device);
+            expect(stdout).toContain(options.profile);
             done();
         });
     });
@@ -76,9 +77,16 @@ describe(aresCmd + ' --device-list(-D)', function() {
 
 describe(aresCmd, function() {
     it('Retrieve device information', function(done) {
-        const keys = ["webos_build_id","webos_imagename","webos_name","webos_release",
+        const oseKeys = ["webos_build_id","webos_imagename","webos_name","webos_release",
                     "webos_manufacturing_version", "core_os_kernel_version", "device_name",
-                    "device_id", "chromium_version", "qt_version", "nodejs_versions"];
+                    "device_id", "chromium_version", "qt_version", "nodejs_versions"],
+            tvKeys = ["modelName", 'sdkVersion', 'firmwareVersion', "boardType", "otaId"];
+        let keys = oseKeys;
+
+        if (options.profile === "tv") {
+            keys = tvKeys;
+        }
+
         exec(cmd + ` -i ${options.device}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -329,6 +337,9 @@ describe(aresCmd + ' --capture-screen(-c)', function() {
     });
 
     it('Capture', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -c`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -348,6 +359,9 @@ describe(aresCmd + ' --capture-screen(-c)', function() {
     });
 
     it('Capture with filename', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -c screen.jpg`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -387,6 +401,9 @@ describe(aresCmd + ' negative TC', function() {
     });
     
     it('Capture with invalid file format', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -c "test.abc"`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -397,6 +414,9 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it('Capture with invalid destiation Path', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -c invalid/screen.png`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -408,6 +428,9 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it('Capture with invalid display ID', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -c --display 10`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);

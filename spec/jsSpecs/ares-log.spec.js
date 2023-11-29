@@ -42,6 +42,9 @@ afterAll(function(done) {
 
 describe(aresCmd + " -h -v", function() {
     it("Print help message with verbose log", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + " -h -v", function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -56,6 +59,9 @@ describe(aresCmd + " -h -v", function() {
 
 describe(aresCmd, function() {
     it("Add device with ares-setup-device", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         common.resetDeviceList()
         .then(function() {
             return common.addDeviceInfo();
@@ -71,11 +77,15 @@ describe(aresCmd, function() {
 
 describe(aresCmd + " --device-list(-D)", function() {
     it("Show available device list", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + " -D", function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(options.device);
+            expect(stdout).toContain(options.profile);
             done();
         });
     });
@@ -83,6 +93,9 @@ describe(aresCmd + " --device-list(-D)", function() {
 
 describe(aresCmd + " -cd", function() {
     it("Print current logging daemon", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + " -cd", function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -102,6 +115,9 @@ describe(aresCmd + " -cd", function() {
 
 describe(aresCmd + " -sd", function() {
     it("Print switch logging daemon", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -sd ${targetLogDaemon}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -114,6 +130,9 @@ describe(aresCmd + " -sd", function() {
 
 describe('Set and check configuration for this test', function() {
     it('Check if there are sessions on the device', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         const deviceCmd = common.makeCmd('ares-device');
         exec(deviceCmd + ` -s ${options.device}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
@@ -128,6 +147,9 @@ describe('Set and check configuration for this test', function() {
     });
 
     it("Install sample app to device with ares-install", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         const installCmd = common.makeCmd("ares-install");
         exec(installCmd + ` ${testAppPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
@@ -142,6 +164,9 @@ describe('Set and check configuration for this test', function() {
 
 describe(aresCmd + " -n 2", function() {
     it('Show log with --lines option', function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + " -n 2", function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -162,6 +187,9 @@ describe(aresCmd + " -n 2", function() {
 
 describe(aresCmd + "save option cases", function() {
     it("Save log to specific name file", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -n 2 -s ${savedlogPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -177,6 +205,9 @@ describe(aresCmd + "save option cases", function() {
     });
 
     it("Save log to default file name format", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -n 2 -s`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -196,6 +227,9 @@ describe(aresCmd + "save option cases", function() {
 
 describe(aresCmd + " -cl", function() {
     it("Launch sample App", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "journald") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -213,6 +247,9 @@ describe(aresCmd + " -cl", function() {
     });
 
     it("Print context list", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
@@ -232,6 +269,9 @@ describe(aresCmd + " -cl", function() {
 
 describe(aresCmd + ` -id ${testAppId}`, function() {
     it(`Show logs from ${testAppId}`, function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
@@ -251,6 +291,9 @@ describe(aresCmd + ` -id ${testAppId}`, function() {
 
 describe(aresCmd + ` -sl ${testAppId} debug`, function() {
     it("Change specific context log level", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
@@ -268,6 +311,9 @@ describe(aresCmd + ` -sl ${testAppId} debug`, function() {
     });
 
     it("Print context list", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
@@ -287,6 +333,9 @@ describe(aresCmd + ` -sl ${testAppId} debug`, function() {
 
 describe(aresCmd + " -fl", function() {
     it("Print .journal log file list", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -306,6 +355,9 @@ describe(aresCmd + " -fl", function() {
 
 describe(aresCmd + " --file", function() {
     it("Show log with --file option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -323,6 +375,9 @@ describe(aresCmd + " --file", function() {
     });
 
     it("Show log with --file and --output option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -342,6 +397,9 @@ describe(aresCmd + " --file", function() {
 
 describe(aresCmd + " -ul", function() {
     it("Print unit list", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -361,6 +419,9 @@ describe(aresCmd + " -ul", function() {
 
 describe(aresCmd + " -ul -dp 1", function() {
     it("Print unit list with dp option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -382,6 +443,9 @@ describe(aresCmd + " -ul -dp 1", function() {
 
 describe(aresCmd + " -n 1 -o json", function() {
     it("Show log with output option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -401,6 +465,9 @@ describe(aresCmd + " -n 1 -o json", function() {
 
 describe(aresCmd + " -k", function() {
     it("Show kenel log with --kernel option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -420,6 +487,9 @@ describe(aresCmd + " -k", function() {
 
 describe(aresCmd + " -b", function() {
     it("Show boot log with --boot option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -440,6 +510,9 @@ describe(aresCmd + " -b", function() {
 describe(aresCmd + " --pid", function() {
     let pid;
     it("Get a pid from log", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -458,6 +531,9 @@ describe(aresCmd + " --pid", function() {
         });        
     });
     it("Show log with --pid option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -478,6 +554,9 @@ describe(aresCmd + " --pid", function() {
 
 describe(aresCmd + " --unit memorymanager", function() {
     it("Launch sample App", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -495,6 +574,9 @@ describe(aresCmd + " --unit memorymanager", function() {
     });
 
     it("Show log with --unit option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -515,6 +597,9 @@ describe(aresCmd + " --unit memorymanager", function() {
 
 describe(aresCmd +" -u sam -dp 1", function() {
     it("Show log with unit and dp option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -537,6 +622,9 @@ describe(aresCmd +" -u sam -dp 1", function() {
 
 describe(aresCmd + " -S today", function() {
     it("Show log with --since option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -556,6 +644,9 @@ describe(aresCmd + " -S today", function() {
 
 describe(aresCmd + " -U yesterday", function() {
     it("Show log with --until option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
@@ -575,6 +666,9 @@ describe(aresCmd + " -U yesterday", function() {
 
 describe(aresCmd + " negative tc", function() {
     it("Not support option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + " -aaa", function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -585,6 +679,9 @@ describe(aresCmd + " negative tc", function() {
     });
 
     it("Invalid save path", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         exec(cmd + ` -n 2 -s invalid/aaa.log`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -596,6 +693,9 @@ describe(aresCmd + " negative tc", function() {
     });
 
     it("Not exist id value", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
@@ -615,6 +715,9 @@ describe(aresCmd + " negative tc", function() {
     });
 
     it("Not exist filtered logs by id", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
@@ -637,6 +740,9 @@ describe(aresCmd + " negative tc", function() {
 
 describe(aresCmd + " -f", function() {
     it("Show log with --follow option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         const child = exec(cmd + " -f");
         let result = "";
 
@@ -667,6 +773,9 @@ describe(aresCmd + " -f", function() {
 
 describe(aresCmd + " -r", function() {
     it("Show log with --reverse option", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         const child = exec(cmd + " -r");
         let result = "";
 
@@ -695,6 +804,9 @@ describe(aresCmd + " -r", function() {
 
 describe('Set default configuration', function() {
     it("Install sample app to device with ares-install", function(done) {
+        if (options.profile === "tv") {
+            pending(options.skipTxt);
+        }
         const installCmd = common.makeCmd("ares-install");
         exec(installCmd + ` -r ${testAppPath}`, function (error, stdout, stderr) {
             if (stderr && stderr.length > 0) {

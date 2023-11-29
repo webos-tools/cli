@@ -25,7 +25,7 @@ beforeAll(function (done) {
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
         if (options.profile === "ose") {
-            pending("Skip print help message with verbose log");
+            pending(options.skipTxt);
         }
 
         exec(cmd + ' -v', function (error, stdout, stderr) {
@@ -43,7 +43,7 @@ describe(aresCmd + ' -v', function() {
 describe(aresCmd, function() {
     it("Add device with ares-setup-device", function(done) {
         if (options.profile === "ose") {
-            pending("Skip add device with ares-setup-device");
+            pending(options.skipTxt);
         }
 
         common.resetDeviceList()
@@ -62,7 +62,7 @@ describe(aresCmd, function() {
 describe(aresCmd + ' --device-list(-D)', function() {
     it('Show available device list', function(done) {
         if (options.profile === "ose") {
-            pending("Skip show available device list");
+            pending(options.skipTxt);
         }
 
         exec(cmd + ' -D', function (error, stdout, stderr) {
@@ -70,6 +70,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(options.device);
+            expect(stdout).toContain(options.profile);
             done();
         });
     });
@@ -78,10 +79,10 @@ describe(aresCmd + ' --device-list(-D)', function() {
 describe(aresCmd + ' --getKey', function() {
     it('Get a ssh key from the running Developer Mode app on the DEVICE', function(done) {
         if (options.profile === "ose") {
-            pending("Skip get a ssh key ");
+            pending(options.skipTxt);
         }
 
-        exec(cmd + ` -k --pass ${options.passPhrase} -d ${options.device}`, function (error, stdout, stderr) {
+        exec(cmd + ` -k -pass ${options.passPhrase} -d ${options.device}`, function (error, stdout, stderr) {
             let tmpstd="",
                 expectedFilePath="";
 
@@ -100,7 +101,7 @@ describe(aresCmd + ' --getKey', function() {
 describe(aresCmd + ' --run', function() {
     it('Run ps -aux command on the DEVICE', function(done) {
         if (options.profile === "ose") {
-            pending("Skip run ps -aux command on the DEVICE");
+            pending(options.skipTxt);
         }
 
         exec(cmd + ` --run "ps -aux" -d ${options.device}`, function (error, stdout, stderr) {
@@ -120,7 +121,7 @@ describe(aresCmd + ' --run', function() {
 describe(aresCmd + ' --forwrad', function() {
     it('Forward the DEVICE tcp port to the host tcp port', function(done) {
         if (options.profile === "ose") {
-            pending("Skip forward the DEVICE tcp port to the host tcp port");
+            pending(options.skipTxt);
         }
 
         const hostPort = Math.floor((Math.random()*(50000 - 10000 + 1)) + 10000),

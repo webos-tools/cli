@@ -16,12 +16,15 @@ let cmd,
 
 beforeAll(function (done) {
     cmd = common.makeCmd(aresCmd);
-    common.getExpectedResult(aresCmd)
-    .then(function(result){
+    common.getOptions()
+    .then(function(){
+        return common.getExpectedResult(aresCmd);
+    }).then(function(result){
         expectedList = result.list;
         done();
     });
 });
+
 
 // ares command test
 describe(aresCmd + ' --list(-l)', function() {

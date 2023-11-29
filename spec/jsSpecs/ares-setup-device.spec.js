@@ -228,7 +228,7 @@ describe(aresCmd + ' --reset(-R)', function() {
         const initObj = JSON.parse(fs.readFileSync(initDevicePath));
         let initDevice;
         initObj.forEach(function(item) {
-            if(item.profile === options.profile) {
+            if (item.profile === options.profile) {
                 initDevice = item;
             }
         });
