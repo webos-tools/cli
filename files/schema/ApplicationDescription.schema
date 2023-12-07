@@ -132,9 +132,9 @@
             "default": false,
             "description": "For native app. If true, SAM relaunch app when user execute native app that already running, If false, just maximize existing window."
         },
-        "inspectable" : {
+        "inspectable": {
             "type": "boolean",
-            "default" : false,
+            "default": false,
             "description": "This field is used to tell WAM if an application should be inspectable in DevMode, based on the app's install location (/media/developer) or the presence of an \"inspectable\" field (if true) in the app's appinfo.json file."
         },
         "bgImage": {
@@ -305,7 +305,7 @@
                 "description": "Pair of icon and iconColor",
                 "required": ["icon", "iconColor"]
             },
-            "default" : [],
+            "default": [],
             "description": "Icon and Color set for dynamic icon"
         }
     },

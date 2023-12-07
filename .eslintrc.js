@@ -28,23 +28,23 @@ module.exports = {
         'no-var': 1,
         'prefer-const': 1,
         'semi':1,
-        'import/no-unresolved': [2, {commonjs: true, caseSensitive: true, ignore :['webos-service']}],
+        'import/no-unresolved': [2, {commonjs: true, caseSensitive: true, ignore: ['webos-service']}],
         'import/named': 2,
         'import/first': 1,
         'import/no-duplicates': 2,
         eqeqeq: [1, 'smart']
     },
     globals: {
-        'afterAll' :false,
+        'afterAll': false,
         'afterEach': false,
         'beforeAll': false,
-        'beforeEach' : false,
-        'describe' : false,
-        'expect' : false,
-        'it' : false,
-        'pending' :false,
-        'jasmine' : false,
-        'fail' : false
+        'beforeEach': false,
+        'describe': false,
+        'expect': false,
+        'it': false,
+        'pending': false,
+        'jasmine': false,
+        'fail': false
     },
     "parserOptions": {
         "ecmaVersion": 2017

@@ -1,49 +1,49 @@
 {
-    "ares-config" : {
-        "description" : "Configure webOS CLI"
+    "ares-config": {
+        "description": "Configure webOS CLI"
     },
-    "ares-device" : {
-        "description" : "Display the device information"
+    "ares-device": {
+        "description": "Display the device information"
     },
-    "ares-generate" : {
-        "description" : "Generate files for a webOS app or service"
+    "ares-generate": {
+        "description": "Generate files for a webOS app or service"
     },
-    "ares-inspect" : {
-        "description" : "Enable Web Inspector or Node's Inspector"
+    "ares-inspect": {
+        "description": "Enable Web Inspector or Node's Inspector"
     },
-    "ares-install" : {
-        "description" : "Install or Remove app from a device"
+    "ares-install": {
+        "description": "Install or Remove app from a device"
     },
-    "ares-launch" : {
-        "description" : "Launch or close apps"
+    "ares-launch": {
+        "description": "Launch or close apps"
     },
-    "ares-log" : {
-        "profile" : ["ose"],
-        "description" : "Show or save logs of webOS apps and services"
+    "ares-log": {
+        "profile": ["ose"],
+        "description": "Show or save logs of webOS apps and services"
     },
-    "ares-novacom" : {
-        "profile" : ["tv"],
-        "description" : "Command Line Tool to control target device"
+    "ares-novacom": {
+        "profile": ["tv"],
+        "description": "Command Line Tool to control target device"
     },
-    "ares-package" : {
-        "description" : "Create a package containing a webOS app or service"
+    "ares-package": {
+        "description": "Create a package containing a webOS app or service"
     },
-    "ares-pull" : {
-        "profile" : ["ose"],
-        "description" : "Pull file from a device"
+    "ares-pull": {
+        "profile": ["ose"],
+        "description": "Pull file from a device"
     },
-    "ares-push" : {
-        "profile" : ["ose"],
-        "description" : "Push the file to target device"
+    "ares-push": {
+        "profile": ["ose"],
+        "description": "Push the file to target device"
     },
-    "ares-server" : {
-        "description" : "Run a local web server based on path"
+    "ares-server": {
+        "description": "Run a local web server based on path"
     },
-    "ares-setup-device" : {
-        "description" : "Add or modify the information of the devices to use"
+    "ares-setup-device": {
+        "description": "Add or modify the information of the devices to use"
     },
-    "ares-shell" : {
-        "profile" : ["ose"],
-        "description" : "Open a device terminal or run a command"
+    "ares-shell": {
+        "profile": ["ose"],
+        "description": "Open a device terminal or run a command"
     }
 }

@@ -23,7 +23,7 @@ const cliControl = commonTools.cliControl,
 
 const processName = path.basename(process.argv[1]).replace(/.js/, '');
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
     spinner.stop();
     log.error('uncaughtException', err.toString());
     log.verbose('uncaughtException', err.stack);
@@ -55,7 +55,7 @@ const shortHands = {
     "D": ["--device-list"],
     "o": ["--open"],
     "P": ["--host-port"],
-    "dp" : ["--display"],
+    "dp": ["--display"],
     "V": ["--version"],
     "h": ["--help"],
     "hh": ["--hidden-help"],
@@ -91,7 +91,7 @@ const options = {
         serviceId: argv.service,
         open: argv.open,
         hostPort: argv["host-port"],
-        display : argv.display || 0
+        display: argv.display || 0
     };
 
 let op;
@@ -126,7 +126,7 @@ function showUsage(hiddenFlag) {
     }
 }
 
-function inspect(){
+function inspect() {
     log.info("inspect()", "AppId:", options.appId, ", ServiceId:", options.serviceId);
 
     if (!options.appId && !options.serviceId) {

@@ -29,13 +29,13 @@ process.on('uncaughtException', function(err) {
 });
 
 const knownOpts = {
-    "device":   [String, null],
-    "device-list":  Boolean,
-    "display" : [String, null],
-    "version":  Boolean,
+    "device": [String, null],
+    "device-list": Boolean,
+    "display": [String, null],
+    "version": Boolean,
     "run": [String, null],
-    "help":     Boolean,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error']
+    "help": Boolean,
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error']
 };
 
 const shortHands = {
@@ -60,7 +60,7 @@ if (curConfigData.profile !== "ose") {
 
 const options = {
         device: argv.device,
-        display : argv.display
+        display: argv.display
     };
 
 let op;
@@ -94,14 +94,14 @@ function deviceList() {
 }
 
 function run() {
-    if(argv.display !== undefined && isNaN(Number(argv.display))) {
+    if (argv.display !== undefined && isNaN(Number(argv.display))) {
         return finish(errHndl.getErrMsg("INVALID_DISPLAY"));
     }
     shellLib.remoteRun(options, argv.run, finish);
 }
 
 function shell() {
-    if(argv.display !== undefined && isNaN(Number(argv.display))) {
+    if (argv.display !== undefined && isNaN(Number(argv.display))) {
         return finish(errHndl.getErrMsg("INVALID_DISPLAY"));
     }
     shellLib.shell(options, finish);
@@ -112,7 +112,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

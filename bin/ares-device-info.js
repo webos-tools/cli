@@ -23,7 +23,7 @@ process.on('uncaughtException', function(err) {
 log.heading = processName;
 
 const error = errHndl.getErrMsg("NOT_SUPPORT_COMMOND_DEPRECATED");
-for(const idx in error) {
+for (const idx in error) {
      log.error(error[idx].heading, error[idx].message);
 }
 

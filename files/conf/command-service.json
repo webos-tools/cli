@@ -1,73 +1,73 @@
 {
-    "lunaSend" : "/usr/bin/luna-send-pub",
-    "lunaAddr" : {
-        "install" : {
-            "service" : "com.webos.appInstallService",
-            "folder" : "dev",
-            "method" : "install",
-            "returnValue" : "return.details.state"
+    "lunaSend": "/usr/bin/luna-send-pub",
+    "lunaAddr": {
+        "install": {
+            "service": "com.webos.appInstallService",
+            "folder": "dev",
+            "method": "install",
+            "returnValue": "return.details.state"
         },
-        "remove" : {
-            "service" : "com.webos.appInstallService",
-            "folder" : "dev",
-            "method" : "remove",
-            "returnValue" : "return.details.state"
+        "remove": {
+            "service": "com.webos.appInstallService",
+            "folder": "dev",
+            "method": "remove",
+            "returnValue": "return.details.state"
         },
-        "list" : {
-            "service" : "com.webos.applicationManager",
-            "folder" : "dev",
-            "method" : "listApps",
-            "returnValue" : "return.apps"
+        "list": {
+            "service": "com.webos.applicationManager",
+            "folder": "dev",
+            "method": "listApps",
+            "returnValue": "return.apps"
         },
-        "launch" : {
-            "service" : "com.webos.applicationManager",
-            "method" : "launch",
-            "returnValue" : "return.returnValue"
+        "launch": {
+            "service": "com.webos.applicationManager",
+            "method": "launch",
+            "returnValue": "return.returnValue"
         },
-        "terminate" : {
-            "service" : "com.webos.applicationManager",
-            "folder" : "dev",
-            "method" : "closeByAppId",
-            "returnValue" : "return.returnValue"
+        "terminate": {
+            "service": "com.webos.applicationManager",
+            "folder": "dev",
+            "method": "closeByAppId",
+            "returnValue": "return.returnValue"
         },
-        "running" : {
-            "service" : "com.webos.applicationManager",
-            "folder" : "dev",
-            "method" : "running",
-            "returnValue" : "return.running"
+        "running": {
+            "service": "com.webos.applicationManager",
+            "folder": "dev",
+            "method": "running",
+            "returnValue": "return.running"
         },
-        "deviceInfo" : {
-            "service" : "com.webos.service.systemservice",
-            "folder" : "deviceInfo",
-            "method" : "query",
-            "returnValue" : "return.returnValue"
+        "deviceInfo": {
+            "service": "com.webos.service.systemservice",
+            "folder": "deviceInfo",
+            "method": "query",
+            "returnValue": "return.returnValue"
         },
-        "osInfo" : {
-            "service" : "com.webos.service.systemservice",
-            "folder" : "osInfo",
-            "method" : "query",
-            "returnValue" : "return.returnValue"
+        "osInfo": {
+            "service": "com.webos.service.systemservice",
+            "folder": "osInfo",
+            "method": "query",
+            "returnValue": "return.returnValue"
         },
-        "softwareInfo" : {
-            "service" : "com.webos.service.systemservice",
-            "folder" : "softwareInfo",
-            "method" : "query",
-            "returnValue" : "return.returnValue"
+        "softwareInfo": {
+            "service": "com.webos.service.systemservice",
+            "folder": "softwareInfo",
+            "method": "query",
+            "returnValue": "return.returnValue"
         },
-        "getSessionList" : {
-            "service" : "com.webos.service.sessionmanager",
-            "method" : "getSessionList",
-            "returnValue" : "return.returnValue"
+        "getSessionList": {
+            "service": "com.webos.service.sessionmanager",
+            "method": "getSessionList",
+            "returnValue": "return.returnValue"
         },
-        "captureCompositorOutput" : {
-            "service" : "com.webos.surfacemanager",
-            "method" : "captureCompositorOutput",
-            "returnValue" : "return.returnValue"
+        "captureCompositorOutput": {
+            "service": "com.webos.surfacemanager",
+            "method": "captureCompositorOutput",
+            "returnValue": "return.returnValue"
         },
-        "deviceInfoSystem" : {
-            "service" : "com.webos.service.tv.systemproperty",
-            "method" : "getSystemInfo",
-            "returnValue" : "return.returnValue"
+        "deviceInfoSystem": {
+            "service": "com.webos.service.tv.systemproperty",
+            "method": "getSystemInfo",
+            "returnValue": "return.returnValue"
         }
     }
 }

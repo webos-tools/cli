@@ -22,41 +22,41 @@ const version = commonTools.version,
 
 let processName = path.basename(process.argv[1]).replace(/.js/, '');
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
     log.error('uncaughtException', err.toString());
     log.verbose('uncaughtException', err.stack);
     cliControl.end(-1);
 });
 
 const knownOpts = {
-    "help":     Boolean,
-    "version":  Boolean,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error'],
-    "device":   [String, null],
-    "device-list":  Boolean,
+    "help": Boolean,
+    "version": Boolean,
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error'],
+    "device": [String, null],
+    "device-list": Boolean,
     // command options
-    "switch-daemon":   String,
-    "current-daemon":   Boolean,
+    "switch-daemon": String,
+    "current-daemon": Boolean,
     // show options
-    "lines":    Number,
-    "reverse":  Boolean,
-    "follow":   Boolean,
+    "lines": Number,
+    "reverse": Boolean,
+    "follow": Boolean,
     // filter options
-    "since":    String,
-    "until":    String,
+    "since": String,
+    "until": String,
     "priority": String,
-    "kernel":   Boolean,
-    "boot":     Boolean,
-    "pid":      Number,
+    "kernel": Boolean,
+    "boot": Boolean,
+    "pid": Number,
     // output option
-    "output":   Boolean,
+    "output": Boolean,
     // save option
-    "save":     Boolean,
+    "save": Boolean,
     // read options
     "file": String,
     "file-list": Boolean,
     // unit options
-    "unit":     String,
+    "unit": String,
     "unit-list": Boolean,
     "display": [String, null],
     // context options
@@ -220,7 +220,7 @@ function checkOption() {
     if (options.currentDaemon === "journald") {
         log.info("checkOption()", "journald options");
 
-        options.currentOption.forEach(function(item){
+        options.currentOption.forEach(function(item) {
             if (!journalLogOptions.includes(item)) {
                 return finish(errHndl.getErrMsg("NOT_SUPPORT_JOURNALD", item));
             }
@@ -228,8 +228,8 @@ function checkOption() {
     } else if (options.currentDaemon === "pmlogd") {
         log.info("checkOption()", "pmlogd options");
 
-        options.currentOption.forEach(function(item){
-            if(!pmLogOptions.includes(item)) {
+        options.currentOption.forEach(function(item) {
+            if (!pmLogOptions.includes(item)) {
                 return finish(errHndl.getErrMsg("NOT_SUPPORT_PMLOGD", item));
             }
         });
@@ -241,7 +241,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

@@ -124,7 +124,7 @@ if (argv.help || argv['hidden-help']) {
     op = deviceList;
 } else if (argv.version) {
     version.showVersionAndExit();
-} else if (argv.hosted){
+} else if (argv.hosted) {
     options.installMode = "Hosted";
     op = launchHostedApp;
 } else if (argv.simulator) {
@@ -246,7 +246,7 @@ function running() {
         if (err) {
             return finish(err);
         }
-        if (runningApps instanceof Array) runningApps.forEach(function (runApp) {
+        if (runningApps instanceof Array) runningApps.forEach(function(runApp) {
             if (cnt++ !== 0) {
                 strRunApps = strRunApps.concat('\n');
             }
@@ -255,7 +255,7 @@ function running() {
                 strRunApps += " - display " + runApp.displayId;
             }
         });
-        finish(null, {msg : strRunApps});
+        finish(null, {msg: strRunApps});
     });
 }
 

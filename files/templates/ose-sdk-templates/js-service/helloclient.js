@@ -22,7 +22,7 @@ service.call("luna://@SERVICE-NAME@/hello", {}, function(message) {
         console.log(JSON.stringify(msg.payload));
         if (++count >= max) {
             sub.cancel();
-            setTimeout(function(){
+            setTimeout(function() {
                 console.log(max+" responses received, exiting...");
                 process.exit(0);
             }, 1000);

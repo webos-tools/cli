@@ -37,12 +37,12 @@ const knownOpts = {
     "session-info": Boolean,
     "resource-monitor": Boolean,
     // resource-monitor parameter
-    "list" : Boolean,
-    "id-filter" : [String, null],
-    "time-interval" : [Number, null],
-    "save" : Boolean,
-    "capture-screen" : Boolean,
-    "display" : Number,
+    "list": Boolean,
+    "id-filter": [String, null],
+    "time-interval": [Number, null],
+    "save": Boolean,
+    "capture-screen": Boolean,
+    "display": Number,
     "device":   [String, null],
     "device-list":  Boolean,
     "version":  Boolean,
@@ -93,8 +93,8 @@ if (argv.level) {
 const curConfigData = appdata.getConfig(true);
 const options = {
     device: argv.device,
-    display : argv.display || 0,
-    outputPath : argv.argv.remain[0] || null
+    display: argv.display || 0,
+    outputPath: argv.argv.remain[0] || null
 };
 
 let op;
@@ -124,7 +124,7 @@ if (argv.argv.remain.length > 1) {
 
 if (op) {
     version.checkNodeVersion(function(err) {
-        if(err)
+        if (err)
             return finish(err);
         async.series([
             op.bind(this)
@@ -157,7 +157,7 @@ function getResourceMonitor() {
     options.save = argv["save"] || null;
     options.outputPath = argv.argv.remain[0] || null;
 
-    if (argv.argv.cooked.indexOf("--time-interval") !== -1 ) {
+    if (argv.argv.cooked.indexOf("--time-interval") !== -1) {
         if (options.interval <= 0) {
             return finish(errHndl.getErrMsg("INVALID_INTERVAL"));
         }
@@ -199,7 +199,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

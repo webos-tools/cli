@@ -33,15 +33,15 @@ if (process.argv.length === 2) {
 }
 
 const knownOpts = {
-    "help" : Boolean,
-    "list" : Boolean,
-    "version":  Boolean,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error']
+    "help": Boolean,
+    "list": Boolean,
+    "version": Boolean,
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error']
 };
 
 const shortHands = {
-    "h" : ["--help"],
-    "l" : ["--list"],
+    "h": ["--help"],
+    "l": ["--list"],
     "V": ["--version"],
     "v": ["--level", "verbose"]
 };
@@ -75,7 +75,7 @@ if (argv.list) {
     op = commandList;
 } else if (argv.version) {
     version.showVersionAndExit();
-} else if(argv.help) {
+} else if (argv.help) {
     showUsage();
     cliControl.end();
 } else {
@@ -146,7 +146,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

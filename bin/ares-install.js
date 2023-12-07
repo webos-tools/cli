@@ -25,7 +25,7 @@ const version = commonTools.version,
     
 const processName = path.basename(process.argv[1]).replace(/.js/, '');
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
     spinner.stop();
     log.error('uncaughtException', err.toString());
     log.verbose('uncaughtException', err.stack);
@@ -87,7 +87,7 @@ log.verbose("argv", argv);
 if (argv.level) {
     delete argv.level;
     if (argv.argv.remain.length === 0 && (Object.keys(argv)).length === 1) {
-        argv.help=true;
+        argv.help = true;
     }
 }
 
@@ -164,7 +164,7 @@ function list() {
                 strPkgs += pkg.id + '\n';
             });
         }
-        finish(err, {msg : strPkgs.trim()});
+        finish(err, {msg: strPkgs.trim()});
     }, outputTxt);
 }
 
@@ -178,12 +178,12 @@ function listFull() {
                 strPkgs += convertJsonToList(pkg, 0) + '\n';
             });
         }
-        finish(err, {msg : strPkgs.trim()});
+        finish(err, {msg: strPkgs.trim()});
     }, outputTxt);
 }
 
 function remove() {
-    const pkgId = (argv.remove === 'true')? argv.argv.remain[0] : argv.remove;
+    const pkgId = (argv.remove === 'true') ? argv.argv.remain[0] : argv.remove;
     log.info("remove()", "pkgId:", pkgId);
     if (!pkgId) {
         return finish(errHndl.getErrMsg("EMPTY_VALUE", "APP_ID"));
@@ -203,7 +203,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

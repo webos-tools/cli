@@ -236,9 +236,9 @@ function _queryAddRemove(ssdpDevices, next) {
                         selDevice = device;
                     }
                 });
-                selDevice.name = answers.device_name || ((ssdpDevice)? ssdpDevice.name : null);
-                selDevice.mode = answers.op || ((ssdpDevice)? ssdpDevice.op : null);
-                selDevice.host = (ssdpDevice)? ssdpDevice.host : (selDevice.host || null);
+                selDevice.name = answers.device_name || ((ssdpDevice) ? ssdpDevice.name : null);
+                selDevice.mode = answers.op || ((ssdpDevice) ? ssdpDevice.op : null);
+                selDevice.host = (ssdpDevice) ? ssdpDevice.host : (selDevice.host || null);
                 next(null, selDevice, null);
             });
         }
@@ -378,7 +378,7 @@ function _queryDeviceInfo(selDevice, next) {
           port: answers.port,
           description: answers.description,
           username: answers.user,
-          default : answers.default
+          default: answers.default
         };
 
         if (mode === 'add' || mode === 'modify') {

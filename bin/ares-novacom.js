@@ -22,7 +22,7 @@ const version = commonTools.version,
 
 const processName = path.basename(process.argv[1], '.js');
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
     log.error('uncaughtException', err.toString());
     log.verbose('uncaughtException', err.stack);
     cliControl.end(-1);
@@ -99,7 +99,7 @@ if (argv['device-list']) {
 }
 
 if (op) {
-    version.checkNodeVersion(function () {
+    version.checkNodeVersion(function() {
         async.series([
             op.bind(this)
         ], finish);
@@ -111,7 +111,7 @@ function getkey(next) {
     async.waterfall([
         resolver.load.bind(resolver),
         resolver.getSshPrvKey.bind(resolver, options),
-        function (keyFileName, next) {
+        function(keyFileName, next) {
             if (keyFileName) {
                 if (argv.passphrase) {
                     return next(null, keyFileName, argv.passphrase);
@@ -119,7 +119,7 @@ function getkey(next) {
                 process.stdin.resume();
                 process.stdin.setEncoding('utf8');
                 process.stdout.write('input passphrase [default: webos]:');
-                process.stdin.on('data', function (text) {
+                process.stdin.on('data', function(text) {
                     let passphrase = text.toString().trim();
                     if (passphrase === '') {
                         passphrase = 'webos';
@@ -131,7 +131,7 @@ function getkey(next) {
                 return next(new Error("Error getting key file from the device"));
             }
         },
-        function (keyFileName, passphrase, next) {
+        function(keyFileName, passphrase, next) {
             const target = {};
             target.name = options.name;
             target.privateKey = {
@@ -145,7 +145,7 @@ function getkey(next) {
             next(null, target);
         },
         resolver.modifyDeviceFile.bind(resolver, 'modify')
-    ], function (err) {
+    ], function(err) {
         if (err)
             return next(err);
         next(null, {
@@ -159,7 +159,7 @@ function run(next) {
         finish(errHndl.getErrMsg("EMPTY_VALUE", "DEVICE_COMMAND"));
     } else {
         const printTarget = true;
-        options.session = new novacom.Session(options, printTarget, function (err) {
+        options.session = new novacom.Session(options, printTarget, function(err) {
             if (err) {
                 next(err);
                 return;
@@ -174,20 +174,20 @@ function forward(next) {
         finish(errHndl.getErrMsg("EMPTY_VALUE", "DEVICE_PORT:HOST_PORT"));
     } else {
         const tasks = [
-            function (next) {
+            function(next) {
                 const printTarget = true;
                 options.session = new novacom.Session(options, printTarget, next);
             }
         ];
         try {
-            argv.port.forEach(function (portStr) {
+            argv.port.forEach(function(portStr) {
                 const portArr = portStr.split(':');
                 const devicePort = parseInt(portArr[0], 10);
                 const localPort = parseInt(portArr[1], 10) || devicePort;
-                tasks.push(function (next) {
+                tasks.push(function(next) {
                     options.session.forward(devicePort, localPort, next);
                 });
-                tasks.push(function () {
+                tasks.push(function() {
                     console.log('forward', 'running...');
                 });
             });

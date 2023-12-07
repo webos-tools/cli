@@ -20,7 +20,7 @@ const version = commonTools.version,
 
 const processName = path.basename(process.argv[1]).replace(/.js/, '');
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
     log.error('uncaughtException', err.toString());
     log.verbose('uncaughtException', err.stack);
     cliControl.end(-1);
@@ -179,7 +179,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

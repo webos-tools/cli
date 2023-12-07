@@ -34,18 +34,18 @@ if (process.argv.length === 2) {
 }
 
 const knownOpts = {
-    "device" : [ String, null ],
-    "device-list" : Boolean,
-    "version" : Boolean,
-    "help":  Boolean,
-    "ignore":    Boolean,
-    "level":    ['silly', 'verbose', 'info', 'http', 'warn', 'error']
+    "device": [ String, null ],
+    "device-list": Boolean,
+    "version": Boolean,
+    "help": Boolean,
+    "ignore": Boolean,
+    "level": ['silly', 'verbose', 'info', 'http', 'warn', 'error']
 };
 
 const shortHands = {
-    "d" : [ "--device" ],
-    "D" : [ "--device-list" ],
-    "V" : [ "--version" ],
+    "d": ["--device"],
+    "D": ["--device-list"],
+    "V": ["--version"],
     "h": ["--help"],
     "i": ["--ignore"],
     "v": ["--level", "verbose"]
@@ -70,7 +70,7 @@ log.verbose("argv", argv);
 if (argv.level) {
     delete argv.level;
     if (argv.argv.remain.length === 0 && (Object.keys(argv)).length === 1) {
-        argv.help=true;
+        argv.help = true;
     }
 }
 
@@ -80,11 +80,11 @@ if (curConfigData.profile !== "ose") {
 }
 
 const options = {
-        appId : 'com.ares.defaultName',
-        device : argv.device,
+        appId: 'com.ares.defaultName',
+        device: argv.device,
         ignore: argv.ignore,
-        sourcePath : argv.argv.remain[0],
-        destinationPath : argv.argv.remain[1]
+        sourcePath: argv.argv.remain[0],
+        destinationPath: argv.argv.remain[1]
     };
 
 let op;
@@ -114,7 +114,7 @@ function deviceList() {
 }
 
 function pull() {
-    if(!options.destinationPath) {
+    if (!options.destinationPath) {
         options.destinationPath = '.';
     }
 
@@ -136,7 +136,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

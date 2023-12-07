@@ -23,7 +23,7 @@ const cliControl = commonTools.cliControl,
 
 const processName = path.basename(process.argv[1]).replace(/.js/, '');
 
-process.on('uncaughtException', function (err) {
+process.on('uncaughtException', function(err) {
     log.error('uncaughtException', err.toString());
     log.verbose('uncaughtException', err.stack);
     cliControl.end(-1);
@@ -53,15 +53,15 @@ const knownOpts = {
 };
 
 const shortHands = {
-    "h":        "--help",
-    "V":        "--version",
-    "l":        "--list",
-    "f":        "--overwrite",
-    "t":        "--template",
-    "p":        "--property",
-    "s":        "--servicename",
-    "nq":       "--no-query",
-    "v":        ["--level", "verbose"]
+    "h": "--help",
+    "V": "--version",
+    "l": "--list",
+    "f": "--overwrite",
+    "t": "--template",
+    "p": "--property",
+    "s": "--servicename",
+    "nq": "--no-query",
+    "v": ["--level", "verbose"]
 };
 
 const argv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & 'ares-*.js' */);
@@ -83,7 +83,7 @@ log.verbose("argv", argv);
 if (argv.level) {
     delete argv.level;
     if (argv.argv.remain.length === 0 && (Object.keys(argv)).length === 1) {
-        argv.help=true;
+        argv.help = true;
     }
 }
 
@@ -207,7 +207,7 @@ function generate() {
                 return;
             }
             // query mode, only CLI can approach. API only use props
-            if(!options.props.length) {
+            if (!options.props.length) {
                 if (options.query && options.tmplName.match(/(^hosted)/)) {
                     const queryConfigFile = getQueryFile(config.profile, 'hosted');
                     return queryInfo(queryConfigFile).then(function(info) {
@@ -251,7 +251,7 @@ function finish(err, value) {
     if (err) {
         // handle err from getErrMsg()
         if (Array.isArray(err) && err.length > 0) {
-            for(const index in err) {
+            for (const index in err) {
                 log.error(err[index].heading, err[index].message);
             }
             log.verbose(err[0].stack);

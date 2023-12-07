@@ -14,7 +14,7 @@ SPDX-License-Identifier: Apache-2.0
         xhr.open('POST', '@@GET_URL@@', true);
         xhr.onreadystatechange = function (aEvt) {
             if (xhr.readyState == 4) {
-                if(xhr.status == 200) {
+                if (xhr.status == 200) {
                     console.log(xhr.responseText);
                     window.document.getElementById("ref").src = xhr.responseText;
                 } else {

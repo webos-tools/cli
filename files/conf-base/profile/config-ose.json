@@ -1,20 +1,20 @@
 {
-    "profile" : "ose",
+    "profile": "ose",
     "defaultAppInfo": {
         "id": "com.yourdomain.app",
         "type": "web",
         "title": "new app",
         "version": "1.0.0",
-        "main" : {
-            "web" : "index.html",
+        "main": {
+            "web": "index.html",
             "native": "executable"
         }
     },
-    "logFilePath" : "/media/developer/log/devlog",
-    "install" : {
-        "tempDirForIpk" : "/media/developer/temp",
-        "changeTempDir" : true,
-        "removeIpkAfterInst" : true
+    "logFilePath": "/media/developer/log/devlog",
+    "install": {
+        "tempDirForIpk": "/media/developer/temp",
+        "changeTempDir": true,
+        "removeIpkAfterInst": true
     },
     "dataDir":".webos/ose",
     "logDaemon": "journald"

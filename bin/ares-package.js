@@ -122,7 +122,7 @@ function PalmPackage() {
     if (this.argv.level) {
         delete this.argv.level;
         if (this.argv.argv.remain.length === 0 && (Object.keys(this.argv)).length === 1) {
-            this.argv.help=true;
+            this.argv.help = true;
         }
     }
 }
@@ -157,7 +157,7 @@ PalmPackage.prototype = {
         this.options.level = log.level;
 
         // Pass unsupported options verbatim thru the options Object -- TODO: TBR
-        for(const key in this.argv) {
+        for (const key in this.argv) {
             if (this.unsupportedOptions[key]) {
                 this.options[key] = this.argv[key];
             }
@@ -241,7 +241,7 @@ PalmPackage.prototype = {
                 cliControl.end(-1);
             } else if (Object.prototype.hasOwnProperty.call(this.options, 'pkgid') || Object.prototype.hasOwnProperty.call(this.options, 'pkginfofile')) {
                 if (this.dirCounts.resource > 0) {
-                    packager.resourcePackaging(this.argv.argv.remain, this.destination, this.options,this.outputTxt, next);
+                    packager.resourcePackaging(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
                 } else {
                     packager.servicePackaging(this.argv.argv.remain, this.destination, this.options, this.outputTxt, next);
                 }
@@ -274,7 +274,7 @@ PalmPackage.prototype = {
             if (err) {
                 return this.finish(err);
             }
-            return this.finish(null, {msg : "no problems detected"});
+            return this.finish(null, {msg: "no problems detected"});
         }.bind(this));
     },
 
@@ -289,7 +289,7 @@ PalmPackage.prototype = {
         if (err) {
             // handle err from getErrMsg()
             if (Array.isArray(err) && err.length > 0) {
-                for(const index in err) {
+                for (const index in err) {
                     log.error(err[index].heading, err[index].message);
                 }
                 log.verbose(err[0].stack);
