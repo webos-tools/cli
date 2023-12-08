@@ -24,15 +24,15 @@ const aresCmd = 'Packager',
 
 let expectedTemplate;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     common.getExpectedResult("ares-generate")
-    .then(function(result){
+    .then(function(result) {
         expectedTemplate = result.template;
         done();
     });
 });
 
-afterAll(function (done) {
+afterAll(function(done) {
     common.removeOutDir(sampleAppPath); // can be in afterAll
     common.removeOutDir(sampleServicePath); // can be in afterAll
     done();
@@ -42,7 +42,7 @@ describe("Test setting", function() {
     it('Generate a sample app for packaging', function(done) {
         common.removeOutDir(sampleAppPath);
         const generateCmd = common.makeCmd('ares-generate');
-        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.webos.sample.app" -p "version=1.0.0" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.webos.sample.app" -p "version=1.0.0" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -55,11 +55,11 @@ describe("Test setting", function() {
     it('Generate two sample services for packaging', function(done) {
         common.removeOutDir(sampleServicePath);
         const serviceid = ["com.webos.sample.app.service", "com.webos.sample.service1", "com.webos.sample.service2"];
-        serviceid.forEach( function(svcId) {
+        serviceid.forEach(function(svcId) {
             const svcPath = path.join(sampleServicePath, svcId);
             sampleServicePaths.push(path.join(sampleServicePath, svcId));
             const generateCmd = common.makeCmd('ares-generate');
-            exec(generateCmd + ` -t ${expectedTemplate.jsservice} -s ${svcId} ${svcPath}`, function (error, stdout, stderr) {
+            exec(generateCmd + ` -t ${expectedTemplate.jsservice} -s ${svcId} ${svcPath}`, function(error, stdout, stderr) {
                 if (stderr && stderr.length > 0) {
                     common.detectNodeMessage(stderr);
                 }
@@ -81,12 +81,12 @@ describe(aresCmd + '.generatePackage()', function() {
     });
 
     it('Package web app with -o(--outdir)', function(done) {
-        packager.generatePackage([`${sampleAppPath}`], outputPath, packageOptions, function(data){
+        packager.generatePackage([`${sampleAppPath}`], outputPath, packageOptions, function(data) {
             expect(data).toContain("Create");
-        }, function(err, value){
+        }, function(err, value) {
             expect(value.msg).toContain("Success");
             expect(fs.existsSync(appPkgPath)).toBe(true);
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             },3000);
         });
@@ -94,12 +94,12 @@ describe(aresCmd + '.generatePackage()', function() {
 
     it('Package web app & service with -o(--outdir)', function(done) {
         const source = [sampleAppPath.toString(), sampleServicePaths[0].toString()];
-        packager.generatePackage(source, outputPath, packageOptions, function(data){
+        packager.generatePackage(source, outputPath, packageOptions, function(data) {
             expect(data).toContain("Create");
-        }, function(err, value){
+        }, function(err, value) {
             expect(value.msg).toContain("Success");
             expect(fs.existsSync(appPkgPath)).toBe(true);
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             },3000);
         });
@@ -108,11 +108,11 @@ describe(aresCmd + '.generatePackage()', function() {
     it('Create output a directory structure with app', function(done) {
         const source = [sampleAppPath.toString(), sampleServicePaths[0].toString()];
         packageOptions.rom = true;
-        packager.generatePackage(source, outputPath, packageOptions, function(data){
+        packager.generatePackage(source, outputPath, packageOptions, function(data) {
             expect(data).toContain("Create output directory");
-        }, function(err, value){
+        }, function(err, value) {
             expect(value.msg).toContain("Success");
-            setTimeout(function(){
+            setTimeout(function() {
                 const createdSvcPath = path.join(outputPath, 'usr/palm/services');
                 expect(fs.existsSync(appPathByRom)).toBe(true);
                 expect(fs.existsSync(createdSvcPath)).toBe(true);
@@ -141,9 +141,9 @@ describe(aresCmd + '.generatePackage()', function() {
         let outputData="";
         packageOptions.rom = true;
         packageOptions.excludefiles = "tmpFile";
-        packager.generatePackage([`${sampleAppPath}`], outputPath, packageOptions, function(data){
+        packager.generatePackage([`${sampleAppPath}`], outputPath, packageOptions, function(data) {
             outputData += data;
-        }, function(err, value){
+        }, function(err, value) {
             expect(outputData).toContain("Create");
             expect(value.msg).toContain("Success");
             expect(fs.existsSync(path.join(appPathByRom, "com.webos.sample.app/tmpFile"))).toBe(false);
@@ -158,7 +158,7 @@ describe(aresCmd + ".analyzeIPK()", function() {
     it('Info of web app and service package with info', function(done) {
         const webIpk= path.join(ipkBasePath, "com.web.app_1.0.0_all.ipk");
         packageOptions.info = webIpk;
-        packager.analyzeIPK(packageOptions, function(err, value){
+        packager.analyzeIPK(packageOptions, function(err, value) {
             expect(value.msg).toContain("< Package Information >");
             expect(value.msg).toContain("< Application Information >");
             expect(value.msg).toContain("< Service Information >");
@@ -170,7 +170,7 @@ describe(aresCmd + ".analyzeIPK()", function() {
     it('Info of web app and service package with infodetail', function(done) {
         const webIpk= path.join(ipkBasePath, "com.web.app_1.0.0_all.ipk");
         packageOptions.infodetail = webIpk;
-        packager.analyzeIPK(packageOptions, function(err, value){
+        packager.analyzeIPK(packageOptions, function(err, value) {
             expect(value.msg).toContain("< packageinfo.json >");
             expect(value.msg).toContain("< appinfo.json >");
             expect(value.msg).toContain("< services.json >");
@@ -183,7 +183,7 @@ describe(aresCmd + ".analyzeIPK()", function() {
     it('Info of external native app and service package', function(done) {
         const externalAppIpk= path.join(ipkBasePath, "com.sample.echo_0.0.1_all.ipk");
         packageOptions.info = externalAppIpk;
-        packager.analyzeIPK(packageOptions, function(err, value){
+        packager.analyzeIPK(packageOptions, function(err, value) {
             expect(value.msg).toContain("< Package Information >");
             expect(value.msg).toContain("< Application Information >");
             expect(value.msg).toContain("< Service Information >");

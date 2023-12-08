@@ -1,6 +1,6 @@
 {
-    "ose" : {
-        "list" : [
+    "ose": {
+        "list": [
             "ares-config        Configure webOS CLI",
             "ares-device        Display the device information",
             "ares-generate      Generate files for a webOS app or service",
@@ -16,8 +16,8 @@
             "ares-shell         Open a device terminal or run a command"
         ]
     },
-    "tv" : {
-        "list" : [
+    "tv": {
+        "list": [
             "ares-config        Configure webOS CLI",
             "ares-device        Display the device information",
             "ares-generate      Generate files for a webOS app or service",

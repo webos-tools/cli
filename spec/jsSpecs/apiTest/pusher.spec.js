@@ -19,17 +19,17 @@ let options;
 const pushOptions = {
 };
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
 });
 
-afterAll(function (done) {
+afterAll(function(done) {
     const shellCmd = common.makeCmd('ares-shell');
-    exec(shellCmd + ` -r "rm -rf /tmp/copyFiles"`, function () {
+    exec(shellCmd + ` -r "rm -rf /tmp/copyFiles"`, function() {
         done();
     });
 });
@@ -37,7 +37,7 @@ afterAll(function (done) {
 describe("Test setting", function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -52,22 +52,22 @@ describe("Test setting", function() {
 describe(aresCmd + ".push", function() {
     beforeEach(function(done) {
         const shellCmd = common.makeCmd('ares-shell');
-        exec(shellCmd + ` -r "rm -rf /tmp/copyFiles"`, function () {
+        exec(shellCmd + ` -r "rm -rf /tmp/copyFiles"`, function() {
             done();
         });
     });
 
     it('Copy directory', function(done) {
         let outputTxt = "";
-        push.push(src, '/tmp', pushOptions, function(err, value){
+        push.push(src, '/tmp', pushOptions, function(err, value) {
             expect(value.msg).toContain("Success");
             expect(outputTxt).toContain("/tmp/copyFiles/testFile.txt");
             expect(outputTxt).toContain("/tmp/copyFiles/helloFile.txt");
             expect(outputTxt).toContain("2 file(s) pushed");
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             },3000);
-        }, function(data){
+        }, function(data) {
             outputTxt += data;
         });
     });
@@ -75,15 +75,15 @@ describe(aresCmd + ".push", function() {
     it('Copy directory with ignore option', function(done) {
         let outputTxt = "";
         pushOptions.ignore = true;
-        push.push(src, '/tmp', pushOptions, function(err, value){
+        push.push(src, '/tmp', pushOptions, function(err, value) {
             expect(value.msg).toContain("Success");
             expect(outputTxt).not.toContain("/tmp/copyFiles/testFile.txt");
             expect(outputTxt).not.toContain("/tmp/copyFiles/helloFile.txt");
             expect(outputTxt).toContain("2 file(s) pushed");
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             },3000);
-        }, function(data){
+        }, function(data) {
             outputTxt += data;
         });
     });
@@ -91,13 +91,13 @@ describe(aresCmd + ".push", function() {
 
 describe(aresCmd + ' negative TC', function() {
     it('Set invaild source path', function(done) {
-        push.push(["invalidDir"], '/tmp', pushOptions, function(err){
+        push.push(["invalidDir"], '/tmp', pushOptions, function(err) {
             expect(err.toString()).toContain("ENOENT: no such file or directory, lstat");
             expect(err.toString()).toContain("Please check if the path is valid");
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             },3000);
-        }, function(){
+        }, function() {
         });
     });
 });

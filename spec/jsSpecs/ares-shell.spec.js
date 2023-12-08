@@ -14,10 +14,10 @@ let cmd,
     options,
     hasSession = false;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -29,7 +29,7 @@ describe(aresCmd, function() {
             pending(options.skipTxt);
         }
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -46,7 +46,7 @@ describe(aresCmd + ' -h -v', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -h -v', function (error, stdout, stderr) {
+        exec(cmd + ' -h -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -63,7 +63,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -D', function (error, stdout, stderr) {
+        exec(cmd + ' -D', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -80,7 +80,7 @@ describe('Check if there are sessions on the device', function() {
             pending(options.skipTxt);
         }
         const deviceCmd = common.makeCmd('ares-device');
-        exec(deviceCmd + ` -s ${options.device}`, function (error, stdout, stderr) {
+        exec(deviceCmd + ` -s ${options.device}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -97,7 +97,7 @@ describe(aresCmd, function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd, function (error, stdout, stderr) {
+        exec(cmd, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -112,7 +112,7 @@ describe(aresCmd + ' --display(-dp)', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -dp 1', function (error, stdout, stderr) {
+        exec(cmd + ' -dp 1', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 // case of auto emulator using developer user
@@ -135,7 +135,7 @@ describe(aresCmd + ' --run in session', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -dp 1 -r \"echo hello webOS\"', function (error, stdout, stderr) {
+        exec(cmd + ' -dp 1 -r \"echo hello webOS\"', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 // case of auto emulator using developer user
@@ -163,7 +163,7 @@ describe(aresCmd + ' --run echo $PATH', function() {
             tmpCmd = cmd + ' -r \"echo $PATH\"';
         }
 
-        exec(tmpCmd, function (error, stdout, stderr) {
+        exec(tmpCmd, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -183,7 +183,7 @@ describe(aresCmd + ' --run echo $PATH in session', function() {
             tmpCmd = cmd + ' -dp 1 -r \"echo $PATH\"';
         }
 
-        exec(tmpCmd, function (error, stdout, stderr) {
+        exec(tmpCmd, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 // case of auto emulator using developer user
@@ -205,7 +205,7 @@ describe(aresCmd + ' negative TC', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -dp 9`, function (error, stdout, stderr) {
+        exec(cmd + ` -dp 9`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (hasSession) {

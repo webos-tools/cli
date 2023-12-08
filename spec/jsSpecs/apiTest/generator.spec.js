@@ -18,18 +18,18 @@ const generator = new Generator(),
 let expectedTemplate,
     expectedList;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     common.getOptions()
-    .then(function(){
+    .then(function() {
         return common.getExpectedResult("ares-generate");
-    }).then(function(result){
+    }).then(function(result) {
         expectedTemplate = result.template;
         expectedList = result.list;
         done();
     });
 });
 
-afterAll(function (done) {
+afterAll(function(done) {
     common.removeOutDir(sampleAppPath); // can be in afterAll
     common.removeOutDir(sampleServicePath); // can be in afterAll
     done();
@@ -37,7 +37,7 @@ afterAll(function (done) {
 
 describe(aresCmd + ' --list', function() {
     it('List the available templates', function(done) {
-        generator.showTemplates(false, function(err, value){
+        generator.showTemplates(false, function(err, value) {
             expectedList = expectedList.join('\n'); // multi string in array. need to join
             value.msg = value.msg.trim().replace(/\s+['\n']/g, '\n');
             expect(value.msg).toContain(expectedList);
@@ -63,13 +63,13 @@ describe(aresCmd +' --property', function() {
             version = "2.0.0",
             title = "First App",
             options = {
-                tmplName : "webappinfo",
-                props : ['id='+`${id}`, 'version='+`${version}` , 'title='+`${title}`],
+                tmplName: "webappinfo",
+                props: ['id='+`${id}`, 'version='+`${version}` , 'title='+`${title}`],
                 out:sampleAppPath
             };
             
         let outputTxt = "", text, outputObj;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating webappinfo");
@@ -94,12 +94,12 @@ describe(aresCmd +' --property', function() {
             version = "1.1.1",
             options = {
                 tmplName :"jsserviceinfo",
-                props : ['id='+`${id}`, 'version='+`${version}`],
+                props: ['id='+`${id}`, 'version='+`${version}`],
                 out:sampleAppPath
             };
             
         let outputTxt = "", text, outputObj;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating jsserviceinfo");
@@ -122,12 +122,12 @@ describe(aresCmd +' --property', function() {
             version = "2.0.0",
             options = {
                 tmplName :"qmlappinfo",
-                props : ['id='+`${id}`, 'version='+`${version}`],
+                props: ['id='+`${id}`, 'version='+`${version}`],
                 out:sampleAppPath
             };
             
         let outputTxt = "", text, outputObj;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating qmlappinfo");
@@ -161,12 +161,12 @@ describe(aresCmd + ' --template', function() {
     
     it('webapp : appinfo.json for web app', function(done) {
         const options = {
-            tmplName : "webapp",
+            tmplName: "webapp",
             out:sampleAppPath
         };
             
         let outputTxt = "", fileList;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating webapp");
@@ -186,13 +186,13 @@ describe(aresCmd + ' --template', function() {
     it('hosted_webapp : generate hosted template app', function(done) {
         const url = "http://www.google.com",
             options = {
-                tmplName : "hosted_webapp",
-                props : ['url='+`${url}`],
+                tmplName: "hosted_webapp",
+                props: ['url='+`${url}`],
                 out:sampleAppPath
             };
             
         let outputTxt = "", text;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating hosted_webapp");
@@ -213,13 +213,13 @@ describe(aresCmd + ' --template', function() {
         const id = "com.qml.app",
             title = "First App",
             options = {
-                tmplName : "qmlapp",
-                props : ['id='+`${id}`, 'title='+`${title}`],
+                tmplName: "qmlapp",
+                props: ['id='+`${id}`, 'title='+`${title}`],
                 out:sampleAppPath
             };
             
         let outputTxt = "", text;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating qmlapp");
@@ -239,13 +239,13 @@ describe(aresCmd + ' --template', function() {
     it('js_service : generate js_service template', function(done) {
         const id = "com.sample.app.service'",
             options = {
-                tmplName : "js_service",
-                svcinfo : {id:`${id}`},
+                tmplName: "js_service",
+                svcinfo: {id:`${id}`},
                 out:sampleAppPath
             };
             
         let outputTxt = "", text;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating js_service");
@@ -273,12 +273,12 @@ describe(aresCmd + ' --overwrite(-f)', function() {
 
     it('webappinfo : appinfo.json for web app', function(done) {
         const options = {
-            tmplName : "webappinfo",
+            tmplName: "webappinfo",
             out:sampleAppPath
         };
             
         let outputTxt = "", fileList;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating webappinfo");
@@ -301,14 +301,14 @@ describe(aresCmd + ' --overwrite(-f)', function() {
             version = "2.0.0",
             title = "First App",
             options = {
-                tmplName : "webappinfo",
-                props : ['id='+`${id}`, 'version='+`${version}`, 'title='+`${title}`],
+                tmplName: "webappinfo",
+                props: ['id='+`${id}`, 'version='+`${version}`, 'title='+`${title}`],
                 out:sampleAppPath,
                 overwrite:true
             };
             
         let outputTxt = "", text, outputObj;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating webapp");
@@ -345,13 +345,13 @@ describe(aresCmd + ' --servicename', function() {
     it('Set the servicename for webOS service.', function(done) {
         const id = "com.test.app.service",
             options = {
-                tmplName : "jsserviceinfo",
+                tmplName: "jsserviceinfo",
                 svcName: id,
                 out:sampleServicePath
             };
             
         let outputTxt = "", text, outputObj;
-        generator.generate(options, function(err, value){
+        generator.generate(options, function(err, value) {
             outputTxt += value.msg;
             setTimeout(() => {
                 expect(outputTxt).toContain("Generating jsserviceinfo");

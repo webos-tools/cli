@@ -14,7 +14,7 @@ const path = require('path'),
 const aresCmd = 'Server',
     sampleAppPath = path.join(__dirname, "../..", "tempFiles/sampleApp"),
     serverOption = {
-        path : undefined
+        path: undefined
     };
 
 let expectedTemplate,
@@ -32,15 +32,15 @@ function _reqHandler(code, res) {
     }
 }
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     common.getExpectedResult("ares-generate")
-    .then(function(result){
+    .then(function(result) {
         expectedTemplate = result.template;
         done();
     });
 });
 
-afterAll(function(done){
+afterAll(function(done) {
     common.removeOutDir(sampleAppPath);
     done();
 });
@@ -53,7 +53,7 @@ describe("Test setting", function() {
 
     it('Generate sample app', function(done) {
         const generateCmd = common.makeCmd('ares-generate');
-        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.domain.app" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.domain.app" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }

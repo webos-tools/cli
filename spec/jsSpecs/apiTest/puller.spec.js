@@ -16,9 +16,9 @@ const aresCmd = 'Puller',
 let options,
     outputData="";
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -26,7 +26,7 @@ beforeAll(function (done) {
 
 beforeEach(function(done) {
     const shellCmd = common.makeCmd('ares-shell');
-    exec(shellCmd + ' -r "touch /tmp/aresfile"', function () {
+    exec(shellCmd + ' -r "touch /tmp/aresfile"', function() {
         done();
     });
 });
@@ -39,7 +39,7 @@ afterEach(function(done) {
 describe("Test setting", function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -53,12 +53,12 @@ describe("Test setting", function() {
 
 describe(aresCmd + '.pull()', function() {
     it('Copy file from a device to host machine', function(done) {
-        puller.pull("/tmp/aresfile", `${dstPath}`, pullOptions, function(err, value){
+        puller.pull("/tmp/aresfile", `${dstPath}`, pullOptions, function(err, value) {
             expect(outputData).toContain(dstPath);
             expect(outputData).toContain("1 file(s) pulled");
             expect(value.msg).toContain("Success");
             done();
-        }, function(output){
+        }, function(output) {
             outputData += output;
         });
     });
@@ -66,11 +66,11 @@ describe(aresCmd + '.pull()', function() {
     it('Copy file from a device to host machine with ignore option', function(done) {
         outputData="";
         pullOptions.ignore = true;
-        puller.pull("/tmp/aresfile", `${dstPath}`, pullOptions, function(err, value){
+        puller.pull("/tmp/aresfile", `${dstPath}`, pullOptions, function(err, value) {
             expect(outputData).toContain("1 file(s) pulled");
             expect(value.msg).toContain("Success");
             done();
-        }, function(output){
+        }, function(output) {
             outputData += output;
         });
     });
@@ -79,13 +79,13 @@ describe(aresCmd + '.pull()', function() {
 describe(aresCmd + ' negative TC', function() {
     beforeEach(function(done) {
         const shellCmd = common.makeCmd('ares-shell');
-        exec(shellCmd + ' -r "touch /tmp/aresfile"', function () {
+        exec(shellCmd + ' -r "touch /tmp/aresfile"', function() {
             done();
         });
     });
 
     it('Copy file to not exist local directory', function(done) {
-        puller.pull("/tmp/aresfile", 'invalidDir', pullOptions, function(err){
+        puller.pull("/tmp/aresfile", 'invalidDir', pullOptions, function(err) {
             expect(err.toString()).toContain("ENOENT: no such file or directory, lstat");
             expect(err.toString()).toContain("Please check if the path is valid");
             done();
@@ -93,7 +93,7 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it('Copy invalid file from target', function(done) {
-        puller.pull("/tmp/invalidFile", 'tempDir', pullOptions, function(err){
+        puller.pull("/tmp/invalidFile", 'tempDir', pullOptions, function(err) {
             expect(err.toString()).toContain("The specified path does not exist <SOURCE> : /tmp/invalidFile");
             done();
         });

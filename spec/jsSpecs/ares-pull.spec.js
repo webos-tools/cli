@@ -14,10 +14,10 @@ const aresCmd = 'ares-pull',
 let cmd,
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -28,7 +28,7 @@ describe(aresCmd + ' -v', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -46,7 +46,7 @@ describe(aresCmd, function() {
             pending(options.skipTxt);
         }
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -63,7 +63,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -D', function (error, stdout, stderr) {
+        exec(cmd + ' -D', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -77,7 +77,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
 describe(aresCmd, function() {
     beforeEach(function(done) {
         const shellCmd = common.makeCmd('ares-shell');
-        exec(shellCmd + ' -r "touch /tmp/aresfile"', function () {
+        exec(shellCmd + ' -r "touch /tmp/aresfile"', function() {
             done();
         });
     });
@@ -86,7 +86,7 @@ describe(aresCmd, function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` /tmp/aresfile ${dstPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` /tmp/aresfile ${dstPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -104,7 +104,7 @@ describe(aresCmd + ' --ignore(-i)', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -i /tmp/aresfile ${dstPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -i /tmp/aresfile ${dstPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -123,7 +123,7 @@ describe(aresCmd + ' --ignore(-i)', function() {
 describe(aresCmd + ' negative TC', function() {
     beforeEach(function(done) {
         const shellCmd = common.makeCmd('ares-shell');
-        exec(shellCmd + ' -r "touch /tmp/aresfile"', function () {
+        exec(shellCmd + ' -r "touch /tmp/aresfile"', function() {
             done();
         });
     });
@@ -132,7 +132,7 @@ describe(aresCmd + ' negative TC', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` /tmp/aresfile invalidDir`, function (error, stdout, stderr) {
+        exec(cmd + ` /tmp/aresfile invalidDir`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-pull ERR! [syscall failure]: ENOENT: no such file or directory, lstat");
@@ -146,7 +146,7 @@ describe(aresCmd + ' negative TC', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` /tmp/invalidFile tempDir`, function (error, stdout, stderr) {
+        exec(cmd + ` /tmp/invalidFile tempDir`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-pull ERR! [Tips]: The specified path does not exist <SOURCE> : /tmp/invalidFile");

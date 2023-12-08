@@ -13,10 +13,10 @@ const aresCmd = 'ares-novacom';
 let cmd,
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -28,7 +28,7 @@ describe(aresCmd + ' -v', function() {
             pending(options.skipTxt);
         }
 
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -65,7 +65,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
             pending(options.skipTxt);
         }
 
-        exec(cmd + ' -D', function (error, stdout, stderr) {
+        exec(cmd + ' -D', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -82,7 +82,7 @@ describe(aresCmd + ' --getKey', function() {
             pending(options.skipTxt);
         }
 
-        exec(cmd + ` -k -pass ${options.passPhrase} -d ${options.device}`, function (error, stdout, stderr) {
+        exec(cmd + ` -k -pass ${options.passPhrase} -d ${options.device}`, function(error, stdout, stderr) {
             let tmpstd="",
                 expectedFilePath="";
 
@@ -104,7 +104,7 @@ describe(aresCmd + ' --run', function() {
             pending(options.skipTxt);
         }
 
-        exec(cmd + ` --run "ps -aux" -d ${options.device}`, function (error, stdout, stderr) {
+        exec(cmd + ` --run "ps -aux" -d ${options.device}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -128,12 +128,12 @@ describe(aresCmd + ' --forwrad', function() {
             child = exec(cmd + ` --forward --port 22:${hostPort}`);
         let stdoutData ="";
 
-        child.stdout.on('data',function (data) {
+        child.stdout.on('data',function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }

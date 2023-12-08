@@ -20,10 +20,10 @@ let options,
 
 beforeAll(function(done) {
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         return common.getExpectedResult("ares-generate");
-    }).then(function(result){
+    }).then(function(result) {
         expectedTemplate = result.template;
         done();
     });
@@ -32,7 +32,7 @@ beforeAll(function(done) {
 describe("Test setting", function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -45,12 +45,12 @@ describe("Test setting", function() {
 
     it('Install sample ipk to device with ares-install', function(done) {
         const installCmd = common.makeCmd('ares-install');
-        exec(installCmd + ` ${options.ipkPath}`, function (error, stdout, stderr) {
+        exec(installCmd + ` ${options.ipkPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain("Success");
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             },3000);
         });
@@ -60,9 +60,9 @@ describe("Test setting", function() {
 
 describe(aresCmd + '.launch()', function() {
     it('Launch sample App', function(done) {
-        launcher.launch(launchOptions, options.pkgId, {}, function(err, value){
+        launcher.launch(launchOptions, options.pkgId, {}, function(err, value) {
             expect(value.msg).toContain(`Launched application ${options.pkgId}`);
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             },1000);
         });
@@ -72,7 +72,7 @@ describe(aresCmd + '.launch()', function() {
 
 describe(aresCmd + '.listRunningApp()', function() {
     it('List up sample app', function(done) {
-        launcher.listRunningApp(launchOptions, function(err, value){
+        launcher.listRunningApp(launchOptions, function(err, value) {
             expect(JSON.stringify(value)).toContain(`${options.pkgId}`);
             done();
         });
@@ -81,7 +81,7 @@ describe(aresCmd + '.listRunningApp()', function() {
 
 describe(aresCmd + '.close()', function() {
     it('Close sample app', function(done) {
-        launcher.close(launchOptions, options.pkgId, {}, function(err, value){
+        launcher.close(launchOptions, options.pkgId, {}, function(err, value) {
             expect(value.msg).toContain(`${options.pkgId}`);
             done();
         });
@@ -91,7 +91,7 @@ describe(aresCmd + '.close()', function() {
 describe("Test setting", function() {
     it('Remove installed sample app with ares-install', function(done) {
         const installCmd = common.makeCmd('ares-install');
-        exec(installCmd + ` -r ${options.pkgId}`, function (error, stdout, stderr) {
+        exec(installCmd + ` -r ${options.pkgId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -113,7 +113,7 @@ describe(aresCmd + '.launch() with hosted option', function() {
 
     it('Test setting: Generate SampleApp', function(done) {
         const generateCmd = common.makeCmd('ares-generate');
-        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.sample.app" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.sample.app" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -127,10 +127,10 @@ describe(aresCmd + '.launch() with hosted option', function() {
         let outputData="";
         launchOptions.installMode = "Hosted";
         launchOptions.hostedurl = `${sampleAppPath}`;
-        launcher.launch(launchOptions, "com.sdk.ares.hostedapp", {}, function(){
-        }, function(output){
+        launcher.launch(launchOptions, "com.sdk.ares.hostedapp", {}, function() {
+        }, function(output) {
             outputData += output;
-            setTimeout(function(){
+            setTimeout(function() {
                 expect(outputData).toContain('Ares Hosted App is now running');
                 done();
             },5000);
@@ -139,7 +139,7 @@ describe(aresCmd + '.launch() with hosted option', function() {
 
     it('Test setting: Remove installed ares-hosted app with ares-install', function(done) {
         const installCmd = common.makeCmd('ares-install');
-        exec(installCmd + ' -r com.sdk.ares.hostedapp', function (error, stdout, stderr) {
+        exec(installCmd + ' -r com.sdk.ares.hostedapp', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }

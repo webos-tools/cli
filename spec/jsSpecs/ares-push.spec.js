@@ -14,10 +14,10 @@ const aresCmd = 'ares-push',
 let cmd,
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -28,7 +28,7 @@ describe(aresCmd + ' -v', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             expect(stderr).toContain("verb argv");
             expect(stdout).toContain("SYNOPSIS");
             expect(error).toBeNull();
@@ -43,7 +43,7 @@ describe(aresCmd, function() {
             pending(options.skipTxt);
         }
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -60,7 +60,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ' -D', function (error, stdout, stderr) {
+        exec(cmd + ' -D', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -77,7 +77,7 @@ describe(aresCmd, function() {
             pending(options.skipTxt);
         }
         const shellCmd = common.makeCmd('ares-shell');
-        exec(shellCmd + ` -r "rm -rf /tmp/copyFiles"`, function () {
+        exec(shellCmd + ` -r "rm -rf /tmp/copyFiles"`, function() {
             done();
         });
     });
@@ -86,7 +86,7 @@ describe(aresCmd, function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` ${srcPath} /tmp`, function (error, stdout, stderr) {
+        exec(cmd + ` ${srcPath} /tmp`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -107,7 +107,7 @@ describe(aresCmd + " --ignore(-i) ", function() {
             pending(options.skipTxt);
         }
         const shellCmd = common.makeCmd('ares-shell');
-        exec(shellCmd + ' -r "rm -rf /tmp/copyFiles"', function () {
+        exec(shellCmd + ' -r "rm -rf /tmp/copyFiles"', function() {
             done();
         });
     });
@@ -116,7 +116,7 @@ describe(aresCmd + " --ignore(-i) ", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -i ${srcPath} /tmp`, function (error, stdout, stderr) {
+        exec(cmd + ` -i ${srcPath} /tmp`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -134,7 +134,7 @@ describe(aresCmd + ' negative TC', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` invalidDir /tmp`, function (error, stdout, stderr) {
+        exec(cmd + ` invalidDir /tmp`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-push ERR! [syscall failure]: ENOENT: no such file or directory, lstat");

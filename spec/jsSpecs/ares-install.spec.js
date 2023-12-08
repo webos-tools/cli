@@ -12,10 +12,10 @@ const aresCmd = 'ares-install';
 let cmd,
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -23,7 +23,7 @@ beforeAll(function (done) {
 
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -38,7 +38,7 @@ describe(aresCmd + ' -v', function() {
 describe(aresCmd, function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -52,7 +52,7 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' --device-list(-D)', function() {
     it('Show available device list', function(done) {
-        exec(cmd + ' -D', function (error, stdout, stderr) {
+        exec(cmd + ' -D', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -65,7 +65,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
 
 describe(aresCmd, function() {
     it('Install sample ipk to device', function(done) {
-        exec(cmd + ` ${options.ipkPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${options.ipkPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -79,7 +79,7 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' --list(-l)', function() {
     it('List the installed apps on device', function(done) {
-        exec(cmd + ' -l', function (error, stdout, stderr) {
+        exec(cmd + ' -l', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -91,7 +91,7 @@ describe(aresCmd + ' --list(-l)', function() {
 
 describe(aresCmd + ' --listfull(-F)', function() {
     it('List the installed apps detail information', function(done) {
-        exec(cmd + ' -F', function (error, stdout, stderr) {
+        exec(cmd + ' -F', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -104,7 +104,7 @@ describe(aresCmd + ' --listfull(-F)', function() {
 
 describe(aresCmd + ' --remove(-r)', function() {
     it('Remove installed sample app', function(done) {
-        exec(cmd + ` -r ${options.pkgId}`, function (error, stdout, stderr) {
+        exec(cmd + ` -r ${options.pkgId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -116,7 +116,7 @@ describe(aresCmd + ' --remove(-r)', function() {
 
 describe(aresCmd + ' --list(-l)', function() {
     it('Check removed app is not on installed List', function(done) {
-        exec(cmd + ' -l', function (error, stdout, stderr) {
+        exec(cmd + ' -l', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -128,7 +128,7 @@ describe(aresCmd + ' --list(-l)', function() {
 
 describe(aresCmd + ' negative TC', function() {
     it("Set invalid app ipk which is not exist", function(done) {
-        exec(cmd + ' com.invalid.app.ipk', function (error, stdout, stderr) {
+        exec(cmd + ' com.invalid.app.ipk', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-install ERR! [Tips]: The specified path does not exist <com.invalid.app.ipk>");
@@ -138,7 +138,7 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it("Remove invalid app which is not installed", function(done) {
-        exec(cmd + ' -r com.invalid.app', function (error, stdout, stderr) {
+        exec(cmd + ' -r com.invalid.app', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-install ERR! [com.webos.appInstallService failure]: luna-send command failed <FAILED_REMOVE>");

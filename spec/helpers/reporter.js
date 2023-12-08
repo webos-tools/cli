@@ -8,7 +8,7 @@ const path = require('path');
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 const HtmlReporter = require('jasmine-pretty-html-reporter').Reporter;
 
-jasmine.getEnv().configure( {
+jasmine.getEnv().configure({
     random: false,
     oneFailurePerSpec: false
 });
@@ -20,7 +20,7 @@ jasmine.getEnv().addReporter(new SpecReporter ({  // add jasmine-spec-reporter
         // display each suite number (hierarchical)
         displayNumber: true
     },
-    spec : {
+    spec: {
         // display error messages for each failed assertion
         displayErrorMessages: true,
 
@@ -37,7 +37,7 @@ jasmine.getEnv().addReporter(new SpecReporter ({  // add jasmine-spec-reporter
         displayPending: true,
 
         // display each spec duration
-        displayDuration : false
+        displayDuration: false
     },
     summary: {
         // display error messages for each failed assertion

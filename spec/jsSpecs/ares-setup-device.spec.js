@@ -16,10 +16,10 @@ const aresCmd = 'ares-setup-device',
 let cmd,
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -28,7 +28,7 @@ beforeAll(function (done) {
 describe(aresCmd, function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -40,10 +40,10 @@ describe(aresCmd, function() {
     });
 });
 const killUsedPort = function() {
-    return new Promise(function(resolve){
-        exec("lsof -i :3333 | grep node | awk '{print $2}'", function (error, stdout) {
-            console.log("used port pid : " + (stdout? stdout.trim() : "not used"));
-            exec("kill -9 " + stdout, function () {
+    return new Promise(function(resolve) {
+        exec("lsof -i :3333 | grep node | awk '{print $2}'", function(error, stdout) {
+            console.log("used port pid : " + (stdout ? stdout.trim() : "not used"));
+            exec("kill -9 " + stdout, function() {
                 resolve(true);
             });
         });
@@ -52,7 +52,7 @@ const killUsedPort = function() {
 
 describe(aresCmd + ' -h -v', function() {
     it('Print help message with verbose log', function(done) {
-        exec(cmd + ' -h -v', function (error, stdout, stderr) {
+        exec(cmd + ' -h -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -69,7 +69,7 @@ describe(aresCmd + ' --add(-a)', function() {
         const host = '192.168.0.5';
         const port = '1234';
         const username = 'developer';
-        exec(cmd + ` -a ${device} -i username=${username} -i host=${host} -i port=${port}`, function (error, stdout, stderr) {
+        exec(cmd + ` -a ${device} -i username=${username} -i host=${host} -i port=${port}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -90,7 +90,7 @@ describe(aresCmd + ' --add(-a)', function() {
         const port = '1234';
         const username = 'developer';
         const newDevice = 'test1';
-        exec(cmd + ` -a ${newDevice} -i username=${username} -i host=${host} -i port=${port} -i default=true`, function (error, stdout, stderr) {
+        exec(cmd + ` -a ${newDevice} -i username=${username} -i host=${host} -i port=${port} -i default=true`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -106,7 +106,7 @@ describe(aresCmd + ' --add(-a)', function() {
 
 describe(aresCmd + ' --list(-l)', function() {
     it('Should List all device information', function(done) {
-        exec(cmd + ' --list', function (error, stdout, stderr) {
+        exec(cmd + ' --list', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -118,7 +118,7 @@ describe(aresCmd + ' --list(-l)', function() {
 
 describe(aresCmd + ' --listfull(-F)', function() {
     it('Should List all device detail information', function(done) {
-        exec(cmd + ' -F', function (error, stdout, stderr) {
+        exec(cmd + ' -F', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -134,7 +134,7 @@ describe(aresCmd + ' --modify(-m)', function() {
         const username = 'developer';
         const host = '192.168.0.1';
         const port = '4321';
-        exec(cmd + ` -m ${device} -i username=${username} -i host=${host} -i port=${port}`, function (error, stdout, stderr) {
+        exec(cmd + ` -m ${device} -i username=${username} -i host=${host} -i port=${port}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -148,7 +148,7 @@ describe(aresCmd + ' --modify(-m)', function() {
 
 describe(aresCmd + ' --default(-f)', function() {
     it('Set default device', function(done) {
-        exec(cmd + ` -f ${device}`, function (error, stdout, stderr) {
+        exec(cmd + ` -f ${device}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -160,7 +160,7 @@ describe(aresCmd + ' --default(-f)', function() {
 
 describe(aresCmd + ' --remove(-r)', function() {
     it('Should remove added device information', function(done) {
-        exec(cmd + ` -r ${device}`, function (error, stdout, stderr) {
+        exec(cmd + ` -r ${device}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -178,7 +178,7 @@ describe(aresCmd + ' --search(-s), --timeout(-t)', function() {
 
     beforeEach(function(done) {
         killUsedPort()
-        .then(function(){
+        .then(function() {
             done();
         });
     });
@@ -187,12 +187,12 @@ describe(aresCmd + ' --search(-s), --timeout(-t)', function() {
         const child = exec(cmd + ' -s -t 1');
         let stdoutData = "";
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -212,7 +212,7 @@ describe(aresCmd + ' --reset(-R)', function() {
         const host = '192.168.0.5';
         const port = '1234';
         const username = 'developer';
-        exec(cmd + ` -a ${device} -i username=${username} -i host=${host} -i port=${port}`, function (error, stdout, stderr) {
+        exec(cmd + ` -a ${device} -i username=${username} -i host=${host} -i port=${port}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -233,7 +233,7 @@ describe(aresCmd + ' --reset(-R)', function() {
             }
         });
 
-        exec(cmd + ' -R', function (error, stdout, stderr) {
+        exec(cmd + ' -R', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -249,7 +249,7 @@ describe(aresCmd + ' --reset(-R)', function() {
 
 describe(aresCmd + ' negative TC', function() {
     it('Remove invaild device target', function(done) {
-        exec(cmd + ` -r invalidTarget`, function (error, stdout, stderr) {
+        exec(cmd + ` -r invalidTarget`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-setup-device ERR! [Tips]: Invalid value <DEVICE_NAME> : invalidTarget");
@@ -259,7 +259,7 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it('Remove emulator device', function(done) {
-        exec(cmd + ` -r emulator`, function (error, stdout, stderr) {
+        exec(cmd + ` -r emulator`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-setup-device ERR! [Tips]: Cannot remove the device <emulator>");
@@ -270,7 +270,7 @@ describe(aresCmd + ' negative TC', function() {
     
     it('Add invalid DEVICE', function(done) {
         const deivceName = "invalid#@!";
-        exec(cmd + ` -a ${deivceName}`, function (error, stdout, stderr) {
+        exec(cmd + ` -a ${deivceName}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-setup-device ERR! [Tips]: Invalid device name. The device name should consist");

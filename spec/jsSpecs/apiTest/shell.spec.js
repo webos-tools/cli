@@ -12,9 +12,9 @@ const aresCmd = 'Shell',
 
 let options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -23,7 +23,7 @@ beforeAll(function (done) {
 describe("Test setting", function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -38,7 +38,7 @@ describe("Test setting", function() {
 describe(aresCmd + '.removeRun()', function() {
     let outputTxt ="";
     it('Run command on target', function(done) {
-        shell.remoteRun(shellOption, "echo $PATH", function(err, value){
+        shell.remoteRun(shellOption, "echo $PATH", function(err, value) {
             outputTxt += value.msg;
         });
         setTimeout(() => {

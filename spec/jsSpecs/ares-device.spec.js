@@ -18,10 +18,10 @@ const aresCmd = 'ares-device';
 let cmd,
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         common.removeOutDir(csvFilePath);
         done();
@@ -35,7 +35,7 @@ afterAll(function(done) {
 
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -50,7 +50,7 @@ describe(aresCmd + ' -v', function() {
 describe(aresCmd, function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -64,7 +64,7 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' --device-list(-D)', function() {
     it('Show available device list', function(done) {
-        exec(cmd + ' -D', function (error, stdout, stderr) {
+        exec(cmd + ' -D', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -87,7 +87,7 @@ describe(aresCmd, function() {
             keys = tvKeys;
         }
 
-        exec(cmd + ` -i ${options.device}`, function (error, stdout, stderr) {
+        exec(cmd + ` -i ${options.device}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -102,7 +102,7 @@ describe(aresCmd, function() {
 describe(aresCmd, function() {
     it('Retrieve session information', function(done) {
         const keys = ["sessionId", "displayId"];
-        exec(cmd + ` -se ${options.device}`, function (error, stdout, stderr) {
+        exec(cmd + ` -se ${options.device}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-device ERR! [com.webos.service.sessionmanager failure]: " +
@@ -122,12 +122,12 @@ describe(aresCmd, function() {
 describe(aresCmd, function() {
     const installCmd = common.makeCmd('ares-install');
     it('Install sample ipk to device with ares-install', function(done) {
-        exec(installCmd + ` ${options.ipkPath}`, function (error, stdout, stderr) {
+        exec(installCmd + ` ${options.ipkPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain("Success", stderr);
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             }, 3000);
         });
@@ -137,13 +137,13 @@ describe(aresCmd, function() {
 describe(aresCmd, function() {
     const launchCmd = common.makeCmd('ares-launch');
     it('Launch sample App', function(done) {
-        exec(launchCmd + ` ${options.pkgId}`, function (error, stdout, stderr) {
+        exec(launchCmd + ` ${options.pkgId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain("[Info] Set target device : " + options.device);
             expect(stdout).toContain(`Launched application ${options.pkgId}`, error);
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             }, 3000);
         });
@@ -157,7 +157,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     });
 
     it('Print all system resource', function(done) {
-        exec(cmd + " -r", function (error, stdout, stderr) {
+        exec(cmd + " -r", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -170,7 +170,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     });
 
     it('Save specific csv file for all system resource', function(done) {
-        exec(cmd + ` -r -s ${csvFilePath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -r -s ${csvFilePath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -184,7 +184,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     });
 
     it('Save generated csv file name for all system resource', function(done) {
-        exec(cmd + ` -r -s`, function (error, stdout, stderr) {
+        exec(cmd + ` -r -s`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -203,11 +203,11 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     it('Print all system resource periodically', function(done) {
         const child = exec(cmd + " -r -t 1");
         let stdoutData;
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -231,7 +231,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
 
 describe(aresCmd + ' --resource-monitor(-r)', function() {
     it('Print running app resource', function(done) {
-        exec(cmd + " -r --list", function (error, stdout, stderr) {
+        exec(cmd + " -r --list", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -249,11 +249,11 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     it('Print running app resource periodically', function(done) {
         const child = exec(cmd + " -r --list -t 1");
         let stdoutData;
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -270,7 +270,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     });
 
     it('Print specific app resource', function(done) {
-        exec(cmd + ` -r -id ${options.pkgId}`, function (error, stdout, stderr) {
+        exec(cmd + ` -r -id ${options.pkgId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -284,7 +284,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     });
 
     it('Save csv file for specific app resource', function(done) {
-        exec(cmd + ` -r -id ${options.pkgId} -s ${csvFilePath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -r -id ${options.pkgId} -s ${csvFilePath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -299,7 +299,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
     });
 
     it('Print specific app is not running', function(done) {
-        exec(cmd + ` -r -id com.test.app`, function (error, stdout, stderr) {
+        exec(cmd + ` -r -id com.test.app`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -315,7 +315,7 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
 describe(aresCmd + ' --remove(-r)', function() {
     const installCmd = common.makeCmd('ares-install');
     it('Remove installed sample app', function(done) {
-        exec(installCmd + ` -r ${options.pkgId}`, function (error, stdout, stderr) {
+        exec(installCmd + ` -r ${options.pkgId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -340,7 +340,7 @@ describe(aresCmd + ' --capture-screen(-c)', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -c`, function (error, stdout, stderr) {
+        exec(cmd + ` -c`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -362,7 +362,7 @@ describe(aresCmd + ' --capture-screen(-c)', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -c screen.jpg`, function (error, stdout, stderr) {
+        exec(cmd + ` -c screen.jpg`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -380,7 +380,7 @@ describe(aresCmd + ' --capture-screen(-c)', function() {
 
 describe(aresCmd + ' negative TC', function() {
     it('Monitor system resource with invalid file extensiton', function(done) {
-        exec(cmd + ` -r -s test.abc`, function (error, stdout, stderr) {
+        exec(cmd + ` -r -s test.abc`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-device ERR! [Tips]: Please change the file extension to .csv");
@@ -390,7 +390,7 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it('Monitor system resource with invalid destiation Path', function(done) {
-        exec(cmd + ` -r -s invalid/system.csv`, function (error, stdout, stderr) {
+        exec(cmd + ` -r -s invalid/system.csv`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-device ERR! [syscall failure]: ENOENT: no such file or directory");
@@ -404,7 +404,7 @@ describe(aresCmd + ' negative TC', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -c "test.abc"`, function (error, stdout, stderr) {
+        exec(cmd + ` -c "test.abc"`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-device ERR! [Tips]: Please specify the file extension(.png, .bmp or .jpg)");
@@ -417,7 +417,7 @@ describe(aresCmd + ' negative TC', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -c invalid/screen.png`, function (error, stdout, stderr) {
+        exec(cmd + ` -c invalid/screen.png`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-device ERR! [syscall failure]: ENOENT: no such file or directory");
@@ -431,7 +431,7 @@ describe(aresCmd + ' negative TC', function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -c --display 10`, function (error, stdout, stderr) {
+        exec(cmd + ` -c --display 10`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-device ERR! [com.webos.surfacemanager failure]: luna-send command failed <ERR_INVALID_DISPLAY>");

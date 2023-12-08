@@ -13,14 +13,14 @@ const path = require('path'),
 const commonSpec = {};
 const options = {
     profile: "ose",
-    device : "emulator",
-    ip : "127.0.0.1",
-    port : 6622,
-    pkgId : "com.jasmine.web.app",
-    pkgService : "com.jasmine.web.app.service",
-    ipkFile : "com.jasmine.web.app_0.0.1_all.ipk",
-    ipkPath : path.join(__dirname, "..", "tempFiles",  "com.jasmine.web.app_0.0.1_all.ipk"),
-    passPhrase : ""
+    device: "emulator",
+    ip: "127.0.0.1",
+    port: 6622,
+    pkgId: "com.jasmine.web.app",
+    pkgService: "com.jasmine.web.app.service",
+    ipkFile: "com.jasmine.web.app_0.0.1_all.ipk",
+    ipkPath: path.join(__dirname, "..", "tempFiles",  "com.jasmine.web.app_0.0.1_all.ipk"),
+    passPhrase: ""
 };
 
 if (typeof module !== 'undefined' && module.exports) {
@@ -45,7 +45,7 @@ const shortHands = {
 };
 
 commonSpec.getOptions = function() {
-    return new Promise(function(resolve, reject){
+    return new Promise(function(resolve, reject) {
         const argv = nopt(knownOpts, shortHands, process.argv, 2);
 
         if (argv.profile) {
@@ -72,7 +72,7 @@ commonSpec.getOptions = function() {
 
         // set profile
         const cmd = commonSpec.makeCmd('ares-config');
-        exec(cmd + ` -p ${options.profile}`, function (error, stdout) {
+        exec(cmd + ` -p ${options.profile}`, function(error, stdout) {
             if (error) {
                 console.error("set config error " +  error);
                 reject(stdout);
@@ -85,7 +85,7 @@ commonSpec.getOptions = function() {
 };
 
 commonSpec.getExpectedResult = function(aresCmd) {
-    return new Promise(function(resolve){
+    return new Promise(function(resolve) {
         try {
             const text = fs.readFileSync(path.join(__dirname, "../test_data", aresCmd + '.json'), 'utf8');
             const resultJson = JSON.parse(text);
@@ -100,7 +100,7 @@ commonSpec.getExpectedResult = function(aresCmd) {
 commonSpec.resetDeviceList = function() {
     return new Promise(function(resolve, reject) {
         const cmd = commonSpec.makeCmd('ares-setup-device');
-        exec(cmd + ' -R', function (error, stdout, stderr) {
+        exec(cmd + ' -R', function(error, stdout, stderr) {
             if (!stderr) {
                 resolve(true);
             } else {
@@ -114,7 +114,7 @@ commonSpec.addDeviceInfo = function() {
     return new Promise(function(resolve, reject) {
         const cmd = commonSpec.makeCmd('ares-setup-device');
         exec(cmd + ` -a ${options.device} -i port=${options.port} -i username=root -i host=${options.ip} -i default=true`,
-        function (error, stdout, stderr) {
+        function(error, stdout, stderr) {
             if (stderr) {
                 reject(stderr);
             } else {
@@ -158,7 +158,7 @@ commonSpec.getKey = function(passPhrase) {
     return new Promise(function(resolve, reject) {
         const cmd = commonSpec.makeCmd('ares-novacom');
         exec(cmd + ` -k -pass ${passPhrase} -d ${options.device}`,
-        function (error, stdout, stderr) {
+        function(error, stdout, stderr) {
             if (stderr) {
                 reject(stderr);
             } else {

@@ -12,10 +12,10 @@ const aresCmd = 'ares-config';
 let cmd,
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         done();
     });
@@ -23,7 +23,7 @@ beforeAll(function (done) {
 
 describe(aresCmd + ' --profile(-p)', function() {
     it("Set a device profile to ose", function(done) {
-        exec(cmd + ' -p ose', function (error, stdout, stderr) {
+        exec(cmd + ' -p ose', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -33,7 +33,7 @@ describe(aresCmd + ' --profile(-p)', function() {
     });
 
     it("Set a device profile to tv", function(done) {
-        exec(cmd + ' -p tv', function (error, stdout, stderr) {
+        exec(cmd + ' -p tv', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -43,7 +43,7 @@ describe(aresCmd + ' --profile(-p)', function() {
     });
 
     it("Set a device profile input", function(done) {
-        exec(cmd + ` -p ${options.profile}`, function (error, stdout, stderr) {
+        exec(cmd + ` -p ${options.profile}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -55,7 +55,7 @@ describe(aresCmd + ' --profile(-p)', function() {
 
 describe(aresCmd + ' --prefile-details(-c)', function() {
     it("Set a device profile to configure", function(done) {
-        exec(cmd + ' -c', function (error, stdout, stderr) {
+        exec(cmd + ' -c', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -67,7 +67,7 @@ describe(aresCmd + ' --prefile-details(-c)', function() {
 
 describe(aresCmd + ' negative TC', function() {
     it("Set invalid device profile", function(done) {
-        exec(cmd + ' -p test', function (error, stdout, stderr) {
+        exec(cmd + ' -p test', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain(`ares-config ERR! [Tips]: Invalid value <profile> : test`, error);

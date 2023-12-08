@@ -16,7 +16,7 @@ const aresCmd = 'Inspector',
 
 let options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     common.getOptions()
     .then(function(result) {
         options = result;
@@ -27,7 +27,7 @@ beforeAll(function (done) {
 describe("Test setting", function() {
     it("Add device with ares-setup-device", function(done) {
         common.resetDeviceList()
-        .then(function(){
+        .then(function() {
             return common.addDeviceInfo();
         }).then(function(result) {
             expect(result).toContain(options.device);
@@ -40,7 +40,7 @@ describe("Test setting", function() {
 
     it('Install sample ipk to device', function(done) {
         const installCmd = common.makeCmd('ares-install');
-        exec(installCmd + ` ${options.ipkPath}`, function (error, stdout, stderr) {
+        exec(installCmd + ` ${options.ipkPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }

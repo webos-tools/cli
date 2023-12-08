@@ -12,7 +12,7 @@ const aresCmd = 'ares-inspect';
 let cmd, 
     options;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
     .then(function(result) {
@@ -23,7 +23,7 @@ beforeAll(function (done) {
 
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -52,7 +52,7 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' --device-list(-D)', function() {
     it('Show available device list', function(done) {
-        exec(cmd + ' -D', function (error, stdout, stderr) {
+        exec(cmd + ' -D', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -66,7 +66,7 @@ describe(aresCmd + ' --device-list(-D)', function() {
 describe(aresCmd, function() {
     it('Install sample ipk to device', function(done) {
         const installCmd = common.makeCmd('ares-install');
-        exec(installCmd + ` ${options.ipkPath}`, function (error, stdout, stderr) {
+        exec(installCmd + ` ${options.ipkPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -83,12 +83,12 @@ describe(aresCmd, function() {
         const child = exec(cmd + ` -a ${options.pkgId} -dp 0`);
         let stdoutData = "";
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -104,12 +104,12 @@ describe(aresCmd, function() {
 
     it('Close sample App', function(done) {
         const launchCmd = common.makeCmd('ares-launch');
-        exec(launchCmd + ` -c ${options.pkgId} -dp 0`, function (error, stdout, stderr) {
+        exec(launchCmd + ` -c ${options.pkgId} -dp 0`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(`Closed application ${options.pkgId}`, error);
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             }, 3000);
         });
@@ -121,12 +121,12 @@ describe(aresCmd +' --open(-o)', function() {
         const child = exec(cmd + ` -a ${options.pkgId} -o -dp 1`);
         let stdoutData = "";
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -142,12 +142,12 @@ describe(aresCmd +' --open(-o)', function() {
 
     it('Close sample App', function(done) {
         const launchCmd = common.makeCmd('ares-launch');
-        exec(launchCmd + ` -c ${options.pkgId} -dp 1`, function (error, stdout, stderr) {
+        exec(launchCmd + ` -c ${options.pkgId} -dp 1`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain(`Closed application ${options.pkgId}`, error);
-            setTimeout(function(){
+            setTimeout(function() {
                 done();
             }, 3000);
         });
@@ -160,12 +160,12 @@ describe(aresCmd, function() {
     it('Run Node\'s Inspector for sample Service', function(done) {
         const child = exec(cmd + ` -s ${options.pkgService} -dp 1`);
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -189,12 +189,12 @@ describe(aresCmd +' --open(-o)', function() {
     it('Open Node\'s Inspector for sample Service', function(done) {
         const child = exec(cmd + ` -s ${options.pkgService} -dp 0 -o`);
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -213,7 +213,7 @@ describe(aresCmd +' --open(-o)', function() {
 describe(aresCmd, function() {
     it('Remove installed sample app with ares-install', function(done) {
         const installCmd = common.makeCmd('ares-install');
-        exec(installCmd + ` -r ${options.pkgId}`, function (error, stdout, stderr) {
+        exec(installCmd + ` -r ${options.pkgId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -225,7 +225,7 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' negative TC', function() {
     it("Set invalid app which is not installed", function(done) {
-        exec(cmd + ' com.invalid.app', function (error, stdout, stderr) {
+        exec(cmd + ' com.invalid.app', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.profile === "ose") {
@@ -241,7 +241,7 @@ describe(aresCmd + ' negative TC', function() {
     });
 
     it("Set invalid service which is not installed", function(done) {
-        exec(cmd + ' -s com.invalid.service', function (error, stdout, stderr) {
+        exec(cmd + ' -s com.invalid.service', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-inspect ERR! [Tips]: Failed to get service installation path <com.invalid.service>");

@@ -45,7 +45,7 @@ describe(aresCmd + " -h -v", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + " -h -v", function (error, stdout, stderr) {
+        exec(cmd + " -h -v", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -80,7 +80,7 @@ describe(aresCmd + " --device-list(-D)", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + " -D", function (error, stdout, stderr) {
+        exec(cmd + " -D", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -96,7 +96,7 @@ describe(aresCmd + " -cd", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + " -cd", function (error, stdout, stderr) {
+        exec(cmd + " -cd", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -118,7 +118,7 @@ describe(aresCmd + " -sd", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -sd ${targetLogDaemon}`, function (error, stdout, stderr) {
+        exec(cmd + ` -sd ${targetLogDaemon}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -134,7 +134,7 @@ describe('Set and check configuration for this test', function() {
             pending(options.skipTxt);
         }
         const deviceCmd = common.makeCmd('ares-device');
-        exec(deviceCmd + ` -s ${options.device}`, function (error, stdout, stderr) {
+        exec(deviceCmd + ` -s ${options.device}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -151,7 +151,7 @@ describe('Set and check configuration for this test', function() {
             pending(options.skipTxt);
         }
         const installCmd = common.makeCmd("ares-install");
-        exec(installCmd + ` ${testAppPath}`, function (error, stdout, stderr) {
+        exec(installCmd + ` ${testAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             } else {
@@ -167,7 +167,7 @@ describe(aresCmd + " -n 2", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + " -n 2", function (error, stdout, stderr) {
+        exec(cmd + " -n 2", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -190,7 +190,7 @@ describe(aresCmd + "save option cases", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -n 2 -s ${savedlogPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -n 2 -s ${savedlogPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -208,7 +208,7 @@ describe(aresCmd + "save option cases", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -n 2 -s`, function (error, stdout, stderr) {
+        exec(cmd + ` -n 2 -s`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -234,7 +234,7 @@ describe(aresCmd + " -cl", function() {
             pending("In case of pmlogd, skip this test case");
         }
         const launchCmd = common.makeCmd("ares-launch");
-        exec(launchCmd + ` ${testAppId}`, function (error, stdout, stderr) {
+        exec(launchCmd + ` ${testAppId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             } else {
@@ -253,7 +253,7 @@ describe(aresCmd + " -cl", function() {
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
-        exec(cmd + " -cl", function (error, stdout, stderr) {
+        exec(cmd + " -cl", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -275,7 +275,7 @@ describe(aresCmd + ` -id ${testAppId}`, function() {
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
-        exec(cmd + `-id ${testAppId}`, function (error, stdout, stderr) {
+        exec(cmd + `-id ${testAppId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -297,7 +297,7 @@ describe(aresCmd + ` -sl ${testAppId} debug`, function() {
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
-        exec(cmd + ` -sl ${testAppId} debug`, function (error, stdout, stderr) {
+        exec(cmd + ` -sl ${testAppId} debug`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -317,7 +317,7 @@ describe(aresCmd + ` -sl ${testAppId} debug`, function() {
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
-        exec(cmd + " -cl", function (error, stdout, stderr) {
+        exec(cmd + " -cl", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -339,7 +339,7 @@ describe(aresCmd + " -fl", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -fl", function (error, stdout, stderr) {
+        exec(cmd + " -fl", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -361,7 +361,7 @@ describe(aresCmd + " --file", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " --file system.journal", function (error, stdout, stderr) {
+        exec(cmd + " --file system.journal", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -381,7 +381,7 @@ describe(aresCmd + " --file", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " --file system.journal --output json", function (error, stdout, stderr) {
+        exec(cmd + " --file system.journal --output json", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -403,7 +403,7 @@ describe(aresCmd + " -ul", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -ul", function (error, stdout, stderr) {
+        exec(cmd + " -ul", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -425,7 +425,7 @@ describe(aresCmd + " -ul -dp 1", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -ul -dp 1", function (error, stdout, stderr) {
+        exec(cmd + " -ul -dp 1", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -449,7 +449,7 @@ describe(aresCmd + " -n 1 -o json", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -n 1 -o json", function (error, stdout, stderr) {
+        exec(cmd + " -n 1 -o json", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -471,7 +471,7 @@ describe(aresCmd + " -k", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -k", function (error, stdout, stderr) {
+        exec(cmd + " -k", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -493,7 +493,7 @@ describe(aresCmd + " -b", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -b", function (error, stdout, stderr) {
+        exec(cmd + " -b", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -517,7 +517,7 @@ describe(aresCmd + " --pid", function() {
             pending("In case of pmlogd, skip this test case");
         }
         const pidExp = /\w+ \d+ \d\d:\d\d:\d\d [\w\d\-]+ [\w\d\.\-]+\[(\d+)]:/;
-            exec(cmd + " -n 1", function (error, stdout, stderr) {
+            exec(cmd + " -n 1", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -537,7 +537,7 @@ describe(aresCmd + " --pid", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + ` --pid ${pid} -n 3`, function (error, stdout, stderr) {
+        exec(cmd + ` --pid ${pid} -n 3`, function(error, stdout, stderr) {
             const expectedPid = `[${pid}]`;
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
@@ -561,7 +561,7 @@ describe(aresCmd + " --unit memorymanager", function() {
             pending("In case of pmlogd, skip this test case");
         }
         const launchCmd = common.makeCmd("ares-launch");
-        exec(launchCmd + ` ${testAppId}`, function (error, stdout, stderr) {
+        exec(launchCmd + ` ${testAppId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             } else {
@@ -580,7 +580,7 @@ describe(aresCmd + " --unit memorymanager", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " --unit memorymanager", function (error, stdout, stderr) {
+        exec(cmd + " --unit memorymanager", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -603,7 +603,7 @@ describe(aresCmd +" -u sam -dp 1", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -u sam -dp 1", function (error, stdout, stderr) {
+        exec(cmd + " -u sam -dp 1", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -628,7 +628,7 @@ describe(aresCmd + " -S today", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -S today", function (error, stdout, stderr) {
+        exec(cmd + " -S today", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -650,7 +650,7 @@ describe(aresCmd + " -U yesterday", function() {
         if (targetLogDaemon === "pmlogd") {
             pending("In case of pmlogd, skip this test case");
         }
-        exec(cmd + " -U yesterday", function (error, stdout, stderr) {
+        exec(cmd + " -U yesterday", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -669,7 +669,7 @@ describe(aresCmd + " negative tc", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + " -aaa", function (error, stdout, stderr) {
+        exec(cmd + " -aaa", function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain(`ares-log ERR! [Tips]: ${targetLogDaemon} does not support the option <aaa>`);
@@ -682,7 +682,7 @@ describe(aresCmd + " negative tc", function() {
         if (options.profile === "tv") {
             pending(options.skipTxt);
         }
-        exec(cmd + ` -n 2 -s invalid/aaa.log`, function (error, stdout, stderr) {
+        exec(cmd + ` -n 2 -s invalid/aaa.log`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-log ERR! [syscall failure]: ENOENT: no such file or directory");
@@ -699,7 +699,7 @@ describe(aresCmd + " negative tc", function() {
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
-        exec(cmd + ` -id`, function (error, stdout, stderr) {
+        exec(cmd + ` -id`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -721,7 +721,7 @@ describe(aresCmd + " negative tc", function() {
         if (targetLogDaemon === "journald") {
             pending("In case of journald, skip this test case");
         }
-        exec(cmd + ` -id com.domain.app`, function (error, stdout, stderr) {
+        exec(cmd + ` -id com.domain.app`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 if (options.device === "emulator") {
@@ -746,11 +746,11 @@ describe(aresCmd + " -f", function() {
         const child = exec(cmd + " -f");
         let result = "";
 
-        child.stdout.on("data", function (data) {
+        child.stdout.on("data", function(data) {
             result += data;
         });
 
-        child.stderr.on("data", function (data) {
+        child.stderr.on("data", function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -779,11 +779,11 @@ describe(aresCmd + " -r", function() {
         const child = exec(cmd + " -r");
         let result = "";
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             result += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -808,7 +808,7 @@ describe('Set default configuration', function() {
             pending(options.skipTxt);
         }
         const installCmd = common.makeCmd("ares-install");
-        exec(installCmd + ` -r ${testAppPath}`, function (error, stdout, stderr) {
+        exec(installCmd + ` -r ${testAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             } else {

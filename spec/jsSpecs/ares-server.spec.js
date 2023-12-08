@@ -15,10 +15,10 @@ const aresCmd = 'ares-server',
 let cmd,
     expectedTemplate;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getExpectedResult("ares-generate")
-    .then(function(result){
+    .then(function(result) {
         expectedTemplate = result.template;
         done();
     });
@@ -26,7 +26,7 @@ beforeAll(function (done) {
 
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -46,7 +46,7 @@ describe(aresCmd, function() {
 
     it('Generate sample app', function(done) {
         const generateCmd = common.makeCmd('ares-generate');
-        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.domain.app" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.domain.app" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -71,12 +71,12 @@ describe(aresCmd, function() {
         const child = exec(cmd + ` ${sampleAppPath}`);
         let stdoutData = "";
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -96,12 +96,12 @@ describe(aresCmd + ' --open(o)', function() {
         const child = exec(cmd + ` ${sampleAppPath} -o`);
         let stdoutData = "";
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -127,12 +127,12 @@ describe(aresCmd +' --port', function() {
         const child = exec(cmd + ` -p ${port} ${sampleAppPath}`);
         let stdoutData = "";
 
-        child.stdout.on('data', function (data) {
+        child.stdout.on('data', function(data) {
             process.stdout.write(data);
             stdoutData += data;
         });
 
-        child.stderr.on('data', function (data) {
+        child.stderr.on('data', function(data) {
             if (data && data.length > 0) {
                 common.detectNodeMessage(data);
             }
@@ -149,7 +149,7 @@ describe(aresCmd +' --port', function() {
 
 describe(aresCmd + ' negative TC', function() {
     it('Set invaild path', function(done) {
-        exec(cmd + ` invalidDir`, function (error, stdout, stderr) {
+        exec(cmd + ` invalidDir`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-server ERR! [Tips]: Please specify a value <APP_DIR>");

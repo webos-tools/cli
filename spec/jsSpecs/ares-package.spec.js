@@ -31,16 +31,16 @@ const aresCmd = 'ares-package',
 let cmd,
     expectedTemplate;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getExpectedResult("ares-generate")
-    .then(function(result){
+    .then(function(result) {
         expectedTemplate = result.template;
         done();
     });
 });
 
-afterAll(function (done) {
+afterAll(function(done) {
     common.removeOutDir(sampleAppPath); // can be in afterAll
     common.removeOutDir(sampleServicePath); // can be in afterAll
     common.removeOutDir(pkgInfoPath);
@@ -50,7 +50,7 @@ afterAll(function (done) {
 
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -70,7 +70,7 @@ describe(aresCmd, function() {
 
     it('Generate a sample app for packaging', function(done) {
         const generateCmd = common.makeCmd('ares-generate');
-        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.webos.sample.app" -p "version=1.0.0" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.webos.sample.app" -p "version=1.0.0" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -89,11 +89,11 @@ describe(aresCmd, function() {
 
     it('Generate two sample services for packaging', function(done) {
         const serviceid = ["com.webos.sample.app.service", "com.webos.sample.service1", "com.webos.sample.service2"];
-        serviceid.forEach( function(svcId) {
+        serviceid.forEach(function(svcId) {
             const svcPath = path.join(sampleServicePath, svcId);
             sampleServicePaths.push(path.join(sampleServicePath, svcId));
             const generateCmd = common.makeCmd('ares-generate');
-            exec(generateCmd + ` -t ${expectedTemplate.jsservice} -s ${svcId} ${svcPath}`, function (error, stdout, stderr) {
+            exec(generateCmd + ` -t ${expectedTemplate.jsservice} -s ${svcId} ${svcPath}`, function(error, stdout, stderr) {
                 if (stderr && stderr.length > 0) {
                     common.detectNodeMessage(stderr);
                 }
@@ -115,7 +115,7 @@ describe(aresCmd, function() {
     });
 
     it('Package web app with -o(--outdir)', function(done) {
-        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -134,7 +134,7 @@ describe(aresCmd, function() {
     });
 
     it('Package web app & service with -o(--outdir)', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -163,7 +163,7 @@ describe(aresCmd, function() {
     });
 
     it('App version does not exist', function(done) {
-        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -199,7 +199,7 @@ describe(aresCmd, function() {
     });
 
     it('Package web app with -pi option', function(done) {
-        exec(cmd + ` ${sampleAppPath} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -pi com.webos.sample -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -211,7 +211,7 @@ describe(aresCmd, function() {
     });
 
     it('Package web app with -pf option', function(done) {
-        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -243,7 +243,7 @@ describe(aresCmd + ' --pkginfofile(-pf)', function() {
     });
 
     it('Package web app by packageinfo.json and -o(--outdir)', function(done) {
-        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -255,7 +255,7 @@ describe(aresCmd + ' --pkginfofile(-pf)', function() {
     });
 
     it('Check to exist app field in packageinfo.json', function(done) {
-        exec(cmd + ` -I ${pkgPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -I ${pkgPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -276,7 +276,7 @@ describe(aresCmd, function() {
         const expectIpkName = "com.ose.target.native_1.0.0_arm.ipk";
         const expectIpkPath = path.join(outputPath, expectIpkName);
 
-        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -294,7 +294,7 @@ describe(aresCmd, function() {
         const expectIpkName = "com.ose.emul.native_1.0.0_x86.ipk";
         const expectIpkPath = path.join(outputPath, expectIpkName);
 
-        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -312,7 +312,7 @@ describe(aresCmd, function() {
         const expectIpkName = "com.sample.gles2_1.0.0_aarch64.ipk";
         const expectIpkPath = path.join(outputPath, expectIpkName);
 
-        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -330,7 +330,7 @@ describe(aresCmd, function() {
         const expectIpkName = "com.sample.gles2_1.0.0_x86_64.ipk";
         const expectIpkPath = path.join(outputPath, expectIpkName);
 
-        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${nativeAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -367,7 +367,7 @@ describe(aresCmd, function() {
     });
 
     it('Package only service with -pi and -o(--outdir)', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pi com.webos.sample -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -379,7 +379,7 @@ describe(aresCmd, function() {
     });
 
     it('Package only service with -pf and -o(--outdir)', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -392,7 +392,7 @@ describe(aresCmd, function() {
 
     it('Package service with -pf and -pv', function(done) {
         const expectedTmpFile = path.join(outputPath,"com.webos.sample_1.1.1_all.ipk");
-        exec(cmd + ` ${sampleServicePaths[0]} -pf ${pkgInfoPath} -pv 1.1.1 -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[0]} -pf ${pkgInfoPath} -pv 1.1.1 -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -406,7 +406,7 @@ describe(aresCmd, function() {
 
 describe(aresCmd + ' --check(-c)', function() {
     it('Check the application but do not pacakge', function(done) {
-        exec(cmd + ` -c ${sampleAppPath} ${sampleServicePaths[0]}`, function (error, stdout, stderr) {
+        exec(cmd + ` -c ${sampleAppPath} ${sampleServicePaths[0]}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -415,7 +415,7 @@ describe(aresCmd + ' --check(-c)', function() {
         });
     });
     it('Check the services but do not pacakge', function(done) {
-        exec(cmd + ` -c ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pi com.webos.sample`, function (error, stdout, stderr) {
+        exec(cmd + ` -c ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pi com.webos.sample`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -437,7 +437,7 @@ describe(aresCmd + ' --rom(-r)', function() {
     });
 
     it('Create output a directory structure with app', function(done) {
-        exec(cmd + ` -r ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -r ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -451,7 +451,7 @@ describe(aresCmd + ' --rom(-r)', function() {
     });
 
     it('Create output a directory structure without app', function(done) {
-        exec(cmd + ` -r ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -r ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pi com.webos.sample -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -476,7 +476,7 @@ describe(aresCmd + ' --encrypt(-enc)', function() {
     });
 
     it('Encrypted ipk', function(done) {
-        exec(cmd + ` -enc ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -enc ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-package ERR! [syscall failure]: ENOENT: no such file or directory, open", error);
@@ -500,7 +500,7 @@ describe(aresCmd + ' --sign(-s) & --certificate(-crt)', function() {
     });
 
     it('Sign ipk', function(done) {
-        exec(cmd +` -s ${signKeyPath} -crt ${crtPath} ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd +` -s ${signKeyPath} -crt ${crtPath} ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -527,7 +527,7 @@ describe(aresCmd + ' --app-exclude(-e)', function() {
     });
 
     it('Check the application but do not pacakge', function(done) {
-        exec(cmd + ` -e tmpFile ${sampleAppPath} -r -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -e tmpFile ${sampleAppPath} -r -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -544,7 +544,7 @@ describe(aresCmd, function() {
         "version": "2.2.2"
     };
 
-    beforeAll(function(done){
+    beforeAll(function(done) {
         common.createOutDir(sampleResourcePath);
 
         const rscInfoDirPath = path.join(sampleResourcePath, "resourceinfo.json"),
@@ -562,7 +562,7 @@ describe(aresCmd, function() {
         done();
     });
 
-    afterAll(function(done){
+    afterAll(function(done) {
         common.removeOutDir(outputPath);
         common.removeOutDir(pkgInfoPath);
         common.removeOutDir(sampleResourcePath);
@@ -572,7 +572,7 @@ describe(aresCmd, function() {
     it('Package resource with -pi and -o(--outdir)', function(done) {
         const expectedPiPkgPath = path.join(outputPath, "com_1.0.0_all.ipk");
 
-        exec(cmd + ` ${sampleResourcePath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -pi com -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -586,7 +586,7 @@ describe(aresCmd, function() {
     it('Package resource with -pf and -o(--outdir)', function(done) {
         const expectedPfPkgPath = path.join(outputPath, "com_2.2.2_all.ipk");
 
-        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -603,7 +603,7 @@ describe(aresCmd, function() {
         delete pkgInfo.version;
         fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
 
-        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -630,7 +630,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to exist app id', function(done) {
-        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr = stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -653,7 +653,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to exist required fields in app meta file', function(done) {
-        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr = stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -684,7 +684,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to invalid app type', function(done) {
-        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr = stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -725,7 +725,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to invalid app id with -pi option', function(done) {
-        exec(cmd + ` ${sampleAppPath} -pi com.test -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -pi com.test -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -737,7 +737,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to invalid app id with -pf option', function(done) {
-        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -749,7 +749,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to do not support with -pi and -pf options together', function(done) {
-        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} -pf ${pkgInfoPath} -pi com.webos.sample -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -760,7 +760,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to do not support with pkgdir', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -771,7 +771,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to do not support with pkgdir and -pi options together', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pi com -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -782,7 +782,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
     });
 
     it('Check to do not support with pkgdir and -pf options together', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -800,7 +800,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to exist pi option', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -823,14 +823,14 @@ describe(aresCmd + ' negative TC for services packaging', function() {
         done();
     });
 
-    afterEach(function(done){
+    afterEach(function(done) {
         common.removeOutDir(outputPath);
         common.removeOutDir(pkgInfoPath);
         done();
     });
 
     it('Check to do not support -pi and -pf options together', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${pkgInfoPath} -pi com.webos.sample -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${pkgInfoPath} -pi com.webos.sample -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -861,7 +861,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to file name of package meta file', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${tmpPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${tmpPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -892,7 +892,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to exist id fields in pkg meta file', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${sampleServicePaths[2]} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -904,7 +904,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
 });
 
 describe(aresCmd + ' negative TC for services packaging', function() {
-    beforeAll(function(done){
+    beforeAll(function(done) {
         common.createOutDir(pkgDirPath);
 
         const pkgDirInfoPath = path.join(pkgDirPath, "packageinfo.json"),
@@ -916,12 +916,12 @@ describe(aresCmd + ' negative TC for services packaging', function() {
         done();
     });
 
-    beforeEach(function(done){
+    beforeEach(function(done) {
         common.removeOutDir(outputPath);
         done();
     });
 
-    afterAll(function(done){
+    afterAll(function(done) {
         common.removeOutDir(outputPath);
         common.removeOutDir(pkgInfoPath);
         common.removeOutDir(pkgDirPath);
@@ -929,7 +929,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to invalid service id with -pi option', function(done) {
-        exec(cmd + ` ${sampleServicePaths[0]} -pi com.test -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[0]} -pi com.test -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -940,7 +940,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to invalid service id with -pf option', function(done) {
-        exec(cmd + ` ${sampleServicePaths[0]} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[0]} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -951,7 +951,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to do not support with pkgdir', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -962,7 +962,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to do not support with pkgdir and -pi options together', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pi com -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -973,7 +973,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
     });
 
     it('Check to do not support with pkgdir and -pf options together', function(done) {
-        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[1]} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -990,7 +990,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
         "version": "2.2.2"
     };
 
-    beforeAll(function(done){
+    beforeAll(function(done) {
         common.removeOutDir(pkgInfoPath);
         common.createOutDir(pkgDirPath);
         common.createOutDir(sampleResourcePath);
@@ -1015,7 +1015,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
         done();
     });
 
-    afterAll(function(done){
+    afterAll(function(done) {
         common.removeOutDir(outputPath);
         common.removeOutDir(pkgInfoPath);
         common.removeOutDir(pkgDirPath);
@@ -1024,7 +1024,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to exist pi option', function(done) {
-        exec(cmd + ` ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1035,7 +1035,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to invalid resource id with -pi option', function(done) {
-        exec(cmd + ` ${sampleResourcePath} -pi com.test -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -pi com.test -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1046,7 +1046,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to invalid resource id with -pf option', function(done) {
-        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1057,7 +1057,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to do not support with -pi and -pf options together', function(done) {
-        exec(cmd + ` ${sampleResourcePath} -pi com -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -pi com -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1068,7 +1068,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to do not support with pkgdir', function(done) {
-        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1079,7 +1079,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to do not support with pkgdir and -pi options together', function(done) {
-        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -pi com -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -pi com -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1090,7 +1090,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to do not support with pkgdir and -pf options together', function(done) {
-        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} ${pkgDirPath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1101,7 +1101,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to cannot package with app', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} ${sampleResourcePath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1112,7 +1112,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to cannot package with service', function(done) {
-        exec(cmd + ` ${sampleServicePaths[0]} ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleServicePaths[0]} ${sampleResourcePath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1123,7 +1123,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
     });
 
     it('Check to cannot package with app and service', function(done) {
-        exec(cmd + ` ${sampleAppPath} ${sampleServicePaths[0]} ${sampleResourcePath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleAppPath} ${sampleServicePaths[0]} ${sampleResourcePath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1138,7 +1138,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
         delete pkgInfo.id;
         fs.writeFileSync(pkgInfoPath, JSON.stringify(pkgInfo), 'utf8');
 
-        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` ${sampleResourcePath} -pf ${pkgInfoPath} -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr = stderr.trim().replace(/\s+['\n']/g, '\n');
@@ -1153,7 +1153,7 @@ describe(aresCmd + " info/info-detail options", function() {
     it('Info of web app and service package', function(done) {
         const webIpk = path.join(ipkBasePath, "com.web.app_1.0.0_all.ipk");
 
-        exec(cmd + ` -I ${webIpk}`, function (error, stdout, stderr) {
+        exec(cmd + ` -I ${webIpk}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -1168,7 +1168,7 @@ describe(aresCmd + " info/info-detail options", function() {
     it('Info of external native app and service package', function(done) {
         const externalAppIpk = path.join(ipkBasePath, "com.sample.echo_0.0.1_all.ipk");
 
-        exec(cmd + ` -i ${externalAppIpk}`, function (error, stdout, stderr) {
+        exec(cmd + ` -i ${externalAppIpk}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -1180,7 +1180,7 @@ describe(aresCmd + " info/info-detail options", function() {
     });
 
     it('nagetive TC for not support file extension', function(done) {
-        exec(cmd + ` -i aaa`, function (error, stdout, stderr) {
+        exec(cmd + ` -i aaa`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -1190,7 +1190,7 @@ describe(aresCmd + " info/info-detail options", function() {
     });
 
     it('nagetive TC for not exist ipk file', function(done) {
-        exec(cmd + ` -i aaa.ipk`, function (error, stdout, stderr) {
+        exec(cmd + ` -i aaa.ipk`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -1200,7 +1200,7 @@ describe(aresCmd + " info/info-detail options", function() {
     });
 
     it('nagetive TC for not exist parameter', function(done) {
-        exec(cmd + ` -i`, function (error, stdout, stderr) {
+        exec(cmd + ` -i`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }

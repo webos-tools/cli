@@ -12,7 +12,7 @@ const aresCmd = 'SetupDevice',
 
 describe(aresCmd + '.resetDeviceList()', function() {
     it('Should List all device information', function(done) {
-        setupDevice.resetDeviceList(function(err, value){
+        setupDevice.resetDeviceList(function(err, value) {
             expect(value.msg).toContain("developer");
             done();
         });
@@ -26,7 +26,7 @@ describe(aresCmd + '.modifyDeviceInfo()', function() {
             username = 'developer';
         setupDeviceOptions.add = device;
         setupDeviceOptions.info = [`username=${username}`, `host=${host}`, `port=${port}`];
-        setupDevice.modifyDeviceInfo(setupDeviceOptions, function(err, value){
+        setupDevice.modifyDeviceInfo(setupDeviceOptions, function(err, value) {
             expect(value.msg).toContain(device);
             expect(value.msg).toContain(host);
             expect(value.msg).toContain(port);
@@ -42,7 +42,7 @@ describe(aresCmd + '.modifyDeviceInfo()', function() {
             port = '4321';
         setupDeviceOptions.modify = device;
         setupDeviceOptions.info = [`username=${username}`, `host=${host}`, `port=${port}`];
-        setupDevice.modifyDeviceInfo(setupDeviceOptions, function(err, value){
+        setupDevice.modifyDeviceInfo(setupDeviceOptions, function(err, value) {
             expect(value.msg).toContain(username);
             expect(value.msg).toContain(host);
             expect(value.msg).toContain(port);
@@ -54,7 +54,7 @@ describe(aresCmd + '.modifyDeviceInfo()', function() {
 
 describe(aresCmd + '.setDefaultDevice()', function() {
     it('Should List all device information', function(done) {
-        setupDevice.setDefaultDevice(device, function(err, value){
+        setupDevice.setDefaultDevice(device, function(err, value) {
             expect(value.msg).toContain(device + "\x1B[32m (default)");
             done();
         });
@@ -63,7 +63,7 @@ describe(aresCmd + '.setDefaultDevice()', function() {
 
 describe(aresCmd + '.showDeviceList()', function() {
     it('Should List all device information', function(done) {
-        setupDevice.showDeviceList(function(err, value){
+        setupDevice.showDeviceList(function(err, value) {
             expect(value.msg).toContain(device);
             expect(value.msg).toContain("emulator");
             done();
@@ -74,7 +74,7 @@ describe(aresCmd + '.showDeviceList()', function() {
 describe(aresCmd + '.removeDevice()', function() {
     it('Remove a device information', function(done) {
         setupDeviceOptions.remove = device;
-        setupDevice.removeDeviceInfo(setupDeviceOptions, function(err, value){
+        setupDevice.removeDeviceInfo(setupDeviceOptions, function(err, value) {
             expect(value.msg).not.toContain(device);
             done();
             delete setupDeviceOptions.remove;
@@ -84,7 +84,7 @@ describe(aresCmd + '.removeDevice()', function() {
 
 describe(aresCmd + '.showDeviceListFull()', function() {
     it('Should List all device information', function(done) {
-        setupDevice.showDeviceListFull(function(err, value){
+        setupDevice.showDeviceListFull(function(err, value) {
             expect(value.msg).toContain("description");
             expect(value.msg).toContain("emulator");
             done();

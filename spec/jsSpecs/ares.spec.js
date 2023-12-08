@@ -14,12 +14,12 @@ const aresCmd = 'ares';
 let cmd,
     expectedList;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(){
+    .then(function() {
         return common.getExpectedResult(aresCmd);
-    }).then(function(result){
+    }).then(function(result) {
         expectedList = result.list;
         done();
     });
@@ -29,7 +29,7 @@ beforeAll(function (done) {
 // ares command test
 describe(aresCmd + ' --list(-l)', function() {
     it('Should show all the ares commands', function(done) {
-        exec(cmd + ' --list', function (error, stdout, stderr) {
+        exec(cmd + ' --list', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -44,7 +44,7 @@ describe(aresCmd + ' --list(-l)', function() {
 
 describe(aresCmd + ' --version(-v)', function() {
     it('Check version info with package.json', function(done) {
-        exec(cmd + ' --version', function (error, stdout, stderr) {
+        exec(cmd + ' --version', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -60,7 +60,7 @@ describe(aresCmd + ' --version(-v)', function() {
 
 describe(aresCmd + ' --<COMMAND>', function() {
     it('Display the help information of the generate', function(done) {
-        exec(cmd + ' -generate', function (error, stdout, stderr) {
+        exec(cmd + ' -generate', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -72,7 +72,7 @@ describe(aresCmd + ' --<COMMAND>', function() {
 
 describe(aresCmd + ' negative TC', function() {
     it('Set invalid command', function(done) {
-        exec(cmd + ` --build`, function (error, stdout, stderr) {
+        exec(cmd + ` --build`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares ERR! [Tips]: This command is invalid. Please check the supported commands using ares -l");

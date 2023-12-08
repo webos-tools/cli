@@ -19,13 +19,13 @@ let cmd,
     expectedTemplate,
     expectedList;
 
-beforeAll(function (done) {
+beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
     common.getOptions()
-    .then(function(result){
+    .then(function(result) {
         options = result;
         return common.getExpectedResult(aresCmd);
-    }).then(function(result){
+    }).then(function(result) {
         expectedTemplate = result.template;
         expectedList = result.list;
         done();
@@ -34,7 +34,7 @@ beforeAll(function (done) {
 
 describe(aresCmd + ' -v', function() {
     it('Print help message with verbose log', function(done) {
-        exec(cmd + ' -v', function (error, stdout, stderr) {
+        exec(cmd + ' -v', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("verb argv");
@@ -48,7 +48,7 @@ describe(aresCmd + ' -v', function() {
 
 describe(aresCmd + ' --list', function() {
     it('List the available templates', function(done) {
-        exec(cmd + ' --list', function (error, stdout, stderr) {
+        exec(cmd + ' --list', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -77,7 +77,7 @@ describe(aresCmd +' --property', function() {
         const version = "2.0.0";
         const title = "First App";
 
-        exec(cmd + ` -t ${expectedTemplate.webapp} -p "id=${id}" -p "version=${version}" -p "title=${title}" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t ${expectedTemplate.webapp} -p "id=${id}" -p "version=${version}" -p "title=${title}" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -108,7 +108,7 @@ describe(aresCmd +' --property', function() {
         const version = "1.1.1";
         const test = "testData";
 
-        exec(cmd + ` -t packageinfo -p "id=${id}" -p "version=${version}" -p "test=${test}" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t packageinfo -p "id=${id}" -p "version=${version}" -p "test=${test}" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -134,7 +134,7 @@ describe(aresCmd +' --property', function() {
         const id = "com.sample.app.service";
         const version = "1.1.1";
 
-        exec(cmd + ` -t jsserviceinfo -p "id=${id}" -p "version=${version}" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t jsserviceinfo -p "id=${id}" -p "version=${version}" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -165,7 +165,7 @@ describe(aresCmd +' --property', function() {
         const version = "2.0.0";
         const title = "First App";
 
-        exec(cmd + ` -t ${expectedTemplate.qmlappinfo} -p "id=${id}" -p "version=${version}" -p "title=${title}" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t ${expectedTemplate.qmlappinfo} -p "id=${id}" -p "version=${version}" -p "title=${title}" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -199,7 +199,7 @@ describe(aresCmd + ' --template', function() {
     });
 
     it('webappinfo : appinfo.json for web app', function(done) {
-        exec(cmd + ` -t webappinfo -p "id=com.domain.app" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t webappinfo -p "id=com.domain.app" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -226,7 +226,7 @@ describe(aresCmd + ' --template', function() {
             pending(options.skipTxt);
         }
 
-        exec(cmd + ` -t packageinfo -p "id=com.domain" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t packageinfo -p "id=com.domain" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -250,7 +250,7 @@ describe(aresCmd + ' --template', function() {
 
     it('hosted_webapp : generate hosted template app', function(done) {
         const url = "http://www.google.com";
-        exec(cmd + ` -t hosted_webapp -p "url=${url}" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t hosted_webapp -p "url=${url}" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -274,7 +274,7 @@ describe(aresCmd + ' --template', function() {
             pending(options.skipTxt);
         }
 
-        exec(cmd + ` -t qmlapp -p "id=com.qml.app" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t qmlapp -p "id=com.qml.app" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -295,18 +295,18 @@ describe(aresCmd + ' --template', function() {
 });
 
 describe(aresCmd + ' --overwrite(-f)', function() {
-    beforeAll(function (done) {
+    beforeAll(function(done) {
         common.removeOutDir(sampleAppPath);
         done();
     });
 
-    afterAll(function (done) {
+    afterAll(function(done) {
         common.removeOutDir(sampleAppPath);
         done();
     });
 
     it('generate sample app', function(done) {
-        exec(cmd + ` -t webappinfo -p "id=com.domain.app" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t webappinfo -p "id=com.domain.app" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -329,7 +329,7 @@ describe(aresCmd + ' --overwrite(-f)', function() {
     });
 
     it('Overwirte existing files', function(done) {
-        exec(cmd + ` -f -t webappinfo -p "id=com.domain.app" ${sampleAppPath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -f -t webappinfo -p "id=com.domain.app" ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -364,7 +364,7 @@ describe(aresCmd + ' --servicename', function() {
 
     it('Set the servicename for webOS service.', function(done) {
         const serviceid = "com.domain.app.service";
-        exec(cmd + ` -t ${expectedTemplate.jsservice} -s ${serviceid} ${sampleServicePath}`, function (error, stdout, stderr) {
+        exec(cmd + ` -t ${expectedTemplate.jsservice} -s ${serviceid} ${sampleServicePath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -386,7 +386,7 @@ describe(aresCmd + ' --servicename', function() {
 
 describe(aresCmd + ' negative TC', function() {
     it("Set invalid template type", function(done) {
-        exec(cmd + ' -t invalidType sampleApp', function (error, stdout, stderr) {
+        exec(cmd + ' -t invalidType sampleApp', function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 expect(stderr).toContain("ares-generate ERR! [Tips]: Invalid value <TEMPLATE> : invalidType", error);
