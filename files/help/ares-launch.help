@@ -2,14 +2,14 @@
     "display" : ["name", "synopsis", "options", "extraoption", "description", "examples", "extraexample"],
     "notab":["examples", "extraexample"],
     "notitle" : ["extraoption", "extraexample"],
-    "name" : "ares-launch - Launch or close apps",
+    "name" : "ares-launch - Launch or close the app",
     "synopsis" : {
         "default" : [
             "ares-launch [OPTION...] <APP_ID>"
         ],
         "tv" : [
-            "ares-launch -H, --hosted <APP_DIR> [OPTION...]",
-            "ares-launch -s, --simulator <WEBOS_TV_VERSION> <APP_DIR> [OPTION...]"
+            "ares-launch -H, --hosted <APP_DIR> [-I, --host-ip <HOST_IP>]",
+            "ares-launch -s, --simulator <WEBOS_TV_VERSION> <APP_DIR> [-sp, --simulator-path <SIMULATOR_PATH>] [OPTION...]"
           ]
     },
     "description" : {
@@ -39,8 +39,8 @@
     },
     "options" : {
         "cmdOpt":"option",
-        "default" : ["running", "close", "params", "hosted"],
-        "ose" : ["display", "device", "device-list", "help", "version", "verbose", "level"],
+        "default" : ["running", "close", "params"],
+        "ose" : ["hosted", "display", "device", "device-list", "help", "version", "verbose", "level"],
         "tv" : ["device", "device-list", "help", "version", "verbose"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
@@ -56,17 +56,6 @@
         "version" : "-V, --version @TAB@ Display version info",
         "verbose" : "-v @TAB@ Display this verbose log",
         "level" : "--level <LEVEL> @TAB@ Set log LEVEL and display log as set LEVEL"
-    },
-    "extraoption" : {
-        "cmdOpt":"hidden",
-        "default" : {
-            "cmdOpt":"option",
-            "tv" : ["host-ip"],
-            "host-ip" : [
-            "-I, --host-ip <HOST_IP> @TAB@ Specify host IP [default:selected automatically]",
-            "@TAB@ Use it with --hosted"
-            ]
-        }
     },
     "examples" : {
         "default" : [
@@ -87,7 +76,18 @@
         "tv" : [
             "",
             "# Run an app without installation using HOST_IP",
-            "ares-launch -H APP_DIR -I 192.168.0.10 -d DEVICE"
+            "ares-launch -H APP_DIR -I 192.168.0.10 -d DEVICE",
+            "",
+            "# Run an app on the webOS TV 22 simulator",
+            "ares-launch -s 22 APP_DIR",
+            "",
+            "# Run an app on the webOS TV 22 simulator located on SIMULATOR_PATH",
+            "ares-launch -s 22 -sp /home/webOS_TV_22_Simulator_1.3.0 APP_DIR",
+            "",
+            "# Run an app on the simulator with parameters",
+            "ares-launch -s 22 APP_DIR -p \"{'data1':'foo', 'data2':'bar'}\"",
+            " Or",
+            "ares-launch -s 22 APP_DIR -p \"data1=foo\" -p \"data2=bar\""
         ]
     },
     "extraexample" : {

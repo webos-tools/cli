@@ -4,8 +4,8 @@
     "name" : "ares-shell - Open a device terminal or run a command",
     "synopsis" : {
         "default" : [
-            "ares-shell",
-            "ares-shell -r <CMD>"
+            "ares-shell [OPTION...]",
+            "ares-shell -r, --run <CMD> [OPTION...]"
         ]
     },
     "description" : [
@@ -21,12 +21,12 @@
         "ares-shell -d DEVICE",
         "",
         "# Run a device command on the device",
-        "ares-shell -d DEVICE -r \"ls\"",
+        "ares-shell -r \"ls\" -d DEVICE",
         ""
     ],
     "options" : {
         "cmdOpt":"option",
-        "default" : ["device", "run", "device-list", "display", "help", "version", "verbose", "level"],
+        "default" : ["display", "device", "device-list", "help", "version", "verbose", "level"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
             "@TAB@ If not specified, set to default device"

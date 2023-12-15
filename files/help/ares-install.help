@@ -2,7 +2,7 @@
     "display" : ["name", "synopsis", "options", "extraoption", "description", "examples", "extraexample"],
     "notab":["examples", "extraexample"],
     "notitle" : ["extraoption", "extraexample"],
-    "name" : "ares-install - Install or Remove app from a device",
+    "name" : "ares-install - Install or remove the app on the device",
     "synopsis" : {
         "default" : [
             "ares-install [OPTION...] <PACKAGE_FILE>",

@@ -12,10 +12,10 @@
         "description": "Enable Web Inspector or Node's Inspector"
     },
     "ares-install": {
-        "description": "Install or Remove app from a device"
+        "description": "Install or remove the app on the device"
     },
     "ares-launch": {
-        "description": "Launch or close apps"
+        "description": "Launch or close the app"
     },
     "ares-log": {
         "profile": ["ose"],
@@ -23,21 +23,21 @@
     },
     "ares-novacom": {
         "profile": ["tv"],
-        "description": "Command Line Tool to control target device"
+        "description": "Command Line Tool to control the device"
     },
     "ares-package": {
-        "description": "Create a package containing a webOS app or service"
+        "description": "Create or analyze a package containing a webOS app or service"
     },
     "ares-pull": {
         "profile": ["ose"],
-        "description": "Pull file from a device"
+        "description": "Pull the file from the device"
     },
     "ares-push": {
         "profile": ["ose"],
-        "description": "Push the file to target device"
+        "description": "Push the file to the device"
     },
     "ares-server": {
-        "description": "Run a local web server based on path"
+        "description": "Run a local web server"
     },
     "ares-setup-device": {
         "description": "Add or modify the information of the devices to use"

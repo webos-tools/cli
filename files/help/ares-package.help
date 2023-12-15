@@ -51,7 +51,7 @@
         "check" : "-c, --check @TAB@ Check whether the app and service are valid, but don't package it",
         "outdir" : "-o, --outdir <OUTPUT_DIR> @TAB@ Use OUTPUT_DIR as the output directory",
         "no-minify" : "-n, --no-minify @TAB@ Skip the minification phase",
-        "app-exclude" : "-e, --app-exclude PATTERN @TAB@ Exclude files, given as a PATTERN",
+        "app-exclude" : "-e, --app-exclude <PATTERN> @TAB@ Exclude files, given as a PATTERN",
         "rom" : [
             "-r, --rom @TAB@ Do not create ipk, instead output a folder structure"
         ],

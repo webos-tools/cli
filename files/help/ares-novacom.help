@@ -2,11 +2,11 @@
     "display" : ["name", "synopsis", "options", "extraoption", "description", "examples", "extraexample"],
     "notab":["examples", "extraexample"],
     "notitle" : ["extraoption", "extraexample"],
-    "name" : "ares-novacom - Command Line Tool to control target device",
+    "name" : "ares-novacom - Command Line Tool to control the device",
     "synopsis" : {
         "default" : [
             "ares-novacom [OPTION...] -r, --run <DEVICE_COMMAND>",
-            "ares-novacom [OPTION...] -f, --forward [--port, -p DEVICE_PORT1[:HOST_PORT1]][--port, -p DEVICE_PORT2[:HOST_PORT2]][...]",
+            "ares-novacom [OPTION...] -f, --forward --port, -p <DEVICE_PORT1>[:<HOST_PORT1>] --port, -p <DEVICE_PORT2>[:<HOST_PORT2>][...]",
             "ares-novacom [OPTION...] -k, --getkey"
         ]
     },

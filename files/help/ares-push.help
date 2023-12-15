@@ -4,7 +4,7 @@
     "name" : "ares-push - Push the file from host machine to target device",
     "synopsis" : {
         "default" : [
-            "ares-push [OPTION...] <SOURCE> <DESTINATION>"
+            "ares-push [OPTION...] <SOURCE(LOCAL)> <DESTINATION(REMOTE)>"
         ]
     },
     "description" : [

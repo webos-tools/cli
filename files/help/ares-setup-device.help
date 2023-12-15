@@ -5,10 +5,10 @@
     "synopsis" : {
         "default" : [
           "ares-setup-device [OPTION...]",
-          "ares-setup-device [OPTION...] -a, --add DEVICE_NAME -i, --info <DEVICE_INFO>",
-          "ares-setup-device [OPTION...] -m, --modify DEVICE_NAME -i, --info <DEVICE_INFO>",
-          "ares-setup-device [OPTION...] -r, --remove DEVICE_NAME",
-          "ares-setup-device [OPTION...] -f, --default DEVICE_NAME"
+          "ares-setup-device [OPTION...] -a, --add <DEVICE_NAME> -i, --info <DEVICE_INFO>",
+          "ares-setup-device [OPTION...] -m, --modify <DEVICE_NAME> -i, --info <DEVICE_INFO>",
+          "ares-setup-device [OPTION...] -r, --remove <DEVICE_NAME>",
+          "ares-setup-device [OPTION...] -f, --default <DEVICE_NAME>"
         ]
     },
     "description" : [

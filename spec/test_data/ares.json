@@ -5,13 +5,13 @@
             "ares-device        Display the device information",
             "ares-generate      Generate files for a webOS app or service",
             "ares-inspect       Enable Web Inspector or Node's Inspector",
-            "ares-install       Install or Remove app from a device",
-            "ares-launch        Launch or close apps",
+            "ares-install       Install or remove the app on the device",
+            "ares-launch        Launch or close the app",
             "ares-log           Show or save logs of webOS apps and services",
-            "ares-package       Create a package containing a webOS app or service",
-            "ares-pull          Pull file from a device",
-            "ares-push          Push the file to target device",
-            "ares-server        Run a local web server based on path",
+            "ares-package       Create or analyze a package containing a webOS app or service",
+            "ares-pull          Pull the file from the device",
+            "ares-push          Push the file to the device",
+            "ares-server        Run a local web server",
             "ares-setup-device  Add or modify the information of the devices to use",
             "ares-shell         Open a device terminal or run a command"
         ]
@@ -22,11 +22,11 @@
             "ares-device        Display the device information",
             "ares-generate      Generate files for a webOS app or service",
             "ares-inspect       Enable Web Inspector or Node's Inspector",
-            "ares-install       Install or Remove app from a device",
-            "ares-launch        Launch or close apps",
-            "ares-novacom       Command Line Tool to control target device",
-            "ares-package       Create a package containing a webOS app or service",
-            "ares-server        Run a local web server based on path",
+            "ares-install       Install or remove the app on the device",
+            "ares-launch        Launch or close the app",
+            "ares-novacom       Command Line Tool to control the device",
+            "ares-package       Create or analyze a package containing a webOS app or service",
+            "ares-server        Run a local web server",
             "ares-setup-device  Add or modify the information of the devices to use"
         ]
     }

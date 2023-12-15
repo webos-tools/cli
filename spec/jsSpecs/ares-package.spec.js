@@ -764,7 +764,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -775,7 +775,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -786,7 +786,7 @@ describe(aresCmd + ' negative TC for app packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -955,7 +955,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -966,7 +966,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -977,7 +977,7 @@ describe(aresCmd + ' negative TC for services packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -1072,7 +1072,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -1083,7 +1083,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -1094,7 +1094,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with pkgdir", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the directory with package directory", error);
             }
             done();
         });
@@ -1105,7 +1105,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package app/service with resource", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the app or service directory with resource directory", error);
             }
             done();
         });
@@ -1116,7 +1116,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package app/service with resource", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the app or service directory with resource directory", error);
             }
             done();
         });
@@ -1127,7 +1127,7 @@ describe(aresCmd + ' negative TC for resource packaging', function() {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
                 stderr.trim().replace(/\s+['\n']/g, '\n');
-                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package app/service with resource", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Cannot package the app or service directory with resource directory", error);
             }
             done();
         });

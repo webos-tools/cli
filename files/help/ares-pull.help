@@ -1,7 +1,7 @@
 {
     "display" : ["name", "synopsis", "options", "description", "examples"],
     "notab":["examples"],
-    "name" : "ares-pull - Pull file from a device to host machine",
+    "name" : "ares-pull - Pull the file from target device to host machine",
     "synopsis" : {
         "default" : [
             "ares-pull [OPTION...] <SOURCE(REMOTE)> <DESTINATION(LOCAL)>"
