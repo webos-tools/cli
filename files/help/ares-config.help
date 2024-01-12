@@ -10,7 +10,10 @@
         "description" : [
         {
           "default" : [
-            "This command used for configuring the webOS devices profile setting to work with CLI."
+            "This command used for configuring the webOS devices profile setting to work with CLI.",
+            "",
+            "DEVICE_PROFILE is the profile of a target device.",
+            "This parameter can be \"ose\" and \"tv\". \"ose\" is default."
           ],
           "ose" : [
             "",
@@ -30,8 +33,8 @@
         "cmdOpt":"option",
         "default" : ["profile", "profile-details", "help", "version", "verbose"],
         "ose" : ["level"],
-        "profile" : "-p, --profile <DEVICE> @TAB@ Specify a device profile (webOS device type) to configure for CLI",
-        "profile-details" : "-c, --profile-details @TAB@ Current configured profile",
+        "profile" : "-p, --profile <DEVICE_PROFILE> @TAB@ Specify a device profile to configure for CLI",
+        "profile-details" : "-c, --profile-details @TAB@ Display current configured profile",
         "help" : "-h, --help @TAB@ Display this help",
         "version" : "-V, --version @TAB@ Display version info",
         "verbose" : "-v @TAB@ Display this verbose log",
