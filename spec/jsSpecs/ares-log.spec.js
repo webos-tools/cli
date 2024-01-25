@@ -685,8 +685,12 @@ describe(aresCmd + " negative tc", function() {
         exec(cmd + ` -n 2 -s invalid/aaa.log`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
-                expect(stderr).toContain("ares-log ERR! [syscall failure]: ENOENT: no such file or directory");
-                expect(stderr).toContain("ares-log ERR! [Tips]: Please check if the path is valid");
+                if (options.device === "emulator") {
+                    expect(stderr).toContain("ares-log ERR! [Tips]: Unable to connect to the target device. root access required");
+                } else {
+                    expect(stderr).toContain("ares-log ERR! [syscall failure]: ENOENT: no such file or directory");
+                    expect(stderr).toContain("ares-log ERR! [Tips]: Please check if the path is valid");
+                }
             }
             done();
         });
