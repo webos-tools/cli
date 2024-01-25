@@ -101,16 +101,10 @@ log.heading = processName;
 log.level = argv.level || 'warn';
 log.verbose("argv", argv);
 
-/**
- * For consistent of "$command -v", argv is used.
- * By nopt, argv is parsed and set key-value in argv object.
- * If -v or --level option is input with command, it is set key-value in argv.
- * After it is deleted, If remained key is only one in argv object
- * (If any other are remained, it's mean another options is input)
- * and there is no remaining after parsing the input command by nopt
- * (If any other are remained, it's mean another parameters ares input),
- * each command of webOS CLI print help message with log message.
- */
+const curConfigData = appdata.getConfig(true);
+if (curConfigData.profile !== "ose") {
+    return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
+}
 
 const options = {
     device: argv.device,
