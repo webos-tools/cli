@@ -13,7 +13,7 @@
             "This command used for configuring the webOS devices profile setting to work with CLI.",
             "",
             "DEVICE_PROFILE is the profile of a target device.",
-            "This parameter can be \"ose\" and \"tv\". \"ose\" is default."
+            "This parameter can be \"ose\" and \"tv\". \"tv\" is default."
           ],
           "ose" : [
             "",

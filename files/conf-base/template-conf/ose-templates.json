@@ -6,7 +6,9 @@
         "metadata": {
             "id": "webappinfo"
         },
-        "deps": ["icon"],
+        "deps": [
+            "icon"
+        ],
         "default": true
     },
     "hosted_webapp": {
@@ -16,7 +18,9 @@
         "metadata": {
             "id": "webappinfo"
         },
-        "deps": ["icon"]
+        "deps": [
+            "icon"
+        ]
     },
     "webappinfo": {
         "type": "webappinfo",
@@ -51,7 +55,9 @@
         "metadata": {
             "id": "qmlappinfo"
         },
-        "deps": ["icon"]
+        "deps": [
+            "icon"
+        ]
     },
     "qmlappinfo": {
         "type": "qmlappinfo",

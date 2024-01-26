@@ -6,7 +6,9 @@
         "metadata": {
             "id": "webappinfo"
         },
-        "deps": ["webicon"],
+        "deps": [
+            "webicon"
+        ],
         "default": true
     },
     "hosted_webapp": {
@@ -16,7 +18,9 @@
         "metadata": {
             "id": "webappinfo"
         },
-        "deps": ["webicon"]
+        "deps": [
+            "webicon"
+        ]
     },
     "webappinfo": {
         "type": "webappinfo",
