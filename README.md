@@ -158,7 +158,7 @@ so it is hard to add other options to the command (such as capture)
 
 Unless otherwise specified, all content, including all source code files and documentation files in this repository are:
 
-Copyright (c) 2020-2023 LG Electronics, Inc.
+Copyright (c) 2020-2024 LG Electronics, Inc.
 
 All content, including all source code files and documentation files in this repository except otherwise noted are:
 

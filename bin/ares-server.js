@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- * Copyright (c) 2020-2023 LG Electronics Inc.
+ * Copyright (c) 2020-2024 LG Electronics Inc.
  *
  * SPDX-License-Identifier: Apache-2.0
  */
