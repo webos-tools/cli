@@ -1,6 +1,6 @@
-# @webos-sdk/cli
+# @webos-tools/cli
 
-**@webos-sdk/cli** is a Command-Line Interface (CLI) for webOS. It provides a collection of commands for creating, packaging, installing, and launching webOS apps or services in a command-line environment. With @webos-sdk/cli, you can develop and test your app or service without using any IDE.
+**@webos-tools/cli** is a Command-Line Interface (CLI) for webOS. It provides a collection of commands for creating, packaging, installing, and launching webOS apps or services in a command-line environment. With @webos-tools/cli, you can develop and test your app or service without using any IDE.
 
 ## Announcement
 
@@ -10,14 +10,28 @@ We are releasing a single CLI that supports both webOS OSE and webOS TV through 
 
 ## Installation
 
-The @webos-sdk/cli is installed using `npm`.
+> [!IMPORTANT]
+> If @webosose/ares-cli is installed globally, uninstall it before install globally @webos-tools/cli.
+>
+> ``` shell
+> # Uninstall globally @webosose/ares-cli
+> $ npm uninstall -g @webosose/ares-cli
+> ```
+>
+> ``` shell
+> # Check whether uninstall @webosose/ares-cli
+> $ ares -V
+> ares: command not found
+> ```
 
-> Note: @webos-sdk/cli was tested on Node.js v14.15.1 and v16.20.2.
+The @webos-tools/cli is installed using `npm`.
 
-You can install @webos-sdk/cli using the following command. We recommend installing it globally. For Linux and macOS, you might need the `sudo` command.
+> Note: @webos-tools/cli was tested on Node.js v14.15.1 and v16.20.2.
+
+You can install @webos-tools/cli using the following command. We recommend installing it globally. For Linux and macOS, you might need the `sudo` command.
 
 ``` shell
-$ npm install -g @webos-sdk/cli
+$ npm install -g @webos-tools/cli
 ```
 
 ## Profile Settings
@@ -33,7 +47,7 @@ You can change the profile at any time while using the CLI by using the above co
 
 ## Compatibility
 
-The release cycle of @webos-sdk/cli is independent from that of webOS OSE or webOS TV. The latest CLI is compatible with the latest webOS OSE and webOS TV. So, we recommend using the latest version of CLI.
+The release cycle of @webos-tools/cli is independent from that of webOS OSE or webOS TV. The latest CLI is compatible with the latest webOS OSE and webOS TV. So, we recommend using the latest version of CLI.
 
 If you want to use previous version of CLI, check the compatibility table for each platform.
 
@@ -76,7 +90,7 @@ For `tv` profile:
 
 ## Testing
 
-You can test the @webos-sdk/cli commands and their options to check their validity. Tests are performed by `jasmine`.
+You can test the @webos-tools/cli commands and their options to check their validity. Tests are performed by `jasmine`.
 
 ### Prerequisites
 
@@ -137,7 +151,7 @@ You can contribute your source codes to our repository.
 
 The step-by-step guide is as follows:
 
-1. Fork the [@webos-sdk/cli repository](#). Make sure that you fork the whole repository.
+1. Fork the [@webos-tools/cli repository](#). Make sure that you fork the whole repository.
 2. Create a new branch from the develop branch.
 3. Implement the source codes and `git push` the changes to the new branch.
 4. Create a pull request. When you write the description for the pull request, make sure you follow [Pull Request Description Guidelines](#pull-request-description-guide).
@@ -177,7 +191,7 @@ so it is hard to add other options to the command (such as capture)
 - Detailed Notes: Describe the problems of this pull request and how to fix them.
 - Testing Performed: Describe tests you performed.
     - Unit test: Run CLI unit test via `jasmine` on the target device or emulator and write the result. All unit tests must be passed.
-    - ESlint: Run `eslint` on @webos-sdk/cli root directory and write the result. No warning or error would be allowed.
+    - ESlint: Run `eslint` on @webos-tools/cli root directory and write the result. No warning or error would be allowed.
     - Detailed test steps for changes: Write commands that can test your changes. Make sure that maintainers can verify your changes using these steps.
 - Issues Addressed: Write issue numbers and those summary.
 

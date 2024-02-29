@@ -1,3 +1,28 @@
+## 3.0.0 (March 4, 2024)
+### ares-config
+* Added as a new command for showing or changing the profile of CLI.
+
+### ares-launch
+* Supports to live reloading using `--hosted` option.
+
+### ares-novacom
+* Added as a new command for controlling TV devices.(This is written based on differences compared to v2.4.0.)
+* Supported only when using the TV profile.
+
+### ares-pacakge
+* Fixed to minify by default for js files in service directory.
+
+### Common
+* Moved repository from @webosose/ares-cli to @webos-tools/cli.
+* Integrated with the webOS TV CLI. In the future, we plan to support multiple webOS platforms with a single CLI.
+* Added the profile for changing support platform, default profile is tv. The commands, options, help, and templates supported for each profile are different.
+* Supports Node v16.20.2.
+* Supports unit test to verify tv profile.
+
+### Meta files
+* Updated the README file.
+
+
 ## 2.4.0 (February 16, 2023)
 ### ares-device
 * Supports to show node version usage using `--system-info` option.

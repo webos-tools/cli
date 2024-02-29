@@ -1,23 +1,25 @@
 {
-  "name": "@webosose/ares-cli",
-  "version": "2.4.0",
+  "name": "@webos-tools/cli",
+  "version": "3.0.0",
   "description": "Command Line Interface for development webOS application and service",
   "main": "APIs.js",
   "author": "ye.kim",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webosose/ares-cli.git"
+    "url": "https://github.com/webos-tools/cli.git"
   },
   "license": "Apache-2.0",
   "bin": {
     "ares": "bin/ares.js",
     "ares-config": "bin/ares-config.js",
     "ares-device": "bin/ares-device.js",
+    "ares-device-info": "bin/ares-device-info.js",
     "ares-generate": "bin/ares-generate.js",
     "ares-inspect": "bin/ares-inspect.js",
     "ares-install": "bin/ares-install.js",
     "ares-launch": "bin/ares-launch.js",
     "ares-log": "bin/ares-log.js",
+    "ares-novacom": "bin/ares-novacom.js",
     "ares-package": "bin/ares-package.js",
     "ares-push": "bin/ares-push.js",
     "ares-pull": "bin/ares-pull.js",
@@ -26,7 +28,7 @@
     "ares-shell": "bin/ares-shell.js"
   },
   "engines": {
-    "node": ">=10.24.1"
+    "node": ">=14.15.1"
   },
   "engineStrict": true,
   "os": [
@@ -76,23 +78,21 @@
   "devDependencies": {
     "eslint": "6.8.0",
     "eslint-plugin-import": "2.22.0",
-    "jasmine": "3.6.1",
-    "jasmine-pretty-html-reporter": "0.2.5",
+    "jasmine": "3.8.0",
+    "jasmine-pretty-html-reporter-jasmine3.8": "0.2.5",
     "jasmine-spec-reporter": "4.2.1"
-  },
-  "scripts": {
-    "test": "jasmine"
   },
   "keywords": [
     "ares-cli",
     "webOS",
     "webOS OSE",
+    "webOS TV",
     "webOS CLI",
     "webOS SDK",
     "LG"
   ],
   "bugs": {
-    "url": "https://github.com/webosose/ares-cli/issues"
+    "url": "https://github.com/webos-tools/cli/issues"
   },
-  "homepage": "https://github.com/webosose/ares-cli#readme"
+  "homepage": "https://github.com/webos-tools/cli#readme"
 }

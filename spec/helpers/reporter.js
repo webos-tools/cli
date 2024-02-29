@@ -6,7 +6,7 @@
 
 const path = require('path');
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
-const HtmlReporter = require('jasmine-pretty-html-reporter').Reporter;
+const HtmlReporter = require('jasmine-pretty-html-reporter-jasmine3.8').Reporter;
 
 jasmine.getEnv().configure({
     random: false,
@@ -15,7 +15,7 @@ jasmine.getEnv().configure({
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 25000;
 jasmine.getEnv().clearReporters(); // remove default reporter logs
-jasmine.getEnv().addReporter(new SpecReporter ({  // add jasmine-spec-reporter
+jasmine.getEnv().addReporter(new SpecReporter({ // add jasmine-spec-reporter
     suite: {
         // display each suite number (hierarchical)
         displayNumber: true
