@@ -1,126 +1,153 @@
-# ares-cli
+# @webos-sdk/cli
 
-## Summary
+**@webos-sdk/cli** is a Command-Line Interface (CLI) for webOS. It provides a collection of commands for creating, packaging, installing, and launching webOS apps or services in a command-line environment. With @webos-sdk/cli, you can develop and test your app or service without using any IDE.
 
-**ares-cli** is a command-line interface (CLI) for webOS. It provides a collection of commands used for creating, packaging, installing, and launching apps or services in the command line environment. ares-cli lets you develop and test apps or services without using any IDE.
+## Announcement
+
+**We moved here from @webosose/ares-cli.** In the future, we plan to develop and maintain a single webOS CLI here to support webOS.
+
+We are releasing a single CLI that supports both webOS OSE and webOS TV through this released CLI (v3.0.0). You can switch to CLI for OSE or TV by installing one CLI and changing only the profile. For more details, see [Profile Settings](#profile-settings).
 
 ## Installation
 
-To install ares-cli, use `npm`. It is recommended to install ares-cli globally. For Linux and macOS, you might need the `sudo` command.
+The @webos-sdk/cli is installed using `npm`.
+
+> Note: @webos-sdk/cli was tested on Node.js v14.15.1 and v16.20.2.
+
+You can install @webos-sdk/cli using the following command. We recommend installing it globally. For Linux and macOS, you might need the `sudo` command.
 
 ``` shell
-$ npm install -g @webosose/ares-cli
+$ npm install -g @webos-sdk/cli
 ```
 
-> Note: Node version 10.24.1 to 14.15.1 are recommended.
+## Profile Settings
+
+You can change the profile to `tv` or `ose`. The default profile is `tv` (webOS TV).
+
+``` shell
+$ ares-config --profile ose
+profile and config data is changed to ose
+```
+
+You can change the profile at any time while using the CLI by using the above command.
 
 ## Compatibility
 
-Our release cycle is independent of webOS OSE and Auto. 
-We recommend using the latest CLI. The latest CLI is compatible with the latest webOS OSE and Auto"
+The release cycle of @webos-sdk/cli is independent from that of webOS OSE or webOS TV. The latest CLI is compatible with the latest webOS OSE and webOS TV. So, we recommend using the latest version of CLI.
 
-For information about the CLI previous version and compatible with platform, see the [CLI Release Notes](https://www.webosose.org/docs/tools/sdk/cli/cli-release-notes/).
+If you want to use previous version of CLI, check the compatibility table for each platform.
+
+- [Compatibility of webOS OSE CLI](https://www.webosose.org/docs/tools/sdk/cli/cli-release-notes/#compatibility)
+- [Compatibility of webOS TV CLI](https://webostv.developer.lge.com/develop/tools/sdk-introduction#compatible-sdkversiontools-by-release-year)
 
 ## Command List
 
-The list of ares-cli commands is as follows:
+The following table shows a list supported commands. For more details, refer to user guides in [Documentation](#documentation).
 
-- `ares-generate`: Creates a webOS app or service from templates.
-- `ares-package`: Packages the app or services into a package file.
-- `ares-setup-device`: Manages the target devices.
-- `ares-install`: Installs the app or service on the target device.
-- `ares-launch`: Launches or terminates the app.
-- `ares-inspect`: Enables Web Inspector or Node's Inspector for debugging web app or JS service.
-- `ares-server`: Runs the Web server for testing local app file.
-- `ares-shell`: Executes shell commands in the target device.
-- `ares-push`: Pushes file(s) from a host machine to a target device.
-- `ares-pull`: Pulls file(s) from a target device to a host machine.
-- `ares-device`: Displays the device information.
-- `ares-log`: Shows or saves logs of webOS apps and services.
+| Command           | Description                                                                    | OSE | TV |
+|-------------------|--------------------------------------------------------------------------------|:---:|:--:|
+| ares-config       | Configures webOS CLI.                                                          |  v  | v  |
+| ares              | Displays the help information for ares commands.                               |  v  | v  |
+| ares-generate     | Creates a webOS app or service from templates.                                 |  v  | v  |
+| ares-package      | Packages the app or services into a package file.                              |  v  | v  |
+| ares-setup-device | Manages the target devices.                                                    |  v  | v  |
+| ares-novacom      | Command Line Tool to control the device.                                       |     | v  |
+| ares-install      | Installs the app or service on the target device.                              |  v  | v  |
+| ares-launch       | Launches or terminates the app.                                                |  v  | v  |
+| ares-inspect      | Enables Web Inspector or Node's Inspector for debugging web app or JS service. |  v  | v  |
+| ares-server       | Runs the Web server for testing local app file.                                |  v  | v  |
+| ares-shell        | Executes shell commands in the target device.                                  |  v  |    |
+| ares-push         | Pushes file(s) from a host machine to a target device.                         |  v  |    |
+| ares-pull         | Pulls file(s) from a target device to a host machine.                          |  v  |    |
+| ares-device       | Displays the device information.                                               |  v  | v  |
+| ares-log          | Shows or saves logs of webOS apps and services.                                |  v  |    |
 
-## Documentations
+## Documentation
 
-- For more details about how to use ares-cli, see the [webOS OSE CLI User Guide](https://www.webosose.org/docs/tools/sdk/cli/cli-user-guide/#cli-commands).
-- For step-by-step guides for developing apps or services, see the [tutorials](https://www.webosose.org/docs/tutorials/).
-    - Developing External Web Apps
-    - Developing External JS Services
-    - Developing External QML Apps
-    - Developing External Native Apps
-    - Developing External Native Services
+For `ose` profile:
 
-## Test Commands
+- How to use webOS OSE CLI, see the [webOS OSE CLI User Guide](https://www.webosose.org/docs/tools/sdk/cli/cli-user-guide/).
+- How to develop external Web/QML/Native apps or JS/Native services for webOS OSE, see the [webOS OSE Tutorials](https://www.webosose.org/docs/tutorials/).
 
-You can test the ares-cli commands and their options to check their validity. The test is performed by `jasmine` or `npm test`. 
+For `tv` profile:
 
-### Before You Begin
+- How to use webOS TV CLI, see the [webOS TV CLI Introduction](https://webostv.developer.lge.com/develop/tools/cli-introduction).
+- How to develop web apps or JS services for webOS TV, see the [webOS TV Developer Guide](https://webostv.developer.lge.com/develop/tools/cli-dev-guide).
+
+## Testing
+
+You can test the @webos-sdk/cli commands and their options to check their validity. Tests are performed by `jasmine`.
+
+### Prerequisites
 
 1. Turn on the webOS device.
 2. Check the IP address and SSH port number.
-3. Enable the developer mode.
-    - webOS OSE: Already enabled by default.
-    - webOS Auto: Enable it in the Settings app.
+3. (Only for webOS TV) Enable the developer mode. See [App Testing with Developer Mode App](https://webostv.developer.lge.com/develop/getting-started/developer-mode-app)
 
-The following key-value pairs are the default configurations for the test.
+### Performing the Test
 
-| Key    | Value     |
-|--------|-----------|
-| device | emulator  |
-| ip     | 127.0.0.1 |
-| port   | 6622      |
+The following table lists the default configurations for the test.
 
-### Test Usages
+| Parameter | Value     |
+| :-------: | :-------: |
+| profile   | ose       |
+| device    | emulator  |
+| ip        | 127.0.0.1 |
+| port      | 6622      |
 
 - Test with default configurations.
     
     ``` shell
     $ jasmine
     ```
-    
+
     or
 
     ``` shell
-    $ jasmine device=emulator, ip=127.0.0.1, port=6622
+    $ jasmine --profile=ose --device=emulator --ip=127.0.0.1 --port=6622
     ```
 
-- Test with specific configurations. (It can be omitted when using port 22.)
+- Test with specific configurations. (The port number can be omitted when using port 22.)
 
     ``` shell
-    $ jasmine --device=webOS --ip=192.168.0.12
+    $ jasmine --profile=ose --device=webOSOSE --ip=192.168.0.12
     ```
 
 - Test with specific port configurations.
 
     ``` shell
-    $ jasmine --device=webOS --ip=192.168.0.12 --port=24
+    $ jasmine --profile=ose --device=webOSOSE --ip=192.168.0.12 --port=24
     ```
 
 - Test ares-generate command.
 
     ``` shell
-    $ jasmine --device=webOS --ip=192.168.0.12 --port=24 spec/jsSpec/ares-generate.js
+    $ jasmine --profile=ose --device=webOSOSE --ip=192.168.0.12 --port=24 spec/jsSpec/ares-generate.js
     ```
 
-- Test using npm command `npm test` instead of `jasmine`.
+- Test the `tv` profile. `passPhrase` must be entered as an input parameter. See [Turning Developer Mode on](https://webostv.developer.lge.com/develop/getting-started/developer-mode-app#installing-developer-mode-app).
 
     ``` shell
-    $ npm test --device=webOS --ip=192.168.0.12 --port=24
+    $ jasmine --profile=tv --device=webOSTV --ip=192.168.0.12 --port=9922 --passPhrase=AB12CD
     ```
 
 ## Contributing
 
-The step-by-step guide to contribute is as follows:
+You can contribute your source codes to our repository.
 
-1. Fork: Fork source from ares-cli repository.
-2. Create a new branch: Create a branch from develop branch.
-3. Implement: Implement the source codes and `git push` the changes to the new branch.
-4. Create a pull request: Create a pull request. When you write a commit message, make sure you follow [Commit Message Guidelines](#commit-message-guidelines).
+The step-by-step guide is as follows:
+
+1. Fork the [@webos-sdk/cli repository](#). Make sure that you fork the whole repository.
+2. Create a new branch from the develop branch.
+3. Implement the source codes and `git push` the changes to the new branch.
+4. Create a pull request. When you write the description for the pull request, make sure you follow [Pull Request Description Guidelines](#pull-request-description-guide).
 5. Submit the pull request to the owner.
 
-### Commit Message Guidelines
+### Pull Request Description Guide
 
-The following is an example of the commit message.
+The following is an example of the pull reqeust description
 
-``` md
+```
 Change ares-device-info to ares-device  
 
 :Release Notes: 
@@ -145,14 +172,14 @@ so it is hard to add other options to the command (such as capture)
 [ISSUE-1] Change ares-device-info to ares-device
 ```
 
-- Summary: Describe a summary of the pull request. Make sure you capitalize the first letter of the summary.
-- Release Notes: Describe what this commit implements.
-- Detailed Notes: Describe the problems of this commit and how to fix them.
-- Testing Performed: Describe detailed descriptions of the testing you performed.
+- Summary: Describe the summary of this pull request. Make sure you capitalize the first letter of the summary.
+- Release Notes: Describe what this pull request implements.
+- Detailed Notes: Describe the problems of this pull request and how to fix them.
+- Testing Performed: Describe tests you performed.
     - Unit test: Run CLI unit test via `jasmine` on the target device or emulator and write the result. All unit tests must be passed.
-    - ESlint: Run `eslint` on ares-cli root directory and write the result. No warning/error would be allowed.
-    - Detail test steps with CLI commands : Write the commands to verify your changes. Be sure that the maintainers can check the changes by running that commands.
-- Issues Addressed: Write an issue number and its summary.
+    - ESlint: Run `eslint` on @webos-sdk/cli root directory and write the result. No warning or error would be allowed.
+    - Detailed test steps for changes: Write commands that can test your changes. Make sure that maintainers can verify your changes using these steps.
+- Issues Addressed: Write issue numbers and those summary.
 
 ## Copyright and License Information
 
