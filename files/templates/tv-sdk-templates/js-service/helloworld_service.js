@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/* eslint-disable no-var */
+// eslint-disable-next-line import/no-unresolved
 var pkgInfo = require('./package.json');
 var Service = require('webos-service');
 var service = new Service(pkgInfo.name);
