@@ -1,3 +1,16 @@
+## 3.0.3 (March 29, 2024)
+### ares-setup-device
+* Fixed a bug that the ares-setup-device of existing TV CLI is not working, after adding new target from CLI v3.0.2. If error is occurs again, please reset device list via "ares-setup-device -R" and add it again.
+* Allow localhost as ip address to add target and add port validation(1-65535)
+
+### ares-generate
+* Update TV template to apply webOSTVjs v1.2.10 in ares-generate
+
+### Common
+* Update webOSTV.js to v1.2.10
+* Fixed a bug that profile change is not working after installing with root on mac/linux
+
+
 ## 3.0.0 (March 4, 2024)
 ### ares-config
 * Added as a new command for showing or changing the profile of CLI.
