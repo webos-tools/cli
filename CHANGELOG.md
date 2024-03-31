@@ -1,3 +1,8 @@
+## 3.0.4 (March 30, 2024)
+### Common
+* Fixed a bug that always requires sudo permission when exec ares commands
+
+
 ## 3.0.3 (March 29, 2024)
 ### ares-setup-device
 * Fixed a bug that the ares-setup-device of existing TV CLI is not working, after adding new target from CLI v3.0.2. If error is occurs again, please reset device list via "ares-setup-device -R" and add it again.
