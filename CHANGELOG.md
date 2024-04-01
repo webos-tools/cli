@@ -1,3 +1,8 @@
+## 3.0.5 (April 01, 2024)
+### Common
+* Fixed a bug that can not install on window by CMD or Powershell
+
+
 ## 3.0.4 (March 30, 2024)
 ### Common
 * Fixed a bug that always requires sudo permission when exec ares commands
