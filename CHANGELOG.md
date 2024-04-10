@@ -1,3 +1,8 @@
+## 3.0.6 (April 04, 2024)
+### ares-log
+* Fixed a bug that invalid json format
+
+
 ## 3.0.5 (April 01, 2024)
 ### Common
 * Fixed a bug that can not install on window by CMD or Powershell

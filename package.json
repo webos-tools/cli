@@ -1,6 +1,6 @@
 {
   "name": "@webos-tools/cli",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Command Line Interface for development webOS application and service",
   "main": "APIs.js",
   "scripts": {
