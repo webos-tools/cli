@@ -170,6 +170,10 @@ function generate() {
     const gen = getGenerator();
     const templates = gen.getTmpl();
 
+    if(!options.tmplName){
+        options.tmplName = Object.keys(templates).find(t => templates[t].default === true);
+    }
+
     if (options.tmplName === "true") {
         return finish(errHndl.getErrMsg("EMPTY_VALUE", "TEMPLATE"));
     }
