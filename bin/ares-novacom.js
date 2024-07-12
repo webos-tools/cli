@@ -118,12 +118,9 @@ function getkey(next) {
                 }
                 process.stdin.resume();
                 process.stdin.setEncoding('utf8');
-                process.stdout.write('input passphrase [default: webos]:');
+                process.stdout.write('input passphrase:');
                 process.stdin.on('data', function(text) {
-                    let passphrase = text.toString().trim();
-                    if (passphrase === '') {
-                        passphrase = 'webos';
-                    }
+                    const passphrase = text.toString().trim();
                     log.info('registered passphrase is ', passphrase);
                     next(null, keyFileName, passphrase);
                 });

@@ -326,8 +326,8 @@ function _queryDeviceInfo(selDevice, next) {
             }
             return idx;
         },
-        when: function() {
-            return _needInq(mode)(inqChoices);
+        when: function(answers) {
+            return _needInq(mode)(inqChoices) && answers.user === "root";
         }
     }, {
         type: "password",
@@ -345,17 +345,6 @@ function _queryDeviceInfo(selDevice, next) {
         },
         when: function(answers) {
             return _needInq(mode)(inqChoices) && (answers.auth_type === "ssh key");
-        }
-    }, {
-        type: "input",
-        name: "ssh_passphrase",
-        message: "Enter key's passphrase:",
-        default: function() {
-            return selDevice.passphrase || undefined;
-        },
-        when: function(answers) {
-            return _needInq(mode)(inqChoices) && (answers.auth_type === "ssh key");
-
         }
     }, {
         type: "confirm",
@@ -391,16 +380,16 @@ function _queryDeviceInfo(selDevice, next) {
           default: answers.default
         };
 
-        if (mode === 'add' || mode === 'modify') {
+        if (answers.user !== 'prisoner' && ["add", "modify"].includes(mode)) {
             if (answers.auth_type && answers.auth_type === "password") {
                 inDevice.password = answers.password;
                 inDevice.privateKey = "@DELETE@";
                 inDevice.passphrase = "@DELETE@";
                 inDevice.privateKeyName = "@DELETE@";
-            } else if (answers.auth_type && answers.auth_type === "ssh key") {
+            } else if ((answers.auth_type && answers.auth_type === "ssh key") ||  answers.user === "developer") {
                 inDevice.password = "@DELETE@";
                 inDevice.privateKey = {
-                    "openSsh": answers.ssh_key
+                    "openSsh": answers.ssh_key || "webos_emul"
                 };
                 inDevice.passphrase = answers.ssh_passphrase || "@DELETE@";
                 inDevice.privateKeyName = "@DELETE@";
@@ -421,12 +410,18 @@ function _queryDeviceInfo(selDevice, next) {
         async.series([
             resolver.load.bind(resolver),
             resolver.modifyDeviceFile.bind(resolver, mode, inDevice),
-            setupDevice.showDeviceList.bind(this, finish)
+            setupDevice.showDeviceList.bind(this),
         ], function(err, results) {
             if (err) {
                 return next(err);
             }
-            next(null, results[1]);
+            if(results[2] && results[2].msg){
+                console.log(results[2].msg);
+            }
+            if(inDevice.username === 'prisoner' && mode === 'add'){
+                setupDevice.displayGetKeyGuide(inDevice.name);
+            }
+            finish();
         });
     });
 }
