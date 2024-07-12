@@ -68,7 +68,7 @@
     "request": "2.88.2",
     "rimraf": "3.0.2",
     "semver": "7.3.2",
-    "shelljs": "0.8.4",
+    "shelljs": "0.8.5",
     "sprintf-js": "1.1.2",
     "ssdp-js": "1.0.1",
     "ssh2": "0.8.9",
