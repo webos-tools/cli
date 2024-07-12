@@ -85,6 +85,25 @@ describe(aresCmd + ' --add(-a)', function() {
 });
 
 describe(aresCmd + ' --add(-a)', function() {
+    it('Add DEVICE using default info', function(done) {
+        const newDevice = 'default';
+        const defaultUserName = options.profile === 'tv' ? 'prisoner' : 'root';
+        const defaultPort = options.profile === 'tv' ? '9922' : '22';
+        const defaultHost = '127.0.0.1';
+        exec(cmd + ` -a ${newDevice}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain(newDevice);
+            expect(stdout).toContain(defaultHost);
+            expect(stdout).toContain(defaultUserName);
+            expect(stdout).toContain(defaultPort);
+            done();
+        });
+    });
+})
+
+describe(aresCmd + ' --add(-a)', function() {
     it('Add DEVICE as default property', function(done) {
         const host = '192.168.0.5';
         const port = '1234';
@@ -269,11 +288,11 @@ describe(aresCmd + ' negative TC', function() {
     });
     
     it('Add invalid DEVICE', function(done) {
-        const deivceName = "invalid#@!";
+        const deivceName = "$%invalid";
         exec(cmd + ` -a ${deivceName}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
-                expect(stderr).toContain("ares-setup-device ERR! [Tips]: Invalid device name. The device name should consist");
+                expect(stderr).toContain("ares-setup-device ERR! [Tips]: Invalid device name. The device name should not start with");
             }
             done();
         });
