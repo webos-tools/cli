@@ -11,6 +11,15 @@
             "native": "executable"
         }
     },
+    "defaultDeviceInfo": {
+        "ipAddress": "127.0.0.1",
+        "port": "9922",
+        "user": "prisoner",
+        "description": "new device description",
+        "files": "stream",
+        "default": false,
+        "type": "starfish"
+    },
     "logFilePath": "/media/developer/log/devlog",
     "install": {
         "tempDirForIpk": "/media/developer/temp",

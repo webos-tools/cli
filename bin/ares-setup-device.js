@@ -250,14 +250,15 @@ function _queryAddRemove(ssdpDevices, next) {
 function _queryDeviceInfo(selDevice, next) {
     let mode = selDevice.mode;
     const deviceName = selDevice.name,
-        resolver = this.resolver || (this.resolver = new novacom.Resolver());
+        resolver = this.resolver || (this.resolver = new novacom.Resolver()),
+        defaultDeviceInfo = appdata.getConfig(true).defaultDeviceInfo;
 
     questions = [{
         type: "input",
         name: "ip",
         message: "Enter Device IP address:",
         default: function() {
-            return selDevice.host || "127.0.0.1";
+            return selDevice.host || defaultDeviceInfo.ipAddress;
         },
         validate: function(answers) {
             if (!setupDevice.isValidIpv4(answers)) {
@@ -273,7 +274,7 @@ function _queryDeviceInfo(selDevice, next) {
         name: "port",
         message: "Enter Device Port:",
         default: function() {
-            return selDevice.port || "22";
+            return selDevice.port || defaultDeviceInfo.port;
         },
         validate: function(answers) {
             if (!setupDevice.isValidPort(answers)) {
@@ -289,7 +290,7 @@ function _queryDeviceInfo(selDevice, next) {
         name: "user",
         message: "Enter ssh user:",
         default: function() {
-            return selDevice.username || "root";
+            return selDevice.username || defaultDeviceInfo.user;
         },
         when: function() {
             return _needInq(mode)(inqChoices);
@@ -299,7 +300,7 @@ function _queryDeviceInfo(selDevice, next) {
         name: "description",
         message: "Enter description:",
         default: function() {
-            return selDevice.description || "new device";
+            return selDevice.description || defaultDeviceInfo.description;
         },
         when: function() {
             return _needInq(mode)(inqChoices);
