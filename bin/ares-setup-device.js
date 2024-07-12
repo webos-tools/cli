@@ -186,9 +186,10 @@ function _queryAddRemove(ssdpDevices, next) {
                     if (ssdpDevice) {
                         if (ssdpDevice.op === 'modify') return inqChoices;
                         else return ['add'];
-                    } else {
-                        return totChoices;
                     }
+                    if (deviceNames.length > 1) return totChoices;
+                    // deveice list has emulator only > unsupported remove option
+                    return inqChoices.concat(dfChoices);
                 },
                 filter: function(val) {
                     return val.toLowerCase();
@@ -224,9 +225,17 @@ function _queryAddRemove(ssdpDevices, next) {
                 type: "list",
                 name: "device_name",
                 message: "Select a device",
+                choices: deviceNames.filter(dv => dv !== "emulator"),
+                when: function(answers) {
+                    return (["remove"].indexOf(answers.op) !== -1 && !ssdpDevice);
+                }
+            }, {
+                type: "list",
+                name: "device_name",
+                message: "Select a device",
                 choices: deviceNames,
                 when: function(answers) {
-                    return (["modify", "remove", "set default"].indexOf(answers.op) !== -1 && !ssdpDevice);
+                    return (["modify", "set default"].indexOf(answers.op) !== -1 && !ssdpDevice);
                 }
             }];
             inquirer.prompt(questions)
