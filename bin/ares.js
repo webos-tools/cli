@@ -119,7 +119,7 @@ function display (next) {
         for (const arg in argv) {
             if (Object.hasOwnProperty.call(commandsList, 'ares-'+ arg) && fs.existsSync(path.join(__dirname, 'ares-'+ arg + '.js'))) {
                 if (commandsList['ares-'+ arg].profile && !commandsList['ares-'+ arg].profile.includes(profile)) {
-                    next(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", profile));
+                    return next(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", profile));
                 } else {
                     help.display('ares-'+arg, appdata.getConfig(true).profile);
                     found = true;
@@ -127,9 +127,9 @@ function display (next) {
             }
 
             if (!found) {
-                next(errHndl.getErrMsg("INVALID_COMMAND"));
+                return next(errHndl.getErrMsg("INVALID_COMMAND"));
             } else {
-                next();
+                return next();
             }
         }
     } catch (err) {
