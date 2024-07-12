@@ -10,6 +10,14 @@
             "native": "executable"
         }
     },
+    "defaultDeviceInfo": {
+        "ipAddress": "127.0.0.1",
+        "port": "22",
+        "user": "root",
+        "description": "new device description",
+        "files": "stream",
+        "default": false
+    },
     "logFilePath": "/media/developer/log/devlog",
     "install": {
         "tempDirForIpk": "/media/developer/temp",
