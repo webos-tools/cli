@@ -1,4 +1,9 @@
-## 3.1.0 (July 15, 2024)
+## 3.1.1 (July 15, 2024)
+### ares-inspec
+* Fixed a bug that ares-inspect --service display error message on webOS 4.5 or lower
+
+
+## 3.1.0 (July 12, 2024)
 ### ares-generate
 * Fixed a bug that can not generate without tample option
 
