@@ -1,17 +1,17 @@
 ## 3.1.1 (July 15, 2024)
-### ares-inspec
-* Fixed a bug that ares-inspect --service display error message on webOS 4.5 or lower
+### ares-inspect
+* Fixed a bug that ares-inspect --service display error message on webOS TV 4.5 or lower
 
 
 ## 3.1.0 (July 12, 2024)
 ### ares-generate
-* Fixed a bug that can not generate without tample option
+* Fixed a bug that can not generate without --template option
 
 ### ares-setup-device
 * Enhance usability of --add option.
 * Enhance emulator remove usability
 * Change default device information of TV profile (user: prisoner, port:9922)
-* Change devie name validation logic that accept all of charactors except "$" & "%"
+* Change device name validation logic that accepts all characters except "$" & "%"
 
 ### common
 * Upgrade node modules: shelljs(v0.8.5), async(v3.2.5), ssh2(v1.15.0), tar(v6.2.0).
