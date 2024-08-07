@@ -1,3 +1,12 @@
+
+## 3.1.2 (August 07, 2024)
+### ares-config
+* Added a new apollo profile for apollo platform.
+
+### common
+* Integrated CLI commands for apollo platform.
+
+
 ## 3.1.1 (July 15, 2024)
 ### ares-inspect
 * Fixed a bug that ares-inspect --service display error message on webOS TV 4.5 or lower

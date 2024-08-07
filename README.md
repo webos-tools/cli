@@ -8,6 +8,8 @@
 
 We are releasing a single CLI that supports both webOS OSE and webOS TV through this released CLI (v3.0.0). You can switch to CLI for OSE or TV by installing one CLI and changing only the profile. For more details, see [Profile Settings](#profile-settings).
 
+From the released CLI (v3.1.2) we integrated CLI commands for webOS APOLLO. You can switch to CLI for APOLLO by changing only the profile to apollo.
+
 ## Installation
 
 > [!IMPORTANT]
@@ -36,7 +38,7 @@ $ npm install -g @webos-tools/cli
 
 ## Profile Settings
 
-You can change the profile to `tv` or `ose`. The default profile is `tv` (webOS TV).
+You can change the profile to `tv`, `ose` or `apollo`. The default profile is `tv` (webOS TV).
 
 ``` shell
 $ ares-config --profile ose
@@ -58,23 +60,23 @@ If you want to use previous version of CLI, check the compatibility table for ea
 
 The following table shows a list supported commands. For more details, refer to user guides in [Documentation](#documentation).
 
-| Command           | Description                                                                    | OSE | TV |
-|-------------------|--------------------------------------------------------------------------------|:---:|:--:|
-| ares-config       | Configures webOS CLI.                                                          |  v  | v  |
-| ares              | Displays the help information for ares commands.                               |  v  | v  |
-| ares-generate     | Creates a webOS app or service from templates.                                 |  v  | v  |
-| ares-package      | Packages the app or services into a package file.                              |  v  | v  |
-| ares-setup-device | Manages the target devices.                                                    |  v  | v  |
-| ares-novacom      | Command Line Tool to control the device.                                       |     | v  |
-| ares-install      | Installs the app or service on the target device.                              |  v  | v  |
-| ares-launch       | Launches or terminates the app.                                                |  v  | v  |
-| ares-inspect      | Enables Web Inspector or Node's Inspector for debugging web app or JS service. |  v  | v  |
-| ares-server       | Runs the Web server for testing local app file.                                |  v  | v  |
-| ares-shell        | Executes shell commands in the target device.                                  |  v  |    |
-| ares-push         | Pushes file(s) from a host machine to a target device.                         |  v  |    |
-| ares-pull         | Pulls file(s) from a target device to a host machine.                          |  v  |    |
-| ares-device       | Displays the device information.                                               |  v  | v  |
-| ares-log          | Shows or saves logs of webOS apps and services.                                |  v  |    |
+| Command           | Description                                                                    | OSE | TV | APOLLO |
+|-------------------|--------------------------------------------------------------------------------|:---:|:--:|:------:|
+| ares-config       | Configures webOS CLI.                                                          |  v  | v  |    v   |
+| ares              | Displays the help information for ares commands.                               |  v  | v  |    v   |
+| ares-generate     | Creates a webOS app or service from templates.                                 |  v  | v  |    v   |
+| ares-package      | Packages the app or services into a package file.                              |  v  | v  |    v   |
+| ares-setup-device | Manages the target devices.                                                    |  v  | v  |    v   |
+| ares-novacom      | Command Line Tool to control the device.                                       |     | v  |        |
+| ares-install      | Installs the app or service on the target device.                              |  v  | v  |    v   |
+| ares-launch       | Launches or terminates the app.                                                |  v  | v  |    v   |
+| ares-inspect      | Enables Web Inspector or Node's Inspector for debugging web app or JS service. |  v  | v  |    v   |
+| ares-server       | Runs the Web server for testing local app file.                                |  v  | v  |    v   |
+| ares-shell        | Executes shell commands in the target device.                                  |  v  |    |    v   |
+| ares-push         | Pushes file(s) from a host machine to a target device.                         |  v  |    |    v   |
+| ares-pull         | Pulls file(s) from a target device to a host machine.                          |  v  |    |    v   |
+| ares-device       | Displays the device information.                                               |  v  | v  |    v   |
+| ares-log          | Shows or saves logs of webOS apps and services.                                |  v  |    |    v   |
 
 ## Documentation
 
