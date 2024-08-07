@@ -31,5 +31,22 @@
         "files":"sftp",
         "noPortForwarding":false,
         "indelible": true
+    },
+    {
+        "order":"0",
+        "default": true,
+        "profile": "apollo",
+        "name": "emulator",
+        "type": "starfish",
+        "description": "LG webOS Apollo Emulator",
+        "host": "127.0.0.1",
+        "port": 6622,
+        "username": "developer",
+        "privateKey": {
+            "openSsh": "webos_emul"
+        },
+        "files":"sftp",
+        "noPortForwarding":false,
+        "indelible": true
     }
 ]

@@ -16,7 +16,8 @@
         "profile": {
             "enum": [
                 "ose",
-                "tv"
+                "tv",
+                "apollo"
             ],
             "description": "webOS Device Type"
         },
