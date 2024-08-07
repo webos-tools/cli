@@ -23,16 +23,41 @@
           "ose" : [
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ],
+          "apollo" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
           ]
         }
     ],
     "examples" : [
         {
-            "default" : [
+            "default":[],
+            "ose" : [
                 "# Create a webOS app in ~/project/app and set the id, version, title",
                 "ares-generate -t webapp -p \"{'id':'com.domain.app', 'version':'1.0.0', 'title':'First App'}\" ~/projects/app",
                 " Or",
                 "ares-generate -t webapp -p \"id=com.domain.app\" -p \"version=1.0.0\" -p \"title=First App\" ~/projects/app",
+                "",
+                "# Create a webOS service named 'com.domain.app.service'",
+                "ares-generate -t js_service -s \"com.domain.app.service\" ~/projects/service",
+                ""
+            ],
+             "apollo" : [
+                "# Create a webOS app in ~/project/app and set the id, version, title",
+                "ares-generate -t webapp -p \"{'id':'com.domain.app', 'version':'1.0.0', 'title':'First App'}\" ~/projects/app",
+                " Or",
+                "ares-generate -t webapp -p \"id=com.domain.app\" -p \"version=1.0.0\" -p \"title=First App\" ~/projects/app",
+                "",
+                "# Create a webOS service named 'com.domain.app.service'",
+                "ares-generate -t js_service -s \"com.domain.app.service\" ~/projects/service",
+                ""
+            ],
+            "tv" : [
+                "# Create a webOS app in ~/project/app and set the id, version, title",
+                "ares-generate -t basic -p \"{'id':'com.domain.app', 'version':'1.0.0', 'title':'First App'}\" ~/projects/app",
+                " Or",
+                "ares-generate -t basic -p \"id=com.domain.app\" -p \"version=1.0.0\" -p \"title=First App\" ~/projects/app",
                 "",
                 "# Create a webOS service named 'com.domain.app.service'",
                 "ares-generate -t js_service -s \"com.domain.app.service\" ~/projects/service",
@@ -44,6 +69,7 @@
         "cmdOpt":"option",
         "default" : ["template", "list", "property", "servicename", "overwrite", "help", "version", "verbose"],
         "ose" : ["level"],
+        "apollo" : ["level"],
         "template" : [
             "-t, --template <TEMPLATE> @TAB@ Use the template named TEMPLATE"
         ],

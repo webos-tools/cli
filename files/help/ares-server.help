@@ -10,6 +10,7 @@
         "cmdOpt":"option",
         "default" : ["port", "open","help", "version", "verbose"],
         "ose" : ["level"],
+        "apollo" : ["level"],
         "port" : "-p, --port <PORT> @TAB@ Specify port to use [default:random]",
         "open" : "-o, --open @TAB@ Open localhost url with a web browser",
         "help" : "-h, --help @TAB@ Display this help",
@@ -23,6 +24,10 @@
             "This command runs a local web server."
           ],
           "ose" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ],
+          "apollo" : [
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
           ]

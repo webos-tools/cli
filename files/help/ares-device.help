@@ -26,12 +26,22 @@
             "The file format can be \".png\", \".jpg\" and \".bmp\". \".png\" is default.",
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        ],
+        "apollo" : [
+            "",
+            "And This command supports screen capture.",
+            "",
+            "CAPTURE_FILE is file name or file path of capture file.",
+            "The file format can be \".png\", \".jpg\" and \".bmp\". \".png\" is default.",
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
         ]
     },
     "options" : {
         "cmdOpt":"option",
         "default" : ["system", "resource", "list", "id-filter", "interval", "save"],
         "ose" : ["capture", "display", "device", "device-list", "help", "version", "verbose", "level"],
+        "apollo" : ["capture", "display", "device", "device-list", "help", "version", "verbose", "level"],
         "tv" : ["device", "device-list", "help", "version", "verbose"],
         "system" : "-i, --system-info @TAB@ Display the system information",
         "session" : "-se, --session-info @TAB@ Display the session information",
@@ -88,6 +98,11 @@
         "ose" : [
             "# Capture the screen of display 1 as screen.png",
             "ares-device -c screen.png -dp 1 -d DEVICE",
+            ""
+        ],
+        "apollo" : [
+            "# Capture the screen of display as screen.png",
+            "ares-device -c screen.png -d DEVICE",
             ""
         ]
     }

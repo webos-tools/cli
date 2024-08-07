@@ -4,6 +4,7 @@
     "notab":["examples", "extraexample"],
     "name" : {
         "ose" : "ares-inspect - Enable Web Inspector or Node's Inspector for webOS web app or service",
+        "apollo" : "ares-inspect - Enable Web Inspector or Node's Inspector for webOS web app or service",
         "tv" : "ares-inspect - Provide URL to use Remote Web Inspector or Node Inspector"
     },
     "synopsis" : {
@@ -23,6 +24,10 @@
           "ose" : [
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ],
+          "apollo" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
           ]
         }
     ],
@@ -30,6 +35,7 @@
         "cmdOpt":"option",
         "default" : ["open", "device", "device-list", "help", "version", "verbose"],
         "ose" : ["display", "level"],
+        "apollo" : ["display", "level"],
         "open" : "-o, --open @TAB@ Open url with a web browser",
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
