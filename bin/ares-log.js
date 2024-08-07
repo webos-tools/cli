@@ -102,7 +102,7 @@ log.level = argv.level || 'warn';
 log.verbose("argv", argv);
 
 const curConfigData = appdata.getConfig(true);
-if (curConfigData.profile !== "ose") {
+if (!["ose","apollo"].includes(curConfigData.profile)) {
     return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
 }
 
@@ -193,6 +193,10 @@ function checkCurrentDaemon() {
 
 function switchDaemon() {
     log.info("switchDaemon()");
+
+    if (curConfigData.profile === "apollo") {
+        return finish(errHndl.getErrMsg("NOT_SUPPORT_OPTION", curConfigData.profile));
+    }
 
     if (argv['switch-daemon'] !== "journald" && argv['switch-daemon'] !== "pmlogd") {
         return finish(errHndl.getErrMsg("NOT_EXIST_LOGDAEMON"));
