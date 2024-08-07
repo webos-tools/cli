@@ -100,7 +100,7 @@ describe(aresCmd +' --property', function() {
     });
 
     it('Set the properties of packageinfo.json', function(done) {
-        if (options.profile === "ose") {
+        if (options.profile === "ose" || options.profile === "apollo") {
             pending(options.skipTxt);
         }
 
@@ -157,7 +157,7 @@ describe(aresCmd +' --property', function() {
     });
 
     it('Set the properties of qmlappinfo.json', function(done) {
-        if (options.profile === "tv") {
+        if (options.profile === "tv" || options.profile === "apollo") {
             pending(options.skipTxt);
         }
 
@@ -222,7 +222,7 @@ describe(aresCmd + ' --template', function() {
     });
 
     it('packageinfo : packageinfo.json for webOS package', function(done) {
-        if (options.profile === "ose") {
+        if (options.profile === "ose" || options.profile === "apollo") {
             pending(options.skipTxt);
         }
 
@@ -270,7 +270,7 @@ describe(aresCmd + ' --template', function() {
     });
 
     it('qmlapp : generate qml template app', function(done) {
-        if (options.profile === "tv") {
+        if (options.profile === "tv" || options.profile === "apollo") {
             pending(options.skipTxt);
         }
 

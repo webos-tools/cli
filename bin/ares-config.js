@@ -78,17 +78,20 @@ const options = {
 
 const configFiles = {
     "ose": "files/conf-base/profile/config-ose.json",
-    "tv": "files/conf-base/profile/config-tv.json"
+    "tv": "files/conf-base/profile/config-tv.json",
+    "apollo": "files/conf-base/profile/config-apollo.json"
 };
 
 const envFiles = {
     "ose": "files/conf-base/env/sdk-ose.json",
-    "tv": "files/conf-base/env/sdk-tv.json"
+    "tv": "files/conf-base/env/sdk-tv.json",
+    "apollo": "files/conf-base/env/sdk-apollo.json"
 };
 
 const templateFiles = {
     "ose": "files/conf-base/template-conf/ose-templates.json",
     "tv": "files/conf-base/template-conf/tv-sdk-templates.json",
+    "apollo": "files/conf-base/template-conf/apollo-sdk-templates.json"
 };
 
 const queryPaths = {

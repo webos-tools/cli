@@ -1,0 +1,51 @@
+{
+    "webapp": {
+        "type": "webapp",
+        "path": "$cli-root/files/templates/apollo-sdk-templates/bootplate-web",
+        "description": "web app for Apollo",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "icon"
+        ],
+        "default": true
+    },
+    "hosted_webapp": {
+        "type": "webapp",
+        "path": "$cli-root/files/templates/apollo-sdk-templates/hosted-webapp",
+        "description": "hosted web app for Apollo",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "icon"
+        ]
+    },
+    "webappinfo": {
+        "type": "webappinfo",
+        "path": "$cli-root/files/templates/apollo-sdk-templates/appinfo/appinfo.json",
+        "description": "appinfo.json for web app"
+    },
+    "js_service": {
+        "type": "jsservice",
+        "path": "$cli-root/files/templates/apollo-sdk-templates/js-service",
+        "description": "js service for Apollo",
+        "metadata": {
+            "id": "jsserviceinfo"
+        }
+    },
+    "jsserviceinfo": {
+        "type": "jsserviceinfo",
+        "path": [
+            "$cli-root/files/templates/apollo-sdk-templates/serviceinfo/services.json",
+            "$cli-root/files/templates/apollo-sdk-templates/serviceinfo/package.json"
+        ],
+        "description": "services.json, package.json for JS service"
+    },
+    "icon": {
+        "type": "icon",
+        "path": "$cli-root/files/templates/apollo-sdk-templates/icon",
+        "description": "app icon files [80x80]"
+    }
+}

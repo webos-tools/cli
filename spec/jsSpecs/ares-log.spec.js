@@ -115,7 +115,7 @@ describe(aresCmd + " -cd", function() {
 
 describe(aresCmd + " -sd", function() {
     it("Print switch logging daemon", function(done) {
-        if (options.profile === "tv") {
+        if (options.profile === "tv" || options.profile === "apollo") {
             pending(options.skipTxt);
         }
         exec(cmd + ` -sd ${targetLogDaemon}`, function(error, stdout, stderr) {

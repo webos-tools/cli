@@ -13,9 +13,13 @@
             "This command used for configuring the webOS devices profile setting to work with CLI.",
             "",
             "DEVICE_PROFILE is the profile of a target device.",
-            "This parameter can be \"ose\" and \"tv\". \"tv\" is default."
+            "This parameter can be \"ose\", \"tv\" and \"apollo\". \"tv\" is default."
           ],
           "ose" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ],
+          "apollo" : [
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
           ]
@@ -33,6 +37,7 @@
         "cmdOpt":"option",
         "default" : ["profile", "profile-details", "help", "version", "verbose"],
         "ose" : ["level"],
+        "apollo" : ["level"],
         "profile" : "-p, --profile <DEVICE_PROFILE> @TAB@ Specify a device profile to configure for CLI",
         "profile-details" : "-c, --profile-details @TAB@ Display current configured profile",
         "help" : "-h, --help @TAB@ Display this help",

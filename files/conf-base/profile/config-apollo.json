@@ -1,0 +1,29 @@
+{
+    "profile": "apollo",
+    "defaultAppInfo": {
+        "id": "com.yourdomain.app",
+        "type": "web",
+        "title": "new app",
+        "version": "1.0.0",
+        "main": {
+            "web": "index.html",
+            "native": "executable"
+        }
+    },
+    "defaultDeviceInfo": {
+        "ipAddress": "127.0.0.1",
+        "port": "22",
+        "user": "root",
+        "description": "new device description",
+        "files": "stream",
+        "default": false
+    },
+    "logFilePath": "/media/developer/log/devlog",
+    "install": {
+        "tempDirForIpk": "/media/developer/temp",
+        "changeTempDir": true,
+        "removeIpkAfterInst": true
+    },
+    "dataDir":".webos/apollo",
+    "logDaemon": "journald"
+}

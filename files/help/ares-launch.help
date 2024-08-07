@@ -30,6 +30,10 @@
         "",
         "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
         ],
+        "apollo" : [
+        "",
+        "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+        ],
         "tv" : [
         "",
         "If 'hosted' option does not work with network connection error,",
@@ -41,6 +45,7 @@
         "cmdOpt":"option",
         "default" : ["running", "close", "params"],
         "ose" : ["hosted", "display", "device", "device-list", "help", "version", "verbose", "level"],
+        "apollo" : ["hosted", "device", "device-list", "help", "version", "verbose", "level"],
         "tv" : ["device", "device-list", "help", "version", "verbose"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
