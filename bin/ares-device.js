@@ -141,7 +141,7 @@ function deviceList() {
 }
 
 function getDeviceInfo() {
-    if (curConfigData.profile === "ose") {
+    if (curConfigData.profile === "ose"|| curConfigData.profile === "apollo") {
         deviceLib.systemInfo(options, finish);
     } else if (curConfigData.profile === "tv") {
         deviceLib.tvSystemInfo(options, finish);
@@ -188,7 +188,7 @@ function getResourceMonitor() {
 }
 
 function captureScreen() {
-    if (curConfigData.profile !== "ose") {
+    if ( !["ose", "apollo"].includes(curConfigData.profile)) {
         return finish(errHndl.getErrMsg("NOT_SUPPORT_OPTION", curConfigData.profile));
     }
     deviceLib.captureScreen(options, finish);

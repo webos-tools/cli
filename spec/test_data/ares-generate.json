@@ -37,5 +37,22 @@
             "webappinfo": ["appinfo.json"],
             "packageinfo": ["packageinfo.json"]
         }
+    },
+    "apollo": {
+        "list": [
+            "ID             Project Type     Description",
+            "-------------  ---------------  ------------------------------------------",
+            "webapp         Web App          (default) web app for Apollo",
+            "hosted_webapp  Web App          hosted web app for Apollo",
+            "webappinfo     Web App Info     appinfo.json for web app",
+            "js_service     JS Service       js service for Apollo",
+            "jsserviceinfo  JS Service Info  services.json, package.json for JS service",
+            "icon           Icon             app icon files [80x80]"
+        ],
+        "template": {
+            "webapp": "webapp",
+            "jsservice": "js_service",
+            "webappinfo": ["appinfo.json"]
+        }
     }
 }

@@ -75,7 +75,7 @@ if (argv.level) {
 }
 
 const curConfigData = appdata.getConfig(true);
-if (curConfigData.profile !== "ose") {
+if (!["ose", "apollo"].includes(curConfigData.profile)) {
     return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
 }
 

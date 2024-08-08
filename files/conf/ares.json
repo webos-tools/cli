@@ -18,7 +18,7 @@
         "description": "Launch or close the app"
     },
     "ares-log": {
-        "profile": ["ose"],
+        "profile": ["ose", "apollo"],
         "description": "Show or save logs of webOS apps and services"
     },
     "ares-novacom": {
@@ -29,11 +29,11 @@
         "description": "Create or analyze a package containing a webOS app or service"
     },
     "ares-pull": {
-        "profile": ["ose"],
+        "profile": ["ose","apollo"],
         "description": "Pull the file from the device"
     },
     "ares-push": {
-        "profile": ["ose"],
+        "profile": ["ose","apollo"],
         "description": "Push the file to the device"
     },
     "ares-server": {
@@ -43,7 +43,7 @@
         "description": "Add or modify the information of the devices to use"
     },
     "ares-shell": {
-        "profile": ["ose"],
+        "profile": ["ose","apollo"],
         "description": "Open a device terminal or run a command"
     }
 }

@@ -19,6 +19,10 @@
           "ose" : [
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ],
+          "apollo" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
           ]
         }
     ],
@@ -40,6 +44,7 @@
         "cmdOpt":"option",
         "default" : ["device", "device-list", "list", "listfull", "type", "help", "version", "verbose"],
         "ose" : ["level"],
+        "apollo" : ["level"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
             "@TAB@ If not specified, set to default device"

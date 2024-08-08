@@ -18,6 +18,10 @@
           "ose" : [
             "",
             "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
+          ],
+          "apollo" : [
+            "",
+            "LEVEL is priority of logs. (e.g., silly, verbose, info, warn, error)"
           ]
         }
     ],
@@ -33,6 +37,7 @@
         "cmdOpt":"option",
         "default" : ["list", "<COMMAND>", "help", "version"],
         "ose" : ["verbose", "level"],
+        "apollo" : ["verbose", "level"],
         "list" : [
             "-l, --list @TAB@ List all the ares commands"
         ],

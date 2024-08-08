@@ -1,3 +1,12 @@
+
+## 3.1.2 (August 07, 2024)
+### ares-config
+* Added a new apollo profile for apollo platform.
+
+### common
+* Integrated CLI commands for apollo platform.
+
+
 ## 3.1.1 (July 15, 2024)
 ### ares-inspect
 * Fixed a bug that ares-inspect --service display error message on webOS TV 4.5 or lower
@@ -11,7 +20,7 @@
 * Enhance usability of --add option.
 * Enhance emulator remove usability
 * Change default device information of TV profile (user: prisoner, port:9922)
-* Change devie name validation logic that accepts all characters except "$" & "%"
+* Change device name validation logic that accepts all characters except "$" & "%"
 
 ### common
 * Upgrade node modules: shelljs(v0.8.5), async(v3.2.5), ssh2(v1.15.0), tar(v6.2.0).
