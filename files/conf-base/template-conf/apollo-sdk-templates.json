@@ -43,6 +43,11 @@
         ],
         "description": "services.json, package.json for JS service"
     },
+    "native_service": {
+        "type": "nativeservice",
+        "path": "$cli-root/files/templates/apollo-sdk-templates/native-service",
+        "description": "native service for Apollo"
+    },
     "icon": {
         "type": "icon",
         "path": "$cli-root/files/templates/apollo-sdk-templates/icon",
