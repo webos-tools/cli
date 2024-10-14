@@ -1,3 +1,10 @@
+## 3.1.3 (October 14, 2024)
+### ares-generate
+* Added "native_service" template for apollo platform.
+
+### ares-setup-device
+* Fixed a bug that device name can not be added with "-".
+
 
 ## 3.1.2 (August 07, 2024)
 ### ares-config
