@@ -9,6 +9,7 @@
 const async = require('async'),
     inquirer = require('inquirer'),
     nopt = require('nopt'),
+    abbrev = require("abbrev"),
     log = require('npmlog'),
     path = require('path'),
     Ssdp = require('ssdp-js'),
@@ -66,7 +67,7 @@ const shortHands = {
     "R": ["--reset"]
 };
 
-const argv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & 'ares-*.js'*/);
+const argv = getArgv();
 
 log.heading = processName;
 log.level = argv.level || 'warn';
@@ -186,7 +187,7 @@ function _queryAddRemove(ssdpDevices, next) {
                     if (ssdpDevice) {
                         if (ssdpDevice.op === 'modify') return inqChoices;
                         else return ['add'];
-                    }
+                    } 
                     if (deviceNames.length > 1) return totChoices;
                     // deveice list has emulator only > unsupported remove option
                     return inqChoices.concat(dfChoices);
@@ -261,7 +262,7 @@ function _queryDeviceInfo(selDevice, next) {
     const deviceName = selDevice.name,
         resolver = this.resolver || (this.resolver = new novacom.Resolver()),
         defaultDeviceInfo = appdata.getConfig(true).defaultDeviceInfo;
-
+    
     questions = [{
         type: "input",
         name: "ip",
@@ -379,7 +380,7 @@ function _queryDeviceInfo(selDevice, next) {
           username: answers.user,
           default: answers.default
         };
-
+       
         if (answers.user !== 'prisoner' && ["add", "modify"].includes(mode)) {
             if (answers.auth_type && answers.auth_type === "password") {
                 inDevice.password = answers.password;
@@ -522,4 +523,51 @@ function finish(err, value) {
         }
         cliControl.end();
     }
+}
+
+function getArgv() {
+    let argv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & 'ares-*.js'*/);
+    let mode = checkMode(argv);
+    return (mode && argv[mode] === 'true') ? reParse(argv, mode) : argv; 
+}
+
+function checkMode(argv) {
+    if (argv.add) return 'add';
+    if (argv.modify) return 'modify';
+    if (argv.remove) return 'remove';
+    return (argv.default) ? 'default' : null;
+}
+
+function reParse(argv, mode) {
+    let nameIndex = -1;
+    let cookedNameIndex = -1;
+    let abbrevOpts = abbrev(Object.keys(knownOpts))
+    
+    for (let i = 0; i < argv.argv.original.length; i++) {
+        if (argv.argv.original[i].match(/^-{2,}$/)) {
+            nameIndex = i;
+            break;
+        }
+    }
+    cookedNameIndex = argv.argv.cooked.indexOf('--');
+    if (cookedNameIndex <= 0 || !argv.argv.cooked[cookedNameIndex - 1].match(/^-/) || abbrevOpts[argv.argv.cooked[cookedNameIndex - 1].replace(/^-+/, "")] != mode) {
+        return argv;
+    }
+
+    argv[mode] = argv.argv.original[nameIndex];
+    if (nameIndex != -1 && cookedNameIndex != -1 && nameIndex + 1 < argv.argv.original.length) {
+        const remainArgv = nopt(knownOpts, shortHands, argv.argv.original, nameIndex + 1);
+        for (const option in remainArgv) {
+            if (remainArgv.hasOwnProperty(option)) {
+                if (!argv.hasOwnProperty(option)) {
+                    argv[option] = remainArgv[option];
+                } else if (Array.isArray(argv[option])) {
+                    argv[option] = argv[option].concat(remainArgv[option]);
+                }
+            }
+        }
+        argv.argv.remain = remainArgv.argv.remain;     
+        argv.argv.cooked = argv.argv.cooked.splice(0, cookedNameIndex + 1).concat(remainArgv.argv.cooked);
+    }
+    return argv
 }
