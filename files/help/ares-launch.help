@@ -10,10 +10,7 @@
         "tv" : [
             "ares-launch -H, --hosted <APP_DIR> [-I, --host-ip <HOST_IP>]",
             "ares-launch -s, --simulator <WEBOS_TV_VERSION> <APP_DIR> [-sp, --simulator-path <SIMULATOR_PATH>] [OPTION...]"
-          ],
-        "signage" : [
-            "ares-launch -H, --hosted <APP_DIR> [-I, --host-ip <HOST_IP>]"
-        ]
+          ]
     },
     "description" : {
         "default" : [
