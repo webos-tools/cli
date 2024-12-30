@@ -48,6 +48,7 @@
         "cmdOpt":"option",
         "default" : ["check", "outdir", "app-exclude", "rom", "help", "version", "verbose"],
         "ose" : ["level"],
+        "signage" :["encrypt"],
         "check" : "-c, --check @TAB@ Check whether the app and service are valid, but don't package it",
         "outdir" : "-o, --outdir <OUTPUT_DIR> @TAB@ Use OUTPUT_DIR as the output directory",
         "no-minify" : "-n, --no-minify @TAB@ Skip the minification phase",
