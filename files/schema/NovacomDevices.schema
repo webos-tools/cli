@@ -17,7 +17,8 @@
             "enum": [
                 "ose",
                 "tv",
-                "apollo"
+                "apollo",
+                "signage"
             ],
             "description": "webOS Device Type"
         },

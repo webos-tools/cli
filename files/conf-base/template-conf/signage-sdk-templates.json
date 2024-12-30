@@ -1,0 +1,259 @@
+{
+    "backlight-scheduling": {
+        "type": "webapp",
+        "description": "SCAP - Backlight Scheduling",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon",
+            "scap-1.5.0"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Backlight_Scheduling",
+        "category": "scap",
+        "default": true
+    },
+    "app-update-without-restart": {
+        "type": "webapp",
+        "description": "SCAP - App update without restart",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon",
+            "scap-1.5.0"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/App_Update_without_Restart",
+        "category": "scap"
+    },
+    "download-progress": {
+        "type": "webapp",
+        "description": "SCAP - Download progress",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon",
+            "scap-1.5.0"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Download_Progress",
+        "category": "scap"
+    },
+    "simple-network-failover": {
+        "type": "webapp",
+        "description": "SCAP - Simple Network Failover",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon",
+            "scap-1.5.0"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Simple_Network_FailOver",
+        "category": "scap"
+    },
+    "file-explorer": {
+        "type": "webapp",
+        "description": "SCAP - File Explorer",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon",
+            "scap-1.5.0"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/File_Explorer",
+        "category": "scap"
+    },
+    "local-content-scheduling": {
+        "type": "webapp",
+        "description": "SCAP - Local Content Scheduling",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon",
+            "scap-1.5.0"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Local_Content_Scheduling",
+        "category": "scap"
+    },
+    "timezone-setting": {
+        "type": "webapp",
+        "description": "SCAP - Timezone Setting",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon",
+            "scap-1.5.0"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Timezone_Setting",
+        "category": "scap"
+    },
+    "fashion-multimedia-ad": {
+        "type": "webapp",
+        "description": "Web - (Fashion/Jewelry) Fashion Multimedia",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Fashion_Multimedia_Ad"
+    },
+    "information-kiosk": {
+        "type": "webapp",
+        "description": "Web - (Fashion/Jewelry) Information Kiosk",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Information_Kiosk"
+    },
+    "weather-dependent-ad": {
+        "type": "webapp",
+        "description": "Web - (Fashion/Jewelry) Weather Dependent Adv.",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Weather-dependent_Ad"
+    },
+    "flight-schedule": {
+        "type": "webapp",
+        "description": "Web - (Flight Info Display) Flight Schedule",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Flight_Schedule"
+    },
+    "information-board": {
+        "type": "webapp",
+        "description": "Web - (Public Place/Edu) Information Board",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Information_Board"
+    },
+    "multimedia-ad": {
+        "type": "webapp",
+        "description": "Web - (Public Place/Edu) Multimedia Adv.",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Multimedia_Advertisement"
+    },
+    "wayfinder": {
+        "type": "webapp",
+        "description": "Web - (Public Place/Edu) Wayfinder",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Wayfinder"
+    },
+    "widget-overlay": {
+        "type": "webapp",
+        "description": "Web - (Public Place/Edu) Widget Overlay",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Widget_Overlay"
+    },
+    "mart": {
+        "type": "webapp",
+        "description": "Web - (QSR/Retail) Mart",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Mart"
+    },
+    "price-board-for-QSR": {
+        "type": "webapp",
+        "description": "Web - (QSR/Retail) Price Board for QSR",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Price_Board_for_QSR"
+    },
+    "special-menu-board": {
+        "type": "webapp",
+        "description": "Web - (QSR/Retail) Special Menu Board",
+        "metadata": {
+            "id": "webappinfo"
+        },
+        "deps": [
+            "signageicon"
+        ],
+        "path": "$cli-root/files/templates/signage-sdk-templates/Special_Menu_Board"
+    },
+    "hello-service": {
+        "type": "jsservice",
+        "path": "$cli-root/files/templates/signage-sdk-templates/webos-service",
+        "description": "js service for webOS Signage",
+        "metadata": {
+            "id": "jsserviceinfo"
+        }
+    },
+    "webappinfo": {
+        "type": "webappinfo",
+        "path": "$cli-root/files/templates/signage-sdk-templates/appinfo/appinfo.json",
+        "description": "appinfo.json for web app"
+    },
+    "jsserviceinfo": {
+        "type": "jsserviceinfo",
+        "path": [
+            "$cli-root/files/templates/signage-sdk-templates/serviceinfo/services.json",
+            "$cli-root/files/templates/signage-sdk-templates/serviceinfo/package.json"
+        ],
+        "description": "services.json, package.json for JS service"
+    },
+    "signageicon": {
+        "type": "icon",
+        "description": "signage app icon path [80x80, 130x130]",
+        "path": "$cli-root/files/templates/signage-sdk-templates/signageicon"
+    },
+    "scap-1.3": {
+        "type": "library",
+        "description": "scap api 1.3",
+        "path": "$cli-root/files/templates/signage-sdk-templates/scap_api/1.3",
+        "hide": true
+    },
+    "scap-1.4.1": {
+        "type": "library",
+        "description": "scap api 1.4.1",
+        "path": "$cli-root/files/templates/signage-sdk-templates/scap_api/1.4.1",
+        "hide": true
+    },
+    "scap-1.5.0": {
+        "type": "library",
+        "description": "scap api 1.5.0",
+        "path": "$cli-root/files/templates/signage-sdk-templates/scap_api/1.5.0",
+        "hide": true
+    }
+}
