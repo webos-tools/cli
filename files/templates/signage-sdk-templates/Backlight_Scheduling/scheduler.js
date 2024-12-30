@@ -44,7 +44,7 @@ function interval() {
 
 // Set print value and clock arrow direction
 function printBacklightValue_Controller(hour, min) {
-	document.getElementById('controllerArrowRotate').setAttribute("style", "-webkit-transform:rotate(" + 0.25 * selectedTime + "deg);");
+	document.getElementById('controllerArrowRotate').setAttribute("style", "transform:rotate(" + 0.25 * selectedTime + "deg);");
 	var min_index = parseInt(min / 10);
 	// If current Backlight value is exists
 	if (Backlight[hour][min_index] != NOT_SCHEDULED) {
@@ -66,64 +66,57 @@ function drawRuler() {
     for (var i=0; i<12; i++) {
         document.getElementById('controllerRuler').innerHTML += "<div id = controllerRuler" + i + " "
                                          + "style = 'width: 2px; height: 840px; position: absolute; left : 400px; top:  0px; background-color: #000000;"
-                                         + "-webkit-transform:rotate(" + i*15 + "deg);'></div>";
+                                         + "transform:rotate(" + i*15 + "deg);'></div>";
     }
 }
 
-// Get device time
 function getTime() {
-    function successCb(cbObject) {
-        var hour = cbObject.hour,
-            min  = cbObject.minute;
-        currentTime = cbObject;
-        setBacklight(cbObject);
-    }
-
-    function failureCb(cbObject) {
-       var errorCode = cbObject.errorCode;
-       var errorText = cbObject.errorText;
-       
-       console.log ("Error Code [" + errorCode + "]: " + errorText);
-    }    
-        var configuration = new Configuration();
-        configuration.getCurrentTime(successCb, failureCb);    
+    idcap.request( "idcap://time/currenttime/get" , {
+        "parameters": {},
+        "onSuccess": function (cbObject) {
+                var hour = cbObject.hour,
+                min  = cbObject.minute;
+            currentTime = cbObject;
+            setBacklight(cbObject);
+        },
+        "onFailure": function (err) {
+            console.log("onFailure : errorMessage = " + err.errorMessage);
+        }
+    });
 }
 
 // If parameter value(time value) and current time is matched, do backlight scheduling
 function setBacklight(time) {
     var hour   = time.hour,
         minute = time.minute,
-        sec    = time.sec;
+        second    = time.second;
     document.getElementById('currentTime').innerHTML =        (hour<10   ? ('0' + hour)   : hour);
     document.getElementById('currentTime').innerHTML += ':' + (minute<10 ? ('0' + minute ): minute);
-    document.getElementById('currentTime').innerHTML += ':' + (sec<10    ? ('0' + sec)    : sec) + "<br>";
+    document.getElementById('currentTime').innerHTML += ':' + (second<10    ? ('0' + second)    : second) + "<br>";
     document.getElementById('currentTime').innerHTML += time.month + ". " + time.day + ". " + time.year;
  
-    do_scheduling_by_SCAP(hour, parseInt(minute/10));
+    do_scheduling_by_IDCAP(hour, parseInt(minute/10));
 }
 
 // Change backlight value
-function do_scheduling_by_SCAP(hour, minute) {
-   function successCb() {
-        // Do something
-        document.getElementById('popupWindow').innerHTML = "SCAP CALL";
-        currentBacklight = Backlight[hour][minute];
-    }
-
-    function failureCb(cbObject) {
-        var errorCode = cbObject.errorCode;
-        var errorText = cbObject.errorText;
-        
-        console.log ("Error Code [" + errorCode + "]: " + errorText);
-        document.getElementById('popupWindow').innerHTML = "Error Code [" + errorCode + "]: " + errorText;
-    }
-    
-    var options = {
-            backlight : Backlight[hour][minute]
-    }
-
+function do_scheduling_by_IDCAP(hour, minute) {
     if ( (Backlight[hour][minute] > NOT_SCHEDULED) && (currentBacklight !== Backlight[hour][minute]) ){
-        var configuration = new Configuration();
-        configuration.setPictureProperty(successCb, failureCb, options);
-    }    
-}
+        idcap.request( "idcap://configuration/property/set" , {
+            "parameters": {
+                "key" : "backlight",
+                "value" : Backlight[hour][minute]
+            },
+            "onSuccess": function () {
+                document.getElementById('popupWindow').innerHTML = "SCAP CALL";
+                currentBacklight = Backlight[hour][minute];
+            },
+            "onFailure": function (err) {
+                var errorCode = cbObject.errorCode;
+                var errorText = cbObject.errorText;
+                
+                console.log ("Error Code [" + errorCode + "]: " + errorText);
+                document.getElementById('popupWindow').innerHTML = "Error Code [" + errorCode + "]: " + errorText;
+            }
+        }); 
+    }
+ }

@@ -1,0 +1,25 @@
+#=============================================================================
+#   Creative Innovation Center, LG ELECTRONICS INC., SEOUL, KOREA            =
+#   Copyright(c) 2021 by LG Electronics Inc.                                 =
+#=============================================================================
+Changes for 1.1.0 :
+1) Apply Promise object on request method in idcap.js.
+
+Changes for 1.0.7 :
+1) Fix $IDCAP_JS_EXTENSION_VERSION
+
+Changes for 1.0.6 :
+1) Fix idcap.js to work on JS service.
+
+Changes for 1.0.5 :
+1) Add maximum number(3) of retries for websocket open
+
+Changes for 1.0.4 :
+1) Add isLogEnabled variable
+2) Default log enable status. true -> false
+
+Changes for 1.0.3 :
+1) idcap.js can be used in JS Service now.
+
+Changes for 1.0.2 :
+1) initial version
