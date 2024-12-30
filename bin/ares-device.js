@@ -91,6 +91,9 @@ if (argv.level) {
 }
 
 const curConfigData = appdata.getConfig(true);
+if (!["ose", "apollo", "tv"].includes(curConfigData.profile)) {
+    return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
+}
 const options = {
     device: argv.device,
     display: argv.display || 0,
