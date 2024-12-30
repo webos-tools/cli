@@ -1,0 +1,281 @@
+@font-face {
+    font-family: museo-sans-300;
+    src: url('../fonts/Museo Sans 300.otf');
+}
+@font-face {
+    font-family: museo-sans-300-italic;
+    src: url('../fonts/Museo Sans 300 Italic.otf');
+}
+@font-face {
+    font-family: museo-sans-500;
+    src: url('../fonts/Museo Sans 500.otf');
+}
+@font-face {
+    font-family: museo-sans-700;
+    src: url('../fonts/Museo Sans 700.otf');
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+}
+html, body {
+    height: 1080px;
+    width: 1920px;
+}
+/* First Screen*/
+.screenBackrgound {
+    background: url('../res/images/tpl_03_img_bg.png') 100% no-repeat;
+    height: 1080px;
+    width: 1920px;
+    z-index: 2;
+}
+/* Fade Animataion on Screen */
+.fadeEffect{
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-name : fading;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-delay: 4s;
+}
+@-webkit-keyframes fading {
+    0%   {opacity: 1}
+    50%  {opacity: 0.5}
+    100% {opacity: 0}
+}
+.brandTag {
+    left: 70px;
+    top: 70px;
+    color: #baa28a;
+    font: 46px museo-sans-500;
+}
+.brand {
+    left: 70px;
+    top: 134px;
+    height: 110px;
+    width: 870px;
+}
+.borderTitle {
+    background-color: #087245;
+    left: 885px;
+    top: 581px;
+    height: 90px;
+    width: 20px;
+}
+.titleBackground {
+    background-color: #272018;
+    left: 905px;
+    top: 581px;
+    height: 90px;
+    width: 1015px;
+}
+.title {
+    left: 931px;
+    top: 605px;
+    text-align: left;
+    color: #ffffff;
+    font: 40px museo-sans-500;
+}
+.line {
+    color: #2b1e13;
+    left: 931px;
+    font: 36px museo-sans-500;
+}
+.line1 {
+    top: 695px;
+}
+.line2 {
+    top: 741px;
+}
+.line3 {
+    top: 787px;
+}
+/* Screen Two */
+.screenSecond{
+    z-index: 1;
+    height:1080px;
+    width:1920px;
+}
+.mainView {
+    width: 1286px;
+    height: 1080px;
+    background-color: #0b0909;
+}
+.logo {
+    left: 60px;
+    top: 49px;
+    width: 259px;
+    height: 48px;
+}
+.bannerTitle {
+    color: #ffffff;
+    float: left;
+    position: relative;
+    left: 60px;
+    top: 152px;
+    font: 70px museo-sans-700;
+}
+.bannerCalorie {
+    color: #f9b81a;
+    float: left;
+    margin-left: 30px;
+    position: relative;
+    left: 60px;
+    top: 174px;
+    font: 40px museo-sans-700;
+}
+.bannerDescription{
+    left: 60px;
+    color: #969696;
+    font: 28px museo-sans-300;
+    width: 1166px;
+}
+.bannerDescription1{
+    top: 273px;
+}.bannerDescription2{
+    top: 313px;
+}
+.banner {
+    left: 60px;
+    top: 364px;
+    height: 656px;
+    width: 1166px;
+}
+/* Second Screen Right Slider*/
+.listSlider {
+    width: 634px;
+    height: 1080px;
+    background-color: #201816;
+    left: 1286px;
+}
+.list {
+    position: relative;
+    margin-top: 152px;
+}
+.listItem {
+    height: 185px;
+    margin-left: 60px;
+    position: relative;
+}
+.listItemImage {
+    height: 128px;
+    width: 228px;
+}
+.listItemDescription {
+    float: left;
+    margin-left: 260px;
+    width: 100%;
+}
+.listItemTitle {
+    font: 36px museo-sans-500;
+    color: #ffffff;
+    margin-top: 66px;
+}
+.listItemCalorie {
+    font: 26px museo-sans-500;
+    color: #f9b81a;
+    top: 109px;
+}
+/* Animation Durations */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+}
+.animated15s {
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-fill-mode: both;
+}
+.animated2s {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+}
+.animated25s {
+    -webkit-animation-duration: 2.5s;
+    -webkit-animation-fill-mode: both;
+}
+.animated3s {
+    -webkit-animation-delay: 0.5s;
+    -webkit-animation-duration: 1.3s;
+    -webkit-animation-fill-mode: both;
+}
+.animated4s {
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: both;
+}
+/* For Second Screen */
+.animated475s{
+    -webkit-animation-delay: 4.75s;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+}
+.animated5s{
+    -webkit-animation-delay: 5s;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+}
+.animated525s{
+    -webkit-animation-delay: 5.25s;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+}
+.animated55s{
+    -webkit-animation-delay: 5.5s;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+}
+.animated575s{
+    -webkit-animation-delay: 5.75s;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+}
+.animated6s{
+    -webkit-animation-delay: 6s;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-fill-mode: both;
+}
+/* 1 - bounceInRight*/
+
+@-webkit-keyframes fadeIn {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+}
+/* 2 - bounceInRight*/
+
+@-webkit-keyframes bounceInRight {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: ease-out;
+    }
+    0% {
+        -webkit-transform: translate3d(1050px, 0, 0);
+    }
+    100% {
+        -webkit-transform: none;
+    }
+}
+.bounceInRight {
+    -webkit-animation-name: bounceInRight;
+}
+/* 3 - bounceInUp*/
+
+@-webkit-keyframes bounceInUp {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 1080px, 0);/* */
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+.bounceInUp {
+    -webkit-animation-name: bounceInUp;
+}

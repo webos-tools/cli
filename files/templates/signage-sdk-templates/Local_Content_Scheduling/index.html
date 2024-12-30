@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Simple Local Content Scheduling App</title>	
+		<script type="text/javascript" src="./js/cordova/2.7.0/cordova.webos.js"></script>  
+		<script type="text/javascript" src="./js/cordova-cd/signage.js"></script>
+		<script type="text/javascript" src="./js/cordova-cd/storage.js"></script>  
+		<script type="text/javascript" src="./js/cordova-cd/configuration.js"></script>  
+		<script type="text/javascript" src="./js/cordova-cd/deviceInfo.js"></script>  
+		<script type="text/javascript" src="./js/cordova-cd/inputSource.js"></script>  
+		<script type="text/javascript" src="./js/cordova-cd/power.js"></script>  
+		<script type="text/javascript" src="./js/cordova-cd/sound.js"></script>  
+		<script type="text/javascript" src="./js/cordova-cd/video.js"></script>
+		
+		<script src = ./js/videoPlayer.js></script>
+		<script src = ./js/remocon.js></script>  
+		<script src = ./js/scheduler.js></script>  
+		
+		<link rel="stylesheet" type="text/css" href="./style.css">
+		 			
+	</head>
+
+	<body bgcolor=#ffffff onload='init()'>  
+	 
+		<div id = 'currentTime'></div>
+	
+			<div id = 'scheduler'></div>
+		<div id = 'status'>Loading...</div>
+		<div id = 'status_detail'>Loading...</div> 
+		<div id="videoPlayerDiv">
+			<video id = 'videoPlayer' width=1280 height=720 controls autoplay loop>
+			<source src="">
+			</video>
+		</div>	 
+		
+		<div id = 'manual'><img src= './remocon.png'></div>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+{
+    "bannerBackground": "res/images/tpl_09_img_brand.png",
+
+    "banner": "res/images/tpl_09_img_bg.png",
+    "bannerIcon": "res/images/tpl_09_logo.png",
+
+    "bannerAdTextLine1": "TEXT1",
+    "bannerAdTextLine2": "TEXT2",
+
+    "bannerAdvertisementLine1": "TEXT3",
+    "bannerAdvertisementLine2": "TEXT4",
+    "bannerAdvertisementLine3": "TEXT5",
+
+    "adBanner1Offer": "#1",
+    "adImage1": "res/images/tpl_09_img_list_01.png",
+    "adBanner1Name": "Name1",
+    "adBanner1Desc": "Description1",
+    "adBanner1Price": "Price1",
+
+    "adBanner2Offer": "#2",
+    "adImage2": "res/images/tpl_09_img_list_02.png",
+    "adBanner2Name": "Name2",
+    "adBanner2Desc": "Description2",
+    "adBanner2Price": "Price2",
+
+    "adBanner3Offer": "#3",
+    "adImage3": "res/images/tpl_09_img_list_03.png",
+    "adBanner3Name": "Name2",
+    "adBanner3Desc": "Description3",
+    "adBanner3Price": "Price3",
+
+    "adBanner4Offer": "#4",
+    "adImage4": "res/images/tpl_09_img_list_04.png",
+    "adBanner4Name": "Name4",
+    "adBanner4Desc": "Description4",
+    "adBanner4Price": "Price4"
+}

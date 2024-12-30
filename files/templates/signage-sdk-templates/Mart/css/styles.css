@@ -1,0 +1,248 @@
+/* Font Faces */
+@font-face {
+    font-family: museo-sans-300;
+    src: url('../fonts/Museo Sans 300.otf');
+}
+@font-face {
+    font-family: museo-sans-300-italic;
+    src: url('../fonts/Museo Sans 300 Italic.otf');
+}
+@font-face {
+    font-family: museo-sans-500;
+    src: url('../fonts/Museo Sans 500.otf');
+}
+@font-face {
+    font-family: museo-sans-700;
+    src: url('../fonts/Museo Sans 700.otf');
+}
+/* Page Styling */
+* {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+}
+/* First Screen */
+html, body, .bannerBackground {
+    height: 1080px;
+    width: 1920px;
+    background-color: white;
+}
+/* Second Screen */
+
+.banner {
+    height: 630px;
+    width: 1920px;
+}
+.bannerIcon {
+    top: 40px;
+    left: 40px;
+    height: 60px;
+    width: 216px;
+}
+.bannerAdTextLine1 {
+    top: 238px;
+    left: 84px;
+    font: 90px museo-sans-700;
+    color: #fff;
+}
+.point {
+    color: #fdbb30;
+}
+.relative {
+    position: relative;
+}
+.bannerAdTextLine2 {
+    top: 329px;
+    left: 84px;
+    font: 90px museo-sans-700;
+    color: #fff;
+}
+.bannerAdvertisement {
+    color: #a3a3a3;
+    left: 84px;
+}
+.bannerAdvertisement.line1 {
+    font: 28px museo-sans-500;
+    top: 482px;
+}
+.bannerAdvertisement.line2 {
+    font: 28px museo-sans-500;
+    top: 510px;
+}
+.bannerAdvertisement.line3 {
+    font: 44px museo-sans-700;
+    top: 557px;
+}
+/* Below Part */
+
+.horizontalLineSeperator {
+    width: 2px;
+    height: 370px;
+    background-color: #cce5f4;
+    top: 670px
+}
+.horizontalLineSeperator.line1 {
+    left: 479px;
+}
+.horizontalLineSeperator.line2 {
+    left: 959px;
+}
+.horizontalLineSeperator.line3 {
+    left: 1439px;
+}
+.advertisements {
+    height: 450px;
+    width: 480px;
+    top: 630px;
+    position: relative;
+    float: left;
+}
+.adBannerImage {
+    top: 30px;
+    width: 400px;
+    height: 240px;
+    left: 40px;
+}
+.adBannerOfferImage {
+    top: 40px;
+    width: 85px;
+    height: 85px;
+    left: 80px;
+    background: url('../res/images/tpl_09_img_tag.png') 100% no-repeat;
+    font: 36px/88px museo-sans-700;
+    text-align: center;
+    color: #fff;
+}
+.adBannerLeft {
+    left: 80px;
+    font: 28px museo-sans-500;
+    color: #3b3b3b;
+}
+.adBannerName {
+    top: 301px;
+}
+.adBannerDesc {
+    top: 329px;
+}
+.adBannerPrice {
+    top: 376px;
+    color: #007dc6;
+    font: 44px museo-sans-700;
+}
+/* Animation */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 2s;
+}
+.animated3s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 3s;
+}
+.animated32s { 
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 3.2s;
+}
+.animated35s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 3.5s;
+}
+.animated4s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 4s;
+}
+.animated43s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 4.3s;
+}
+.animated45s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 4.5s;
+}
+.animated46s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 4.6s;
+}
+.animated49s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 4.9s;
+}
+.animated5s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 5s;
+}
+.animated55s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 5.5s;
+}
+.animated6s {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 6s;
+}
+.animated.infinite {
+    -webkit-animation-iteration-count: infinite;
+}
+/* pulse animate*/
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.25, 1.25, 1.25);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+}
+.pulse {
+    -webkit-animation-name: pulse;
+}
+/* FadeIn */
+
+@-webkit-keyframes fadeIn {
+     0% {    opacity: 0; }
+    100% {    opacity: 1; }
+}
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+}
+/* fadeOut */
+
+@-webkit-keyframes fadeOut {
+    0% {    opacity: 1; }
+    100% {    opacity: 0; }
+}
+.fadeOut {
+    -webkit-animation-name: fadeOut;
+}
+/* bounceindown*/
+
+@-webkit-keyframes bounceInDown {
+    0%, 60%, 75%, 90%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -630px, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+    }
+}
+.bounceInDown {
+    -webkit-animation-name: bounceInDown;
+}

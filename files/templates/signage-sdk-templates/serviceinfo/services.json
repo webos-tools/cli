@@ -1,0 +1,8 @@
+{
+	"id": "com.lg.app.signage.service",
+	"description": "HelloWorld Service",
+	"services": [ {
+		"name": "com.lg.app.signage.service",
+		"description": "HelloWorld Service"
+	} ]
+}

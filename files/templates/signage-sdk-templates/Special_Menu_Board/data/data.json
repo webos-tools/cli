@@ -1,0 +1,33 @@
+{
+    "tagline": "TITLE",
+    "brand": "res/images/tpl_03_logo_01.png",
+    "exiciteline": "SUB-TITLE",
+    "featureline": "CONTENT",
+
+    "logo": "res/images/tpl_03_logo_02.png",
+    "FeaturedProduct": "Product1",
+    "FeaturedProductDesc1": "Product1 Description1",
+    "FeaturedProductDesc2": "Product1 Description2",
+    "FeaturedProductImage": "res/images/tpl_03_img_coffe_01_l.png",
+    "FeaturedProductCalorie": "Calorie1",
+
+    "ListProduct1Image": "res/images/tpl_03_img_coffe_01.png",
+    "ListProduct1": "Product2",
+    "ListProduct1Calorie": "Calorie2",
+
+    "ListProduct2Image": "res/images/tpl_03_img_coffe_02.png",
+    "ListProduct2": "Product3",
+    "ListProduct2Calorie": "Calorie3",
+
+    "ListProduct3Image": "res/images/tpl_03_img_coffe_03.png",
+    "ListProduct3": "Product4",
+    "ListProduct3Calorie": "Calorie4",
+
+    "ListProduct4Image": "res/images/tpl_03_img_coffe_04.png",
+    "ListProduct4": "Product5",
+    "ListProduct4Calorie": "Calorie5",
+
+    "ListProduct5": "Product6",
+    "ListProduct5Image": "res/images/tpl_03_img_coffe_05.png",
+    "ListProduct5Calorie": "Calorie6"
+}

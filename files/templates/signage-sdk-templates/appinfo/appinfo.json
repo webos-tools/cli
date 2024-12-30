@@ -1,0 +1,11 @@
+{
+	"id": "com.lg.app.signage",
+	"version": "0.0.1",
+	"vendor": "My Company",
+	"type": "web",
+	"main": "index.html",
+	"title": "singlepane",
+	"icon": "icon.png",
+	"largeIcon": "largeIcon.png",
+	"appDescription": "webOS Signage Application"
+}

@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>App 10</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <!-- DataBinder -->
+    <script src="js/helpers/util.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <img class="logo" data-bind-app="logo"></img>
+        <div class="imageOverlay" data-bind-app="imageOverlayText"></div>
+        <div class="navigation">
+            <div class="ul">
+                <a  href="#/page1" id="menu_1" data-bind-app="menu_1"></a>
+                <a  href="#/page2" id="menu_2" data-bind-app="menu_2"></a>
+                <a  href="#/page3" id="menu_3" data-bind-app="menu_3"></a>
+                <a  href="#/page4" id="menu_4" data-bind-app="menu_4"></a>
+                <a  href="#/page5" id="menu_5" data-bind-app="menu_5"></a>
+            </div>
+        </div>
+    </div>
+    <!-- Home Screen -->
+    <div class="Page1 page" id="Page1">
+        <div class="bannerBackground">
+            <img data-bind-app="bannerBackground"></img>
+        </div>
+        <div class="adHeading" data-bind-app="adHeading"></div>
+        <div class="adProducts">
+            <div class="ol">
+                <div>
+                    <img class="productImg" data-bind-app="productImg1">
+                    <div class="productName" data-bind-app="productName1"></div>
+                    <div class="productPrice" data-bind-app="productPrice1"></div>
+                </div>
+                <div>
+                    <img class="productImg" data-bind-app="productImg2">
+                    <div class="productName" data-bind-app="productName2"></div>
+                    <div class="productPrice" data-bind-app="productPrice2"></div>
+                </div>
+                <div>
+                    <img class="productImg" data-bind-app="productImg3">
+                    <div class="productName" data-bind-app="productName3"></div>
+                    <div class="productPrice" data-bind-app="productPrice3"></div>
+                </div>
+                <div>
+                    <img class="productImg" data-bind-app="productImg4">
+                    <div class="productName" data-bind-app="productName4"></div>
+                    <div class="productPrice" data-bind-app="productPrice4"></div>
+                </div>
+                <div>
+                    <img class="productImg" data-bind-app="productImg5">
+                    <div class="productName" data-bind-app="productName5"></div>
+                    <div class="productPrice" data-bind-app="productPrice5"></div>
+                </div>
+                <div>
+                    <img class="productImg" data-bind-app="productImg6">
+                    <div class="productName" data-bind-app="productName6"></div>
+                    <div class="productPrice" data-bind-app="productPrice6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Screen-->
+    <div class="Page2 page" id="Page2">
+        <div class="Screen2Heading" data-bind-app="Screen2Heading"></div>
+        <div class="gallery">
+            <div class="ol">
+                <div class="imagePopup" id="productPopupImg01">
+                    <img class="productImg" data-bind-app="productImg1">
+                    <div class="productName" data-bind-app="productName1"></div>
+                    <div class="productPrice" data-bind-app="productPrice1"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg02">
+                    <img class="productImg" data-bind-app="productImg2">
+                    <div class="productName" data-bind-app="productName2"></div>
+                    <div class="productPrice" data-bind-app="productPrice2"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg03">
+                    <img class="productImg" data-bind-app="productImg3">
+                    <div class="productName" data-bind-app="productName3"></div>
+                    <div class="productPrice" data-bind-app="productPrice3"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg04">
+                    <img class="productImg" data-bind-app="productImg4">
+                    <div class="productName" data-bind-app="productName4"></div>
+                    <div class="productPrice" data-bind-app="productPrice4"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg05">
+                    <img class="productImg" data-bind-app="productImg5">
+                    <div class="productName" data-bind-app="productName5"></div>
+                    <div class="productPrice" data-bind-app="productPrice5"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg06">
+                    <img class="productImg" data-bind-app="productImg6">
+                    <div class="productName" data-bind-app="productName6"></div>
+                    <div class="productPrice" data-bind-app="productPrice6"></div>
+                </div>
+            </div>
+            <div class="ol">
+                <div class="imagePopup" id="productPopupImg07">
+                    <img class="productImg" data-bind-app="productImg7">
+                    <div class="productName" data-bind-app="productName7"></div>
+                    <div class="productPrice" data-bind-app="productPrice7"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg08">
+                    <img class="productImg" data-bind-app="productImg8">
+                    <div class="productName" data-bind-app="productName8"></div>
+                    <div class="productPrice" data-bind-app="productPrice8"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg09">
+                    <img class="productImg" data-bind-app="productImg9">
+                    <div class="productName" data-bind-app="productName9"></div>
+                    <div class="productPrice" data-bind-app="productPrice9"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg10">
+                    <img class="productImg" data-bind-app="productImg10">
+                    <div class="productName" data-bind-app="productName10"></div>
+                    <div class="productPrice" data-bind-app="productPrice10"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg11">
+                    <img class="productImg" data-bind-app="productImg11">
+                    <div class="productName" data-bind-app="productName11"></div>
+                    <div class="productPrice" data-bind-app="productPrice11"></div>
+                </div>
+                <div class="imagePopup" id="productPopupImg12">
+                    <img class="productImg" data-bind-app="productImg12">
+                    <div class="productName" data-bind-app="productName12"></div>
+                    <div class="productPrice" data-bind-app="productPrice12"></div>
+                </div>
+            </div>
+        </div>
+        <div class="screen2Scroll">
+            <div class="scroller"></div>
+        </div>
+    </div>
+    <!-- Third Screen-->
+    <div class="Page3 page" id="Page3">
+        <div class="screen3SideImage">
+            <img data-bind-app="screen3SideImage"></img>
+        </div>
+        <div class="screen3Gallery">
+            <div class="screen3OL">
+                <div class="li">
+                    <img data-bind-app="screen3ProductImg1" class="screen3ProductImg">
+                    <div class="screen3ProductName" data-bind-app="screen3ProductName1"></div>
+                    <div class="screen3ProductPrice" data-bind-app="screen3ProductPrice1"></div>
+                </div>
+                <div class="li">
+                    <img data-bind-app="screen3ProductImg2" class="screen3ProductImg">
+                    <div class="screen3ProductName" data-bind-app="screen3ProductName2"></div>
+                    <div class="screen3ProductPrice" data-bind-app="screen3ProductPrice2"></div>
+                </div>
+                <div class="li">
+                    <img data-bind-app="screen3ProductImg3" class="screen3ProductImg">
+                    <div class="screen3ProductName" data-bind-app="screen3ProductName3"></div>
+                    <div class="screen3ProductPrice" data-bind-app="screen3ProductPrice3"></div>
+                </div>
+                <div class="li">
+                    <img data-bind-app="screen3ProductImg4" class="screen3ProductImg">
+                    <div class="screen3ProductName" data-bind-app="screen3ProductName4"></div>
+                    <div class="screen3ProductPrice" data-bind-app="screen3ProductPrice4"></div>
+                </div>
+                <div class="li">
+                    <img data-bind-app="screen3ProductImg5" class="screen3ProductImg">
+                    <div class="screen3ProductName" data-bind-app="screen3ProductName5"></div>
+                    <div class="screen3ProductPrice" data-bind-app="screen3ProductPrice5"></div>
+                </div>
+                <div class="li">
+                    <img data-bind-app="screen3ProductImg6" class="screen3ProductImg">
+                    <div class="screen3ProductName" data-bind-app="screen3ProductName6"></div>
+                    <div class="screen3ProductPrice" data-bind-app="screen3ProductPrice6"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Fourth Screen-->
+    <div class="Page4 page" id="Page4">
+        <div class="block">
+            <div class="blockHeading" data-bind-app="Screen4blockHeading_1"></div>
+            <div class="line"></div>
+            <div class="positionBlock">
+                <div class="info">
+                        <div class="timing" data-bind-app="Screen4timing1"></div>
+                        <div class="subject" data-bind-app="Screen4subject1"></div>
+                        <div class="address" data-bind-app="Screen4address1"></div>
+                        <div class="location" data-bind-app="Screen4location1"></div>
+                        <div class="phone" data-bind-app="Screen4phone1"></div>
+                </div>
+                <div class="info">
+                        <div class="timing" data-bind-app="Screen4timing2"></div>
+                        <div class="subject" data-bind-app="Screen4subject2"></div>
+                        <div class="address" data-bind-app="Screen4address2"></div>
+                        <div class="location" data-bind-app="Screen4location2"></div>
+                        <div class="phone" data-bind-app="Screen4phone2"></div>
+                </div>
+                <div class="info">
+                        <div class="timing" data-bind-app="Screen4timing3"></div>
+                        <div class="subject" data-bind-app="Screen4subject3"></div>
+                        <div class="address" data-bind-app="Screen4address3"></div>
+                        <div class="location" data-bind-app="Screen4location3"></div>
+                        <div class="phone" data-bind-app="Screen4phone3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block2">
+            <div class="blockHeading" data-bind-app="Screen4blockHeading_2"></div>
+            <div class="line"></div>
+            <div class="positionBlock">
+                <div class="info">
+                        <div class="timing" data-bind-app="Screen4timing4"></div>
+                        <div class="subject" data-bind-app="Screen4subject4"></div>
+                        <div class="address" data-bind-app="Screen4address4"></div>
+                        <div class="location" data-bind-app="Screen4location4"></div>
+                        <div class="phone" data-bind-app="Screen4phone4"></div>
+                </div>
+                <div class="info">
+                        <div class="timing" data-bind-app="Screen4timing5"></div>
+                        <div class="subject" data-bind-app="Screen4subject5"></div>
+                        <div class="address" data-bind-app="Screen4address5"></div>
+                        <div class="location" data-bind-app="Screen4location5"></div>
+                        <div class="phone" data-bind-app="Screen4phone5"></div>
+                </div>
+                <div class="info">
+                        <div class="timing" data-bind-app="Screen4timing6"></div>
+                        <div class="subject" data-bind-app="Screen4subject6"></div>
+                        <div class="address" data-bind-app="Screen4address6"></div>
+                        <div class="location" data-bind-app="Screen4location6"></div>
+                        <div class="phone" data-bind-app="Screen4phone6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fifth Screen-->
+    <div class="Page5 page" id="Page5">
+        <div class="screen5block1">
+            <div class="blockHeading" data-bind-app="blockHeading_3"></div>
+            <div class="line"></div>
+            <div class="section">
+                <span data-bind-app="section_Line1"></span>
+                <span data-bind-app="section_Line2"></span>
+                <span data-bind-app="section_Line3"></span>
+                <span data-bind-app="section_Line4"></span>
+                <span data-bind-app="section_Line5"></span>
+                <span data-bind-app="section_Line6"></span>
+                <span data-bind-app="section_Line7"></span>
+            </div>
+        </div>
+        <div class="screen5block2">
+            <div class="blockHeading" data-bind-app="blockHeading_4"></div>
+            <div class="line"></div>
+            <div class="subHeading" data-bind-app="subHeading"></div>
+            <div class="stores">
+                <div class="information">
+                    <div class="address1" data-bind-app="address1"></div>
+                    <div class="location1" data-bind-app="location1"> </div>
+                    <div class="phone1" data-bind-app="phone1"></div>
+                </div>
+                <div class="information">
+                    <div class="address1" data-bind-app="address2"></div>
+                    <div class="location1" data-bind-app="location2"> </div>
+                    <div class="phone1" data-bind-app="phone2"></div>
+                </div>
+                <div class="information">
+                    <div class="address1" data-bind-app="address3"></div>
+                    <div class="location1" data-bind-app="location3"></div>
+                    <div class="phone1" data-bind-app="phone3"></div>
+                </div>
+                <div class="information">
+                    <div class="address1" data-bind-app="address4"></div>
+                    <div class="location1" data-bind-app="location4"> </div>
+                    <div class="phone1" data-bind-app="phone4"></div>
+                </div>
+                <div class="information">
+                    <div class="address1" data-bind-app="address5"></div>
+                    <div class="location1" data-bind-app="location5"> </div>
+                    <div class="phone1" data-bind-app="phone5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal-->
+    <div class="modal" id="modal">
+        <div>
+            <div class="close" id="close">
+                <img data-bind-app="close"></img>
+            </div>
+            <div class="leftArrow">
+                <img data-bind-app="leftArrow" id="leftArrow"></img>
+            </div>
+            <div class="image">
+                <img data-bind-app="imagePopup"></img>
+            </div>
+            <div class="rightArrow">
+                <img data-bind-app="rightArrow" id="rightArrow"></img>
+            </div>
+            <div class="newtag" data-bind-app="newTag"></div>
+        </div>
+        <div class="modalText">
+            <div class="modalProductName" data-bind-app="modalProductName"></div>
+            <div class="modalProductPrice" data-bind-app="modalProductPrice"></div>
+            <div class="modalProductSize modalLineStyle" data-bind-app="modalProductSize"></div>
+            <span class="modalDescLine1 modalLineStyle" data-bind-app="modalDescLine1"></span>
+            <span class="modalDescLine2 modalLineStyle" data-bind-app="modalDescLine2"></span>
+            <span class="modalDescLine3 modalLineStyle" data-bind-app="modalDescLine3"></span>
+        </div>
+    </div>
+</body>
+<script src="js/controller.js"></script>
+
+</html>

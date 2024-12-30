@@ -1,0 +1,53 @@
+body {
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
+}
+
+#inputForm {
+	width: 48%;
+	height: 100%;
+	background-color: #ffaaaa;	
+	font-size: 300%; 
+	float: left;
+	padding : 1%;
+}
+
+#remoteSettings {
+	font-size: 75%
+}
+#serverSettings {
+	font-size: 75%
+}
+
+#localAppInfo {
+	width: 48%;
+	height: 28%;
+    float: right;
+	background-color: #ffffaa;
+	font-size: 300%;
+	padding : 1%;
+}
+#serverAppInfo {
+	width: 48%;
+	height: 53%;
+    float: right;
+	background-color: #aaffaa;
+	font-size: 300%;
+	padding : 1%;
+}
+
+#status {
+	font-size: 75%
+}
+
+#downlaodJSON {
+	width: 48%;
+	height: 13%;
+	position: absolute;
+	bottom: 0px;
+	right: 0px; 
+	padding: 1%;
+	font-size: 150%;	
+	background-color: #aaaaff;
+}

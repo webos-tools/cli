@@ -1,0 +1,233 @@
+body {
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+}
+
+#menu_popup{
+	font-size: 200%;	
+	background-color: #CCCCCC;
+	border-style: groove;
+	border-width: 10px;
+	text-align: left;
+	padding: 20px;
+	color: #000000;
+	
+	width: 1000px;
+	height: 500px;
+	
+	position: absolute;
+	
+	left: 460px;
+	top : 290px;	
+	text-align: center;
+	
+	visibility: hidden;
+}
+
+#currentPos{
+	font-size: 250%;
+	height: 50px;
+	background-color: #000000;
+	border-style: groove;
+	border-width: 2px;
+	text-align: left;
+	padding: 5px;
+	color: white;
+}
+
+#filetitle_name {
+	font-size: 150%;
+	width: 560px;
+	height: 27px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	text-align: center;
+	padding: 5px;
+	color: white;
+}
+
+#filetitle_type {
+	font-size: 150%;
+	width: 120px;
+	height: 27px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: center;
+	color: white;
+}
+
+#filetitle_size {
+	font-size: 150%;
+	width: 145px;
+	height: 27px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: center;
+	color: white;
+}
+
+#filetitle_ctime {
+	font-size: 150%;
+	width: 190px;
+	height: 27px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: center;
+	color: white;
+}
+
+#filetitle_atime {
+	font-size: 150%;
+	width: 190px;
+	height: 27px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: center;
+	color: white;
+}
+
+#filetitle_mtime {
+	font-size: 150%;
+	width: 190px;
+	height: 27px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: center;
+	color: white;
+}
+
+#fileList_name{
+	font-size: 150%;
+	width: 560px;
+	height: 1030px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	text-align: left;
+	padding: 5px;
+	color: white;
+	overflow-y:scroll;
+} 
+#fileList_type{
+	font-size: 150%;
+	width: 120px;
+	height: 1030px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: right;
+	color: white;
+	overflow-y:scroll;
+}
+
+#fileList_size{
+	font-size: 150%;
+	width: 145px;
+	height: 1030px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: right;
+	color: white;
+	overflow-y:scroll;
+}
+
+#fileList_ctime{
+	font-size: 150%;
+	width: 190px;
+	height: 1030px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: right;
+	color: white;
+	overflow-y:scroll;
+}
+
+#fileList_atime{
+	font-size: 150%;
+	width: 190px;
+	height: 1030px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: right;
+	color: white;
+	overflow-y:scroll;
+}
+
+#fileList_mtime{
+	font-size: 150%;
+	width: 190px;
+	height: 1030px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: right;
+	color: white;
+	overflow-y:scroll;
+}
+
+#fileInfo {	
+	font-size: 150%;
+	width: 427px;
+	height: 1030px;
+	background-color: #000000;
+	float: left;
+	border-style: groove;
+	border-width: 2px;
+	padding: 5px;
+	text-align: center;
+	color: white;
+}
+
+#status{
+	height: 50px;
+	background-color: #303030;	
+	position:static;
+	top: 54px;
+	border-style: groove;
+	border-width: 2px;
+}
+
+#contents{  
+	font-size: 50%;
+	height: 906px;
+	width: 423px;
+	background-color: #808080;	
+	position:static;
+	left:1500px;
+	top: 280px;
+	border-style: groove;
+	border-width: 2px;
+	text-align: justify;	
+}

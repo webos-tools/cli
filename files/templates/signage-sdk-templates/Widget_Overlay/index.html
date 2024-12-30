@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang='en'>
+
+<head>
+    <title>Widget Overlay</title>
+
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+
+    <!-- Css Files -->
+    <link href='css/styles.css' rel='stylesheet' type='text/css' />
+
+</head>
+
+<body>
+    <!-- 
+		data-bind-*(Ex:data-bind-AppSeven) is a custom attribute ,which represents data source.
+		we can bind multiple data sources by changing the * value with dataSource name.
+		
+		'video','bgImg','newsImage' ... are the attributes or properties inside a data source.
+	-->
+    <video autoplay loop id='videoPlayer' data-bind-appSeven='video'></video>
+    <img data-bind-appSeven='bgImg' class='videoOverlay' />
+
+    <div id='newsWidget'>
+        <div class='imgContent'>
+            <img id='newsImg' data-bind-appSeven='newsImage' />
+        </div>
+        <div id='newsContent'>
+            <div>
+                <p class='txtUpper' data-bind-appSeven='latestNewsTitle'></p>
+            </div>
+            <div>
+                <p class='headLineContent' data-bind-appSeven='latestNewsHeadLine'></p>
+                <p id='slideContent' data-bind-appSeven='latestNewsContent'></p>
+            </div>
+        </div>
+    </div>
+
+    <div id='stockWidget'>
+        <ul id='stockList'></ul>
+    </div>
+
+    <div id='weatherWidget'>
+        <ul data-bind-appSeven='weatherInfo'></ul>
+        <div class='weatherInfoContent'>
+            <span data-bind-appSeven='weatherValue'></span>
+            <span>&deg;</span>
+        </div>
+        <div class='weatherContent'>
+            <img data-bind-appSeven='weatherImage' />
+            <label data-bind-appSeven='weatherStatus'></label>
+        </div>
+    </div>
+
+    <!-- Script Files -->
+    <script src='js/helpers/util.js'></script>
+    <script src='js/controller.js'></script>
+
+</body>
+
+</html>

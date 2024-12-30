@@ -1,0 +1,40 @@
+html, body, div#carouselSlider {
+    height: 1080px;
+    width: 1920px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+div#carouselSlider {
+    overflow: hidden;
+    position: relative;
+}
+ul {
+    list-style-type: none;
+    position: absolute;
+	overflow: hidden; 
+}
+ul li { float:left; }
+/* animation : Set animation speed here as well as in js file*/
+.animateSlideIn {
+    -webkit-animation-duration: 1.2s;
+    -webkit-animation-name: slideInLeft;
+    -webkit-animation-timing-function: cubic-bezier(0.45,0.55,0.55,1);
+}
+@-webkit-keyframes slideInLeft {
+    0% {} 100% {
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+}
+.animateSlideInRight {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: slideInRight;
+    -webkit-animation-timing-function: cubic-bezier(0.45,0.55,0.55,1);
+}
+@-webkit-keyframes slideInRight {
+    0% {} 100% {
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+}

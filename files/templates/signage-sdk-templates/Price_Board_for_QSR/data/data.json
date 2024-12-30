@@ -1,0 +1,92 @@
+{
+    "headerInfo": {
+        "headerBG": "res/images/tpl_04_bg_top.png",
+        "headerLogo": "res/images/tpl_04_logo.png",
+        "headerTitle": "TITLE TEXT",
+        "headerContent": "CATCHPHRASE"
+    },
+    "menuData": {
+        "firstItem": {
+            "image": "res/images/tpl_04_img_menu_01.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "secondItem": {
+            "image": "res/images/tpl_04_img_menu_02.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "thirdItem": {
+            "image": "res/images/tpl_04_img_menu_03.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "fourthItem": {
+            "image": "res/images/tpl_04_img_menu_04.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "fifthItem": {
+            "image": "res/images/tpl_04_img_menu_05.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "sixthItem": {
+            "image": "res/images/tpl_04_img_menu_06.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "seventhItem": {
+            "image": "res/images/tpl_04_img_menu_07.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "eighthItem": {
+            "image": "res/images/tpl_04_img_menu_08.png",
+             "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        },
+        "ninthItem": {
+            "image": "res/images/tpl_04_img_menu_09.png",
+            "title": "TITLE1",
+            "extraInfo": "CONTENT1",
+            "itemName": "CONTENT2",
+            "itemValue": "CONTENT2-1",
+            "optionName": "CONTENT3",
+            "optionValue": "CONTENT3-1"
+        }
+    }
+
+}

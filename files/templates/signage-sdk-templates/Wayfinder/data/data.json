@@ -1,0 +1,339 @@
+{
+    "commonSettings": {
+
+        "logo": "res/images/tpl_11_logo_shoppingmall_name.png",
+
+        "FloorTitle3": "Floor Title3",
+        "FloorTitle2": "Floor Title2",
+        "FloorTitle1": "Floor Title1",
+
+        "floor":"secondFloor",
+        "location": "res/images/tpl_11_img_point.png",
+        "parkingIcon": "res/images/tpl_11_list_icon_parking.png",
+        "infoIcon": "res/images/tpl_11_list_icon_info.png",
+        "elevatorIcon": "res/images/tpl_11_list_icon_elevator.png",
+        "escalatorIcon": "res/images/tpl_11_list_icon_escalator.png",
+        "toiletIcon": "res/images/tpl_11_list_icon_toilet.png",
+        "exitIcon": "res/images/tpl_11_list_icon_exit.png",
+        "parkingIconTxt": "Parking",
+        "infoIconTxt": "Information",
+        "elevatorIconTxt": "Elevator",
+        "escalatorIconTxt": "Escalator",
+        "toiletIconTxt": "Toilet",
+        "exitIconTxt": "Exit",
+        "shadowIcon": "res/images/tpl_11_img_point_shadow.png",
+        "backButton":"res/images/tpl_11_btn_back_n.png",
+        "popUp": {
+            "activeBtn": "res/images/tpl_11_icon_dot_s.png",
+            "nonActiveBtn": "res/images/tpl_11_icon_dot_n.png"
+        },
+		"FlrTabData3": [
+            [{
+				"shopNo": 200,
+				"shopName": "Shop Name2-1"
+            }, {
+				"shopNo": 202,
+				"shopName": "Shop Name2-3"
+            }],
+			[{
+				"shopNo": 201,
+				"shopName": "Shop Name2-2"
+            }, {
+				"shopNo": 203,
+				"shopName": "Shop Name2-4"
+            }]
+		],       
+        "FlrTabData2": [
+            [{
+                "shopNo": 100,
+                "shopName": "Shop Name1-1"
+            }, {
+                "shopNo": 106,
+                "shopName": "Shop Name1-7"
+            }],
+            [{
+                "shopNo": 101,
+                "shopName": "Shop Name1-2"
+            }, {
+                "shopNo": 107,
+                "shopName": "Shop Name1-8"
+            }],
+            [{
+                "shopNo": 102,
+                "shopName": "Shop Name1-3"
+            }, {
+                "shopNo": 108,
+                "shopName": "Shop Name1-9"
+            }],
+            [{
+                "shopNo": 103,
+                "shopName": "Shop Name1-4"
+            }, {
+                "shopNo": 109,
+                "shopName": "Shop Name1-10"
+            }],
+            [{
+                "shopNo": 104,
+                "shopName": "Shop Name1-5"
+            }, {
+                "shopNo": 110,
+                "shopName": "Shop Name1-11"
+            }],
+            [{
+                "shopNo": 105,
+                "shopName": "Shop Name1-6"
+            }]
+        ],
+        "FlrTabData1": [
+            [{
+                "shopNo": "B00",
+                "shopName": "Shop Name0-1"
+            }, {
+                "shopNo": "B06",
+                "shopName": "Shop Name0-7"
+            }],
+            [{
+                "shopNo": "B01",
+                "shopName": "Shop Name0-2"
+            }, {
+                "shopNo": "B07",
+                "shopName": "Shop Name0-8"
+            }],
+            [{
+                "shopNo": "B02",
+                "shopName": "Shop Name0-3"
+            }],
+            [{
+                "shopNo": "B03",
+                "shopName": "Shop Name0-4"
+            }],
+            [{
+                "shopNo": "B04",
+                "shopName": "Shop Name0-5"
+            }],
+            [{
+                "shopNo": "B05",
+                "shopName": "Shop Name0-6"
+            }]
+        ]
+
+    },
+    "homePage": {
+
+        "FloorName3": "Floor Name3",
+        "FloorName2": "Floor Name2",
+        "FloorName1": "Floor Name1",
+
+        "directory": "DIRECTORY",
+
+        "floorMapShadow": "res/images/tpl_11_img_floormap_all_shadow.png",
+        "floorMap1": "res/images/tpl_11_img_floormap_all_01_n.png",
+        "floorMap1Shadow": "res/images/tpl_11_img_floormap_all_01_d.png",
+        "floorMap2": "res/images/tpl_11_img_floormap_all_02_n.png",
+        "floorMap2Shadow": "res/images/tpl_11_img_floormap_all_02_d.png",
+        "floorMap3": "res/images/tpl_11_img_floormap_all_03_n.png",
+        "floorMap3Shadow": "res/images/tpl_11_img_floormap_all_03_d.png",
+
+        "FloorDirectory3": [{
+            "shopNo": 200,
+            "shopName": "Shop Name2-1"
+        }, {
+            "shopNo": 201,
+            "shopName": "Shop Name2-2"
+        }, {
+            "shopNo": 202,
+            "shopName": "Shop Name2-3"
+        }, {
+            "shopNo": 203,
+            "shopName": "Shop Name2-4"
+        }],
+        "FloorDirectory2": [{
+            "shopNo": 100,
+            "shopName": "Shop Name1-1"
+        }, {
+            "shopNo": 101,
+            "shopName": "Shop Name1-2"
+        }, {
+            "shopNo": 102,
+            "shopName": "Shop Name1-3"
+        }, {
+            "shopNo": 103,
+            "shopName": "Shop Name1-4"
+        }, {
+            "shopNo": 104,
+            "shopName": "Shop Name1-5"
+        }, {
+            "shopNo": 105,
+            "shopName": "Shop Name1-6"
+        }, {
+            "shopNo": 106,
+            "shopName": "Shop Name1-7"
+        }, {
+            "shopNo": 107,
+            "shopName": "Shop Name1-8"
+        }, {
+            "shopNo": 108,
+            "shopName": "Shop Name1-9"
+        }, {
+            "shopNo": 109,
+            "shopName": "Shop Name1-10"
+        }, {
+            "shopNo": 110,
+            "shopName": "Shop Name1-11"
+        }],
+        "FloorDirectory1": [{
+            "shopNo": "B00",
+            "shopName": "Shop Name0-1"
+        }, {
+            "shopNo": "B01",
+            "shopName": "Shop Name0-2"
+        }, {
+            "shopNo": "B02",
+            "shopName": "Shop Name0-3"
+        }, {
+            "shopNo": "B03",
+            "shopName": "Shop Name0-4"
+        }, {
+            "shopNo": "B04",
+            "shopName": "Shop Name0-5"
+        }, {
+            "shopNo": "B05",
+            "shopName": "Shop Name0-6"
+        }, {
+            "shopNo": "B06",
+            "shopName": "Shop Name0-7"
+        }, {
+            "shopNo": "B07",
+            "shopName": "Shop Name0-8"
+        }]
+    },
+    "Floor3": {
+
+        "FloorMap3": "res/images/tpl_11_img_floormap_03.png"
+    },
+    "Floor2": {
+
+        "FloorMap2": "res/images/tpl_11_img_floormap_02.png"
+    },
+    "Floor1": {
+
+        "FloorMap1": "res/images/tpl_11_img_floormap_01.png"
+    },
+    "storeInfo": {
+        "200": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop200",
+            "shopDesc": "shop 200 info"
+        },
+        "201": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop201",
+            "shopDesc": "shop 201 info"
+        },
+        "202": {
+            "logo": "res/images/tpl_11_logo_lg.png",
+            "shopName": "LG Best Shop",
+            "shopDesc": "Store description and store photos come here. Store description and store photos come here. Store description and store photos come here."
+        },
+        "203": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop203",
+            "shopDesc": "shop 203 info"
+        },
+        "100": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop100",
+            "shopDesc": "shop 100 info"
+        },
+        "101": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop101",
+            "shopDesc": "shop 101 info"
+        },
+        "102": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop102",
+            "shopDesc": "shop 102 info"
+        },
+        "103": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop103",
+            "shopDesc": "shop 103 info"
+        },
+        "104": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop104",
+            "shopDesc": "shop 104 info"
+        },
+        "105": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop105",
+            "shopDesc": "shop 105 info"
+        },
+        "106": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop106",
+            "shopDesc": "shop 106 info"
+        },
+        "107": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop107",
+            "shopDesc": "shop 107 info"
+        },
+        "108": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop108",
+            "shopDesc": "shop 108 info"
+        },
+        "109": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop109",
+            "shopDesc": "shop 109 info"
+        },
+        "110": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shop110",
+            "shopDesc": "shop 110 info"
+        },
+        "B00": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB00",
+            "shopDesc": "shop B00 info"
+        },
+        "B01": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB01",
+            "shopDesc": "shop B01 info"
+        },
+        "B02": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB02",
+            "shopDesc": "shop B02 info"
+        },
+        "B03": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB03",
+            "shopDesc": "shop B03 info"
+        },
+        "B04": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB04",
+            "shopDesc": "shop B04 info"
+        },
+        "B05": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB05",
+            "shopDesc": "shop B05 info"
+        },
+        "B06": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB06",
+            "shopDesc": "shop B06 info"
+        },
+        "B07": {
+            "logo": "res/images/tpl_11_logo_store.png",
+            "shopName": "shopB07",
+            "shopDesc": "shop B07 info"
+        }
+    }
+}

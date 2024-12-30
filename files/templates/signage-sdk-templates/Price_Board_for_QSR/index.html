@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Digital Signage priceBoard</title>
+
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- CSS Files -->
+    <link rel='stylesheet' type='text/css' href='css/styles.css'>
+
+</head>
+
+<body>
+    <!-- 
+		data-bind-*(Ex:data-bind-AppFour) is a custom attribute, which represents data source.
+		Multiple data sources can be bound by changing the * value with dataSource name.
+		
+		`startersTitle`, `starters`,`mainMealsTitle` ... are the attributes or properties inside a data source.
+	-->
+
+    <header>
+        <img class='topBg' data-bind-appFour='headerBgImg' />
+        <img class='logo' data-bind-appFour='headerLogoImg' />
+        <h1 class='hdrTitle' data-bind-appFour='headerTitle'></h1>
+        <p class='hdrContent' data-bind-appFour='headerContent'></p>
+    </header>
+    <article class='wrapper'>
+        <section>
+            <article class='wrpContent'>
+                <img data-bind-appFour='firstItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleLar' data-bind-appFour='firstItemTitle'></p>
+                    <label data-bind-appFour='firstItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='firstItemItemName'></td>
+                            <td data-bind-appFour='firstItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='firstItemOptionName'></td>
+                            <td data-bind-appFour='firstItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+            <article class='wrpContent'>
+                <img data-bind-appFour='secondItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleMid' data-bind-appFour='secondItemTitle'></p>
+                    <label data-bind-appFour='secondItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='secondItemItemName'></td>
+                            <td data-bind-appFour='secondItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='secondItemOptionName'></td>
+                            <td data-bind-appFour='secondItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+            <article class='wrpContent'>
+                <img data-bind-appFour='thirdItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleMid' data-bind-appFour='thirdItemTitle'></p>
+                    <label data-bind-appFour='thirdItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='firstItemItemName'></td>
+                            <td data-bind-appFour='thirdItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='thirdItemOptionName'></td>
+                            <td data-bind-appFour='thirdItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article class='wrpContent'>
+                <img data-bind-appFour='fourthItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleMid' data-bind-appFour='fourthItemTitle'></p>
+                    <label data-bind-appFour='fourthItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='fourthItemItemName'></td>
+                            <td data-bind-appFour='fourthItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='fourthItemOptionName'></td>
+                            <td data-bind-appFour='fourthItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+            <article class='wrpContent'>
+                <img data-bind-appFour='fifthItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleMid' data-bind-appFour='fifthItemTitle'></p>
+                    <label data-bind-appFour='fifthItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='fifthItemItemName'></td>
+                            <td data-bind-appFour='fifthItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='fifthItemOptionName'></td>
+                            <td data-bind-appFour='fifthItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+            <article class='wrpContent'>
+                <img data-bind-appFour='sixthItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleMid' data-bind-appFour='sixthItemTitle'></p>
+                    <label data-bind-appFour='sixthItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='sixthItemItemName'></td>
+                            <td data-bind-appFour='sixthItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='sixthItemOptionName'></td>
+                            <td data-bind-appFour='sixthItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+        <section>
+            <article class='wrpContent'>
+                <img data-bind-appFour='seventhItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleLar' data-bind-appFour='seventhItemTitle'></p>
+                    <label data-bind-appFour='seventhItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='seventhItemItemName'></td>
+                            <td data-bind-appFour='seventhItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='seventhItemOptionName'></td>
+                            <td data-bind-appFour='seventhItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+            <article class='wrpContent'>
+                <img data-bind-appFour='eighthItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleMid' data-bind-appFour='eighthItemTitle'></p>
+                    <label data-bind-appFour='eighthItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='eighthItemItemName'></td>
+                            <td data-bind-appFour='eighthItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='eighthItemOptionName'></td>
+                            <td data-bind-appFour='eighthItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+            <article class='wrpContent'>
+                <img data-bind-appFour='ninthItemImage' />
+                <div class='contentInfo'>
+                    <p class='burgerTitleLar' data-bind-appFour='ninthItemTitle'></p>
+                    <label data-bind-appFour='ninthItemextraInfo'></label>
+                    <table>
+                        <tr>
+                            <td data-bind-appFour='ninthItemItemName'></td>
+                            <td data-bind-appFour='ninthItemItemValue'></td>
+                        </tr>
+                        <tr>
+                            <td data-bind-appFour='ninthItemOptionName'></td>
+                            <td data-bind-appFour='ninthItemOptionValue'></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+    </article>
+
+    <!-- Script Files -->
+    <script src='js/helpers/util.js'></script>
+    <script src='js/controller.js'></script>
+
+</body>
+
+</html>

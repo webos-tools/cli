@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		<title>Power#setDPMWakeup | JsDoc Reference</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="mobileoptimized" content="0" />
+	
+		<link rel="stylesheet" href="../css/all.css" media="all" />
+		<link rel="stylesheet" href="../css/handheld.css" media="only screen and (max-width: 660px)" />
+		<link rel="stylesheet" href="../css/handheld.css" media="handheld" />
+		<link rel="stylesheet" href="../css/screen.css" media="screen and (min-width: 661px)" />
+
+        <link rel="stylesheet" href="../javascript/highlighter/dessert.css" />
+
+		<script src="../javascript/all.js"></script>
+		<!--[if lt IE 9]>
+			<script src="../javascript/html5.js"></script>
+		<![endif]-->
+		
+		
+	</head>
+
+	<body>
+
+<div class="index">
+	<div class="menu">
+		<div class="indexLinks">
+			<a href="../index.html">Classes</a>
+<!--			<a href="../files.html">Files</a> -->
+<!--            <a href="../../release_notes.txt">Release Note</a> -->
+		</div>
+        <table width=100%  class=confidential><tr><td><b>LGE Confidential</b></td></tr></table>
+	    <h2 class="heading1">SCAP 1.5.0 Introduction</h2>
+	    <table>
+			<tr>
+			  <td align=left class=confidential><a href="../../doc/intro.html">&middot;Introduction</li></a></td>
+			</tr>
+		</table>
+		<table>
+            <tr>
+              <td align=left class=confidential><a href="../../release_notes.txt">&middot;Release note</li></a></td>
+            </tr>
+        </table>
+<!--		
+		<table>
+			<tr>
+			  <td align=left class=confidential><a href="../../doc/acronym.html">&middot;Terms and Acronyms</li></a></td>
+			</tr>
+		</table>
+-->				
+		<h2 class="heading1">Classes</h2>
+		
+		<input type="text" name="classFilter" class="classFilter" id="ClassFilter" placeholder="Filter"></input>
+		
+		<nav>
+			<ul class="classList" id="ClassList">
+				
+					<li><a href="../symbols/_global_.html">_global_</a></li>
+				
+					<li><a href="../symbols/Configuration%23clearCache.html">Configuration#clearCache</a></li>
+				
+					<li><a href="../symbols/Configuration%23getCurrentTime.html">Configuration#getCurrentTime</a></li>
+				
+					<li><a href="../symbols/Configuration%23getLocaleList.html">Configuration#getLocaleList</a></li>
+				
+					<li><a href="../symbols/Configuration%23getOSDLanguage.html">Configuration#getOSDLanguage</a></li>
+				
+					<li><a href="../symbols/Configuration%23getOSDLock.html">Configuration#getOSDLock</a></li>
+				
+					<li><a href="../symbols/Configuration%23getPictureMode.html">Configuration#getPictureMode</a></li>
+				
+					<li><a href="../symbols/Configuration%23getPictureProperty.html">Configuration#getPictureProperty</a></li>
+				
+					<li><a href="../symbols/Configuration%23getProperty.html">Configuration#getProperty</a></li>
+				
+					<li><a href="../symbols/Configuration%23getServerProperty.html">Configuration#getServerProperty</a></li>
+				
+					<li><a href="../symbols/Configuration%23getTimeZone.html">Configuration#getTimeZone</a></li>
+				
+					<li><a href="../symbols/Configuration%23getTimeZoneList.html">Configuration#getTimeZoneList</a></li>
+				
+					<li><a href="../symbols/Configuration%23getUSBLock.html">Configuration#getUSBLock</a></li>
+				
+					<li><a href="../symbols/Configuration%23getVirtualKeyboardLanguage.html">Configuration#getVirtualKeyboardLanguage</a></li>
+				
+					<li><a href="../symbols/Configuration%23restartApplication.html">Configuration#restartApplication</a></li>
+				
+					<li><a href="../symbols/Configuration%23setCurrentTime.html">Configuration#setCurrentTime</a></li>
+				
+					<li><a href="../symbols/Configuration%23setOSDLanguage.html">Configuration#setOSDLanguage</a></li>
+				
+					<li><a href="../symbols/Configuration%23setOSDLock.html">Configuration#setOSDLock</a></li>
+				
+					<li><a href="../symbols/Configuration%23setPictureMode.html">Configuration#setPictureMode</a></li>
+				
+					<li><a href="../symbols/Configuration%23setPictureProperty.html">Configuration#setPictureProperty</a></li>
+				
+					<li><a href="../symbols/Configuration%23setProperty.html">Configuration#setProperty</a></li>
+				
+					<li><a href="../symbols/Configuration%23setServerProperty.html">Configuration#setServerProperty</a></li>
+				
+					<li><a href="../symbols/Configuration%23setTimeZone.html">Configuration#setTimeZone</a></li>
+				
+					<li><a href="../symbols/Configuration%23setUSBLock.html">Configuration#setUSBLock</a></li>
+				
+					<li><a href="../symbols/Configuration%23setVirtualKeyboardLanguage.html">Configuration#setVirtualKeyboardLanguage</a></li>
+				
+					<li><a href="../symbols/Configuration.AppMode.html">Configuration<span class='break'> </span>.<span class='break'> </span>AppMode</a></li>
+				
+					<li><a href="../symbols/Configuration.AppType.html">Configuration<span class='break'> </span>.<span class='break'> </span>AppType</a></li>
+				
+					<li><a href="../symbols/Configuration.PictureMode.html">Configuration<span class='break'> </span>.<span class='break'> </span>PictureMode</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23connectWifi.html">DeviceInfo#connectWifi</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getBeaconInfo.html">DeviceInfo#getBeaconInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getEddystoneInfo.html">DeviceInfo#getEddystoneInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getExternalInputList.html">DeviceInfo#getExternalInputList</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getiBeaconInfo.html">DeviceInfo#getiBeaconInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getNetworkInfo.html">DeviceInfo#getNetworkInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getNetworkMacInfo.html">DeviceInfo#getNetworkMacInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getPlatformInfo.html">DeviceInfo#getPlatformInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getProxyInfo.html">DeviceInfo#getProxyInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getSoftApInfo.html">DeviceInfo#getSoftApInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getSystemUsageInfo.html">DeviceInfo#getSystemUsageInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23getWifiList.html">DeviceInfo#getWifiList</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23setBeaconInfo.html">DeviceInfo#setBeaconInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23setEddystoneInfo.html">DeviceInfo#setEddystoneInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23setiBeaconInfo.html">DeviceInfo#setiBeaconInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23setNetworkInfo.html">DeviceInfo#setNetworkInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23setProxyInfo.html">DeviceInfo#setProxyInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23setSoftApInfo.html">DeviceInfo#setSoftApInfo</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23startWps.html">DeviceInfo#startWps</a></li>
+				
+					<li><a href="../symbols/DeviceInfo%23stopWps.html">DeviceInfo#stopWps</a></li>
+				
+					<li><a href="../symbols/DeviceInfo.EddystoneFrame.html">DeviceInfo<span class='break'> </span>.<span class='break'> </span>EddystoneFrame</a></li>
+				
+					<li><a href="../symbols/Error.html">Error</a></li>
+				
+					<li><a href="../symbols/Error.ERROR_CODE.html">Error<span class='break'> </span>.<span class='break'> </span>ERROR_CODE</a></li>
+				
+					<li><a href="../symbols/InputSource%23changeInputSource.html">InputSource#changeInputSource</a></li>
+				
+					<li><a href="../symbols/InputSource%23getInputSourceStatus.html">InputSource#getInputSourceStatus</a></li>
+				
+					<li><a href="../symbols/InputSource%23initialize.html">InputSource#initialize</a></li>
+				
+					<li><a href="../symbols/Power%23addOffTimer.html">Power#addOffTimer</a></li>
+				
+					<li><a href="../symbols/Power%23addOnTimer.html">Power#addOnTimer</a></li>
+				
+					<li><a href="../symbols/Power%23deleteOffTimer.html">Power#deleteOffTimer</a></li>
+				
+					<li><a href="../symbols/Power%23deleteOnTimer.html">Power#deleteOnTimer</a></li>
+				
+					<li><a href="../symbols/Power%23enableAllOffTimer.html">Power#enableAllOffTimer</a></li>
+				
+					<li><a href="../symbols/Power%23enableAllOnTimer.html">Power#enableAllOnTimer</a></li>
+				
+					<li><a href="../symbols/Power%23enableWakeOnLan.html">Power#enableWakeOnLan</a></li>
+				
+					<li><a href="../symbols/Power%23executePowerCommand.html">Power#executePowerCommand</a></li>
+				
+					<li><a href="../symbols/Power%23getDPMWakeup.html">Power#getDPMWakeup</a></li>
+				
+					<li><a href="../symbols/Power%23getOffTimerList.html">Power#getOffTimerList</a></li>
+				
+					<li><a href="../symbols/Power%23getOnOffTimeSchedule.html">Power#getOnOffTimeSchedule</a></li>
+				
+					<li><a href="../symbols/Power%23getOnTimerList.html">Power#getOnTimerList</a></li>
+				
+					<li><a href="../symbols/Power%23getPMMode.html">Power#getPMMode</a></li>
+				
+					<li><a href="../symbols/Power%23getPowerOnDelay.html">Power#getPowerOnDelay</a></li>
+				
+					<li><a href="../symbols/Power%23getPowerStatus.html">Power#getPowerStatus</a></li>
+				
+					<li><a href="../symbols/Power%23setDisplayMode.html">Power#setDisplayMode</a></li>
+				
+					<li><a href="../symbols/Power%23setDPMWakeup.html">Power#setDPMWakeup</a></li>
+				
+					<li><a href="../symbols/Power%23setOnOffTimeSchedule.html">Power#setOnOffTimeSchedule</a></li>
+				
+					<li><a href="../symbols/Power%23setPMMode.html">Power#setPMMode</a></li>
+				
+					<li><a href="../symbols/Power%23setPowerOnDelay.html">Power#setPowerOnDelay</a></li>
+				
+					<li><a href="../symbols/Power%23unsetOnOffTimeSchedule.html">Power#unsetOnOffTimeSchedule</a></li>
+				
+					<li><a href="../symbols/Power.DisplayMode.html">Power<span class='break'> </span>.<span class='break'> </span>DisplayMode</a></li>
+				
+					<li><a href="../symbols/Power.DPMSignalType.html">Power<span class='break'> </span>.<span class='break'> </span>DPMSignalType</a></li>
+				
+					<li><a href="../symbols/Power.PMMode.html">Power<span class='break'> </span>.<span class='break'> </span>PMMode</a></li>
+				
+					<li><a href="../symbols/Power.PowerCommand.html">Power<span class='break'> </span>.<span class='break'> </span>PowerCommand</a></li>
+				
+					<li><a href="../symbols/Power.TimerWeek.html">Power<span class='break'> </span>.<span class='break'> </span>TimerWeek</a></li>
+				
+					<li><a href="../symbols/Security%23existServerCertificate.html">Security#existServerCertificate</a></li>
+				
+					<li><a href="../symbols/Security%23registerServerCertificate.html">Security#registerServerCertificate</a></li>
+				
+					<li><a href="../symbols/Security%23unregisterServerCertificate.html">Security#unregisterServerCertificate</a></li>
+				
+					<li><a href="../symbols/Signage%23captureScreen.html">Signage#captureScreen</a></li>
+				
+					<li><a href="../symbols/Signage%23enableCheckScreen.html">Signage#enableCheckScreen</a></li>
+				
+					<li><a href="../symbols/Signage%23getFailoverMode.html">Signage#getFailoverMode</a></li>
+				
+					<li><a href="../symbols/Signage%23getIntelligentAuto.html">Signage#getIntelligentAuto</a></li>
+				
+					<li><a href="../symbols/Signage%23getLanDaisyChain.html">Signage#getLanDaisyChain</a></li>
+				
+					<li><a href="../symbols/Signage%23getPowerSaveMode.html">Signage#getPowerSaveMode</a></li>
+				
+					<li><a href="../symbols/Signage%23getSignageInfo.html">Signage#getSignageInfo</a></li>
+				
+					<li><a href="../symbols/Signage%23getStudioMode.html">Signage#getStudioMode</a></li>
+				
+					<li><a href="../symbols/Signage%23getSystemMonitoringInfo.html">Signage#getSystemMonitoringInfo</a></li>
+				
+					<li><a href="../symbols/Signage%23getTileInfo.html">Signage#getTileInfo</a></li>
+				
+					<li><a href="../symbols/Signage%23getUsageData.html">Signage#getUsageData</a></li>
+				
+					<li><a href="../symbols/Signage%23getUsagePermission.html">Signage#getUsagePermission</a></li>
+				
+					<li><a href="../symbols/Signage%23registerRS232CEventListener.html">Signage#registerRS232CEventListener</a></li>
+				
+					<li><a href="../symbols/Signage%23registerSystemMonitor.html">Signage#registerSystemMonitor</a></li>
+				
+					<li><a href="../symbols/Signage%23setDigitalAudioInputMode.html">Signage#setDigitalAudioInputMode</a></li>
+				
+					<li><a href="../symbols/Signage%23setFailoverMode.html">Signage#setFailoverMode</a></li>
+				
+					<li><a href="../symbols/Signage%23setIntelligentAuto.html">Signage#setIntelligentAuto</a></li>
+				
+					<li><a href="../symbols/Signage%23setIsmMethod.html">Signage#setIsmMethod</a></li>
+				
+					<li><a href="../symbols/Signage%23setLanDaisyChain.html">Signage#setLanDaisyChain</a></li>
+				
+					<li><a href="../symbols/Signage%23setPortraitMode.html">Signage#setPortraitMode</a></li>
+				
+					<li><a href="../symbols/Signage%23setPowerSaveMode.html">Signage#setPowerSaveMode</a></li>
+				
+					<li><a href="../symbols/Signage%23setStudioMode.html">Signage#setStudioMode</a></li>
+				
+					<li><a href="../symbols/Signage%23setTileInfo.html">Signage#setTileInfo</a></li>
+				
+					<li><a href="../symbols/Signage%23setUsagePermission.html">Signage#setUsagePermission</a></li>
+				
+					<li><a href="../symbols/Signage%23unregisterRS232CEventListener.html">Signage#unregisterRS232CEventListener</a></li>
+				
+					<li><a href="../symbols/Signage%23unregisterSystemMonitor.html">Signage#unregisterSystemMonitor</a></li>
+				
+					<li><a href="../symbols/Signage.AutomaticStandbyMode.html">Signage<span class='break'> </span>.<span class='break'> </span>AutomaticStandbyMode</a></li>
+				
+					<li><a href="../symbols/Signage.DigitalAudioInput.html">Signage<span class='break'> </span>.<span class='break'> </span>DigitalAudioInput</a></li>
+				
+					<li><a href="../symbols/Signage.DpmMode.html">Signage<span class='break'> </span>.<span class='break'> </span>DpmMode</a></li>
+				
+					<li><a href="../symbols/Signage.EventType.html">Signage<span class='break'> </span>.<span class='break'> </span>EventType</a></li>
+				
+					<li><a href="../symbols/Signage.FailoverMode.html">Signage<span class='break'> </span>.<span class='break'> </span>FailoverMode</a></li>
+				
+					<li><a href="../symbols/Signage.ImgResolution.html">Signage<span class='break'> </span>.<span class='break'> </span>ImgResolution</a></li>
+				
+					<li><a href="../symbols/Signage.IsmMethod.html">Signage<span class='break'> </span>.<span class='break'> </span>IsmMethod</a></li>
+				
+					<li><a href="../symbols/Signage.KeyOperationMode.html">Signage<span class='break'> </span>.<span class='break'> </span>KeyOperationMode</a></li>
+				
+					<li><a href="../symbols/Signage.MonitoringSource.html">Signage<span class='break'> </span>.<span class='break'> </span>MonitoringSource</a></li>
+				
+					<li><a href="../symbols/Signage.OsdPortraitMode.html">Signage<span class='break'> </span>.<span class='break'> </span>OsdPortraitMode</a></li>
+				
+					<li><a href="../symbols/Sound%23getSoundMode.html">Sound#getSoundMode</a></li>
+				
+					<li><a href="../symbols/Sound%23getSoundOut.html">Sound#getSoundOut</a></li>
+				
+					<li><a href="../symbols/Sound%23getSoundStatus.html">Sound#getSoundStatus</a></li>
+				
+					<li><a href="../symbols/Sound%23setExternalSpeaker.html">Sound#setExternalSpeaker</a></li>
+				
+					<li><a href="../symbols/Sound%23setMuted.html">Sound#setMuted</a></li>
+				
+					<li><a href="../symbols/Sound%23setSoundMode.html">Sound#setSoundMode</a></li>
+				
+					<li><a href="../symbols/Sound%23setSoundOut.html">Sound#setSoundOut</a></li>
+				
+					<li><a href="../symbols/Sound%23setVolumeLevel.html">Sound#setVolumeLevel</a></li>
+				
+					<li><a href="../symbols/Sound.SoundMode.html">Sound<span class='break'> </span>.<span class='break'> </span>SoundMode</a></li>
+				
+					<li><a href="../symbols/Sound.SpeakerType.html">Sound<span class='break'> </span>.<span class='break'> </span>SpeakerType</a></li>
+				
+					<li><a href="../symbols/Storage%23changeLogoImage.html">Storage#changeLogoImage</a></li>
+				
+					<li><a href="../symbols/Storage%23copyFile.html">Storage#copyFile</a></li>
+				
+					<li><a href="../symbols/Storage%23decryptFile.html">Storage#decryptFile</a></li>
+				
+					<li><a href="../symbols/Storage%23downloadFirmware.html">Storage#downloadFirmware</a></li>
+				
+					<li><a href="../symbols/Storage%23exists.html">Storage#exists</a></li>
+				
+					<li><a href="../symbols/Storage%23fsync.html">Storage#fsync</a></li>
+				
+					<li><a href="../symbols/Storage%23getFirmwareUpgradeStatus.html">Storage#getFirmwareUpgradeStatus</a></li>
+				
+					<li><a href="../symbols/Storage%23getMD5Hash.html">Storage#getMD5Hash</a></li>
+				
+					<li><a href="../symbols/Storage%23getStorageInfo.html">Storage#getStorageInfo</a></li>
+				
+					<li><a href="../symbols/Storage%23listFiles.html">Storage#listFiles</a></li>
+				
+					<li><a href="../symbols/Storage%23mkdir.html">Storage#mkdir</a></li>
+				
+					<li><a href="../symbols/Storage%23moveFile.html">Storage#moveFile</a></li>
+				
+					<li><a href="../symbols/Storage%23readFile.html">Storage#readFile</a></li>
+				
+					<li><a href="../symbols/Storage%23removeAll.html">Storage#removeAll</a></li>
+				
+					<li><a href="../symbols/Storage%23removeApplication.html">Storage#removeApplication</a></li>
+				
+					<li><a href="../symbols/Storage%23removeFile.html">Storage#removeFile</a></li>
+				
+					<li><a href="../symbols/Storage%23statFile.html">Storage#statFile</a></li>
+				
+					<li><a href="../symbols/Storage%23unzipFile.html">Storage#unzipFile</a></li>
+				
+					<li><a href="../symbols/Storage%23upgradeApplication.html">Storage#upgradeApplication</a></li>
+				
+					<li><a href="../symbols/Storage%23upgradeFirmware.html">Storage#upgradeFirmware</a></li>
+				
+					<li><a href="../symbols/Storage%23writeFile.html">Storage#writeFile</a></li>
+				
+					<li><a href="../symbols/Storage.AppMode.html">Storage<span class='break'> </span>.<span class='break'> </span>AppMode</a></li>
+				
+					<li><a href="../symbols/Storage.AppType.html">Storage<span class='break'> </span>.<span class='break'> </span>AppType</a></li>
+				
+					<li><a href="../symbols/Storage.SCAP_URI.html">Storage<span class='break'> </span>.<span class='break'> </span>SCAP_URI</a></li>
+				
+					<li><a href="../symbols/Time%23addHolidaySchedule.html">Time#addHolidaySchedule</a></li>
+				
+					<li><a href="../symbols/Time%23delAllHolidaySchedules.html">Time#delAllHolidaySchedules</a></li>
+				
+					<li><a href="../symbols/Time%23delHolidaySchedule.html">Time#delHolidaySchedule</a></li>
+				
+					<li><a href="../symbols/Time%23getAllHolidaySchedules.html">Time#getAllHolidaySchedules</a></li>
+				
+					<li><a href="../symbols/Time%23getHolidaySchedule.html">Time#getHolidaySchedule</a></li>
+				
+					<li><a href="../symbols/Time%23getHolidayScheduleMode.html">Time#getHolidayScheduleMode</a></li>
+				
+					<li><a href="../symbols/Time%23setHolidaySchedule.html">Time#setHolidaySchedule</a></li>
+				
+					<li><a href="../symbols/Time%23setHolidayScheduleMode.html">Time#setHolidayScheduleMode</a></li>
+				
+					<li><a href="../symbols/Time%23unsetHolidaySchedule.html">Time#unsetHolidaySchedule</a></li>
+				
+					<li><a href="../symbols/Utility%23createToast.html">Utility#createToast</a></li>
+				
+					<li><a href="../symbols/Video%23getContentRotation.html">Video#getContentRotation</a></li>
+				
+					<li><a href="../symbols/Video%23getVideoStatus.html">Video#getVideoStatus</a></li>
+				
+					<li><a href="../symbols/Video%23setContentRotation.html">Video#setContentRotation</a></li>
+				
+					<li><a href="../symbols/Video%23setRotatedVideoTransform.html">Video#setRotatedVideoTransform</a></li>
+				
+					<li><a href="../symbols/Video%23setVideoSize.html">Video#setVideoSize</a></li>
+				
+					<li><a href="../symbols/Video%23setVideoViewTransform.html">Video#setVideoViewTransform</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	<div class="fineprint" style="clear:both">
+		<footer>
+			
+			Documentation generator: <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0<br />
+			Template: <a href="http://www.thebrightlines.com/2010/05/06/new-template-for-jsdoctoolkit-codeview/" target="_blank">Codeview</a> 1.2<br />
+			Generated on:
+			<time datetime='2017-3-7' pubdate>2017-3-7 15:12</time>
+		</footer>
+	</div>
+</div>
+
+<div class="index indexStatic"></div>
+
+<div class="content">
+	<div class="innerContent">
+		<article>
+			<header>
+				<h1 class="classTitle">
+					
+					Class <span>Power#setDPMWakeup</span>
+				</h1>
+				
+				<div class="intro">
+					<p class="description summary">
+						Power
+					</p>
+						
+					
+						<ul class="summary">
+							
+							
+							
+								<li>Defined in: <a href="../symbols/src/js_power.js.html">power.js</a></li>
+							
+							
+						</ul>
+					
+				</div>
+			</header>
+			
+			
+				<section>
+					<div class="props">
+						<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Power#setDPMWakeup.">
+							<caption class="sectionTitle">Class Summary</caption>
+							<thead>
+								<tr>
+									<th scope="col">Constructor Attributes</th>
+									<th scope="col">Constructor Name and Description</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="attributes">&nbsp;</td>
+									<td class="nameDescription" >
+										<div class="fixedFont">
+											<b><a href="../symbols/Power%23setDPMWakeup.html#constructor">Power#setDPMWakeup</a></b>(successCallback, errorCallback, options)
+										</div>
+										<div class="description">Sets DPMWakeup, Each <a href="Power.DPMSignalType.html#constructor">DPMSignalType</a> has a set of predefined DPMSignalType properties.</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+			
+			
+			
+	<!--
+	#### METHODS SUMMARY
+	-->
+			
+			
+	<!--
+	#### EVENTS SUMMARY
+	-->
+			
+	<!--
+	#### CONSTRUCTOR DETAILS
+	-->
+			
+				<section>
+					<div class="details props">
+						<div class="innerProps">
+							<h2 class="sectionTitle" id="constructor">
+								Class Detail
+							</h2>
+							
+							<div class="fixedFont">
+								<b>Power#setDPMWakeup</b>(successCallback, errorCallback, options)
+							</div>
+							
+							<div class="description">
+								Sets DPMWakeup, Each <a href="Power.DPMSignalType.html#constructor">DPMSignalType</a> has a set of predefined DPMSignalType properties.
+								
+							</div>
+							
+							
+								
+									<pre class="code prettyprint">// Javascript codefunction setDPMWakeup () { var options = {}; options.dpmSignalType = Power.DPMSignalType.CLOCK; function successCb(cbObject) {    console.log("sucess");    // Do something }  function failureCb(cbObject) {    var errorCode = cbObject.errorCode;    var errorText = cbObject.errorText;    console.log ("Error Code [" + errorCode + "]: " + errorText); }  var power = new Power(); power.setDPMWakeup(successCb, failureCb, options);}</pre>
+								
+							
+						
+							
+								<dl class="detailList params">
+									<dt class="heading">Parameters:</dt>
+									
+										<dt>
+											<span class="light fixedFont">{Function}</span>  <b>successCallback</b>
+											
+										</dt>
+										<dd>success callback function.</dd>
+									
+										<dt>
+											<span class="light fixedFont">{Function}</span>  <b>errorCallback</b>
+											
+										</dt>
+										<dd>failure callback function.</dd>
+									
+										<dt>
+											<span class="light fixedFont">{Object}</span>  <b>options</b>
+											
+										</dt>
+										<dd><div align=left><table class="hcap_spec" width=400>  <thead><tr><th>Property</th><th>Type</th><th>Description</th><th>Required</th></tr></thead>  <tbody>      <tr><th>DPMSignalType</th><th>String</th><th><a href="Power.DPMSignalType.html#constructor">DPMSignalType</a></th><th>required</th></tr>  </tbody></table></div></dd>
+									
+								</dl>
+							
+							
+							
+								<dl class="detailList nomargin">
+									
+									
+									
+										<dt class="heading">Since:</dt>
+										<dd>1.4</dd>
+									
+									
+									
+									
+									
+										<dt class="heading">Returns:</dt>
+										
+												<dd><p>If the method is successfully executed, success callback function is called without a parameter.</br>If an error occurs, failure callback function is called with a failure callback object as a parameter.</p></dd>
+										
+									
+									
+									
+									
+									
+										<dt class="heading">See:</dt>
+										
+											<dd><a href="Power%23getDPMWakeup.html">Power.getDPMWakeup()</a><br></dd>
+										
+									
+								</dl>
+							
+						</div>
+					</div>
+				</section>
+			
+	<!--
+	#### FIELD DETAILS
+	-->
+			
+	<!--
+	#### METHOD DETAILS
+	-->		
+			
+			
+	<!--
+	#### EVENT DETAILS
+	-->		
+			
+		</article>
+	</div>
+</div>
+
+		<script type="text/javascript">
+			wbos.CssTools.MediaQueryFallBack.LoadCss('../css/screen.css', '../css/handheld.css', 660)
+			codeview.classFilter.Init()
+		</script>
+		<script src="../javascript/highlighter/prettify.js"></script>
+		<script>prettyPrint();</script>
+	</body>
+</html>
+

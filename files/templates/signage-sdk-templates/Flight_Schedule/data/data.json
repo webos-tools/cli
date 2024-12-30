@@ -1,0 +1,5 @@
+{
+    "title" : "DEPARTURES",
+    "ipWithPort" : "http://192.168.137.1:8989",
+    "getApiMethod": "http://192.168.137.1:8989/flights"
+}

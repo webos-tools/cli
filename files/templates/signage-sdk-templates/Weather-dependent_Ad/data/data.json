@@ -1,0 +1,33 @@
+{
+    "brandAdvertisementPartlyCloudy": "res/images/tpl_08_img_01.png",
+    "brandAdvertisementCloudy": "res/images/tpl_08_img_02.png",
+    "brandAdvertisementRainy": "res/images/tpl_08_img_03.png",
+    "brandAdvertisementSunny": "res/images/tpl_08_img_04.png",
+    "brandAdvertisementSnowy": "res/images/tpl_08_img_05.png",
+    "brandAdvertisementWindy": "res/images/tpl_08_img_06.png",
+    "brandAdvertisementThunder": "res/images/tpl_08_img_07.png",
+
+    "bannerTagLine": "BANNER SUB-TITLE",
+    "bannerLine": "BANNER CONTENT",
+
+    "location": "TEXT1(LOCATION)",
+    "time": "NA",
+    "area": "Text",
+    "temp": "0",
+    "ajaxImage": "res/images/ajax.gif",
+
+    "conditionsPartlyCloudy": "Partly Cloudy",
+    "conditionsCloudy": "Cloudy",
+    "conditionsRainy": "Rainy",
+    "conditionsSunny": "Sunny",
+    "conditionsSnowy": "Snowy",
+    "conditionsThunder": "Thunder",
+    "conditionsWindy": "Windy",
+    "weatherLogoCloudy": "res/images/tpl_08_icon_cloudy.png",
+    "weatherLogoPartlyCloudy": "res/images/tpl_08_icon_partlycloudy.png",
+    "weatherLogoSunny": "res/images/tpl_08_icon_sunny.png",
+    "weatherLogoRainy": "res/images/tpl_08_icon_rainy.png",
+    "weatherLogoSnowy": "res/images/tpl_08_icon_snowy.png",
+    "weatherLogoThunder": "res/images/tpl_08_icon_thunder.png",
+    "weatherLogoWindy": "res/images/tpl_08_icon_windy.png"
+}

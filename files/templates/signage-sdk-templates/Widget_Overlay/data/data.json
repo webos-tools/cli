@@ -1,0 +1,16 @@
+{
+    "videoPath": "res/videos/tpl_07_video.mp4",
+    "defaultNewsImg":"res/images/NotAvailable.png",
+
+    "bgImgPath": "res/images/tpl_07_video_dim.png",
+    "AnimTime": "3s",
+    "positiveClass": "colorPositive",
+    "negClass": "colorNegative",
+    "posImgLarge": "res/images/tpl_07_icon_up_01.png",
+    "posImgSmall": "res/images/tpl_07_icon_up_02.png",
+    "negImgLarge": "res/images/tpl_07_icon_down_01.png",
+    "negImgSmall": "res/images/tpl_07_icon_down_02.png",
+    "cityWeather": "Seoul",
+    "countryWeather": "KR",
+    "weatherAPIKey": "a0bbc401d29647575dd7bbdf9515c3d4"
+}
