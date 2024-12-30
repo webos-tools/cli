@@ -238,7 +238,8 @@ describe(aresCmd +' --hosted(-H)', function() {
 
     it('Generate SampleApp', function(done) {
         const generateCmd = common.makeCmd('ares-generate');
-        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p "id=com.sample.app" ${sampleAppPath}`, function(error, stdout, stderr) {
+        const appId = options.profile === "signage" ? "com.lg.app.signage.dev" : "com.sample.app";
+        exec(generateCmd + ` -t ${expectedTemplate.webapp} -p id=${appId} ${sampleAppPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
@@ -273,11 +274,12 @@ describe(aresCmd +' --hosted(-H)', function() {
 
     it('Remove installed ares-hosted app with ares-install', function(done) {
         const installCmd = common.makeCmd('ares-install');
-        exec(installCmd + ' -r com.sdk.ares.hostedapp', function(error, stdout, stderr) {
+        const appId = options.profile === "signage" ? "com.lg.app.signage.dev" : "com.sdk.ares.hostedapp";
+        exec(installCmd + ` -r ${appId}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
-            expect(stdout).toContain(`Removed package com.sdk.ares.hostedapp`, stderr);
+            expect(stdout).toContain(`Removed package ${appId}`, stderr);
             done();
         });
     });
