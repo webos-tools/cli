@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Content Switching</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="js/helpers/util.js"></script>
+</head>
+
+<body>
+    <div id="carouselSlider">
+        <ul id="carousel">
+            <li class="active">
+                <video width="1920" height="1080" preload="auto" id="id0" data-bind-appTwo="video1">
+                </video>
+            </li>
+            <li>
+                <video width="1920" height="1080" preload="auto" id="id0" data-bind-appTwo="video2">
+                </video>
+            </li>
+    	<li>
+                 <img width="1920" height="1080" data-bind-appTwo="image" />
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="js/controller.js"></script>
+</html>

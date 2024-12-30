@@ -1,0 +1,213 @@
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+#appTitle {
+	text-align: center;
+	font-size: 200%;
+}
+ 
+ 
+
+#helpWindow {  
+	font-size:250%; 	
+	text-align: center;
+	position: absolute;
+	top:240px;
+	left:510px;
+	width:900px;
+	height:600px; 
+	background-color: #008080; 	
+	border:ridge;
+	border-width: 10px;
+	z-index: 50;
+	visibility: hidden;
+} 
+ 
+#popupWindow {  
+	font-size:500%;
+	text-align: center;
+	position: absolute;
+	top:440px;
+	left:510px;
+	width:900px;
+	height:200px; 
+	background-color: #008080; 	
+	border:ridge;
+	border-width: 10px;
+	z-index: 50;
+	visibility: hidden;
+}
+ 
+ 
+#rotateSpeed {
+	text-align: left ;
+	font-size: 175%;
+	position: absolute;
+	top:0px;
+	left:0px;
+	width:250px;
+	height:150px; 
+} 
+ 
+ 
+#currentTime {
+	text-align: right;
+	font-size: 175%;
+	position: absolute;
+	top:0px;
+	right:0px;
+	width:250px;
+	height:150px; 
+} 
+ 
+#controllerTitle {
+	font-size: 300%;
+	width: 950px;
+	height: 50px;
+	text-align: center;
+	float: left;	
+}
+
+#controllerInfo {
+	font-size: 150%;
+	width: 950px;
+	height: 70px;
+	text-align: center;
+	float: left;	
+}
+
+#clockTitle {
+	font-size: 300%;
+	width: 950px;
+	height: 50px;
+	text-align: center;
+	float: right;	
+}
+ 
+#controller {
+	
+	width: 700px;
+	height: 700px;
+	border : 2px;
+	border-style: solid;
+	border-color : #000000;
+	border-radius: 50%;
+	
+	position: absolute;
+	left: 130px;
+	top: 250px;
+	
+	background-color : #C70752;
+	color: #ffffff;
+	clear: both;
+	
+	text-align: center; 
+	font-size: 500%;
+}
+
+#halfbar {
+	width: 10px;
+	height: 980px;
+	
+	position: absolute;
+	left: 955px;
+	top: 80px;
+	background-color: #000000;
+}
+#clock {	
+	width: 780px;
+	height: 792px;
+
+	border : 1px;
+	border-style: solid;
+	border-color : #000000; 
+	
+	position: absolute;
+	right: 80px;
+	top: 200px;
+	
+	background-color : transparent;	 
+	color: #000000;
+	
+	font-size: 30px;
+}
+
+
+#clockHour {
+	
+	width: 40px;
+	height: 792px;
+	
+	position: absolute;
+	right: 880px;
+	top: 180px;
+	
+	font-size: 28px;
+	text-align: right;
+	
+	background-color: transparent;
+	clear: both;
+}
+
+#clockMinute {
+	
+	width: 1300px;
+	height: 30px;
+	
+	position: absolute;
+	left: 1050px;
+	top: 160px;
+	
+	font-size: 28px;
+	text-align: right;
+	
+	background-color: transparent;
+}
+
+.clock_segment {
+	float:left;
+	width: 128px;
+	height: 31px;
+	border: solid;
+	border-width: 1px;
+	border-color: #000000;
+	text-align: center;
+}
+ 
+#controllerRuler {
+	width: 840px;
+	height: 840px;
+	
+	position: absolute;
+	left: 80px;
+	top: 180px;
+	
+	position: absolute;
+	background-color: transparent;
+	
+	z-index: -1;
+	
+}
+#controllerArrowRotate {
+	width: 840px;
+	height: 840px;
+	
+	position: absolute;
+	left: 60px;
+	top: 180px;
+	
+	background-color: transparent;
+	
+	z-index: -1;
+}
+#controllerSelectedTime {
+	width: 5px;
+	height: 420px;
+	position: relative;
+	left : 420px;
+	background-color: #000000;
+}
+
+}

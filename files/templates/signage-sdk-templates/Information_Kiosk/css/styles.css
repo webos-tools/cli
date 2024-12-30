@@ -1,0 +1,387 @@
+/* Font Faces */
+
+@font-face {
+    font-family: museo-sans-300;
+    src: url('../fonts/Museo Sans 300.otf');
+}
+@font-face {
+    font-family: museo-sans-500;
+    src: url('../fonts/Museo Sans 500.otf');
+}
+@font-face {
+    font-family: museo-sans-700;
+    src: url('../fonts/Museo Sans 700.otf');
+}
+/* Page Styling */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+html, body {
+    height: 1080px;
+    width: 1920px;
+    background-color: white;
+}
+.Page2, .Page3, .Page4, .Page5 {
+    position: absolute;
+}
+/* First Screen */
+
+.header {
+    top: 0px;
+    left: 0px;
+    background-color: #1c1c1c;
+    height: 170px;
+    width: 1920px;
+}
+.Page1, .Page2, .Page3, .Page4, .Page5 {
+    top: 170px;
+    left: 0px;
+    background-color: #fff;
+    height: 910px;
+    width: 1920px;
+}
+img.logo {
+    top: 25px;
+    left: 894px;
+    position: absolute;
+    height: 72px;
+    width: 132px;
+}
+.navigation {
+    top: 121px;
+    width: 1920px;
+    height: 49px;
+    position: absolute;
+}
+.ul a {
+    display: inline;
+    text-decoration: none;
+    width: 384px;
+    float: left;
+    background-color: #2e2e2e;
+    font: 26px museo-sans-300;
+    height: 49px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 49px;
+}
+.ul .selected {
+    background-color: #393939;
+}
+.imageOverlay, .adHeading {
+    position: absolute;
+    font: 40px museo-sans-500;
+    left: 40px;
+}
+.imageOverlay {
+    top: 194px;
+    color: #fff;
+}
+.adHeading {
+    top: 752px;
+    color: #000;
+}
+.adProducts {
+    position: absolute;
+    top: 752px;
+    left: 54px;
+}
+.ol div {
+    display: inline;
+    width: 302px;
+    float: left;
+}
+img.productImg {
+    margin-top: 60px;
+    margin-left: 40px;
+    height: 170px;
+    width: 220px;
+}
+div.productName {
+    font: 28px museo-sans-500;
+    text-align: center;
+    color: #000000;
+}
+div.productPrice {
+    font: 24px museo-sans-300;
+    text-align: center;
+    color: #282828;
+}
+/* Screen 2 */
+
+.Screen2Heading {
+    left: 40px;
+    position: absolute;
+    top: 24px;
+    font: 40px museo-sans-500;
+    color: #000;
+}
+.gallery {
+    left: 40px;
+    position: absolute;
+    top: 69px;
+}
+.screen2Scroll {
+    left: 40px;
+    top: 814px;
+    background-color: #c7c7c7;
+    height: 2px;
+    width: 1840px;
+    position: absolute;
+}
+.scroller {
+    background-color: #858585;
+    height: 10px;
+    width: 280px;
+    margin-top: -4px;
+}
+.screen3SideImage {
+    height: 910px;
+    width: 1152px;
+    display: inline;
+}
+.screen3Gallery {
+    top: 17px;
+    left: 1214px;
+    display: inline;
+    position: absolute;
+}
+.screen3OL div {
+    width: 322px;
+}
+.screen3OL .li {
+    display: inline;
+    float: left;
+    height: 292px;
+}
+img.screen3ProductImg {
+    margin-top: 17px;
+    margin-left: 51px;
+    height: 170px;
+    width: 220px;
+}
+.screen3ProductName {
+    top: 218px;
+    text-align: center;
+    color: #000;
+    font: 28px museo-sans-500;
+}
+.screen3ProductPrice {
+    top: 251px;
+    text-align: center;
+    color: #282828;
+    font: 24px museo-sans-300;
+}
+.block {
+    left: 40px;
+    top: 24px;
+    position: absolute;
+}
+.block2 {
+    left: 40px;
+    top: 490px;
+    position: absolute;
+}
+.blockHeading {
+    font: 40px museo-sans-700;
+    color: #000000;
+    position: absolute;
+}
+.line {
+    background-color: #b7b7b7;
+    width: 1840px;
+    height: 2px;
+    position: absolute;
+    top: 59px;
+}
+.positionBlock {
+    position: absolute;
+    top: 94px;
+    left: 40px;
+    width: 1760px;
+}
+.info {
+    height: 100px;
+    position: relative;
+}
+.timing {
+    float: left;
+    font: 36px museo-sans-500;
+    color: #373737;
+}
+.subject {
+    margin-left: 270px;
+    font: 36px museo-sans-500;
+    color: #373737;
+}
+.address {
+    margin-left: 274px;
+    font: 28px museo-sans-300;
+    color: #858585;
+    float: left;
+    position: absolute;
+    top: 46px;
+}
+.location {
+    margin-left: 1014px;
+    font: 28px museo-sans-300;
+    color: #858585;
+    position: absolute;
+    top: 46px;
+}
+.phone {
+    right: 0px;
+    font: 28px museo-sans-300;
+    color: #858585;
+    position: absolute;
+    top: 46px;
+}
+/* Screen 5*/
+
+.screen5block1 {
+    margin: 24px 40px 0px 40px;
+    height: 467px;
+    position: absolute;
+    width: 1840px;
+}
+.screen5block2 {
+    margin: 0px 40px 0px 40px;
+    height: 467px;
+    position: absolute;
+    top: 491px;
+    width: 1840px;
+}
+.section {
+    margin: 102px 0 0 2px;
+    font: 26px museo-sans-300;
+    color: #858585;
+    position: absolute;
+}
+.section span {
+    float: left;
+    height: 40px;
+}
+.subHeading {
+    margin-left: 40px;
+    font: 36px museo-sans-500;
+    color: #373737;
+    position: absolute;
+    top: 90px;
+}
+.information {
+    height: 66px;
+    position: relative;
+}
+.stores{
+    position: absolute;
+    top: 96px;
+    left: 314px;
+    width:1526px;
+}
+.address1 {
+    font: 26px museo-sans-500;
+    color: #858585;
+    display: inline;
+    float: left;
+}
+.location1 {
+    margin-left: 738px;
+    font: 26px museo-sans-300;
+    color: #858585;
+    position: absolute;
+}
+.phone1 {
+    float: right;
+    right: 40px;
+    font: 26px museo-sans-300;
+    color: #858585;
+    position: absolute;
+}
+/* Modal*/
+.modal {
+    position: absolute;
+    top: 215px;
+    left: 160px;
+    background-color: #fff;
+    height: 640px;
+    width: 1600px;
+    display: none;
+}
+.close {
+    position: absolute;
+    height: 33px;
+    width: 32px;
+    top: 32px;
+    left: 1537px;
+}
+.leftArrow {
+    position: absolute;
+    height: 94px;
+    width: 36px;
+    top: 278px;
+    left: 52px;
+}
+.image {
+    position: absolute;
+    height: 430px;
+    width: 520px;
+    top: 97px;
+    left: 115px;
+}
+.rightArrow {
+    position: absolute;
+    height: 94px;
+    width: 36px;
+    top: 278px;
+    left: 662px;
+}
+.newtag{
+    position: absolute;
+    height: 36px;
+    width: 80px;
+    top: 95px;
+    left: 790px;
+    font: 29px museo-sans-700;
+    color: #fff;
+    text-align: center;
+    background-color: #535353;
+}
+.modalProductName {
+    font: 70px museo-sans-500;
+    text-align: left;
+    color: #000000;
+    top: 190px;
+    position: absolute;
+}
+.modalProductPrice{
+    font: 38px museo-sans-300;
+    text-align: left;
+    color: #000000;
+    top: 262px;
+    position: absolute; 
+}
+.modalText{
+    position: absolute;
+    left: 790px;
+    width: 100%;
+}
+.modalLineStyle{
+    font: 24px museo-sans-300;
+    text-align: left;
+    color: #636363;
+    position: absolute;
+}
+.modalProductSize{
+    top: 343px;
+}
+.modalDescLine1{
+    top:397px;
+}
+.modalDescLine2{
+    top:427px;
+}
+.modalDescLine3{
+    top:457px;
+}

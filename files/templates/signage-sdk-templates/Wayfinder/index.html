@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Interactive WayFinder</title>
+
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Css Files -->
+    <link rel='stylesheet' type='text/css' href='css/styles.css'>
+
+</head>
+
+<body>
+
+    <div id='template1' class='inActiveTemp page'>
+
+        <img class='logo' data-bind-appEleven='logoImg' />
+        <img id='backBtn' data-bind-appEleven='bkBtnImg' />
+
+        <div class='mapHolder'>
+            <img class='floorMaps floorMapOne' data-bind-appEleven='floorMapOneShadow' />
+            <img class='floorMaps floorMapOne floorWOS' data-bind-appEleven='floorMapOne' />
+            <img class='floorMaps floorMapTwo' data-bind-appEleven='floorMapTwoShadow' />
+            <img class='floorMaps floorMapTwo floorWOS' data-bind-appEleven='floorMapTwo' />
+            <img class='floorMaps floorMapThree' data-bind-appEleven='floorMapThreeShadow' />
+            <img class='floorMaps floorMapThree floorWOS' data-bind-appEleven='floorMapThree' />
+            <img class='floorMapAll' data-bind-appEleven='floorMapShadow' />
+        </div>
+
+        <div class='floorMap'>
+            <div id='secondFloor'></div>
+            <div id='upperFloor'></div>
+            <div id='lowerFloor'></div>
+        </div>
+
+        <div class='floor secondFloor'>
+            <p data-bind-appEleven='sfTitle'></p>
+            <p data-bind-appEleven='sfName'></p>
+        </div>
+
+        <div class='floor upperFloor'>
+            <p data-bind-appEleven='ufTitle'></p>
+            <p data-bind-appEleven='ufName'></p>
+        </div>
+
+        <div class='floor lowerFloor'>
+            <p data-bind-appEleven='lfTitle'></p>
+            <p data-bind-appEleven='lfName'></p>
+        </div>
+
+        <div class='directory'>
+            <div id='sfDir'>
+                <h2 data-bind-appEleven='dr'></h2>
+
+                <h3 class='sfTitle' data-bind-appEleven='sfTitle'></h3>
+                <table class='sfTable table' data-bind-appEleven='sfTable'></table>
+            </div>
+
+            <div id='ufDir'>
+                <h3 class='usTitle' data-bind-appEleven='ufTitle'></h3>
+                <table class='usTable table' data-bind-appEleven='ufTable'></table>
+            </div>
+
+            <div id='lfDir'>
+                <h3 class='lsTitle' data-bind-appEleven='lfTitle'></h3>
+                <table class='lsTable table' data-bind-appEleven='lfTable'></table>
+            </div>
+        </div>
+
+        <ul class='listIcons'>
+            <li><img data-bind-appEleven='parkingIcon' /> <span data-bind-appEleven='parkingIconTxt'></span>
+            </li>
+            <li><img data-bind-appEleven='InfoIcon' /> <span data-bind-appEleven='InfoIconTxt'></span>
+            </li>
+            <li><img data-bind-appEleven='elevatorIcon' /> <span data-bind-appEleven='elevatorIconTxt'></span>
+            </li>
+            <li><img data-bind-appEleven='escalatorIcon' /> <span data-bind-appEleven='escalatorIconTxt'></span>
+            </li>
+            <li><img data-bind-appEleven='toiletIcon' /> <span data-bind-appEleven='toiletIconTxt'></span>
+            </li>
+            <li><img data-bind-appEleven='exitIcon' /> <span data-bind-appEleven='exitIconTxt'></span>
+            </li>
+        </ul>
+
+    </div>
+
+    <div id='template2' class='inActiveTemp page'>
+        <div class='selMapHolder'>
+            <img class='selectedMapImg' data-bind-appEleven='sfMap' />
+            <img class='locationPointIcon locIcon' data-bind-appEleven='locationImg' />
+            <img class='locationShadowIcon shadowIcon' data-bind-appEleven='shadowImg' />
+
+            <ul class='sfLbl floorLbl' data-bind-appEleven='sfTable'></ul>
+        </div>
+
+        <div class='selectedMapDesc'>
+            <h2 class='title sfTitle' data-bind-appEleven='sfTitle'></h2>
+            <table class='sfShop'>
+				<tbody data-bind-appEleven='sfStabData'></tbody>
+			</table>
+        </div>
+
+    </div>
+
+    <div id='template3' class='inActiveTemp page'>
+        <div class='selMapHolder'>
+            <img class='selectedMapImg' data-bind-appEleven='ufMap' />
+            <img class='uflocationPointIcon locIcon' data-bind-appEleven='locationImg' />
+            <img class='uflocationShadowIcon shadowIcon' data-bind-appEleven='shadowImg' />
+
+            <ul class='ufLbl floorLbl' data-bind-appEleven='ufTable'> </ul>
+        </div>
+
+        <div class='selectedMapDesc'>
+            <h2 class='title usTitle' data-bind-appEleven='ufTitle'></h2>
+            <table class='ufShop'>
+                <tbody data-bind-appEleven='ufStabData'></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id='template4' class='inActiveTemp page'>
+
+        <div class='selMapHolder'>
+            <img class='selectedMapImg' data-bind-appEleven='lfMap' />
+            <img class='lflocationPointIcon locIcon' data-bind-appEleven='locationImg' />
+            <img class='lflocationShadowIcon shadowIcon' data-bind-appEleven='shadowImg' />
+
+            <ul class='lfLbl floorLbl' data-bind-appEleven='lfTable'></ul>
+
+
+        </div>
+
+        <div class='selectedMapDesc'>
+            <h2 class='title lsTitle' data-bind-appEleven='lfTitle'></h2>
+            <table class='lfShop'>
+                <tbody data-bind-appEleven='lfStabData'></tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <div id='popUp'>
+        <div>
+            <img data-bind-appEleven='shopLogo' />
+            <h2 data-bind-appEleven='shopName'>LG Best Shop</h2>
+            <p data-bind-appEleven='shopDesc'>
+
+            </p>
+            <div class='buttonsHolder'>
+                <a><img data-bind-appEleven='actBtn' />
+                </a>
+                <a><img data-bind-appEleven='nActBtn' />
+                </a>
+                <a><img data-bind-appEleven='nActBtn' />
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Files -->
+    <script src='js/helpers/util.js'></script>
+    <script src='js/controller.js'></script>
+
+
+
+</body>
+
+</html>

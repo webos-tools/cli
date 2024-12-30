@@ -1,0 +1,185 @@
+{
+    "logo": "res/images/tpl_10_logo.png",
+    "menu_1": "Menu1",
+    "menu_2": "Menu2",
+    "menu_3": "Menu3",
+    "menu_4": "Menu4",
+    "menu_5": "Menu5",
+
+    "bannerBackground": "res/images/tpl_10_img_bg_01.png",
+    "imageOverlayText": "Image Overlay Text",
+    "adHeading": "Menu",
+
+    "Screen2Heading": "Header",
+
+    "productImg1": "res/images/tpl_10_img_list_01.png",
+    "productName1": "Product1",
+    "productPrice1": "Price1",
+
+    "productImg2": "res/images/tpl_10_img_list_02.png",
+    "productName2": "Product2",
+    "productPrice2": "Price2",
+
+    "productImg3": "res/images/tpl_10_img_list_03.png",
+    "productName3": "Product3",
+    "productPrice3": "Price3",
+
+    "productImg4": "res/images/tpl_10_img_list_04.png",
+    "productName4": "Product4",
+    "productPrice4": "Price4",
+
+    "productImg5": "res/images/tpl_10_img_list_05.png",
+    "productName5": "Product5",
+    "productPrice5": "Price5",
+
+    "productImg6": "res/images/tpl_10_img_list_06.png",    
+    "productName6": "Product6",
+    "productPrice6": "Price6",
+
+    "productImg7": "res/images/tpl_10_img_list_07.png",
+    "productName7": "Product7",
+    "productPrice7": "Price7",
+
+    "productImg8": "res/images/tpl_10_img_list_08.png",
+    "productName8": "Product8",
+    "productPrice8": "Price8",
+
+    "productImg9": "res/images/tpl_10_img_list_09.png",
+    "productName9": "Product9",
+    "productPrice9": "Price9",
+
+    "productImg10": "res/images/tpl_10_img_list_10.png",
+    "productName10": "Product10",
+    "productPrice10": "Price10",
+
+    "productImg11": "res/images/tpl_10_img_list_11.png",
+    "productName11": "Product11",
+    "productPrice11": "Price11",
+
+    "productImg12": "res/images/tpl_10_img_list_12.png",
+    "productName12": "Product12",
+    "productPrice12": "Price12",
+
+    "productPopupImg": ["res/images/tpl_10_img_popup_list_01.png", "res/images/tpl_10_img_popup_list_02.png", "res/images/tpl_10_img_popup_list_03.png",
+                        "res/images/tpl_10_img_popup_list_04.png", "res/images/tpl_10_img_popup_list_05.png", "res/images/tpl_10_img_popup_list_06.png",
+                        "res/images/tpl_10_img_popup_list_07.png", "res/images/tpl_10_img_popup_list_08.png", "res/images/tpl_10_img_popup_list_09.png",
+                        "res/images/tpl_10_img_popup_list_10.png", "res/images/tpl_10_img_popup_list_11.png", "res/images/tpl_10_img_popup_list_12.png"],
+    "productPopupName": ["Product1", "Product2", "Product3", "Product4", "Product5", "Product6",
+                        "Product7", "Product8", "Product9", "Product10", "Product11", "Product12"],
+    "productPopupPrice": ["Price1", "Price2", "Price3", "Price4", "Price5", "Price6","Price7", "Price8", "Price9", "Price10", "Price11", "Price12"],
+	"productPopupSize": ["Size1", "Size2", "Size3", "Size4", "Size5", "Size6","Size7", "Size8", "Size9", "Size10", "Size11", "Size12"],
+	
+	"productPopupDescLine1": ["DescLine1-1", "DescLine1-2", "DescLine1-3", "DescLine1-4", "DescLine1-5", "DescLine1-6","DescLine1-7", "DescLine1-8", "DescLine1-9", "DescLine1-10", "DescLine1-11", "DescLine1-12"],
+	"productPopupDescLine2": ["DescLine2-1", "DescLine2-2", "DescLine2-3", "DescLine2-4", "DescLine2-5", "DescLine2-6","DescLine2-7", "DescLine2-8", "DescLine2-9", "DescLine2-10", "DescLine2-11", "DescLine2-12"],
+	"productPopupDescLine3": ["DescLine3-1", "DescLine3-2", "DescLine3-3", "DescLine3-4", "DescLine3-5", "DescLine3-6","DescLine3-7", "DescLine3-8", "DescLine3-9", "DescLine3-10", "DescLine3-11", "DescLine3-12"],
+	
+    "screen3SideImage": "res/images/tpl_10_img_style_01.png",
+
+    "screen3ProductImg1": "res/images/tpl_10_img_list_3_01.png",
+    "screen3ProductName1": "Product 3-1",
+    "screen3ProductPrice1": "Price 3-1",
+
+    "screen3ProductImg2": "res/images/tpl_10_img_list_3_02.png",
+    "screen3ProductName2": "Product 3-2",
+    "screen3ProductPrice2": "Price 3-2",
+
+    "screen3ProductImg3": "res/images/tpl_10_img_list_3_03.png",
+    "screen3ProductName3": "Product 3-3",
+    "screen3ProductPrice3": "Price 3-3",
+
+    "screen3ProductImg4": "res/images/tpl_10_img_list_3_04.png",
+    "screen3ProductName4": "Product 3-4",
+    "screen3ProductPrice4": "Price 3-4",
+
+    "screen3ProductImg5": "res/images/tpl_10_img_list_3_05.png",
+    "screen3ProductName5": "Product 3-5",
+    "screen3ProductPrice5": "Price 3-5",
+
+    "screen3ProductImg6": "res/images/tpl_10_img_list_3_06.png",
+    "screen3ProductName6": "Product 3-6",
+    "screen3ProductPrice6": "Price 3-6",
+
+    "Screen4blockHeading_1": "Header1",
+    "Screen4blockHeading_2": "Header2",
+
+    "Screen4timing1": "Time1",
+    "Screen4subject1": "Subject1",
+    "Screen4address1": "Address1",
+    "Screen4location1": "Location1",
+    "Screen4phone1": "Phone1",
+
+    "Screen4timing2": "Time2",
+    "Screen4subject2": "Subject2",
+    "Screen4address2": "Address2",
+    "Screen4location2": "Location2",
+    "Screen4phone2": "Phone2",
+
+    "Screen4timing3": "Time3",
+    "Screen4subject3": "Subject3",
+    "Screen4address3": "Address3",
+    "Screen4location3": "Location3",
+    "Screen4phone3": "Phone3",
+
+    "Screen4timing4": "Time4",
+    "Screen4subject4": "Subject4",
+    "Screen4address4": "Address4",
+    "Screen4location4": "Location4",
+    "Screen4phone4": "Phone4",
+
+    "Screen4timing5": "Time5",
+    "Screen4subject5": "Subject5",
+    "Screen4address5": "Address5",
+    "Screen4location5": "Location5",
+    "Screen4phone5": "Phone5",
+
+    "Screen4timing6": "Time6",
+    "Screen4subject6": "Subject6",
+    "Screen4address6": "Address6",
+    "Screen4location6": "Location6",
+    "Screen4phone6": "Phone6",
+
+    "blockHeading_3": "Header1",
+
+    "section_Line1": "Text1_________________________________________________________________________________________________________________",
+    "section_Line2": "Text2_________________________________________________________________________________________________________________",
+    "section_Line3": "Text3_________________________________________________________________________________________________________________",
+    "section_Line4": "Text4_________________________________________________________________________________________________________________",
+    "section_Line5": "Text5_________________________________________________________________________________________________________________",
+    "section_Line6": "Text6_________________________________________________________________________________________________________________",
+    "section_Line7": "Text7_________________________________________________________________________________________________________________",
+
+    "blockHeading_4": "Header2",
+    "subHeading": "Sub-Header",
+
+    "address1": "Address1",
+    "location1": "Location1",
+    "phone1": "Phone1",
+
+    "address2": "Address2",
+    "location2": "Location2",
+    "phone2": "Phone2",
+
+    "address3": "Address3",
+    "location3": "Location3",
+    "phone3": "Phone3",
+
+    "address4": "Address4",
+    "location4": "Location4",
+    "phone4": "Phone4",
+
+    "address5": "Address5",
+    "location5": "Location5",
+    "phone5": "Phone5",
+
+
+    "close": "res/images/tpl_10_btn_close_n.png",
+    "closeDark": "res/images/tpl_10_btn_close_p.png",
+    "leftArrow": "res/images/tpl_10_btn_arrow_l_n.png",
+    "leftArrowDark": "res/images/tpl_10_btn_arrow_l_p.png",
+    "image": "res/images/img_rotation/tpl_10_img_rotation_01.png",
+    "rightArrow": "res/images/tpl_10_btn_arrow_r_n.png",
+    "rightArrowDark": "res/images/tpl_10_btn_arrow_r_p.png",
+    "rotation": "res/images/tpl_10_btn_rotation_n.png",
+    "rotationDark": "res/images/tpl_10_btn_rotation_p.png",
+    "newTag": "Tag Name"
+}

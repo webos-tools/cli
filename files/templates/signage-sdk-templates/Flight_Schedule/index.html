@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html lang='en'>
+
+<head>
+    <title>Airport Departures App</title>
+
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Css Files -->
+    <link rel='stylesheet' type='text/css' href='css/styles.css'>
+</head>
+
+<body>
+    <header id='headerSection'>
+        <img src='images/tpl_05_img_flight.png' />
+        <h1 data-bind-appFiveStatic='headerInfoTitle'></h1>
+        <div class='dateInfo' data-bind-appFiveStatic='headerInfoDate'></div>
+        <div class='timeInfo' data-bind-appFiveStatic='headerInfoTime'></div>
+        <div class='cityInfo' data-bind-appFiveStatic='headerInfoCity'></div>
+    </header>
+    <table class='dataTable' data-bind-appFive='tabLeftData'></table>
+    <footer></footer>
+
+    <script src='http://192.168.137.1:8989/socket.io/socket.io.js'></script>
+    <script src='js/helpers/util.js'></script>
+    <script src='js/controller.js'></script>
+
+</body>
+
+</html>

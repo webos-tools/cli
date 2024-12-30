@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Cordova-CD Specification</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<meta name="mobileoptimized" content="0" />
+	
+		<link rel="stylesheet" href="css/all.css" media="all" />
+		<link rel="stylesheet" href="css/handheld.css" media="only screen and (max-width: 660px)" />
+		<link rel="stylesheet" href="css/handheld.css" media="handheld" />
+		<link rel="stylesheet" href="css/screen.css" media="screen and (min-width: 661px)" />
+
+        <link rel="stylesheet" href="javascript/highlighter/dessert.css" />
+
+		<script src="javascript/all.js"></script>
+		<!--[if lt IE 9]>
+			<script src="javascript/html5.js"></script>
+		<![endif]-->
+		
+	</head>
+
+	<body>
+
+
+<div class="content">
+	<div class="innerContent">
+		<article>
+			<h1 class="classTitle"><span>Introduction</span></h1>
+			
+			<ul class="fileList" id="FileList">
+				
+					<li>
+						<p><b> What is SCAP? </b><br>
+						SCAP(Signage Common Application Platform) is a JavaScript library that enables the use of services provided by webOS based LG Commercial Display Platform.<br> 
+                        This library can be used in a web-application in the same way as other JavaScript-based libraries(e.g. jQuery). <br></p>
+                        
+						<p><b> What is Cordova? </b><br>
+                        Cordova is a JavaScript library that enables the use of hardware features such as the camera or accelerometer in a web application. It is used to make a web application that works on a mobile operating system with UI frameworks such as jQuery Mobile, Dojo Mobile, Sencha Touch and Enyo.<br><br>
+                        Cordova has the following features:<br>
+                        - Can develop applications without having to use the native language provided by the mobile operating system<br>
+                        - Can be distributed to a number of platforms using a single web programming code<br>
+                        - Can implement common mobile operating system features using an API<br>
+                        For more information about Cordova, see <a href="http://cordova.apache.org">http://cordova.apache.org.</a><br>
+                        </p>
+                        
+                        <p><b>Supported Standard Cordova API</b><br>
+                        Cordova Standard API provides an API that enables the use of mobile OS features commonly available on a webOS TV. The next section describes the scope of Cordova Standard API supported by webOS. <br>
+                        Note For more details on each of the modules, refer to the document at <a href="http://cordova.apache.org/docs/en/3.0.0/">http://cordova.apache.org/docs/en/3.0.0.</a><br>
+
+                        <p>Accelerometer<br>
+                        (TBD) Provides accelerometer sensor data on the MRCU (Magic Remote Control Unit).</p>
+
+                        <p>Connection<br>
+                        Provides information on wired or wireless network connections. Regarding wireless networks, mobile networks such as 2G/3G/4G are not supported.</p>
+
+                        <p>Device<br>
+                        Provides information on the devices on webOS TV. Provides information on the platform, device UUID and version.</p>
+
+                        <p>Events<br>
+                        Events supported by webOS TV. The following events are provided.<br>
+                        Button Events:
+                        - backbutton: An event that occurs when the Back button is pressed.
+                        Application lifecycle event
+                        - deviceready: An event that occurs when the Cordova library is loaded.<br>
+                        - pause: An event that occurs when an application stops (background process).<br>
+                        - resume: An event that occurs when an application is restarted after being stopped.<br>
+                        - online: An event that occurs when an application or device connects to the network.<br>
+                        - offline: An event that occurs when an application or device disconnects from the network.</p>
+                        
+                       <p>File<br>
+                       (TBD) Provides read function for text files in the file system.</p>
+
+                       <p>Globalization<br>
+                       Provides information on the region and language configured by the user on the webOS TV.</p>
+
+                      <p>Notification<br>
+                      (TBD) Displays system and application messages by using system UI. The following UIs can be used.<br>
+                      - alert: A dialog box with a single button.<br>
+                      - confirm: A dialog box with two buttons.<br>
+                      - prompt: A user-defined dialog box.</p>
+                     
+                      <p>Storage<br>
+                      Provides storage space in the form of key-value or SQL Lite database.</p>
+                      
+					</li>
+				
+				
+			</ul>
+		</article>
+	</div>
+</div>
+		<script type="text/javascript">
+			wbos.CssTools.MediaQueryFallBack.LoadCss('css/screen.css', 'css/handheld.css', 660)
+			codeview.classFilter.Init()
+		</script>
+		<script src="javascript/highlighter/prettify.js"></script>
+		<script>prettyPrint();</script>
+	</body>
+</html>

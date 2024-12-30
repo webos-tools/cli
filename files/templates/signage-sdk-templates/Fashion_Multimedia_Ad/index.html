@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <title>Overlaying full-screen multimedia elements</title>
+
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+
+    <!-- Css Files -->
+    <link href='css/styles.css' rel='stylesheet' type='text/css' />
+
+</head>
+
+<body>
+    <div class='wrapper'>
+        <div id='topPart' class='transform'>
+            <div id='logo'>
+                <img data-bind-appOne='logoImg' />
+                <div id='adContent' data-bind-appOne='title'></div>
+            </div>
+        </div>
+
+        <div id='middlePart'>
+            <video id='videoPlayer' data-bind-appOne='video' preload muted></video>
+        </div>
+        <div id='bottomPart'>
+            <div id='btmContentWrapper'>
+                <span id='lblTop' data-bind-appOne='lblTop'></span>
+                <span id='lblBtm' data-bind-appOne='lblBtm'></span>
+                <hr id='hrSlide'>
+                <div id='authorContent' data-bind-appOne='authorContent'></div>
+                <img id='authorSign' data-bind-appOne='authorImg' />
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Files -->
+    <script src='js/helpers/util.js'></script>
+    <script src='js/controller.js'></script>
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+html, body {
+    position: absolute;
+    height: 1920px;
+    width: 1080px;
+    margin: 0px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-transform: translate3d(27.4%,-6.45%,0) rotate(-45deg);
+}
+/* For Hiding Image Borders*/
+img {
+    display: none;
+}
+img[src] {
+   display: block;
+ }
+
+/* Fonts */
+
+@font-face {
+    font-family: museo-sans-300;
+    src: url('../fonts/Museo Sans 300.otf');
+}
+@font-face {
+    font-family: museo-sans-500;
+    src: url('../fonts/Museo Sans 500.otf');
+}
+@font-face {
+    font-family: museo-sans-700;
+    src: url('../fonts/Museo Sans 700.otf');
+}
+/* Brand Style */
+
+.brandAdvertisement {    
+    height: 1576px;
+    width: 1080px;
+}
+.brandBanner {
+    background-color: #ffffff;
+    height: 344px;
+    width: 1080px;
+}
+.location_time {
+    top: 50px;
+    left: 50px;
+    font-size: 40px;
+    color: #9dd5ff;
+    font-family: museo-sans-500;
+    position: absolute;
+}
+.area {
+    top: 101px;
+    left: 50px;
+    font-size: 58px;
+    color: #ffffff;
+    font-family: museo-sans-700;
+    position: absolute;
+}
+.line {
+    position: absolute;
+    width: 980px;
+    height: 2px;
+    left: 50px;
+    top: 176px;
+    background-color: #ffffff;
+}
+.temperature {
+    top: 216px;
+    left: 50px;
+    color: #ffffff;
+    position: absolute;
+}
+.temp {
+    float: left;
+    font-family: museo-sans-500;
+    font-size: 250px;
+    line-height: 250px;
+}
+.degree {
+    font-size: 100px;
+    margin-left: 14px;
+    float: left;
+    font-family: museo-sans-300
+}
+.weatherLogo {
+    height: 62px;
+    width: 62px;
+    position: absolute;
+    top: 442px;
+    left: 52px;
+}
+.conditions {
+    top: 446px;
+    left: 136px;
+    font-size: 44px;
+    color: #ffffff;
+    font-family: museo-sans-500;
+    position: absolute;
+}
+/* Brand Style */
+
+.bannerLogo {
+    background: url('../res/images/tpl_08_logo.png') 100% no-repeat;
+    height: 100px;
+    width: 420px;
+    position: absolute;
+    top: 1624px;
+    left: 330px;
+}
+.bannerTagLine {
+    top: 1775px;
+    position: absolute;
+    text-align: center;
+    font-size: 48px;
+    font-family: museo-sans-700;
+    width: 100%;
+    color: #010e27;
+}
+.bannerLine {
+    top: 1839px;
+    position: absolute;
+    text-align: center;
+    font-size: 42px;
+    font-family: museo-sans-500;
+    width: 100%;
+    color: #3f4859;
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -64px;
+  margin-left: -64px;
+  height: 128px;
+  width: 128px;
+}

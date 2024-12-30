@@ -1,0 +1,4 @@
+{
+    hello: 'hello',
+    places: ['Africa', 'USa', 'Asia', 'Australia', 'INDIA']
+}

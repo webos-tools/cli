@@ -1,0 +1,105 @@
+#connectStatus {
+	color: #FF0000;
+	font-size: 150%;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+#setTime {
+	width: 921px;
+	height: 108px;
+	background-color: #FFAAAA;
+	position: absolute;
+	left: 197px;
+	top: 50px;
+	border: ridge;
+	border-width: 5px;
+	font-size: 300%;
+	text-align: center;
+}
+
+#currentTime {
+	width: 615px;
+	height: 108px;
+	background-color: #AAFFAA;
+	position: absolute;
+	left: 1118px;
+	top: 50px;
+	border: ridge;
+	border-width: 5px;
+	font-size: 300%;
+	text-align: center;
+}
+
+#timezoneArea {
+	width: 1536px;
+	height: 864px;
+	position: absolute;
+	left:192px;
+	top:180px;
+	border: ridge;
+	border-width: 5px;
+}
+
+#timezoneMap {
+	width: 1536px;
+	height: 864px;  	
+}
+
+#selectedArea {
+	width: 64px;
+	height: 835px;
+	background-color: rgba(199, 7 ,82, 0.5);
+	position: absolute;
+	left:883px;
+	top:185px;
+	z-index: 5;	
+    opacity: 0.5;
+    
+} 
+
+#selectedArea_left {
+	width: 45px;
+	height: 835px;
+	background-color: rgba(199, 7 ,82, 0.5);
+	position: absolute;
+	left:197px;
+	top:185px;
+	opacity: 0.5;
+	z-index: 5;
+	visibility: hidden;
+}
+
+#selectedArea_right {
+	width: 19px;
+	height: 835px;
+	background-color: rgba(199, 7 ,82, 0.5);
+	position: absolute;
+	left:1713px;
+	top:185px;
+	z-index: 5;
+	visibility: hidden;
+}  
+
+#selectedArea_12plus {
+	width: 31px;
+	height: 835px;
+	background-color: rgba(199, 7 ,82, 0.5);
+	position: absolute;
+	left:1650px;
+	top:185px;
+	z-index: 5;
+	visibility: hidden;
+} 
+
+#selectedArea_12minus {
+	width: 31px;
+	height: 835px;
+	background-color: rgba(199, 7 ,82, 0.5);
+	position: absolute;
+	left:1681px;
+	top:185px;
+	z-index: 5;
+	visibility: hidden;
+} 

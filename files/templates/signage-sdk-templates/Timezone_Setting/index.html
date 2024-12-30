@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Timezone Settings Example Application</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+	
+	<!-- Include SCAP Libraries -->	
+	<script type="text/javascript" src="./js/cordova/2.7.0/cordova.webos.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/configuration.js"></script>
+	
+	<script src="./data.js"></script>
+	<script src="./keyHandler.js"></script> 
+	<script src="./timezone.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body bgcolor=#FFFFFF onload = 'init()'>
+
+	<div id='connectStatus'></div>
+    <div id='setTime'>Loading......</div>
+    <div id='currentTime'>Loading......</div>
+    <div id='selectedArea'></div>
+    <div id='selectedArea_left'></div>
+    <div id='selectedArea_12plus'></div>
+    <div id='selectedArea_12minus'></div>
+    <div id='selectedArea_right'></div>
+	<div id='timezoneArea'><img id = 'timezoneMap' src='./timezone.jpg'></div>
+
+	<!--  Automatically call below function --> 
+	<!-- 09 Feb 2017 : http://www.timeapi.org is closed. Please use other site for getting UTC value. -->
+    <script type="text/javascript" src="http://www.timeapi.org/utc/now.json?callback=getUTC" onerror="getDeviceTime()"></script> 
+</body>
+</html>

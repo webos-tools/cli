@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Load Image Example</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+
+<!-- Use your remote cordova-cd library location 		 -->
+
+<script type="text/javascript" src="./js/cordova/2.7.0/cordova.webos.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/signage.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/storage.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/configuration.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/deviceInfo.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/inputSource.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/power.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/sound.js"></script>
+<script type="text/javascript" src="./js/cordova-cd/video.js"></script>
+
+<script src="./downloadProgress.js"></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body onload = 'debug()' bgcolor=#FFFFFF>
+	<div id = 'downloadFile'>
+		<div id = 'downloadURL'>
+		<br><br>
+		File URL : <textarea id = 'fileURL' rows = 1 cols = 35></textarea>
+		</div>
+		<button onclick = 'init()' style = 'font-size: 100%;'>Download File</button>
+		<br><br>
+		<div>Status : </div>
+		<div id = 'progressBarCurrent'></div>
+		<div id = 'progressBarTotal'></div>
+		<div id = 'progress'>Standby</div>
+	</div>
+
+	<script>
+	function debug() { 
+		new Configuration().debug(null, null, {enabled:true}); 
+	}
+	</script>
+
+</body>
+</html>

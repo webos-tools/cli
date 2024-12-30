@@ -1,0 +1,357 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*
+<span class='line'>  2</span>  * This is security cordova_plugin (TV specific API).
+<span class='line'>  3</span>  * Apache License (2004). See http://www.apache.org/licenses/LICENSE-2.0
+<span class='line'>  4</span>  *
+<span class='line'>  5</span>  * Copyright (c) 2014, LG Electronics, Inc.
+<span class='line'>  6</span>  */</span><span class="WHIT">
+<span class='line'>  7</span> 
+<span class='line'>  8</span> </span><span class="COMM">/**
+<span class='line'>  9</span>  * This represents the security API itself, and provides a global namespace for operating security service.
+<span class='line'> 10</span>  * @class
+<span class='line'> 11</span>  */</span><span class="WHIT">
+<span class='line'> 12</span> </span><span class="NAME">cordova.define</span><span class="PUNC">(</span><span class="STRN">'cordova/plugin/security'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">require</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">exports</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">module</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 13</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 14</span> </span><span class="WHIT">    </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">log</span><span class="PUNC">(</span><span class="NAME">msg</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 15</span> </span><span class="WHIT">    </span><span class="COMM">//    //console.log</span><span class="WHIT">
+<span class='line'> 16</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 17</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 18</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">service</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 19</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">window.PalmSystem</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 20</span> </span><span class="WHIT">        </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"Window.PalmSystem Available"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 21</span> </span><span class="WHIT">        </span><span class="NAME">service</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'cordova/plugin/webos/service'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 22</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="WHIT">        </span><span class="NAME">service</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="WHIT">            </span><span class="NAME">Request</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">uri</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">params</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">                </span><span class="NAME">log</span><span class="PUNC">(</span><span class="NAME">uri</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">" invoked. But I am a dummy because PalmSystem is not available"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">                        </span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">params.onFailure</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="WHIT">                    </span><span class="NAME">params.onFailure</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="WHIT">                        </span><span class="NAME">returnValue</span><span class="PUNC">:</span><span class="KEYW">false</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="WHIT">                        </span><span class="NAME">errorText</span><span class="PUNC">:</span><span class="STRN">"PalmSystem Not Available. Cordova is not installed?"</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 32</span> </span><span class="WHIT">               </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 35</span> 
+<span class='line'> 36</span> </span><span class="WHIT">    </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">checkErrorCodeNText</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">errorCode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">errorText</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">        </span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">result.errorCode</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">result.errorCode</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="WHIT">            </span><span class="NAME">result.errorCode</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">errorCode</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 40</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">result.errorText</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">result.errorText</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="WHIT">            </span><span class="NAME">result.errorText</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">errorText</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 45</span> 
+<span class='line'> 46</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 47</span>      * security interface
+<span class='line'> 48</span>      */</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Security</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="WHIT">	</span><span class="COMM">/**
+<span class='line'> 54</span>      * Registers a server certificate to validate the keys from the SCAP server as part of a PKI (Public Key Infrastructure).
+<span class='line'> 55</span>      * Handling (Register/Unregister) server certificates must be done very carefully under the control of installer because it is done in insecure environment.
+<span class='line'> 56</span>      * If a server certificate is registered, monitor will validate the public key from the SCAP server when monitor requests resources to the SCAP server in SCAP browser
+<span class='line'> 57</span>      * The server certificate to register can be a self-signed certificate or a CA (Certificate Authority) certificate.
+<span class='line'> 58</span>      * Only 1 server certificate is permitted in monitor. Therefore to register a server certificate when another server certificate was registered, revoke(unregister) the registered server certificate first, and register the new server certificate. Or the registration for the new server certificate will be failed.
+<span class='line'> 59</span>      * After registration, reboot must be needed.
+<span class='line'> 60</span>      * @class Security
+<span class='line'> 61</span>      * @param {Function} successCallback success callback function.
+<span class='line'> 62</span>      * @param {Function} errorCallback failure callback function.
+<span class='line'> 63</span>      * @param {Object} options
+<span class='line'> 64</span>      * &lt;div align=left>
+<span class='line'> 65</span>      * &lt;table class="hcap_spec" width=400>
+<span class='line'> 66</span>      *   &lt;thead>&lt;tr>&lt;th>Property&lt;/th>&lt;th>Type&lt;/th>&lt;th>Description&lt;/th>&lt;th>Required&lt;/th>&lt;/tr>&lt;/thead>
+<span class='line'> 67</span>      *   &lt;tbody>
+<span class='line'> 68</span>      *       &lt;tr>&lt;th>userName&lt;/th>&lt;th>String&lt;/th>&lt;th>username for this server certificate as 4 to 10-character string chosen from the set [a-zA-Z0-9].&lt;/th>&lt;th>required&lt;/th>&lt;/tr>
+<span class='line'> 69</span>      *       &lt;tr>&lt;th>password&lt;/th>&lt;th>String&lt;/th>&lt;th>password as 4 to 10-character string chosen from the set [a-zA-Z0-9] to get whether this certificate is registered or not, or revoke this certificate in the future.&lt;/th>&lt;th>required&lt;/th>&lt;/tr>
+<span class='line'> 70</span>      *       &lt;tr>&lt;th>certificate&lt;/th>&lt;th>String&lt;/th>&lt;th>certificate string of the full contents in the server certificate file (public root CA of the server certificate file) in the form of PEM (rootCA.crt in above example).&lt;/th>&lt;th>required&lt;/th>&lt;/tr>
+<span class='line'> 71</span>      *   &lt;/tbody>
+<span class='line'> 72</span>      * &lt;/table>
+<span class='line'> 73</span>      * &lt;/div>
+<span class='line'> 74</span>      * @return &lt;p>If the method is successfully executed, call the success callback function without a parameter.&lt;/br>
+<span class='line'> 75</span>      * If an error occurs, failure callback function is called with failure callback object as a parameter.&lt;/p>
+<span class='line'> 76</span>      * @example
+<span class='line'> 77</span>      * // Javascript code
+<span class='line'> 78</span>      * function registerServerCertificate () {
+<span class='line'> 79</span>      *   var options = {
+<span class='line'> 80</span>      *      userName : "testserver",
+<span class='line'> 81</span>      *      password : "passCode1",
+<span class='line'> 82</span>      *      certificate : "\
+<span class='line'> 83</span>      *-----BEGIN CERTIFICATE-----\n\
+<span class='line'> 84</span>      *MIIDhDCCAmwCCQDY8/8psTWE+DANBgkqhkiG9w0BAQsFADCBgzELMAkGA1UEBhMC\n\
+<span class='line'> 85</span>      *S1IxDjAMBgNVBAgMBVNlb3VsMQ4wDAYDVQQHDAVTZW91bDEMMAoGA1UECgwDTEdF\n\
+<span class='line'> 86</span>      *MQwwCgYDVQQLDANXTVQxFjAUBgNVBAMMDTEwLjE3Ny4yMjUuNTgxIDAeBgkqhkiG\n\
+<span class='line'> 87</span>      *9w0BCQEWEWRvb21zZGF5QGtsZHAub3JnMB4XDTE2MDkyMzEwMzY0MloXDTI2MDky\n\
+<span class='line'> 88</span>      *MTEwMzY0MlowgYMxCzAJBgNVBAYTAktSMQ4wDAYDVQQIDAVTZW91bDEOMAwGA1UE\n\
+<span class='line'> 89</span>      *BwwFU2VvdWwxDDAKBgNVBAoMA0xHRTEMMAoGA1UECwwDV01UMRYwFAYDVQQDDA0x\n\
+<span class='line'> 90</span>      *MC4xNzcuMjI1LjU4MSAwHgYJKoZIhvcNAQkBFhFkb29tc2RheUBrbGRwLm9yZzCC\n\
+<span class='line'> 91</span>      *ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANGU2B1m93M1Wtm1Bvz7BF7S\n\
+<span class='line'> 92</span>      *ATx7IWB5bE9fteMJmhvb5yYIcwKbBtPBdIyywPe9ROSHiYHubW3GCbw/h/CjC7F6\n\
+<span class='line'> 93</span>      *gvKGK+Hg6lF2fXVDbR4+qDPoiVY+dv/ZWbaQ2KDjMHSqfHqlZWIqm4Znp4mx3dL1\n\
+<span class='line'> 94</span>      *DAt2I/S5jcKkO9Xf4g5RCW5dEMTpv0aNgm1nd6YMOGmO0F0r/HwlLNr4cdJwRBWv\n\
+<span class='line'> 95</span>      *Ce99EZ3H5SY+Iat96sXDQPxfmBtN1H71Hi1+kZ0ugDhLVTEQxq68cXH0QSnWttXx\n\
+<span class='line'> 96</span>      *p4P1DBWYJswQrjiWP9SXLCTPBawNRnSkSGpqoconhy8xDnp1jvEEd/zpWAh036MC\n\
+<span class='line'> 97</span>      *AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAKzlLlueFKWfo9IGUdQ/RLjBXD+gBtwF9\n\
+<span class='line'> 98</span>      *T8qkIA0h8eawK3l4pBjXgyvIybhhnF3q+aBDD6nh0anhnzmlrzyWqWefsVQqDKEG\n\
+<span class='line'> 99</span>      *iqb01qo8qOAn84pAliOnsNQEx+D1Rb2+ceRUhEYLxZBDbL9iL8MuNPAW7coFw3nm\n\
+<span class='line'>100</span>      *eTGV1Nx3OUfK9/EcGbEzNkFP8ZMkckbiDrF5rGHClqL+9FeQ03XMIPGqil2Te6Xq\n\
+<span class='line'>101</span>      *vKG3nsUYZymir2Dgl7Z6Vkeo+F8Y6CPD+iIxkgfX+QKRYS/dYoN00o7fsHNJN7WM\n\
+<span class='line'>102</span>      *CXqAtsTiHRfF17xHVjXH3HLqR5sIpQqay2RZE2PDQpc7Gaq+L9U81A==\n\
+<span class='line'>103</span>      *-----END CERTIFICATE-----\n"
+<span class='line'>104</span>      *   };   
+<span class='line'>105</span>      *     
+<span class='line'>106</span>      *   function successCb() {
+<span class='line'>107</span>      *      // Do something
+<span class='line'>108</span>      *   }
+<span class='line'>109</span>      *
+<span class='line'>110</span>      *   function failureCb(cbObject) {
+<span class='line'>111</span>      *      var errorCode = cbObject.errorCode;
+<span class='line'>112</span>      *      var errorText = cbObject.errorText;
+<span class='line'>113</span>      *      console.log ("Error Code [" + errorCode + "]: " + errorText);
+<span class='line'>114</span>      *   }
+<span class='line'>115</span>      *
+<span class='line'>116</span>      *   var security = new Security();
+<span class='line'>117</span>      *   security.registerServerCertificate(successCb, failureCb, options);
+<span class='line'>118</span>      * }
+<span class='line'>119</span>      * @since 1.4.1
+<span class='line'>120</span>      */</span><span class="WHIT">
+<span class='line'>121</span> </span><span class="WHIT">    </span><span class="NAME">Security.prototype.registerServerCertificate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">successCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>122</span> </span><span class="WHIT">            </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"registerServerCertificate: "</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">JSON.stringify</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>123</span> 
+<span class='line'>124</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">options.userName</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">options.userName</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.userName.length</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.userName.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">10</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="WHIT">                </span><span class="NAME">options.password</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">options.password</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.password.length</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.password.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">10</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="WHIT">                </span><span class="NAME">options.certificate</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">options.certificate</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>127</span> 
+<span class='line'>128</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>129</span> </span><span class="WHIT">                    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">result</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>130</span> </span><span class="WHIT">                    </span><span class="NAME">checkErrorCodeNText</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"SRSC"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"Security.registerServerCertificate returns failure. invalid parameters or out of range."</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>131</span> </span><span class="WHIT">                    </span><span class="NAME">errorCallback</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>132</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>133</span> 
+<span class='line'>134</span> </span><span class="WHIT">                </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>136</span> 
+<span class='line'>137</span> </span><span class="WHIT">            </span><span class="NAME">service.Request</span><span class="PUNC">(</span><span class="STRN">"luna://com.webos.service.commercial.signage.storageservice/security/"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>138</span> </span><span class="WHIT">                </span><span class="NAME">method</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"registerServerCertificate"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>139</span> </span><span class="WHIT">                </span><span class="NAME">parameters</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>140</span> </span><span class="WHIT">                    </span><span class="NAME">userName</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">options.userName</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>141</span> </span><span class="WHIT">                    </span><span class="NAME">password</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">options.password</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>142</span> </span><span class="WHIT">                    </span><span class="NAME">certificate</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">options.certificate</span><span class="WHIT">
+<span class='line'>143</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>144</span> </span><span class="WHIT">                </span><span class="NAME">onSuccess</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>145</span> </span><span class="WHIT">                    </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"registerServerCertificate: On Success"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>146</span> 
+<span class='line'>147</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">result.returnValue</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>148</span> </span><span class="WHIT">                        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">successCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>149</span> </span><span class="WHIT">                            </span><span class="NAME">successCallback</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>150</span> </span><span class="WHIT">                        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>151</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>152</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>153</span> </span><span class="WHIT">                </span><span class="NAME">onFailure</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>154</span> </span><span class="WHIT">                    </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"registerServerCertificate: On Failure"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>155</span> </span><span class="WHIT">                    </span><span class="KEYW">delete</span><span class="WHIT"> </span><span class="NAME">result.returnValue</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>156</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>157</span> </span><span class="WHIT">                        </span><span class="NAME">checkErrorCodeNText</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"SRSC"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"Security.registerServerCertificate returns failure."</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>158</span> </span><span class="WHIT">                        </span><span class="NAME">errorCallback</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>159</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>160</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>161</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>162</span> 
+<span class='line'>163</span> </span><span class="WHIT">            </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"Security.registerServerCertificate Done"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">                    </span><span class="WHIT">
+<span class='line'>164</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>165</span> 
+<span class='line'>166</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>167</span>      * Unregisters a server certificate and deactivate the TLS authentication and the host verification.
+<span class='line'>168</span>      * After unregistration, reboot must be needed.
+<span class='line'>169</span>      * @class Security
+<span class='line'>170</span>      * @param {Function} successCallback success callback function.
+<span class='line'>171</span>      * @param {Function} errorCallback failure callback function.     
+<span class='line'>172</span>      * @param {Object} options
+<span class='line'>173</span>      * &lt;div align=left>
+<span class='line'>174</span>      * &lt;table class="hcap_spec" width=400>
+<span class='line'>175</span>      *   &lt;thead>&lt;tr>&lt;th>Property&lt;/th>&lt;th>Type&lt;/th>&lt;th>Description&lt;/th>&lt;th>Required&lt;/th>&lt;/tr>&lt;/thead>
+<span class='line'>176</span>      *   &lt;tbody>
+<span class='line'>177</span>      *       &lt;tr>&lt;th>userName&lt;/th>&lt;th>String&lt;/th>&lt;th>username for the server certificate to unregister.&lt;/th>&lt;th>required&lt;/th>&lt;/tr>
+<span class='line'>178</span>      *       &lt;tr>&lt;th>password&lt;/th>&lt;th>String&lt;/th>&lt;th>password to be used for the registration of the server certificate before&lt;/th>&lt;th>required&lt;/th>&lt;/tr>
+<span class='line'>179</span>      *   &lt;/tbody>
+<span class='line'>180</span>      * &lt;/table>
+<span class='line'>181</span>      * &lt;/div>
+<span class='line'>182</span>      * @return &lt;p>If the method is successfully executed, call the success callback function without a parameter.&lt;/br>
+<span class='line'>183</span>      * If an error occurs, failure callback function is called with failure callback object as a parameter.&lt;/p>
+<span class='line'>184</span>      * @example
+<span class='line'>185</span>      * // Javascript code
+<span class='line'>186</span>      * function unregisterServerCertificate () {
+<span class='line'>187</span>      *   var options = {
+<span class='line'>188</span>      *      userName : "testserver",
+<span class='line'>189</span>      *      password : "passCode1"
+<span class='line'>190</span>      *   };   
+<span class='line'>191</span>      *     
+<span class='line'>192</span>      *   function successCb() {
+<span class='line'>193</span>      *      // Do something
+<span class='line'>194</span>      *   }
+<span class='line'>195</span>      *
+<span class='line'>196</span>      *   function failureCb(cbObject) {
+<span class='line'>197</span>      *      var errorCode = cbObject.errorCode;
+<span class='line'>198</span>      *      var errorText = cbObject.errorText;
+<span class='line'>199</span>      *      console.log ("Error Code [" + errorCode + "]: " + errorText);
+<span class='line'>200</span>      *   }
+<span class='line'>201</span>      *
+<span class='line'>202</span>      *   var security = new Security();
+<span class='line'>203</span>      *   security.unregisterServerCertificate(successCb, failureCb, options);
+<span class='line'>204</span>      * }
+<span class='line'>205</span>      * @since 1.4.1
+<span class='line'>206</span>      */</span><span class="WHIT">
+<span class='line'>207</span> </span><span class="WHIT">    </span><span class="NAME">Security.prototype.unregisterServerCertificate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">successCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>208</span> </span><span class="WHIT">            </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"unregisterServerCertificate: "</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">JSON.stringify</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>209</span> 
+<span class='line'>210</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">options.userName</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">options.userName</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.userName.length</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.userName.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">10</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>211</span> </span><span class="WHIT">                </span><span class="NAME">options.password</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">options.password</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.password.length</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.password.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">10</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>212</span> 
+<span class='line'>213</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>214</span> </span><span class="WHIT">                    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">result</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>215</span> </span><span class="WHIT">                    </span><span class="NAME">checkErrorCodeNText</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"SUSC"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"Security.unregisterServerCertificate returns failure. invalid parameters or out of range."</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>216</span> </span><span class="WHIT">                    </span><span class="NAME">errorCallback</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>217</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>218</span> 
+<span class='line'>219</span> </span><span class="WHIT">                </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>220</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>221</span> 
+<span class='line'>222</span> </span><span class="WHIT">            </span><span class="NAME">service.Request</span><span class="PUNC">(</span><span class="STRN">"luna://com.webos.service.commercial.signage.storageservice/security/"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>223</span> </span><span class="WHIT">                </span><span class="NAME">method</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"unregisterServerCertificate"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>224</span> </span><span class="WHIT">                </span><span class="NAME">parameters</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>225</span> </span><span class="WHIT">                    </span><span class="NAME">userName</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">options.userName</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>226</span> </span><span class="WHIT">                    </span><span class="NAME">password</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">options.password</span><span class="WHIT">
+<span class='line'>227</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>228</span> </span><span class="WHIT">                </span><span class="NAME">onSuccess</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>229</span> </span><span class="WHIT">                    </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"unregisterServerCertificate: On Success"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>230</span> 
+<span class='line'>231</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">result.returnValue</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>232</span> </span><span class="WHIT">                        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">successCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>233</span> </span><span class="WHIT">                            </span><span class="NAME">successCallback</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>234</span> </span><span class="WHIT">                        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>235</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>236</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>237</span> </span><span class="WHIT">                </span><span class="NAME">onFailure</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>238</span> </span><span class="WHIT">                    </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"unregisterServerCertificate: On Failure"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>239</span> </span><span class="WHIT">                    </span><span class="KEYW">delete</span><span class="WHIT"> </span><span class="NAME">result.returnValue</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>240</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>241</span> </span><span class="WHIT">                        </span><span class="NAME">checkErrorCodeNText</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"SUSC"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"Security.unregisterServerCertificate returns failure."</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>242</span> </span><span class="WHIT">                        </span><span class="NAME">errorCallback</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>243</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>244</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>245</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>246</span> 
+<span class='line'>247</span> </span><span class="WHIT">            </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"Security.unregisterServerCertificate Done"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">                    </span><span class="WHIT">
+<span class='line'>248</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>249</span> 
+<span class='line'>250</span> 
+<span class='line'>251</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>252</span>      * Returns whether a server certificate was registered or not.     
+<span class='line'>253</span>      * @class Security
+<span class='line'>254</span>      * @param {Function} successCallback success callback function.
+<span class='line'>255</span>      * @param {Function} errorCallback failure callback function.     
+<span class='line'>256</span>      * @param {Object} options
+<span class='line'>257</span>      * &lt;div align=left>
+<span class='line'>258</span>      * &lt;table class="hcap_spec" width=400>
+<span class='line'>259</span>      *   &lt;thead>&lt;tr>&lt;th>Property&lt;/th>&lt;th>Type&lt;/th>&lt;th>Description&lt;/th>&lt;th>Required&lt;/th>&lt;/tr>&lt;/thead>
+<span class='line'>260</span>      *   &lt;tbody>
+<span class='line'>261</span>      *       &lt;tr>&lt;th>userName&lt;/th>&lt;th>String&lt;/th>&lt;th>username for the server certificate.&lt;/th>&lt;th>required&lt;/th>&lt;/tr>
+<span class='line'>262</span>      *       &lt;tr>&lt;th>password&lt;/th>&lt;th>String&lt;/th>&lt;th>password to be used for the registration of the server certificate before&lt;/th>&lt;th>required&lt;/th>&lt;/tr>
+<span class='line'>263</span>      *   &lt;/tbody>
+<span class='line'>264</span>      * &lt;/table>
+<span class='line'>265</span>      * &lt;/div>
+<span class='line'>266</span>      * @return {Object} 
+<span class='line'>267</span>      * &lt;div align=left>
+<span class='line'>268</span>      * &lt;table class="hcap_spec" width=400>
+<span class='line'>269</span>      *   &lt;thead>&lt;tr>&lt;th>Property&lt;/th>&lt;th>Type&lt;/th>&lt;th>Description&lt;/th>&lt;/tr>&lt;/thead>
+<span class='line'>270</span>      *   &lt;tbody>
+<span class='line'>271</span>      *       &lt;tr>&lt;th>userName&lt;/th>&lt;th>String&lt;/th>&lt;th>username for the server certificate&lt;/th>&lt;/tr>
+<span class='line'>272</span>      *       &lt;tr>&lt;th>exist&lt;/th>&lt;th>Boolean&lt;/th>&lt;th>whether a server certificate was registered or not&lt;/th>&lt;/tr>
+<span class='line'>273</span>      *   &lt;/tbody>
+<span class='line'>274</span>      * &lt;/table>
+<span class='line'>275</span>      * &lt;/div>
+<span class='line'>276</span>      * @example
+<span class='line'>277</span>      * // Javascript code
+<span class='line'>278</span>      * function existServerCertificate () {
+<span class='line'>279</span>      *   var options = {
+<span class='line'>280</span>      *      userName : "testserver",
+<span class='line'>281</span>      *      password : "passCode1"
+<span class='line'>282</span>      *   };   
+<span class='line'>283</span>      *     
+<span class='line'>284</span>      *   function successCb(cbObject) {
+<span class='line'>285</span>      *      console.log("cbObject : " + JSON.stringify(cbObject));
+<span class='line'>286</span>      *   }
+<span class='line'>287</span>      *
+<span class='line'>288</span>      *   function failureCb(cbObject) {
+<span class='line'>289</span>      *      var errorCode = cbObject.errorCode;
+<span class='line'>290</span>      *      var errorText = cbObject.errorText;
+<span class='line'>291</span>      *      console.log ("Error Code [" + errorCode + "]: " + errorText);
+<span class='line'>292</span>      *   }
+<span class='line'>293</span>      *
+<span class='line'>294</span>      *   var security = new Security();
+<span class='line'>295</span>      *   security.existServerCertificate(successCb, failureCb, options);
+<span class='line'>296</span>      * }
+<span class='line'>297</span>      * @since 1.4.1
+<span class='line'>298</span>      */</span><span class="WHIT">
+<span class='line'>299</span> </span><span class="WHIT">    </span><span class="NAME">Security.prototype.existServerCertificate</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">successCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>300</span> </span><span class="WHIT">            </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"existServerCertificate: "</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">JSON.stringify</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>301</span> 
+<span class='line'>302</span> </span><span class="WHIT">            </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">options.userName</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">options.userName</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.userName.length</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.userName.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">10</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT">
+<span class='line'>303</span> </span><span class="WHIT">                </span><span class="NAME">options.password</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">options.password</span><span class="WHIT"> </span><span class="PUNC">!==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.password.length</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">options.password.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">10</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>304</span> 
+<span class='line'>305</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>306</span> </span><span class="WHIT">                    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">result</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>307</span> </span><span class="WHIT">                    </span><span class="NAME">checkErrorCodeNText</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"SESC"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"Security.existServerCertificate returns failure. invalid parameters or out of range."</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>308</span> </span><span class="WHIT">                    </span><span class="NAME">errorCallback</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>309</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>310</span> 
+<span class='line'>311</span> </span><span class="WHIT">                </span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>312</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>313</span> 
+<span class='line'>314</span> </span><span class="WHIT">            </span><span class="NAME">service.Request</span><span class="PUNC">(</span><span class="STRN">"luna://com.webos.service.commercial.signage.storageservice/security/"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>315</span> </span><span class="WHIT">                </span><span class="NAME">method</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"existServerCertificate"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>316</span> </span><span class="WHIT">                </span><span class="NAME">parameters</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>317</span> </span><span class="WHIT">                    </span><span class="NAME">userName</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">options.userName</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>318</span> </span><span class="WHIT">                    </span><span class="NAME">password</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">options.password</span><span class="WHIT">
+<span class='line'>319</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>320</span> </span><span class="WHIT">                </span><span class="NAME">onSuccess</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>321</span> </span><span class="WHIT">                    </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"existServerCertificate: On Success"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>322</span> 
+<span class='line'>323</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">result.returnValue</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>324</span> </span><span class="WHIT">                        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">successCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>325</span> </span><span class="WHIT">                            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cbObj</span><span class="WHIT">      </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>326</span> </span><span class="WHIT">                            </span><span class="NAME">cbObj.userName</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">result.userName</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>327</span> </span><span class="WHIT">                            </span><span class="NAME">cbObj.exist</span><span class="WHIT">    </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">result.exist</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>328</span> </span><span class="WHIT">                            </span><span class="NAME">successCallback</span><span class="PUNC">(</span><span class="NAME">cbObj</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>329</span> </span><span class="WHIT">                        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>330</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>331</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>332</span> </span><span class="WHIT">                </span><span class="NAME">onFailure</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>333</span> </span><span class="WHIT">                    </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"existServerCertificate: On Failure"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>334</span> </span><span class="WHIT">                    </span><span class="KEYW">delete</span><span class="WHIT"> </span><span class="NAME">result.returnValue</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>335</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">errorCallback</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'function'</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>336</span> </span><span class="WHIT">                        </span><span class="NAME">checkErrorCodeNText</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"SESC"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"Security.existServerCertificate returns failure."</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>337</span> </span><span class="WHIT">                        </span><span class="NAME">errorCallback</span><span class="PUNC">(</span><span class="NAME">result</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>338</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>339</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>340</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>341</span> 
+<span class='line'>342</span> </span><span class="WHIT">            </span><span class="NAME">log</span><span class="PUNC">(</span><span class="STRN">"Security.existServerCertificate Done"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>343</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>344</span> 
+<span class='line'>345</span> </span><span class="WHIT">    </span><span class="NAME">module.exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Security</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>346</span> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>347</span> 
+<span class='line'>348</span> </span><span class="NAME">Security</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">cordova.require</span><span class="PUNC">(</span><span class="STRN">'cordova/plugin/security'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>349</span> 
+<span class='line'>350</span> </span></pre></body></html>

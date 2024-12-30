@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Refresh Application without reboot Sample</title>
+
+	<script type="text/javascript" src="./js/cordova/2.7.0/cordova.webos.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/signage.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/storage.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/configuration.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/deviceInfo.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/inputSource.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/power.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/sound.js"></script>
+	<script type="text/javascript" src="./js/cordova-cd/video.js"></script>
+	<script src="script.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="./style.css">
+
+</head>
+
+<body bgcolor=#FFFFFF>
+
+	<div id="inputForm">
+	
+		Application Info File Path : <br><textarea id='jsonFilePath' style='font-size: 75%' rows=1></textarea>
+		<br><button onclick="getServerAppInfo()" style='font-size: 100%;'>Get Server Application Information</button>
+		<br><button onclick="refrestApplication()" style='font-size: 100%;'>Update and restart Application</button>
+		<br>
+		
+		<div id = "status"></div>
+		<div id = "remoteSettings"></div>
+		<div id = "serverSettings"></div>
+	</div>
+	
+	<div id="localAppInfo"></div>
+	<div id="serverAppInfo"></div>		
+	<div id = "downlaodJSON"></div>
+	
+	<script src="applicationInfo.json"></script>
+	</body>
+</html>

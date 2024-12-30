@@ -1,0 +1,15 @@
+applicationInfo(
+	{
+		"applicationName" : "Test App",
+		"version" : 1.0111,
+		"releaseDate" : "2015-03-16",
+		"developer" : "Developer",
+		"isDomainUse" : false,
+		"server" : {
+			"ip" : "192.168.137.1",
+			"port" : 8080,
+			"secured" : false,
+			"domain" : ""
+		}
+	}
+);
