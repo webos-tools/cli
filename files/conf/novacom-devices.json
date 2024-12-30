@@ -51,6 +51,7 @@
     },
     {
         "order":"0",
+        "default": true,
         "profile": "signage",
         "name": "emulator",
         "type": "starfish",
