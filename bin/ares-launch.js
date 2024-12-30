@@ -170,7 +170,7 @@ function launch() {
 }
 
 function launchHostedApp() {
-    const pkgId = "com.sdk.ares.hostedapp";
+    const pkgId = appdata.getConfig(true).profile === "signage" ? "com.lg.app.signage.dev" : "com.sdk.ares.hostedapp";
     log.info("launchHostedApp():", "pkgId:", pkgId, ", appDir:", appId);
 
     if (!appId) {
