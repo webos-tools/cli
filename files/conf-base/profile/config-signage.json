@@ -1,0 +1,29 @@
+{
+    "profile" : "signage",
+    "defaultAppInfo": {
+        "id": "com.lg.app.signage",
+        "type": "web",
+        "title": "new app",
+        "version": "0.0.1",
+        "main" : {
+            "web" : "index.html",
+            "native": "executable"
+        }
+    },
+    "defaultDeviceInfo": {
+        "ipAddress": "127.0.0.1",
+        "port": "9922",
+        "user": "prisoner",
+        "description": "new device description",
+        "files": "stream",
+        "default": false,
+        "type": "starfish"
+    },
+    "logFilePath" : "/media/developer/log/devlog",
+    "install" : {
+        "tempDirForIpk" : "/media/developer/temp",
+        "changeTempDir" : true,
+        "removeIpkAfterInst" : true
+    },
+    "dataDir":".webos/signage"
+}
