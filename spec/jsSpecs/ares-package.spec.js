@@ -18,6 +18,7 @@ const tempDirPath = path.join(__dirname, "..", "tempFiles"),
     outputPath = path.join(tempDirPath, "output"),
     appPathByRom = path.join(outputPath, "usr/palm/applications"),
     appPkgPath = path.join(outputPath, "com.webos.sample.app_1.0.0_all.ipk"),
+    plainAppPkgPath = path.join(outputPath, "com.webos.sample.app_1.0.0_all.ipk_plain"),
     svcPkgPath = path.join(outputPath, "com.webos.sample_1.0.0_all.ipk"),
     appinfoPath = path.join(sampleAppPath, "appinfo.json"),
     signKeyPath = path.join(tempDirPath, "sign/signPriv.key"),
@@ -490,6 +491,24 @@ describe(aresCmd + ' --encrypt(-enc)', function() {
                 expect(fs.existsSync(appPkgPath)).toBe(true);
             } else {
                 expect(fs.existsSync(appPkgPath)).toBe(false);
+            }
+            done();
+        });
+    });
+
+    it('Encrypted ipk and keep plain IPK', function(done) {
+        exec(cmd + ` -enc -rpi ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                expect(stderr).toContain("ares-package ERR! [syscall failure]: ENOENT: no such file or directory, open", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Please check if the path is valid", error);
+            }
+            if(options.profile && options.profile === 'signage'){
+                expect(fs.existsSync(appPkgPath)).toBe(true);
+                expect(fs.existsSync(plainAppPkgPath)).toBe(true);
+            } else {
+                expect(fs.existsSync(appPkgPath)).toBe(false);
+                expect(fs.existsSync(plainAppPkgPath)).toBe(false);
             }
             done();
         });
