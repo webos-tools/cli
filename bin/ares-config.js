@@ -79,26 +79,31 @@ const options = {
 const configFiles = {
     "ose": "files/conf-base/profile/config-ose.json",
     "tv": "files/conf-base/profile/config-tv.json",
-    "apollo": "files/conf-base/profile/config-apollo.json"
+    "apollo": "files/conf-base/profile/config-apollo.json",
+    "signage":"files/conf-base/profile/config-signage.json"
 };
 
 const envFiles = {
     "ose": "files/conf-base/env/sdk-ose.json",
     "tv": "files/conf-base/env/sdk-tv.json",
-    "apollo": "files/conf-base/env/sdk-apollo.json"
+    "apollo": "files/conf-base/env/sdk-apollo.json",
+    "signage": "files/conf-base/env/sdk-signage.json"
 };
 
 const templateFiles = {
     "ose": "files/conf-base/template-conf/ose-templates.json",
     "tv": "files/conf-base/template-conf/tv-sdk-templates.json",
-    "apollo": "files/conf-base/template-conf/apollo-sdk-templates.json"
+    "apollo": "files/conf-base/template-conf/apollo-sdk-templates.json",
+    "signage": "files/conf-base/template-conf/signage-sdk-templates.json"
 };
 
 const queryPaths = {
-    "common": "files/conf-base/query/"
+    "common": "files/conf-base/query/",
+    "signage": "files/conf-base/query/signage"
 };
 
 const keyFiles = {
+    "signage" : "files/conf-base/key/pubkey-signage.pem"
 };
 
 let op;
@@ -131,7 +136,11 @@ function config() {
         return finish(errHndl.getErrMsg("INVALID_VALUE", "profile", options.profile));
     }
 
-    const queryPath = queryPaths.common;
+    let queryPath = queryPaths.common;
+    if(options.profile === 'signage'){
+        queryPath = queryPaths.signage;
+    }
+
     appdata.setQuery(path.join(__dirname, '..', queryPath), function(err, status) {
         if (typeof status === 'undefined')
             return finish(errHndl.getErrMsg("INVALID_VALUE", "query configuration"));

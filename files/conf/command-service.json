@@ -68,6 +68,11 @@
             "service": "com.webos.service.tv.systemproperty",
             "method": "getSystemInfo",
             "returnValue": "return.returnValue"
+        },
+        "getStorageList" : {
+            "service" : "com.webos.service.attachedstoragemanager",
+            "method" : "listDevices",
+            "returnValue" : "return"
         }
     }
 }
