@@ -87,8 +87,8 @@ describe(aresCmd + ' --add(-a)', function() {
 describe(aresCmd + ' --add(-a)', function() {
     it('Add DEVICE using default info', function(done) {
         const newDevice = 'default';
-        const defaultUserName = options.profile === 'tv' ? 'prisoner' : 'root';
-        const defaultPort = options.profile === 'tv' ? '9922' : '22';
+        const defaultUserName = ['tv','signage'].includes(options.profile) ? 'prisoner' : 'root';
+        const defaultPort = ['tv','signage'].includes(options.profile) ? '9922' : '22';
         const defaultHost = '127.0.0.1';
         exec(cmd + ` -a ${newDevice}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
