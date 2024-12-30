@@ -111,13 +111,13 @@ function remocon() {
                 document.getElementById('rotateSpeed').innerHTML = 'Go to<br> 00:00';
                 selectedTime = 0; // Default 1
                 document.getElementById('controllerArrowRotate').setAttribute(
-                        "style", "-webkit-transform:rotate(" + 2.5 * selectedTime + "deg);")
+                        "style", "transform:rotate(" + 2.5 * selectedTime + "deg);")
                 break;
             case BUTTON_0:
                 document.getElementById('rotateSpeed').innerHTML = 'Go to<br> 12:00';
                 selectedTime = 12 * 60; // Default 2
                 document.getElementById('controllerArrowRotate').setAttribute(
-                        "style", "-webkit-transform:rotate(" + 2.5 * selectedTime + "deg);")
+                        "style", "transform:rotate(" + 2.5 * selectedTime + "deg);")
                 break;
 
             // Show Windows Button

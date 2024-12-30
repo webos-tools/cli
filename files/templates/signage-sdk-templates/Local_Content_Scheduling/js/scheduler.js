@@ -17,6 +17,7 @@ function closeScheduler() {
 	var helpWindow = document.getElementById('scheduler');
 	helpWindow.style.visibility = 'hidden';
 	isSchedulerOpen = false;
+	getTime(true);
 }
 
 function openHelp() { 

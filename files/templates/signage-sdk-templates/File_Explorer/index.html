@@ -1,50 +1,11 @@
 <html>
 	<head>
-		<title>Simple File Explorer for webOS Signage  App</title>	
-		<script type="text/javascript" src="./js/cordova/2.7.0/cordova.webos.js"></script>  
-		<script type="text/javascript" src="./js/cordova-cd/signage.js"></script>
-		<script type="text/javascript" src="./js/cordova-cd/storage.js"></script>  
-		<script type="text/javascript" src="./js/cordova-cd/configuration.js"></script>  
-		<script type="text/javascript" src="./js/cordova-cd/deviceInfo.js"></script>  
-		<script type="text/javascript" src="./js/cordova-cd/inputSource.js"></script>  
-		<script type="text/javascript" src="./js/cordova-cd/power.js"></script>  
-		<script type="text/javascript" src="./js/cordova-cd/sound.js"></script>  
-		<script type="text/javascript" src="./js/cordova-cd/video.js"></script>
+		<title>Simple File Explorer for webOS Signage  App</title>
+        <!--  Include IDCAP API Library -->        
+        <script type="text/javascript" src="./js/idcap.js"></script>  
 		
 		<script src = ./js/definition.js></script>
 		<script src = ./js/Root.js></script>    
-		<script src = ./js/explorer.js></script>
-		<script src = ./js/mainController.js></script>
-		<script src = ./js/explorerController.js></script>
-		
-		<link rel="stylesheet" type="text/css" href="./style.css">
-		 			
-	</head>
-
-	<body onload = "init()"> 
-		<div id = "menu_popup"></div>
-	
-		<div id="currentPos"></div>
-		<div id="filetitle">
-			<div id ="filetitle_name">Name</div>
-			<div id ="filetitle_type">Type</div>
-			<div id ="filetitle_size">Size</div>
-			<div id ="filetitle_ctime">Create Time</div> 
-			<div id ="filetitle_atime">Access Time</div> 
-			<div id ="filetitle_mtime">Modify Time</div>
-		</div>
-		
-		<div id ="fileList_name"></div>
-		<div id ="fileList_type"></div>
-		<div id ="fileList_size"></div>
-		<div id ="fileList_ctime"></div> 
-		<div id ="fileList_atime"></div> 
-		<div id ="fileList_mtime"></div>  
-		
-		<div id="fileInfo">			
-			<div id="status"></div>	
-			<div id="contents"></div>
-		</div>	
 			
 			
 	</body>

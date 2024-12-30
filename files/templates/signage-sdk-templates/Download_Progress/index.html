@@ -1,46 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>Load Image Example</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-
-<!-- Use your remote cordova-cd library location 		 -->
-
-<script type="text/javascript" src="./js/cordova/2.7.0/cordova.webos.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/signage.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/storage.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/configuration.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/deviceInfo.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/inputSource.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/power.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/sound.js"></script>
-<script type="text/javascript" src="./js/cordova-cd/video.js"></script>
-
-<script src="./downloadProgress.js"></script>
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <title>Download Progress Sample</title>
+    <link href="./app.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body onload = 'debug()' bgcolor=#FFFFFF>
-	<div id = 'downloadFile'>
-		<div id = 'downloadURL'>
-		<br><br>
-		File URL : <textarea id = 'fileURL' rows = 1 cols = 35></textarea>
-		</div>
-		<button onclick = 'init()' style = 'font-size: 100%;'>Download File</button>
-		<br><br>
-		<div>Status : </div>
-		<div id = 'progressBarCurrent'></div>
-		<div id = 'progressBarTotal'></div>
-		<div id = 'progress'>Standby</div>
-	</div>
-
-	<script>
-	function debug() { 
-		new Configuration().debug(null, null, {enabled:true}); 
-	}
-	</script>
-
+<body>
+    <div id="content">
+        <h2>Download Progress Sample</h2>
+        <input type="text" id="file-url" placeholder="Enter a file URL to download" autofocus>
+        <button id="downloadBtn" autofocus>Download</button>
+        <div>
+            <progress id="progressBar" value="0" max="100"></progress>
+            <div id="progressConsole">
+                <div id="progressStatus">Ready</div>
+                <div id="currentStatus">Downloaded <span id="cs-size">0</span> of <span id="cs-totalSize">0</span>
+                    (<span id="cs-percent">0</span> %) - <span id="cs-speed">0</span>/s</div>
+                <div id="elapsedTime">Elapsed time: <span id="value">00:00:00</span></div>
+                <div id="remainTime">Remaining time: <span id="value">00:00:00</span></div>
+            </div>
+        </div>
+    </div>
+    <img id="logoImg" src="res/webossignage_logo.png">
 </body>
+
+<script type="text/javascript" src="./js/idcap.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+
 </html>

@@ -1,95 +1,69 @@
 {
     "backlight-scheduling": {
         "type": "webapp",
-        "description": "SCAP - Backlight Scheduling",
+        "description": "IDCAP - Backlight Scheduling",
         "metadata": {
             "id": "webappinfo"
         },
         "deps": [
             "signageicon",
-            "scap-1.5.0"
+            "idcap-1.1.0"
         ],
         "path": "$cli-root/files/templates/signage-sdk-templates/Backlight_Scheduling",
-        "category": "scap",
+        "category": "idcap",
         "default": true
-    },
-    "app-update-without-restart": {
-        "type": "webapp",
-        "description": "SCAP - App update without restart",
-        "metadata": {
-            "id": "webappinfo"
-        },
-        "deps": [
-            "signageicon",
-            "scap-1.5.0"
-        ],
-        "path": "$cli-root/files/templates/signage-sdk-templates/App_Update_without_Restart",
-        "category": "scap"
     },
     "download-progress": {
         "type": "webapp",
-        "description": "SCAP - Download progress",
+        "description": "IDCAP - Download progress",
         "metadata": {
             "id": "webappinfo"
         },
         "deps": [
             "signageicon",
-            "scap-1.5.0"
+            "idcap-1.1.0"
         ],
         "path": "$cli-root/files/templates/signage-sdk-templates/Download_Progress",
-        "category": "scap"
+        "category": "idcap"
     },
     "simple-network-failover": {
         "type": "webapp",
-        "description": "SCAP - Simple Network Failover",
+        "description": "IDCAP - Simple Network Failover",
         "metadata": {
             "id": "webappinfo"
         },
         "deps": [
             "signageicon",
-            "scap-1.5.0"
+            "idcap-1.1.0"
         ],
         "path": "$cli-root/files/templates/signage-sdk-templates/Simple_Network_FailOver",
-        "category": "scap"
+        "category": "idcap"
     },
     "file-explorer": {
         "type": "webapp",
-        "description": "SCAP - File Explorer",
+        "description": "IDCAP - File Explorer",
         "metadata": {
             "id": "webappinfo"
         },
         "deps": [
             "signageicon",
-            "scap-1.5.0"
+            "idcap-1.1.0"
         ],
         "path": "$cli-root/files/templates/signage-sdk-templates/File_Explorer",
-        "category": "scap"
+        "category": "idcap"
     },
     "local-content-scheduling": {
         "type": "webapp",
-        "description": "SCAP - Local Content Scheduling",
+        "description": "IDCAP - Local Content Scheduling",
         "metadata": {
             "id": "webappinfo"
         },
         "deps": [
             "signageicon",
-            "scap-1.5.0"
+            "idcap-1.1.0"
         ],
         "path": "$cli-root/files/templates/signage-sdk-templates/Local_Content_Scheduling",
-        "category": "scap"
-    },
-    "timezone-setting": {
-        "type": "webapp",
-        "description": "SCAP - Timezone Setting",
-        "metadata": {
-            "id": "webappinfo"
-        },
-        "deps": [
-            "signageicon",
-            "scap-1.5.0"
-        ],
-        "path": "$cli-root/files/templates/signage-sdk-templates/Timezone_Setting",
-        "category": "scap"
+        "category": "idcap"
     },
     "fashion-multimedia-ad": {
         "type": "webapp",
@@ -254,6 +228,12 @@
         "type": "library",
         "description": "scap api 1.5.0",
         "path": "$cli-root/files/templates/signage-sdk-templates/scap_api/1.5.0",
+        "hide": true
+    },
+    "idcap-1.1.0": {
+        "type": "library",
+        "description": "idcap api 1.1.0",
+        "path": "$cli-root/files/templates/signage-sdk-templates/idcap_api/1.1.0",
         "hide": true
     }
 }
