@@ -29,12 +29,16 @@ const aresCmd = 'ares-package',
     sampleServicePaths = [];
 
 let cmd,
+    options,
     expectedTemplate;
 
 beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
-    common.getExpectedResult("ares-generate")
+    common.getOptions()
     .then(function(result) {
+        options = result;
+        return common.getExpectedResult("ares-generate");
+    }).then(function(result) {
         expectedTemplate = result.template;
         done();
     });
@@ -482,7 +486,11 @@ describe(aresCmd + ' --encrypt(-enc)', function() {
                 expect(stderr).toContain("ares-package ERR! [syscall failure]: ENOENT: no such file or directory, open", error);
                 expect(stderr).toContain("ares-package ERR! [Tips]: Please check if the path is valid", error);
             }
-            expect(fs.existsSync(appPkgPath)).toBe(false);
+            if(options.profile && options.profile === 'signage'){
+                expect(fs.existsSync(appPkgPath)).toBe(true);
+            } else {
+                expect(fs.existsSync(appPkgPath)).toBe(false);
+            }
             done();
         });
     });
