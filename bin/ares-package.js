@@ -55,7 +55,8 @@ function PalmPackage() {
         "pkgversion": String,
         "pkginfofile": String,
         "info": String,
-        "info-detail": String
+        "info-detail": String,
+        "remainplainipk": Boolean
     };
 
     const shortHands = {
@@ -76,7 +77,8 @@ function PalmPackage() {
         "pf": "--pkginfofile",
         "i": "--info",
         "I": "--info-detail",
-        "v": ["--level", "verbose"]
+        "v": ["--level", "verbose"],
+        "rpi": "--remainplainipk"
     };
 
     this.argv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & basename*/);
@@ -163,6 +165,11 @@ PalmPackage.prototype = {
             }
         }
 
+        const lowerCaseKeyArgv = {};
+        for (const key in this.argv) {
+            lowerCaseKeyArgv[key.toLocaleLowerCase()] = this.argv[key];
+        }
+
         if (Object.hasOwnProperty.call(this.argv, 'minify')) {
             this.options.minify = this.argv.minify;
         } else {
@@ -211,6 +218,10 @@ PalmPackage.prototype = {
 
         if (Object.hasOwnProperty.call(this.argv, 'info')) {
             this.options.info = this.argv.info;
+        }
+
+        if (Object.hasOwnProperty.call(lowerCaseKeyArgv, 'remainplainipk')) {
+            this.options.remainPlainIPK = lowerCaseKeyArgv.remainplainipk;
         }
     },
     
