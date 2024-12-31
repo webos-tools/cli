@@ -1,0 +1,21 @@
+[{
+    "image": "./res/images/tpl_07_img_news1.png",
+    "title": "The Latest Breaking News",
+    "newsHeadLine": "South Korea arrives in Canberra",
+    "newsContent": "Fans go wild as South Korea arrives in Canberra for the Asian Cup"
+}, {
+    "image": "./res/images/tpl_07_img_news.png",
+    "title": "The Latest Breaking News",
+    "newsHeadLine": "South Korea 3-1 Venezuela",
+    "newsContent": "Veteran striker Lee Dong-gook starred as the home side came from behind to record an overdue win over the South Americans"
+}, {
+    "image": "./res/images/Namo.jpg",
+    "title": "The Latest Breaking News",
+    "newsHeadLine": "PM Narendra Modi On Forbes Power List",
+    "newsContent": "Indian Prime Minister Narendra Modi is on Forbes most influential List."
+}, {
+    "image": "./res/images/koreanFt.jpg",
+    "title": "The Latest Breaking News",
+    "newsHeadLine": "South Korea have Asian Cup",
+    "newsContent": "South Korea head coach  has one eye on the Asia Cup as they prepare for their international friendly against Brazil."
+}]

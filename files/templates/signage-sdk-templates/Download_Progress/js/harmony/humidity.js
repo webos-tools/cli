@@ -1,0 +1,16 @@
+/*
+* ============================================================================
+*   
+*   ID ENGINEERING R&D TEAM, LG ELECTRONICS INC., PYEONGTAEK, KOREA
+*   Copyright(c) 2018 by LG Electronics Inc.. All rights reserved.
+*   
+*   Harmony API, for handling external device on webOS Signage platform
+*   
+*   Author          : signagesupport@lge.com
+*   Homepage        : http://webossignage.developer.lge.com
+*   Modified Date   : 2018-11-29
+*   Release Version : 1.30.2018-11-29
+*   
+* ============================================================================
+*/
+"use strict";var Humidity=function(){function e(){if(!window.PalmServiceBridge)throw": This platform is not webOS Signage."}var n={HARMONY_0000:"This external device is not supported on current platform (or firmware).",HUMIDITY_0000:"Unknown event.",HUMIDITY_0001:"Unable to get status.",HUMIDITY_0100:"Unknown event.",HUMIDITY_0101:"Unable to get value.",HUMIDITY_0102:"Event handler is already set. Before set event handler, please remove current event handler.",HUMIDITY_0103:"Callback as used for parameter is not a function.",HUMIDITY_0200:"Humidity event handler is not registered yet."};function o(e,r){e&&"function"==typeof e&&(r.returnValue&&delete r.returnValue,r.subscribed&&delete r.subscribed,e(r))}function i(e,r,t){e&&"function"==typeof e&&(void 0===n[r]?e({errorCode:"UNKNOWN_ERROR",errorText:"Unknown error."}):"string"==typeof errorText?e({errorCode:r,errorText:n[r]+": "+t}):e({errorCode:r,errorText:n[r]}))}function a(e){return!(-1===e.errorCode&&-1<e.errorText.indexOf("Unknown method")&&-1<e.errorText.indexOf("for category"))}var u,l,c=null;return e.prototype.setEventHandler=function(e,r){if(c&&null!==c)i(l,"HUMIDITY_0102");else{if("function"==typeof e&&"function"==typeof r){u=e,l=r;var t="luna://com.webos.service.externaldevice/humidity/read";return(c=new PalmServiceBridge).url=t,c.onservicecallback=function(e){if("string"==typeof e){var r=JSON.parse(e);if(!1!==a(r))return!0===r.returnValue?void o(u,{value:r.value}):void i(l,"HUMIDITY_0101");i(l,"HARMONY_0000")}else i(l,"HUMIDITY_0100")},c.call(t,'{"subscribe":true}')}i(r,"HUMIDITY_0103")}},e.prototype.removeEventHandler=function(e,r){return c&&"undefined"!=c?(c.cancel(),c=null,void o(e)):void i(r,"HUMIDITY_0200")},e.prototype.getValue=function(t,n){var e=new PalmServiceBridge,r="luna://com.webos.service.externaldevice/humidity/read";return e.url=r,e.onservicecallback=function(e){if("string"==typeof e){var r=JSON.parse(e);if(!1!==a(r))return!0===r.returnValue?void o(t,{value:r.value}):void i(n,"HUMIDITY_0101");i(n,"HARMONY_0000")}else i(n,"HUMIDITY_0100")},e.call(r,"{}")},e.prototype.getStatus=function(t,n){var e=new PalmServiceBridge,r="luna://com.webos.service.externaldevice/humidity/getStatus";return e.url=r,e.onservicecallback=function(e){if("string"==typeof e){var r=JSON.parse(e);if(!1!==a(r))return!0===r.returnValue?void o(t,{attached:r.attached}):void i(n,"HUMIDITY_0001");i(n,"HARMONY_0000")}else i(n,"HUMIDITY_0000")},e.call(r,"{}")},e}();

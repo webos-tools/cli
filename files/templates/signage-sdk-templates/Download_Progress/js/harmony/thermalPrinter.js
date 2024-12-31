@@ -1,0 +1,16 @@
+/*
+* ============================================================================
+*   
+*   ID ENGINEERING R&D TEAM, LG ELECTRONICS INC., PYEONGTAEK, KOREA
+*   Copyright(c) 2018 by LG Electronics Inc.. All rights reserved.
+*   
+*   Harmony API, for handling external device on webOS Signage platform
+*   
+*   Author          : signagesupport@lge.com
+*   Homepage        : http://webossignage.developer.lge.com
+*   Modified Date   : 2018-11-29
+*   Release Version : 1.30.2018-11-29
+*   
+* ============================================================================
+*/
+"use strict";var ThermalPrinter=function(){var n=[{deviceName:"NP-3511",printerNameInternal:"receipt"},{deviceName:"NP-3611",printerNameInternal:"bigPrinter"}],s="";function e(e){if(!window.PalmServiceBridge)throw": This platform is not webOS Signage.";if("object"!=typeof e||!1===e.hasOwnProperty("printer"))throw'[ThermalPrinter] Parameter must be object included "printer" property.';if("string"!=typeof e.printer)throw"[ThermalPrinter] Invalid printer model name.";for(var r="",t=0;t<n.length;t++)if(r+="["+n[t].deviceName+"]",e.printer===n[t].deviceName)return void(s=n[t].printerNameInternal);throw'[ThermalPrinter] Printer "'+e.printer+'" is not supported. Supported list : '+r}var i={HARMONY_0000:"This external device is not supported on current platform (or firmware).",PRINT_0000:"Unknown event.",PRINT_0001:"Printing error. Check print connection or status.",PRINT_0002:"'parameter' must be object with property 'type' and 'data'.",PRINT_0003:"'type' must be string.",PRINT_0004:"'data' must be string.",PRINT_0005:"'type' must be string value with 'text' or 'image'."};function d(e,r,t){e&&"function"==typeof e&&(void 0===i[r]?e({errorCode:"UNKNOWN_ERROR",errorText:"Unknown error."}):"string"==typeof errorText?e({errorCode:r,errorText:i[r]+": "+t}):e({errorCode:r,errorText:i[r]}))}return e.prototype.print=function(o,a,e){if("object"==typeof e&&!1!==e.hasOwnProperty("type")&&!1!==e.hasOwnProperty("data"))if("string"==typeof e.type){if("string"==typeof e.data){var r="";if("text"===e.type)r="text/plain";else{if("image"!==e.type)return void d(a,"PRINT_0005");r="image/png"}var t={"operation-attributes-tag":{"requesting-user-name":"root","job-name":"Printing Job","document-format":r,"printer-uri":"http://127.0.0.1:631/printers/"+s},data:window.btoa(e.data)},n="luna://com.webos.service.commercial.cupsadapter/execute",i=JSON.stringify({command:"Print-Job",message:t}),p=new PalmServiceBridge;return p.url=n,p.onservicecallback=function(e){if("string"==typeof e){var r,t,n,i=JSON.parse(e);if(!1!=!(-1===(r=i).errorCode&&-1<r.errorText.indexOf("Unknown method")&&-1<r.errorText.indexOf("for category")))return!0===i.returnValue?(t=o,n={message:i.message},void(t&&"function"==typeof t&&(n.returnValue&&delete n.returnValue,n.subscribed&&delete n.subscribed,t(n)))):void d(a,"PRINT_0001",i.errorText);d(a,"HARMONY_0000")}else d(a,"PRINT_0000")},p.call(n,i)}d(a,"PRINT_0004")}else d(a,"PRINT_0003");else d(a,"PRINT_0002")},e}();

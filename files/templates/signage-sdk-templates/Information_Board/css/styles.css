@@ -1,0 +1,239 @@
+/* Reset CSS*/
+* {
+    margin: 0px;
+    padding: 0px;
+}
+html, body {
+    width: 1920px;
+    height: 1080px;
+}
+/* Fonts */
+
+@font-face {
+    font-family: museo-sans-700;
+    src: url('../fonts/Museo Sans 700.otf');
+}
+@font-face {
+    font-family: museo-sans-500;
+    src: url('../fonts/Museo Sans 500.otf');
+}
+@font-face {
+    font-family: museo-sans-300;
+    src: url('../fonts/Museo Sans 300.otf');
+}
+/* Styling */
+
+/* Header */
+.header {
+    height: 80px;
+    width: 1920px;
+    background-color: #393939;
+    top: 0px;
+    left: 0px;
+}
+.headerImage {
+    height: 53px;
+    width: 583px;
+    margin-left: 40px;
+    margin-top: 14px;
+}
+
+/* Page */
+.content {
+    height: 1000px;
+    width: 1920px;
+    background-color: #fff;
+}
+
+/* Main Showcase */
+.showcase {
+    left: 40px;
+    top: 120px;
+    height: 526px;
+    width: 1384px;
+    position: absolute;
+    background-color: #680619;
+}
+.showcaseImg, .showcaseText {
+    float: left;
+}
+
+/* Showcase Text */
+.showcaseText {
+    margin-left: 34px;
+    margin-top: 60px;
+}
+.heading {
+    color: #fff;
+    position: absolute;
+}
+.heading1 {
+    font: 52px museo-sans-500;
+    top: 60px;
+}
+.heading2 {
+    font: 30px museo-sans-500;
+    top: 120px;
+}
+.heading3 {
+    font: 23px museo-sans-500;
+    top: 280px;
+}
+.showcaseContent {
+    color: #c98390;
+    font: 23px museo-sans-300;
+    top: 325px;
+    position: absolute;
+}
+.bannerImg {
+    left: 40px;
+    top: 662px;
+    height: 378px;
+    width: 684px;
+    position: absolute;
+}
+.bannerImgText, .bannerImgOverlayText, .bannerImgOverlayContent {
+    position: absolute;
+}
+.bannerImgText {
+    top: 264px;
+    height: 114px;
+    width: 684px;
+    opacity: 0.7;
+    background-color: #000000;
+}
+.bannerImgOverlayText {
+    top: 25px;
+    font: 38px museo-sans-500;
+    color: #fff;
+    left: 35px;
+}
+.bannerImgOverlayContent {
+    top: 77px;
+    font: 23px museo-sans-300;
+    color: #fff;
+    left: 35px;
+}
+/* Text Section Of News */
+.textSection {
+    position: absolute;
+    left: 740px;
+    top: 662px;
+    background-color: #e6e6e6;
+    height: 378px;
+    width: 684px;
+}
+.textSection .heading {
+    margin-left: 35px;
+    text-align: left;
+}
+.textSection .heading1 {
+    top: 28px;
+    font: 38px museo-sans-500;
+    color: #000;
+}
+.textSection .heading2 {
+    top: 70px;
+    font: 38px museo-sans-500;
+    color: #2e2e2e;
+}
+.textSection .heading3 {
+    top: 167px;
+    font: 23px museo-sans-500;
+    color: #2e2e2e;
+}
+.textSection .heading4 {
+    top: 212px;
+    font: 23px museo-sans-300;
+    color: #2e2e2e;
+    position: absolute;
+}
+
+/* Side Block */
+.side {
+    left: 1424px;
+    top: 120px;
+    height: 960px;
+    width: 496px;
+    position: absolute;
+}
+
+/* Commomn Block */
+.asideBlock {
+    height: 115px;
+    width: 416px;
+    position: relative;
+    margin-left: 40px;
+}
+
+/* Pattern 1 - 2 Line */
+.asideBlockPattern1C1 {
+    top: 31px;
+    font: 22px museo-sans-300;
+    color: #680619;
+    position: absolute;
+    float: left;
+}
+.asideBlockPattern1C2 {
+    top: 70px;
+    font: 20px museo-sans-300;
+    color: #7d7d7d;
+    position: absolute;
+    float: left;
+}
+
+/* Pattern 2 - 3 Line */
+.asideBlockPattern2C1 {
+    top: 21px;
+    font: 22px museo-sans-300;
+    color: #680619;
+    position: absolute;
+    float: left;
+}
+.asideBlockPattern2C2 {
+    top: 47px;
+    float: left;
+    font: 22px museo-sans-300;
+    color: #680619;
+    position: absolute;
+}
+.asideBlockPattern2C3 {
+    top: 80px;
+    float: left;
+    font: 20px museo-sans-300;
+    color: #7d7d7d;
+    position: absolute;
+}
+
+/* Side Blocks Seperator Line */
+.seperator {
+    width: 416px;
+    height: 1px;
+    background-color: #cccccc;
+    position: absolute;
+    left: 1464px;
+}
+.line1 {
+    top: 234px;
+}
+.line2 {
+    top: 349px;
+}
+.line3 {
+    top: 464px;
+}
+.line4 {
+    top: 579px;
+}
+.line5 {
+    top: 694px;
+}
+.line6 {
+    top: 809px;
+}
+.line7 {
+    top: 924px;
+}
+.line8 {
+    top: 1039px;
+}

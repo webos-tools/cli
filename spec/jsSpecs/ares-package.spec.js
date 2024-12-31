@@ -18,6 +18,7 @@ const tempDirPath = path.join(__dirname, "..", "tempFiles"),
     outputPath = path.join(tempDirPath, "output"),
     appPathByRom = path.join(outputPath, "usr/palm/applications"),
     appPkgPath = path.join(outputPath, "com.webos.sample.app_1.0.0_all.ipk"),
+    plainAppPkgPath = path.join(outputPath, "com.webos.sample.app_1.0.0_all.ipk_plain"),
     svcPkgPath = path.join(outputPath, "com.webos.sample_1.0.0_all.ipk"),
     appinfoPath = path.join(sampleAppPath, "appinfo.json"),
     signKeyPath = path.join(tempDirPath, "sign/signPriv.key"),
@@ -29,12 +30,16 @@ const aresCmd = 'ares-package',
     sampleServicePaths = [];
 
 let cmd,
+    options,
     expectedTemplate;
 
 beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
-    common.getExpectedResult("ares-generate")
+    common.getOptions()
     .then(function(result) {
+        options = result;
+        return common.getExpectedResult("ares-generate");
+    }).then(function(result) {
         expectedTemplate = result.template;
         done();
     });
@@ -482,7 +487,29 @@ describe(aresCmd + ' --encrypt(-enc)', function() {
                 expect(stderr).toContain("ares-package ERR! [syscall failure]: ENOENT: no such file or directory, open", error);
                 expect(stderr).toContain("ares-package ERR! [Tips]: Please check if the path is valid", error);
             }
-            expect(fs.existsSync(appPkgPath)).toBe(false);
+            if(options.profile && options.profile === 'signage'){
+                expect(fs.existsSync(appPkgPath)).toBe(true);
+            } else {
+                expect(fs.existsSync(appPkgPath)).toBe(false);
+            }
+            done();
+        });
+    });
+
+    it('Encrypted ipk and keep plain IPK', function(done) {
+        exec(cmd + ` -enc -rpi ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                expect(stderr).toContain("ares-package ERR! [syscall failure]: ENOENT: no such file or directory, open", error);
+                expect(stderr).toContain("ares-package ERR! [Tips]: Please check if the path is valid", error);
+            }
+            if(options.profile && options.profile === 'signage'){
+                expect(fs.existsSync(appPkgPath)).toBe(true);
+                expect(fs.existsSync(plainAppPkgPath)).toBe(true);
+            } else {
+                expect(fs.existsSync(appPkgPath)).toBe(false);
+                expect(fs.existsSync(plainAppPkgPath)).toBe(false);
+            }
             done();
         });
     });
@@ -513,26 +540,65 @@ describe(aresCmd + ' --sign(-s) & --certificate(-crt)', function() {
 
 describe(aresCmd + ' --app-exclude(-e)', function() {
     const tmpFilePath = path.join(sampleAppPath,"tmpFile");
+    const outDirOne = 'st';
+    const outDirTwo = 'te' + outDirOne; // 'test'
+    const outDirOnePath = path.join(sampleAppPath, outDirOne);
+    const outDirTwoPath = path.join(sampleAppPath, outDirTwo);
+    const fileName = 'script.js';
+    const fileOnePath = path.join(sampleAppPath, outDirOne, fileName);
+    const fileTwoPath = path.join(sampleAppPath, outDirTwo, fileName);
 
     beforeEach(function(done) {
         common.removeOutDir(outputPath);
+        common.createOutDir(outDirOnePath);
+        common.createOutDir(outDirTwoPath);
         fs.writeFileSync(tmpFilePath, "", 'utf8');
+        fs.writeFileSync(fileOnePath, "", 'utf8');
+        fs.writeFileSync(fileTwoPath, "", 'utf8');
         done();
     });
 
     afterEach(function(done) {
         common.removeOutDir(tmpFilePath);
+        common.removeOutDir(fileOnePath);
+        common.removeOutDir(fileTwoPath);
+        common.removeOutDir(outDirOnePath);
+        common.removeOutDir(outDirTwoPath);
         common.removeOutDir(outputPath);
         done();
     });
 
-    it('Check the application but do not pacakge', function(done) {
+    it('Check the application but do not package', function(done) {
         exec(cmd + ` -e tmpFile ${sampleAppPath} -r -o ${outputPath}`, function(error, stdout, stderr) {
             if (stderr && stderr.length > 0) {
                 common.detectNodeMessage(stderr);
             }
             expect(stdout).toContain("Success");
             expect(fs.existsSync(path.join(appPathByRom, "com.webos.sample.app/tmpFile"))).toBe(false);
+            done();
+        });
+    });
+
+    it('Exclude folder by name', function(done) {
+        exec(cmd + ` -e ${outDirOne} ${sampleAppPath} -r -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain("Success");
+            expect(fs.existsSync(path.join(appPathByRom, `com.webos.sample.app/${outDirOne}`))).toBe(false);
+            expect(fs.existsSync(path.join(appPathByRom, `com.webos.sample.app/${outDirTwo}`))).toBe(true);
+            done();
+        });
+    });
+
+    it('Exclude file by file path', function(done) {
+        exec(cmd + ` -e ${outDirOne} ${sampleAppPath} -r -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).toContain("Success");
+            expect(fs.existsSync(path.join(appPathByRom, `com.webos.sample.app/${path.join(outDirOne, fileName)}`))).toBe(false);
+            expect(fs.existsSync(path.join(appPathByRom, `com.webos.sample.app/${path.join(outDirTwo, fileName)}`))).toBe(true);
             done();
         });
     });

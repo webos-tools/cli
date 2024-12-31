@@ -1,0 +1,45 @@
+[{
+    "info": {
+        "city": "Chicago",
+        "time": "08:30 AM GMT",
+        "date": "Wednesday November 3, 2014"
+    },
+    "weather": {
+        "value": "14",
+        "image": "./res/images/clear.png",
+        "status": "clear"
+    }
+}, {
+    "info": {
+        "city": "Chicago",
+        "time": "09:30 AM GMT",
+        "date": "Wednesday November 13, 2014"
+    },
+    "weather": {
+        "value": "20",
+        "image": "./res/images/rain.png",
+        "status": "rain"
+    }
+}, {
+    "info": {
+        "city": "Chicago",
+        "time": "08:30 AM GMT",
+        "date": "Wednesday November 3, 2014"
+    },
+    "weather": {
+        "value": "22",
+        "image": "./res/images/thunder.png",
+        "status": "Thunderstorm"
+    }
+}, {
+    "info": {
+        "city": "Chicago",
+        "time": "09:30 AM GMT",
+        "date": "Wednesday November 13, 2014"
+    },
+    "weather": {
+        "value": "-5",
+        "image": "./res/images/mist.png",
+        "status": "mist"
+    }
+}]

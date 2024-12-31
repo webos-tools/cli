@@ -62,6 +62,16 @@
                 "# Create a webOS service named 'com.domain.app.service'",
                 "ares-generate -t js_service -s \"com.domain.app.service\" ~/projects/service",
                 ""
+            ],
+            "signage" : [
+                "# Create a webOS app in ~/project/app and set the id, version, title",
+                "ares-generate -t backlight-scheduling -p \"{'id':'com.lg.app.signage', 'version':'0.0.1', 'title':'Sample App'}\" ~/projects/app",
+                " Or",
+                "ares-generate -t backlight-scheduling -p \"id=com.lg.app.signage\" -p \"version=0.0.1\" -p \"title=Sample App\" ~/projects/app",
+                "",
+                "# Create a webOS service named 'com.app.signage.myservice'",
+                "ares-generate -t hello-service -s \"com.app.signage.myservice \" ~/projects/service",
+                ""
             ]
         }
     ],

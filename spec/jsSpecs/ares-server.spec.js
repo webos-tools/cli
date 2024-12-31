@@ -17,7 +17,7 @@ let cmd,
 
 beforeAll(function(done) {
     cmd = common.makeCmd(aresCmd);
-    common.getExpectedResult("ares-generate")
+    common.getOptions().then(() => common.getExpectedResult("ares-generate"))
     .then(function(result) {
         expectedTemplate = result.template;
         done();

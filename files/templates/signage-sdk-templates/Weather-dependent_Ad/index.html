@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Weather App 8</title>
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <!-- DataBinder -->
+    <script src="js/helpers/util.js"></script>
+</head>
+
+<body>
+    <div id="centered" class="centered">
+        <img data-bind-templateEight="ajaxImage"></img>
+    </div>
+    <!-- Brand Advertisement -->
+    <div>
+        <img height="1576" width="1080" data-bind-templateEight="brandAdvertisement"></img>
+    </div>
+    <div>
+        <!-- Location And Time -->
+        <div class="location_time">
+            <span data-bind-templateEight="location"></span>
+            <span data-bind-templateEight="time"></span>
+        </div>
+        <!-- Place -->
+        <div class="area" data-bind-templateEight="area"></div>
+        <!-- Line Seperation -->
+        <div class="line"></div>
+        <!-- temperature -->
+        <div class="temperature">
+            <span class="temp" data-bind-templateEight="temp"></span>
+            <span class="degree">&deg;</span>
+        </div>
+        <!-- Weather Symbol -->
+        <span class="weatherLogo">
+            <img height="62" width="62" data-bind-templateEight="weatherLogo"></img>
+        </span>
+        <!-- Climatic Condition -->
+        <span class="conditions" data-bind-templateEight="conditions"></span>
+    </div>
+    <!-- Brand Logo -->
+    <div class="brandBanner">
+        <div class="bannerLogo"></div>
+        <div class="bannerTagLine" data-bind-templateEight="bannerTagLine"></div>
+        <div class="bannerLine" data-bind-templateEight="bannerLine"></div>
+    </div>
+</body>
+<script src="js/controller.js"></script>
+</html>

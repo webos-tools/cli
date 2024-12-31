@@ -1,0 +1,163 @@
+/**
+ *HTML5 CSS RESET
+ */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+nav ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* change border colour if Required */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid black;
+    margin: 0 2%;
+    padding: 0;
+}
+/**
+ *Page css
+ */
+
+@font-face {
+    font-family: 'MS300';
+    src: url('../fonts/MuseoSans300.otf');
+}
+@font-face {
+    font-family: 'MS500';
+    src: url('../fonts/MuseoSans500.otf');
+}
+@font-face {
+    font-family: 'MS700';
+    src: url('../fonts/MuseoSans700.otf');
+}
+@font-face {
+    font-family: 'MSI700';
+    src: url('../fonts/MuseoSans700Italic.otf');
+}
+html, body {
+    width: 1920px;
+    height: 1080px;
+    color: black;
+    background: white;
+}
+header {
+    width: 1920px;
+    height: 120px;
+    background: #a10910;
+    position: relative;
+}
+.wrapper {
+    width: 1815px;
+    height: 900px;
+    background: #ffffff;
+    margin: 60px 0px 0px 105px;
+}
+.topBg {
+    width: 335px;
+    height: 120px;
+}
+.logo {
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    left: 41px;
+}
+.hdrTitle {
+    font-size: 66px;
+    text-align: left;
+    color: #ffffff;
+    width: 595px;
+    position: absolute;
+    left: 166px;
+    top: 31px;
+    font-family: 'MS500';
+}
+.hdrContent {
+    font-size: 32px;
+    text-align: left;
+    color: #eedede;
+    position: absolute;
+    left: 761px;
+    top: 36px;
+    font-family: 'MS300';
+}
+.wrapper section {
+    width: 589px;
+    height: 885px;
+    float: left;
+}
+.wrpContent {
+    width: 589px;
+    height: 295px;
+}
+.wrpContent img {
+    width: 250px;
+    float: left;
+}
+.contentInfo {
+    margin-left: 25px;
+    width: 314px;
+    height: 295px;
+    float: left;
+}
+.burgerTitleLar {
+    width: 314px;
+    height: 49px;
+    margin-top: 45px;
+    font-size: 42px;
+    color: #b71219;
+    font-family: 'MS700';
+}
+.burgerTitleMid {
+    width: 314px;
+    height: 78px;
+    margin-top: 16px;
+    font-size: 30px;
+    color: #b71219;
+    font-family: 'MS700';
+}
+.contentInfo label {
+    display: inline-block;
+    height: 57px;
+    width: 114px;
+    font-size: 20px;
+    color: #714e50;
+    font-family: 'MS300';
+}
+.contentInfo table {
+    height: 144px;
+    width: 314px;
+    font-size: 20px;
+    text-align: left;
+    color: #714e50;
+    font-family: 'MS500';
+}
+.contentInfo table tr:first-child {
+    height: 35px;
+}
+.contentInfo table td:first-child {
+    width: 114px;
+}
+.contentInfo table td:last-child {
+    width: 200px;
+}

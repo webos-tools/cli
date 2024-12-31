@@ -46,7 +46,8 @@
         "default" : ["running", "close", "params"],
         "ose" : ["hosted", "display", "device", "device-list", "help", "version", "verbose", "level"],
         "apollo" : ["hosted", "device", "device-list", "help", "version", "verbose", "level"],
-        "tv" : ["device", "device-list", "help", "version", "verbose"],
+        "tv" : ["device", "device-list", "help", "version", "verbose", "hosted"],
+        "signage" : ["device", "device-list", "help", "version", "verbose", "hosted"],
         "device" : [
             "-d, --device <DEVICE> @TAB@ Specify DEVICE to use",
             "@TAB@ If not specified, set to default device"
@@ -93,6 +94,11 @@
             "ares-launch -s 22 APP_DIR -p \"{'data1':'foo', 'data2':'bar'}\"",
             " Or",
             "ares-launch -s 22 APP_DIR -p \"data1=foo\" -p \"data2=bar\""
+        ], 
+        "signage": [
+            "",
+            "# Run an app without installation using HOST_IP",
+            "ares-launch -H APP_DIR -I 192.168.0.10 -d DEVICE"
         ]
     },
     "extraexample" : {

@@ -1,0 +1,29 @@
+<HTML>
+	<HEAD>
+		<TITLE>Network Failover Sample App</TITLE>
+		
+        <!--  Include IDCAP API Library -->        
+        <script type="text/javascript" src="./js/idcap.js"></script>   
+		
+		<script src = './networkMonitor.js'></script>
+		
+		<link rel="stylesheet" type="text/css" href="./style.css">
+	</HEAD>
+	
+	<BODY bgcolor = #FFFFFF onload = 'initHDMI()'>
+		<div id = 'status'>Loading...</div>
+		<div id = 'timer'></div>
+		
+		<div id = 'pinRotate'>
+			<div id = 'pin'></div>
+		</div>
+		
+		<div id = 'disconnectText'></div>
+		<div id = 'disconnectImage'></div>
+		<div id = 'HDMIScreenTitle'>HDMI Input</div>
+		
+		<div id = 'HDMIScreen'></div>
+		<div id = 'capturedImageTitle'>Captured Screen</div>
+		<div id = 'capturedImage'></div>
+	</BODY>
+</HTML>

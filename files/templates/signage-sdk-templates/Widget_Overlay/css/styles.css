@@ -1,0 +1,312 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: 'MS300';
+    src: url('../fonts/MuseoSans300.otf');
+}
+@font-face {
+    font-family: 'MS500';
+    src: url('../fonts/MuseoSans500.otf');
+}
+@font-face {
+    font-family: 'MS700';
+    src: url('../fonts/MuseoSans700.otf');
+}
+html, body {
+    width: 1920px;
+    height: 1080px;
+    color: #ffffff;
+}
+ul {
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+}
+.inActive {
+    display: none;
+}
+.txtUpper {
+    text-transform: uppercase;
+}
+header {
+    position: relative;
+}
+video, .videoOverlay {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1522px;
+    height: 856px;
+}
+#newsWidget {
+    position: absolute;
+    width: 1522px;
+    height: 224px;
+    left: 0px;
+    top: 856px;
+}
+#newsWidget .imgContent {
+    width: 398px;
+    height: 224px;
+    float: left;
+    overflow: hidden;
+}
+.imgContent img {
+    width: 100%;
+}
+#newsContent {
+    width: 1124px;
+    height: 224px;
+    float: left;
+}
+#newsContent > div:first-child {
+    width: 1124px;
+    height: 58px;
+    background: #8c0000;
+    position: relative;
+}
+#newsContent > div:first-child p {
+    font-size: 32px;
+    line-height: 32px;
+    top: 17px;
+    font-family: 'MS300';
+}
+#newsContent > div:last-child {
+    height: 166px;
+    background: #181818;
+    position: relative;
+    overflow: hidden;
+}
+#newsContent .headLineContent {
+    font-size: 50px;
+    font-family: 'MS700';
+    top: 35px;
+    height: 66px;
+    white-space: nowrap;
+    width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#newsContent > div p {
+    position: absolute;
+    left: 25px;
+}
+#slideContent {
+    font-size: 36px;
+    font-family: 'MS300';
+    top: 101px;
+    color: #a2a2a2;
+    height: 50px;
+    width: auto;
+    white-space: nowrap;
+    opacity: 0;
+}
+#weatherWidget {
+    position: absolute;
+    top: 41px;
+    left: 41px;
+}
+#weatherWidget > ul li:nth-child(1) {
+    font-size: 46px;
+    font-family: 'MS300';
+    height: 61px;
+}
+#weatherWidget > ul li:nth-child(2) {
+    font-size: 30px;
+    font-family: 'MS300';
+    height: 34px;
+}
+#weatherWidget > ul li:nth-child(3) {
+    font-size: 30px;
+    font-family: 'MS300';
+    height: 92px;
+}
+#weatherWidget > div {
+    position: relative;
+}
+#weatherWidget .weatherInfoContent {
+    height: 157px;
+}
+#weatherWidget .weatherInfoContent span:nth-child(1) {
+    font-size: 180px;
+    font-family: 'MS500';
+    line-height: 157px;
+    float: left;
+}
+#weatherWidget .weatherInfoContent span:nth-child(2) {
+    font-size: 80px;
+    font-family: 'MS300';
+    float: left position: absolute;
+    line-height: 80px;
+}
+#weatherWidget .weatherContent img {
+    float: left;
+    margin-left: -1.63px;
+    width: 51px;
+    height: 51px;
+}
+#weatherWidget .weatherContent label {
+    margin-left: 16.67px;
+    font-size: 40px;
+    font-family: 'MS300';
+}
+#stockWidget {
+    position: absolute;
+    width: 398px;
+    height: 1080px;
+    background: #1b2b3a;
+    left: 1522px;
+}
+#stockWidget ul > li {
+    position: relative;
+    width: 398px;
+    height: 78px;
+}
+.openContent {
+    height: 78px;
+    width: 357px;
+    position: absolute;
+    top: 16px;
+    left: 41px;
+}
+.openContent > div:first-child {
+    font-size: 22px;
+    font-family: 'MS500';
+    line-height: 30px;
+}
+.openContent > div:last-child {
+    height: 30px;
+    border-bottom: 1px solid #495561;
+    margin-right: 41px;
+}
+.stockVal {
+    font-size: 22px;
+    font-family: 'MS300';
+    position: absolute;
+    color: #8d9caa;
+}
+.stockClsVal {
+    position: absolute;
+    top: 61px;
+    right: 41px;
+    font-size: 46px;
+    font-family: 'MS700';
+    height: 96px;
+}
+.stockLbl {
+    position: absolute;
+    top: 30px;
+    right: 41px;
+    height: 31px;
+    font-size: 25px;
+    color: #728599;
+    font-family: 'MS300';
+}
+.valChgLbl {
+    position: absolute;
+    top: 157px;
+    right: 41px;
+    height: 31px;
+    font-size: 25px;
+    color: #728599;
+    font-family: 'MS300';
+}
+.valChgPLbl {
+    position: absolute;
+    top: 250px;
+    right: 41px;
+    height: 31px;
+    font-size: 25px;
+    color: #728599;
+    font-family: 'MS300';
+}
+.valueChange {
+    position: absolute;
+    right: 137px;
+    font-size: 22px;
+    font-family: 'MS300';
+}
+.colorPositive {
+    color: #00b61a;
+}
+.colorNegative {
+    color: #ff0808;
+}
+.valueClsChange {
+    position: absolute;
+    top: 188px;
+    right: 41px;
+}
+.valueClsPChange {
+    position: absolute;
+    top: 281px;
+    right: 41px;
+}
+.valueClsChange img, .valueClsPChange img {
+    float: left;
+    width: 30px;
+    margin-right: 23px;
+    margin-top: 4px;
+}
+.valueClsChange h3, .valueClsPChange h3 {
+    float: left;
+    font-size: 52px;
+    font-family: 'MS700';
+    height: 58px;
+    line-height: 52px;
+}
+.greenCaret {
+    position: absolute;
+    right: 89px;
+    top: 34px;
+}
+.valuePChange {
+    position: absolute;
+    right: 39px;
+    font-family: 'MS300';
+    font-size: 22px;
+}
+.closeContent {
+    height: 456px;
+    width: 398px;
+    position: relative;
+    display: none;
+}
+.closeContent h2 {
+    font-family: 'MS700';
+    font-size: 46px;
+    position: absolute;
+    margin-left: 41px;
+    margin-top: 41px;
+    width: 85px;
+    height: 61px;
+    overflow: hidden;
+}
+.closeContent > div {
+    height: 354px;
+    width: 398px;
+    position: relative;
+    top: 102px;
+    background: #223546;
+}
+#stockWidget li:nth-child(1) .openContent {
+    display: none;
+}
+#stockWidget li:nth-child(1) {
+    height: 456px;
+}
+#stockWidget li:nth-child(1) .closeContent {
+    display: block;
+}
+@-webkit-keyframes slideInRight {
+    0% {
+        -webkit-transform: translate3d(1120px, 0, 0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translate3d(-120%, 0, 0);
+        opacity: 1;
+    }
+}

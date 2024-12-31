@@ -1,0 +1,142 @@
+#status {
+	font-size: 1000%;
+	text-align: center;
+	width: 300px;
+	height: 50px;
+	
+	position : absolute;
+	left: 150px;
+	top: 100px;
+	color: #C70752;
+}
+
+
+#timer {
+	font-size: 1000%;
+	text-align: center;
+	width: 300px;
+	height: 50px;
+	
+	position : absolute;	
+	left: 220px;
+	top: 300px;
+	color: #C70752;
+}
+
+
+#pinRotate {
+	width: 200px;
+	height: 200px;
+	
+
+	
+	position : absolute;
+	left: 395px;
+	top: 500px;
+	
+	border-style: solid;
+	border-color : #000000;
+	border-radius: 50%;
+}
+
+#pin {
+	width: 5px;
+	height: 100px;
+	
+	position: relative;
+	background-color: #ff0000;
+	left: 100px;
+}
+
+#disconnectText {
+	font-size : 90px;
+	color: #FFFFFF;
+	text-align: center;
+	width: 1280px;
+	height: 100px;
+	
+	border-width: 5px;
+	border-style: ridge;
+	
+	position: absolute;
+	left: 320px;
+	top: 80px;
+	
+	background-color: #C70752;
+	
+	visibility: hidden;
+	z-index: 10;
+}
+
+#disconnectImage {
+	font-size : 90px;
+	text-align: center;
+	width: 1280px;
+	height: 720px;
+	
+	border-width: 5px;
+	border-style: ridge;
+	
+	position: absolute;
+	left: 320px;
+	top: 180px;
+	
+	background-color: #A0A0A0;
+	
+	visibility: hidden;
+	z-index: 10;
+}
+
+
+#HDMIScreenTitle {
+	font-size: 500%;
+	text-align: center;
+	width: 768px;
+	position: absolute;
+	right: 160px;
+	top: 140px;
+	
+}
+
+
+#HDMIScreen {
+	width: 768px;
+	height: 432px;
+	
+	
+	border-width: 2px;
+	border-style: ridge;
+	
+	
+	position: absolute;
+	right: 160px;
+	top: 300px;
+	
+	background-color: #A0A0A0;
+	z-index: 8;
+}
+
+#capturedImageTitle {	
+	font-size: 200%;
+	text-align: center;
+	width: 1920px;
+	position: absolute; 
+	bottom: 280px;
+}
+
+#capturedImage {
+	width: 384px;
+	height: 216px;
+	
+	
+	border-width: 2px;
+	border-style: ridge;
+	
+	
+	position: absolute;
+	right: 768px;
+	bottom: 50px;
+	
+	background-color: #A0A0A0;
+	z-index: 5;
+}

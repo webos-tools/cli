@@ -1,0 +1,14 @@
+{
+    "id": {
+        "query": "app id",
+        "default": "com.lg.app.signage"
+    },
+    "title": {
+        "query": "title",
+        "default": "new app"
+    },
+    "version": {
+        "query": "version",
+        "default": "0.0.1"
+    }
+}

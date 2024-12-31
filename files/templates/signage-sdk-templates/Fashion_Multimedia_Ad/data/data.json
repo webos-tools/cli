@@ -1,0 +1,12 @@
+{
+    "videoPath": "res/videos/tpl_01_video.mp4",
+
+    "logoImgPath": "res/images/tpl_01_logo_nike.png",
+    "title": "TEXT1",
+    "lblTop": "TEXT2 ",
+    "lblBottom": "TEXT3",
+    "authorContentData": "TEXT4",
+    "authorImgPath": "res/images/tpl_01_img_sign.png",
+
+    "AnimTime": "3s"
+}

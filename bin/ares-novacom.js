@@ -70,7 +70,7 @@ log.level = argv.level || 'warn';
 log.verbose("argv", argv);
 
 const curConfigData = appdata.getConfig(true);
-if (curConfigData.profile !== "tv") {
+if (!["tv", "signage"].includes(curConfigData.profile)) {
     return finish(errHndl.getErrMsg("NOT_SUPPORT_COMMOND", curConfigData.profile));
 }
 

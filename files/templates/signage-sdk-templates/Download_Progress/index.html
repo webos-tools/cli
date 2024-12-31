@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Download Progress Sample</title>
+    <link href="./app.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="content">
+        <h2>Download Progress Sample</h2>
+        <input type="text" id="file-url" placeholder="Enter a file URL to download" autofocus>
+        <button id="downloadBtn" autofocus>Download</button>
+        <div>
+            <progress id="progressBar" value="0" max="100"></progress>
+            <div id="progressConsole">
+                <div id="progressStatus">Ready</div>
+                <div id="currentStatus">Downloaded <span id="cs-size">0</span> of <span id="cs-totalSize">0</span>
+                    (<span id="cs-percent">0</span> %) - <span id="cs-speed">0</span>/s</div>
+                <div id="elapsedTime">Elapsed time: <span id="value">00:00:00</span></div>
+                <div id="remainTime">Remaining time: <span id="value">00:00:00</span></div>
+            </div>
+        </div>
+    </div>
+    <img id="logoImg" src="res/webossignage_logo.png">
+</body>
+
+<script type="text/javascript" src="./js/idcap.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+
+</html>

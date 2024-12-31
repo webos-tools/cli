@@ -63,8 +63,15 @@ commonSpec.getOptions = function() {
         if (argv.timeInterval) {
             jasmine.DEFAULT_TIMEOUT_INTERVAL = argv.timeInterval;
         }
-        if (argv.profile === "tv" && !argv.passPhrase) {
-            console.error("[Tips] If you want to run a unit test with for tv profile, need the Passphrase value of the device in use.");
+        //update options for signage profile
+        if(options.profile === "signage"){
+            options.ipkPath = "com.lg.app.signage.dev_0.0.1_all.ipk";
+            options.ipkPath = path.join(__dirname, "..", "tempFiles",  "com.lg.app.signage.dev_0.0.1_all.ipk");
+            options.pkgId = "com.lg.app.signage.dev";
+            options.pkgService = "com.lg.app.signage.dev.service";
+        }
+        if ((options.profile === "tv" || options.profile === "signage") && !argv.passPhrase) {
+            console.error(`[Tips] If you want to run a unit test with for ${options.profile} profile, need the Passphrase value of the device in use.`);
             process.exit(1);
         }
         options.passPhrase = argv.passPhrase;
@@ -113,13 +120,14 @@ commonSpec.resetDeviceList = function() {
 commonSpec.addDeviceInfo = function() {
     return new Promise(function(resolve, reject) {
         const cmd = commonSpec.makeCmd('ares-setup-device');
-        exec(cmd + ` -a ${options.device} -i port=${options.port} -i username=root -i host=${options.ip} -i default=true`,
+        const username = ["tv", "signage"].includes(options.profile) ? "prisoner" : "root";
+        exec(cmd + ` -a ${options.device} -i port=${options.port} -i username=${username} -i host=${options.ip} -i default=true`,
         function(error, stdout, stderr) {
             if (stderr) {
                 reject(stderr);
             } else {
                 resolve(stdout);
-                if (options.profile === "tv") {
+                if (options.profile === "tv" || options.profile === "signage") {
                     commonSpec.getKey(options.passPhrase);
                 }
             }

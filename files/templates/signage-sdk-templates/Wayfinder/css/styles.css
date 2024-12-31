@@ -1,0 +1,634 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: 'MS300';
+    src: url('../fonts/MuseoSans300.otf');
+}
+@font-face {
+    font-family: 'MS700';
+    src: url('../fonts/MuseoSans700.otf');
+}
+html, body, .page {
+    width: 1920px;
+    height: 1080px;
+}
+body {
+    background: #222222;
+    overflow: hidden;
+}
+.inActiveTemp {
+    display: block;
+}
+.page {
+    position: absolute;
+}
+.logo {
+    position: absolute;
+    top: 39px;
+    left: 42px;
+    width: 205px;
+    height: 66px;
+}
+#backBtn {
+    position: absolute;
+    top: 55px;
+    left: 1808px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 99;
+}
+.mapHolder, .floorMap {
+    width: 870px;
+    height: 925px;
+    position: absolute;
+    left: 437px;
+    top: 115px;
+}
+.mapHolder {
+    z-index: 1;
+    cursor: pointer;
+}
+.floorMap {
+    z-index: 6;
+}
+.floorMaps {
+    position: absolute;
+    width: 870px;
+    height: 449px;
+    left: 0px;
+    cursor: pointer;
+}
+.floorMapOne {
+    top: 1px;
+    z-index: 4;
+}
+.floorMapTwo {
+    top: 238px;
+    z-index: 3;
+}
+.floorMapThree {
+    top: 476px;
+    z-index: 1;
+}
+.floorMapAll {
+    width: 870px;
+    height: 925px;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 4;
+}
+.floorMap div {
+    cursor: pointer;
+    width: 870px;
+    height: 448px;
+    position: absolute;
+}
+#secondFloor {
+    z-index: 3;
+    -webkit-transform: translate3d(0%, -17%, 0) rotate(-7deg);
+}
+#upperFloor {
+    z-index: 2;
+    -webkit-transform: translate3d(4%, 18%, 0) rotate(-25deg);
+}
+#lowerFloor {
+    z-index: 1;
+    -webkit-transform: translate3d(0%, 85%, 0) rotate(-25deg);
+}
+.mapHolderScale #secondFloor{
+    -webkit-transform: translate3d(0%, -18%, 0) rotate(-27deg);
+}
+.mapHolderScale #upperFloor{
+    -webkit-transform: translate3d(4%, 25%, 0) rotate(-25deg);
+}
+.mapHolderScale #lowerFloor{
+    -webkit-transform: translate3d(0%, 134%, 0) rotate(-10deg);
+}
+.floor {
+    left: 140px;
+    top: 304px;
+    position: absolute;
+}
+.floor p:first-child {
+    font-size: 40px;
+    line-height: 41px;
+    color: white;
+    font-family: 'MS700';
+}
+.floor p:last-child {
+    font-size: 28px;
+    line-height: 41px;
+    color: #9c9c9c;
+    font-family: 'MS300';
+}
+.upperFloor {
+    top: 544px;
+}
+.lowerFloor {
+    top: 784px;
+}
+.directory {
+    position: absolute;
+    top: 136px;
+    left: 1454px;
+    height: 891px;
+    width: 250px;
+    color: white;
+}
+.directory h2 {
+    font-size: 30px;
+    font-family: 'MS700';
+    height: 42px;
+}
+.directory h3 {
+    height: 24px;
+    font-size: 20px;
+    font-family: 'MS700';
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 4px;
+}
+.table {
+    border-collapse: collapse;
+    width: 250px;
+    margin-bottom: 25px;
+}
+.sfTable th, .sfTitle {
+    background: #01a914;
+}
+.usTable th, .usTitle {
+    background: #e63f88;
+}
+.lsTable th, .lsTitle {
+    background: #568bee;
+}
+.sfTable tr td:first-child, .sfShop label {
+    color: #01a914;
+}
+.usTable tr td:first-child, .ufShop label {
+    color: #e63f88;
+}
+.lsTable tr td:first-child, .lfShop label {
+    color: #568bee;
+}
+.table tr:last-child td {
+    height: 20px !important;
+}
+.table tr td:first-child {
+    font-size: 20px;
+    font-family: 'MS500';
+    width: 59px;
+    padding-left: 3px;
+}
+.table tr td:last-child {
+    color: #f1f1f1;
+    font-size: 20px;
+    height: 30px;
+    font-family: 'MS500';
+}
+.selMapHolder {
+    position: absolute;
+    width: 1185px;
+    height: 613px;
+    top: 144px;
+    left: 584px;
+    opacity: 0;
+    z-index: 4;
+}
+.selectedMapDesc {
+    position: relative;
+    top: 144px;
+    left: 584px;
+    opacity: 0;
+    z-index: 4;
+}
+.selectedMapDesc table {
+    position: absolute;
+    top: 61px;
+}
+.selectedMapDesc table tr td:first-child {
+    width: 454px;
+    padding-left: 5px;
+    height: 36px;
+}
+.selectedMapDesc table label {
+    font-size: 26px;
+    font-family: 'MS500';
+    width: 72px;
+    display: inline-block;
+}
+.selectedMapDesc table span {
+    color: #f1f1f1;
+    font-size: 26px;
+    font-family: 'MS500';
+    display: inline-block;
+}
+.selectedMapDesc table tr:last-child td {
+    height: 26px;
+}
+.selectedMapDesc table tr:last-child td label {
+    height: 26px;
+}
+.selectedMapDesc table tr:last-child td span {
+    height: 26px;
+}
+.selectedMapImg {
+    width: 1185px;
+    height: 613px;
+    position: absolute;
+    top: 270px;
+}
+.title {
+    position: absolute;
+    width: 316px;
+    height: 31px;
+    font-size: 26px;
+    text-align: center;
+    color: white;
+    font-family: 'MS700';
+    padding-top: 5px;
+}
+.listIcons {
+    position: absolute;
+    left: 107px;
+    top: 710px;
+    list-style: none;
+    color: white;
+    opacity: 0;
+    z-index: 10;
+}
+.listIcons li {
+    position: relative;
+    height: 56px;
+}
+.listIcons li img {
+    width: 38px;
+    height: 38px;
+}
+.listIcons li span {
+    position: absolute;
+    top: 9px;
+    left: 52px;
+    font-size: 26px;
+    font-family: 'MS500';
+}
+.locationPointIcon {
+    position: absolute;
+    top: 441px;
+    left: 460px;
+    z-index: 1;
+}
+.shadowIcon {
+    position: absolute;
+}
+.locationShadowIcon {
+    top: 515px;
+    left: 435px;
+}
+.locIcon, .shadowIcon {
+    opacity:0;
+}
+.ufInfoIcon {
+    position: absolute;
+    z-index: 1;
+    top: 380px;
+    left: 656px;
+}
+.uflocationPointIcon {
+    position: absolute;
+    z-index: 1;
+    top: 380px;
+    left: 595px;
+}
+.uflocationShadowIcon {
+    top: 454px;
+    left: 570px;
+}
+.lfInfoIcon {
+    position: absolute;
+    z-index: 1;
+    left: 712px;
+    top: 571px;
+}
+.lflocationPointIcon {
+    position: absolute;
+    z-index: 1;
+    left: 645px;
+    top: 505px;
+}
+.lflocationShadowIcon {
+    top: 576px;
+    left: 620px;
+}
+.floorLbl li {
+    position: absolute;
+    color: #222222;
+    z-index: 1;
+    font-size: 40px;
+    font-family: 'MS700';
+    cursor: pointer;
+    list-style: none;
+    opacity: 0;
+}
+.ufLbl100 {
+    top: 505px;
+    left: 204px;
+}
+.ufLbl101 {
+    top: 354px;
+    left: 486px;
+}
+.ufLbl102 {
+    top: 291px;
+    left: 601px;
+}
+.ufLbl103 {
+    top: 667px;
+    left: 247px;
+}
+.ufLbl104 {
+    top: 750px;
+    left: 378px;
+}
+.ufLbl105 {
+    top: 709px;
+    left: 486px;
+}
+.ufLbl106 {
+    top: 667px;
+    left: 601px;
+}
+.ufLbl107 {
+    top: 448px;
+    left: 787px;
+}
+.ufLbl108 {
+    top: 548px;
+    left: 846px;
+}
+.ufLbl109 {
+    top: 548px;
+    left: 486px;
+}
+.ufLbl110 {
+    top: 448px;
+    left: 900px;
+}
+.sfLbl200 {
+    top: 653px;
+    left: 465px;
+}
+.sfLbl201 {
+    top: 350px;
+    left: 557px;
+}
+.sfLbl202 {
+    top: 509px;
+    left: 204px;
+}
+.sfLbl203 {
+    top: 509px;
+    left: 775px;
+}
+.lfLblB00 {
+    top: 467px;
+    left: 750px;
+}
+.lfLblB01 {
+    top: 300px;
+    left: 633px;
+}
+.lfLblB02 {
+    top: 341px;
+    left: 571px;
+}
+.lfLblB03 {
+    top: 383px;
+    left: 500px;
+}
+.lfLblB04 {
+    top: 467px;
+    left: 297px;
+}
+.lfLblB05 {
+    top: 518px;
+    left: 244px;
+}
+.lfLblB06 {
+    top: 557px;
+    left: 174px;
+}
+.lfLblB07 {
+    top: 663px;
+    left: 410px;
+}
+#popUp {
+    position: absolute;
+    left: 865px;
+    top: 490px;
+    background-image: url('../images/tpl_11_popup_bg.png');
+    width: 750px;
+    height: 380px;
+    z-index: 5;
+    display: none;
+    color: #ffffff;
+}
+#popUp > div {
+    position: relative;
+}
+#popUp div img {
+    left: 60px;
+    top: 40px;
+    position: absolute;
+    cursor: pointer;
+}
+#popUp div h2 {
+    font-size: 50px;
+    font-family: 'MS700';
+    position: absolute;
+    left: 131px;
+    top: 40px;
+}
+#popUp div p {
+    font-size: 30px;
+    font-family: 'MS300';
+    position: absolute;
+    left: 60px;
+    top: 126px;
+    right: 60px;
+    line-height: 40px;
+}
+.buttonsHolder {
+    position: absolute;
+    left: 358px;
+    top: 335px;
+}
+#popUp .buttonsHolder a img {
+    left: 0px;
+    top: 0px;
+}
+#popUp .buttonsHolder a:nth-child(2) img {
+    left: 19px;
+    top: 0px;
+}
+#popUp .buttonsHolder a:nth-child(3) img {
+    left: 38px;
+    top: 0px;
+}
+.selMapShow {
+    -webkit-animation: selMapShow 1s;
+}
+.activeMapDesc {
+     -webkit-animation: activeMapDesc 1s;
+}
+.bounce {
+    opacity:1;
+    -webkit-animation: bounce 3s;
+}
+.simpleScale {
+    opacity:1;
+    -webkit-animation: simpleScale 3s;
+}
+.mapHolderScale {
+    -webkit-animation: scaling .8s;
+    -webkit-transform: translate3d(-69%, -18%, 0) scale(0.47, 0.47);
+}
+.mapHolderAct {
+    -webkit-animation: scalingBack .8s;
+    -webkit-transform: translate3d(0, 0, 0) scale(1, 1);
+}
+.fdRgtIn {
+    -webkit-animation: fadeInRight .8s;
+    -webkit-animation-timing-function: linear;
+    opacity:1 !important;
+}
+.fdRgtOut {
+    opacity:0;
+    -webkit-animation: fadeOutRight .8s;
+    -webkit-animation-timing-function: linear;
+}
+.fdLftIn {
+    -webkit-animation: fadeInLeft .8s;
+    -webkit-animation-timing-function: linear;
+    opacity:1 !important;
+}
+.fdLftOut {
+    opacity:0;
+    -webkit-animation: fadeOutLeft .8s;
+    -webkit-animation-timing-function: linear;
+}
+@-webkit-keyframes fadeOutRight {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+}
+@-webkit-keyframes fadeOutLeft {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+}
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+    }
+}
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+    }
+}
+@-webkit-keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes hide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@-webkit-keyframes selMapShow {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 35%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+}
+@-webkit-keyframes simpleScale {
+    0%, 20%, 53%, 80%, 100% {
+        -webkit-transform: scale(1, 1);
+    }
+    40%, 43% {
+        -webkit-transform: scale(0.47, 0.47);
+    }
+    70% {
+        -webkit-transform: scale(0.67, 0.67);
+    }
+    90% {
+        -webkit-transform: scale(0.87, 0.87);
+    }
+}
+@-webkit-keyframes scaling {
+    0% {
+        -webkit-transform: translate3d(0, 0, 0) scale(1, 1);
+    }
+    100% {
+        -webkit-transform: translate3d(-69%, -18%, 0) scale(0.47, 0.47);
+    }
+}
+@-webkit-keyframes scalingBack {
+    0% {
+        -webkit-transform: translate3d(-69%, -18%, 0) scale(0.47, 0.47);
+    }
+    100% {
+        -webkit-transform: translate3d(0, 0, 0) scale(1, 1);
+    }
+}
+@-webkit-keyframes activeMapDesc {
+    0% {
+        -webkit-transform: translate3d(30%, 0%, 0);
+    }
+    100% {
+        -webkit-transform: translate3d(0%, 0%, 0);
+    }
+}
+@-webkit-keyframes bounce {
+    0%, 36%, 72% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    18%,54%,90% {
+        -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -30px, 0);
+    }
+}

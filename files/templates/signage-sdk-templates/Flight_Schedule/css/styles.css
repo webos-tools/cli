@@ -1,0 +1,168 @@
+/**
+ *HTML5 CSS RESET
+ */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+body {
+    line-height: 1;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+nav ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* change border colour if Required */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid black;
+    margin: 0 2%;
+    padding: 0;
+}
+/**
+ *Page css
+ */
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+@font-face {
+    font-family: 'MS300';
+    src: url('../fonts/MuseoSans300.otf');
+}
+@font-face {
+    font-family: 'MS500';
+    src: url('../fonts/MuseoSans500.otf');
+}
+@font-face {
+    font-family: 'MS700';
+    src: url('../fonts/MuseoSans700.otf');
+}
+html, body {
+    width: 1920px;
+    height: 1080px;
+    color: black;
+    font-size: 100%;
+}
+header {
+    width: 1920px;
+    height: 176px;
+    background: #141414;
+    position: relative;
+}
+header img {
+    position: absolute;
+    left: 60px;
+    top: 70px;
+}
+header h1 {
+    color: #ff6600;
+    font-size: 66px;
+    position: absolute;
+    left: 212px;
+    top: 70px;
+    font-family: 'MS700';
+}
+.dateInfo {
+    position: absolute;
+    color: #ff6600;
+    font-size: 21px;
+    right: 261px;
+    top: 94px;
+    font-family: 'MS500';
+    height: 38px;
+}
+.timeInfo {
+    position: absolute;
+    right: 60px;
+    top: 70px;
+    color: #ff6600;
+    font-size: 66px;
+    font-family: 'MS700';
+    height: 62px;
+}
+.cityInfo {
+    color: #7d7d7d;
+    position: absolute;
+    right: 60px;
+    top: 132px;
+    font-size: 22px;
+    font-family: 'MS300';
+}
+.dataTable {
+    width: 1920px;
+    height: 904px;
+    background: #292929;
+}
+.dataTable tr {
+    height: 85px;
+}
+.dataTable td {
+    color: #ffffff;
+    font-size: 32px;
+    font-family: 'MS500';
+    padding-top: 16px;
+    text-transform: capitalize;
+}
+.dataTable td img {
+    margin-left: 61px;
+    margin-top: 10px;
+}
+.dataTable td label {
+    margin-left: 25px;
+}
+.dataTable tbody tr:first-child {
+    height: 54px;
+    width: 1920px;
+    background: #ff6600;
+}
+.dataTable tr:nth-child(odd) {
+    background: #252525;
+}
+.dataTable tr:first-child th {
+    text-transform: capitalize;
+    font-size: 30px;
+    color: #000000;
+    padding-top: 16px;
+    font-family: 'MS700';
+    text-align: left;
+}
+.dataTable tr:first-child th:nth-child(1) {
+    padding-left: 60px;
+    width: 482px;
+}
+.dataTable tr:first-child th:nth-child(2) {
+    width: 213px;
+}
+.dataTable tr:first-child th:nth-child(3) {
+    width: 278px;
+}
+.dataTable tr:first-child th:nth-child(4) {
+    width: 450px;
+}
+.dataTable tr:first-child th:last-child, .dataTable tr td:last-child {
+    padding-right: 70px;
+    text-align: right;
+}
+.Delayed {
+    color: #fdbb31;
+}
+.Cancelled {
+    color: #ff2323;
+}

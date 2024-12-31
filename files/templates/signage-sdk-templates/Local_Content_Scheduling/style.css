@@ -1,0 +1,99 @@
+#scheduler {
+	visibility: hidden;
+	width: 1272px;
+	height: 720px;
+	
+	
+	position: absolute;
+	left: 219px;
+	bottom: 50px;
+	
+	border-style : solid;
+	border-width : 5px;
+	border-color: #C70752;
+	background-color: #FFFFFF;
+	z-index: 100px;
+}
+
+
+.scheduleEach {
+	width: 51px;
+	height: 118px;
+	
+	border-style : solid;
+	border-width : 1px;
+	border-color : #000000;
+	background-color: transparent;
+	text-align: center;
+}
+
+#currentTime {
+	text-align: right;
+	font-size: 175%;
+	position: absolute;
+	top:0px;
+	right:0px;
+	width:250px;
+	height:150px; 
+} 
+
+#status {
+	font-size: 1000%;
+	text-align: center;
+	width: 1920px;
+	height: 50px;
+	
+	position : absolute;
+	left: 00px;
+	top: 50px;
+	color: #C70752;
+}
+
+
+#status_detail {
+	font-size: 200%;
+	text-align: center;
+	width: 1920px;
+	height: 30px;
+	
+	position : absolute;
+	left: 00px;
+	top: 250px;
+	color: #000000;
+}
+
+
+#videoPlayer {
+	width: 1280px;
+	height: 720px;	
+	
+	position: realite;
+	left: 2px;
+	top: 2px;
+	z-index: -1;
+}
+
+#videoPlayerDiv {
+	width: 1280px;
+	height: 720px;
+	
+	
+	border-width: 2px;
+	border-style: ridge;
+	
+	
+	position: absolute;
+	left: 219px;
+	bottom: 50px;
+	
+	background-color: #A0A0A0;
+	
+	z-index: -1;
+}
+
+
+#manual {
+	position: absolute;
+	right:20px;
+	bottom: 50px;
+}

@@ -1,0 +1,109 @@
+#=============================================================================
+#   LG ELECTRONICS INC., SEOUL, KOREA                                        
+#   Copyright(c) 2015 by LG Electronics Inc.                                 
+#=============================================================================
+2016.05.04
+ - Fix bugs
+ DeviceInfo.getPlatformInfo fix invalid sdkVersion return value
+ Storage APIs allow specific characters
+
+2016.04.15
+ - Release v1.3
+ Support IPK Type application
+ Configuration.getCurrentTime methods changed to to get and set the current time on webOS Signage
+ Configuration.setCurrentTime methods changed to to get and set the current time on webOS Signage
+ Configuration.getPictureProperty new value added to the gamma property, "high2", only for webOS Signage 2.0 and higher version
+ Configuration.setPictureProperty new value added to the gamma property, "high2", only for webOS Signage 2.0 and higher version
+ Configuration.getServerProperty new property added - appType - which is supported IPK application type
+ Configuration.setServerProperty new property added - appType - which is supported IPK application type
+ Power.enableAllOffTimer new parameter clearOffTimer, to delete all the power-off timers
+ Power.enableAllOnTimer new parameter clearOnTimer, to delete all the power-on timers
+ Signage.getSignageInfo now return checkScreen property
+ Storage.copyFile support FTP connection
+ Storage.listFiles support listing up unlimited number of files
+ Storage.upgradeApplication can upgrade IPK application using type parameter
+
+2016.01.05
+ - Addition 2 APIs in the final v1.3
+  Video.setRotatedVideoTransform
+  Video.setVideoViewTransform
+
+2015.09.30
+ - Initial version of v1.3
+  DeviceInfo.setNetworkInfo
+  DeviceInfo.getWifiList
+  DeviceInfo.connectWifi
+  DeviceInfo.startWps
+  DeviceInfo.stopWps
+  DeviceInfo.getBeaconInfo
+  DeviceInfo.setBeaconInfo
+  DeviceInfo.getSoftApInfo
+  DeviceInfo.setSoftApInfo
+  Configuration.clearCache
+  Configuration.setCurrentTime, options.ntp
+  Configuration.getCurrentTime, returns.ntp
+  Configuration.getTimeZoneList
+  Configuration.getTimeZone
+  Configuration.setTimeZone
+  Storage.copyFile, options.ftpOption for ftp, sftp server connection
+  Storage.copyFile, options.httpOption.headers for http request header modification
+  Storage.copyFile, options.httpOption.timeout for http request time out modification
+  Storage.copyFile, options.maxRedirection moves to options.httpOption.maxRedirection
+  Storage.copyFile, supports SDCard
+  Storage.listFiles, supports more than 100 list of files.
+  Storage.readFile, documentation update for a big chunk of data.
+  Power.enableAllOffTimer, options.clearOffTimer
+  Power.enableAllOnTimer, optons.clearOnTimer
+  Signage.enableCheckScreen
+  Signage.getSignageInfo, returns.checkScreen
+  Video.setContentRotation
+  Video.getContentRotation
+
+2015.02.04
+  - Release v1.2
+  support scap_installation.json for an easy setting of SCAP
+  DeviceInfo.getSystemUsageInfo options.cpus, options.memory
+  Signage.captureScreen, options.save for saving the image under content folder also
+  Storage.copyFile options.maxRedirection for 301,302,303, and 307 redirection response
+  Storage.removeAll
+  Storage.readFile
+  Storage.writeFile
+  Storage.statFile
+  Storage.fsync
+  Storage.moveFile
+  Storage.unzipFile
+  Storage.downloadFirmware
+  Storage.upgradeFirmware
+  Storage.getFirmwareUpgradeStatus
+  Storage.changeLogoImage
+  
+2014.10.31
+  - Release v1.1
+  Signage.captureScreen, options.save for saving the image on local storage / options.thumbnail for small size image
+  Storage.removeApplication
+  Storage.upgradeApplication, options.to and options.recovery for usb application
+  Configuration.getServerProperty
+  Configuration.setServerProperty
+  InputSource.initialize, remove options.isLastChannel
+  Storage.copyFile, options.destination supports usb / read copied file by remote application using internal web server
+  Storage.mkdir
+  Storage.removeFile, options.recursive for removing directory
+  Storage.listFiles, list directory
+  Storage.exists
+  Storage.getStorageInfo, supports usb
+  handling network connection is late in the boot up process on remote application mode
+  
+2014.06.11
+  - Official release v1.0
+  
+2014.04.30
+  - Release candidate
+
+2014.3.28
+  - Beta release
+  
+2014.1.22
+  - Alpha release
+    * Review purpose only
+
+    

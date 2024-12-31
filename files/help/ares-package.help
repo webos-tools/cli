@@ -48,6 +48,7 @@
         "cmdOpt":"option",
         "default" : ["check", "outdir", "app-exclude", "rom", "help", "version", "verbose"],
         "ose" : ["level"],
+        "signage" :["encrypt", "remainplainipk", "sign", "certificate"],
         "check" : "-c, --check @TAB@ Check whether the app and service are valid, but don't package it",
         "outdir" : "-o, --outdir <OUTPUT_DIR> @TAB@ Use OUTPUT_DIR as the output directory",
         "no-minify" : "-n, --no-minify @TAB@ Skip the minification phase",
@@ -56,6 +57,7 @@
             "-r, --rom @TAB@ Do not create ipk, instead output a folder structure"
         ],
         "encrypt" : "-enc, --encrypt @TAB@ Make an encrypted package, it cannot install by ares-install",
+        "remainplainipk": "-rpi, --remainplainipk @TAB@ Generate an additional unencrypted ipk. Must use with encrypt option",
         "sign" : "-s, --sign <PRIVATEKEY> @TAB@ Make app sign to package. Must use with certificate option",
         "certificate" : "-crt, --certificate <CERTIFICATE> @TAB@ Add certificate.crt to pacakge",
         "help" : "-h, --help @TAB@ Display this help",

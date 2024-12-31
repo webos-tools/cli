@@ -22,7 +22,7 @@
         "description": "Show or save logs of webOS apps and services"
     },
     "ares-novacom": {
-        "profile": ["tv"],
+        "profile": ["tv", "signage"],
         "description": "Command Line Tool to control the device"
     },
     "ares-package": {

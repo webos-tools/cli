@@ -1,0 +1,49 @@
+{
+    "headerImage": "res/images/tpl_06_logo_harvard.png",
+ 
+    "showcaseImg": "res/images/tpl_06_img_main_01.png",
+    "heading1": "MAIN-HEADER1",
+    "heading2": "SUB-HEADER1",
+    "heading3": "DATE1",
+    "showcaseContent": "CONTENT1",
+
+    "bannerImg": "res/images/tpl_06_img_news.png",
+    "bannerImgOverlayText": "OVERLAY SUB-TITLE",
+    "bannerImgOverlayContent": "OVERLAY CONTENT",
+    "textSectionH1": "MAIN-HEADER2-1",
+    "textSectionH2": "MAIN-HEADER2-2",
+    "textSectionH3": "DATE2",
+    "textSectionH4": "CONTENT2",
+
+    "asideBlock1Content1": "SUB-HEADER1-1",
+    "asideBlock1Content2": "SUB-HEADER1-2",
+    "asideBlock1Content3": "DATE1",
+
+    "asideBlock2Content1": "SUB-HEADER2-1",
+    "asideBlock2Content2": "SUB-HEADER2-2",
+    "asideBlock2Content3": "DATE2",
+
+    "asideBlock3Content1": "SUB-HEADER3-1",
+    "asideBlock3Content2": "SUB-HEADER3-2",
+    "asideBlock3Content3": "DATE3",
+
+    "asideBlock4Content1": "SUB-HEADER4-1",
+	"asideBlock4Content2": "SUB-HEADER4-2",
+    "asideBlock4Content3": "DATE4",
+
+    "asideBlock5Content1": "SUB-HEADER5-1",
+    "asideBlock5Content2": "SUB-HEADER5-2",
+    "asideBlock5Content3": "DATE5",
+
+    "asideBlock6Content1": "SUB-HEADER6-1",
+    "asideBlock6Content2": "SUB-HEADER6-2",
+    "asideBlock6Content3": "DATE6",
+
+    "asideBlock7Content1": "SUB-HEADER7-1",
+    "asideBlock7Content2": "SUB-HEADER7-2",
+    "asideBlock7Content3": "DATE7",
+
+    "asideBlock8Content1": "SUB-HEADER8-1",
+    "asideBlock8Content2": "SUB-HEADER8-2",
+    "asideBlock8Content3": "DATE8"
+}
