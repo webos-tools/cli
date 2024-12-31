@@ -1,3 +1,30 @@
+## 3.2.0 (December 24, 2024) 
+
+### ares-config
+
+* Added support for the signage profile with the -p option.
+
+### ares-package
+
+* Introduced a new option: --remainPlainIPK. This option is only available for the signage profile and must be used with the --encrypt option. This option will generate an additional unencrypted IPK file in the same folder as the encrypted IPK file. The unencrypted file has the same name as the encrypted file but with the .ipk_plain extension.
+* Introduced new options: --sign, and --certificate. These options are only available for the signage profile.
+* Added support for exclusion by file path using the --app-exclude option.
+
+### ares-setup-device
+
+* Added a passphrase column to the device list table printed on the console.
+* Modified the device list table to display devices in the order they were added. The newest device is now displayed at the top.
+* Updated the guide for enabling Developer Mode, which is shown after adding a new device.
+
+### ares-install
+
+* Fixed an error that occurred while connecting to a device. It now displays the original error message instead of “Callback was already called.”
+
+### ares-novacom
+
+* Added support for signage profile.
+
+
 ## 3.1.3 (October 14, 2024)
 ### ares-generate
 * Added "native_service" template for apollo platform.
