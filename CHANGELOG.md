@@ -1,3 +1,10 @@
+## 3.2.1 (April 2, 2025) 
+
+### ares-package
+
+* Fixed a bug related to the use of the `sign` and `certificate` options in `tv` profile.
+
+
 ## 3.2.0 (December 24, 2024) 
 
 ### ares-config
