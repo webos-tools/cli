@@ -1,3 +1,10 @@
+## 3.2.2 (February 26, 2026) 
+
+### ares-package
+
+* Fixed the issue where ares-package failed to package an app correctly in `Signage` profile.
+
+
 ## 3.2.1 (April 2, 2025) 
 
 ### ares-package
