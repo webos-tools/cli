@@ -6714,7 +6714,7 @@ utils.isArray = function(a) {
  * Returns an indication of whether the argument is a Date or not
  */
 utils.isDate = function(d) {
-    return utils.typeName(d) == 'Date';
+    return d instanceof Date;
 };
 
 /**
