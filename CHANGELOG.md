@@ -1,4 +1,15 @@
-## 3.2.2 (February 26, 2026) 
+## 3.2.3 (March 25, 2026)
+
+### ares-generate
+
+* Updated webOSTVjs from 1.2.10 to 1.2.13.
+
+### Common
+
+* Update webOSTV.js to v1.2.13.
+
+
+## 3.2.2 (February 26, 2026)
 
 ### ares-package
 
