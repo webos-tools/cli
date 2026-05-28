@@ -8,9 +8,8 @@
 
 We are releasing a single CLI that supports both webOS OSE and webOS TV through this released CLI (v3.0.0). You can switch to CLI for OSE or TV by installing one CLI and changing only the profile. For more details, see [Profile Settings](#profile-settings).
 
-From the released CLI (v3.1.2) we integrated CLI commands for webOS APOLLO. You can switch to CLI for APOLLO by changing only the profile to apollo.
-
-From the released CLI (v3.2.0) we integrated CLI commands for webOS SIGNAGE. You can switch to CLI for SIGNAGE by changing only the profile to signage.
+- From the released CLI (v3.1.2) we integrated CLI commands for webOS APOLLO. You can switch to CLI for APOLLO by changing only the profile to apollo.
+- From the released CLI (v3.2.0) we integrated CLI commands for webOS SIGNAGE. You can switch to CLI for SIGNAGE by changing only the profile to signage.
 
 ## Installation
 

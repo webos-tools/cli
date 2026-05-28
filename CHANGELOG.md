@@ -1,3 +1,10 @@
+## 3.2.4 (May 28, 2026)
+
+### All Platforms
+
+* Updated ssh2 to ensure full compatibility with Node.js 24.
+* Upgraded various packages to resolve identified security vulnerabilities.
+
 ## 3.2.3 (March 25, 2026)
 
 ### ares-generate
