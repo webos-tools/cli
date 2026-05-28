@@ -30,7 +30,7 @@ From the released CLI (v3.2.0) we integrated CLI commands for webOS SIGNAGE. You
 
 The @webos-tools/cli is installed using `npm`.
 
-> Note: @webos-tools/cli was tested on Node.js v14.15.1 and v16.20.2.
+> Note: @webos-tools/cli was tested on Node.js v24
 
 You can install @webos-tools/cli using the following command. We recommend installing it globally. For Linux and macOS, you might need the `sudo` command.
 
@@ -208,7 +208,7 @@ so it is hard to add other options to the command (such as capture)
 
 Unless otherwise specified, all content, including all source code files and documentation files in this repository are:
 
-Copyright (c) 2020-2024 LG Electronics, Inc.
+Copyright (c) 2020-2026 LG Electronics, Inc.
 
 All content, including all source code files and documentation files in this repository except otherwise noted are:
 
