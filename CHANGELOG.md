@@ -1,3 +1,17 @@
+## 3.2.5 (June 29, 2026)
+
+### ares-package
+
+* Updated rimraf to use named export and Promise API for compatibility with rimraf v6.
+* Fixed an issue where ares-package command failed due to rimraf default export changes.
+
+## 3.2.4 (May 28, 2026)
+
+### All Platforms
+
+* Updated ssh2 to ensure full compatibility with Node.js 24.
+* Upgraded various packages to resolve identified security vulnerabilities.
+
 ## 3.2.3 (March 25, 2026)
 
 ### ares-generate
