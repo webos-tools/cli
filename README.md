@@ -39,7 +39,8 @@ $ npm install -g @webos-tools/cli
 
 ## Profile Settings
 
-You can change the profile to `tv`, `ose`, `apollo` or `signage`. The default profile is `tv` (webOS TV).
+You can change the profile to `tv`, `ose`, `apollo` or `signage`. The default profile is `ose
+` (webOS TV).
 
 ``` shell
 $ ares-config --profile ose
