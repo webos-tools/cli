@@ -54,8 +54,8 @@ function PalmPackage() {
         "pkgid": String,
         "pkgversion": String,
         "pkginfofile": String,
-        "info": String,
-        "info-detail": String,
+        "info": [String, null],
+        "info-detail": [String, null],
         "remainplainipk": Boolean
     };
 

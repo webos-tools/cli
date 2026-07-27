@@ -43,7 +43,7 @@ if ((idx = process.argv.indexOf('--list')) !== -1 || (idx = process.argv.indexOf
 const knownOpts = {
     "help": Boolean,
     "version": Boolean,
-    "list": String,
+    "list": [String, null],
     "overwrite": Boolean,
     "servicename": String,
     "template": String,

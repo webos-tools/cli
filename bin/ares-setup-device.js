@@ -526,48 +526,48 @@ function finish(err, value) {
 }
 
 function getArgv() {
-    let argv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & 'ares-*.js'*/);
-    let mode = checkMode(argv);
-    return (mode && argv[mode] === 'true') ? reParse(argv, mode) : argv; 
+    let parsedArgv = nopt(knownOpts, shortHands, process.argv, 2 /* drop 'node' & 'ares-*.js'*/);
+    let mode = checkMode(parsedArgv);
+    return (mode && parsedArgv[mode] === 'true') ? reParse(parsedArgv, mode) : parsedArgv;
 }
 
-function checkMode(argv) {
-    if (argv.add) return 'add';
-    if (argv.modify) return 'modify';
-    if (argv.remove) return 'remove';
-    return (argv.default) ? 'default' : null;
+function checkMode(parsedArgv) {
+    if (parsedArgv.add) return 'add';
+    if (parsedArgv.modify) return 'modify';
+    if (parsedArgv.remove) return 'remove';
+    return (parsedArgv.default) ? 'default' : null;
 }
 
-function reParse(argv, mode) {
+function reParse(parsedArgv, mode) {
     let nameIndex = -1;
     let cookedNameIndex = -1;
     let abbrevOpts = abbrev(Object.keys(knownOpts))
-    
-    for (let i = 0; i < argv.argv.original.length; i++) {
-        if (argv.argv.original[i].match(/^-{2,}$/)) {
+
+    for (let i = 0; i < parsedArgv.argv.original.length; i++) {
+        if (parsedArgv.argv.original[i].match(/^-{2,}$/)) {
             nameIndex = i;
             break;
         }
     }
-    cookedNameIndex = argv.argv.cooked.indexOf('--');
-    if (cookedNameIndex <= 0 || !argv.argv.cooked[cookedNameIndex - 1].match(/^-/) || abbrevOpts[argv.argv.cooked[cookedNameIndex - 1].replace(/^-+/, "")] != mode) {
-        return argv;
+    cookedNameIndex = parsedArgv.argv.cooked.indexOf('--');
+    if (cookedNameIndex <= 0 || !parsedArgv.argv.cooked[cookedNameIndex - 1].match(/^-/) || abbrevOpts[parsedArgv.argv.cooked[cookedNameIndex - 1].replace(/^-+/, "")] != mode) {
+        return parsedArgv;
     }
 
-    argv[mode] = argv.argv.original[nameIndex];
-    if (nameIndex != -1 && cookedNameIndex != -1 && nameIndex + 1 < argv.argv.original.length) {
-        const remainArgv = nopt(knownOpts, shortHands, argv.argv.original, nameIndex + 1);
+    parsedArgv[mode] = parsedArgv.argv.original[nameIndex];
+    if (nameIndex != -1 && cookedNameIndex != -1 && nameIndex + 1 < parsedArgv.argv.original.length) {
+        const remainArgv = nopt(knownOpts, shortHands, parsedArgv.argv.original, nameIndex + 1);
         for (const option in remainArgv) {
-            if (remainArgv.hasOwnProperty(option)) {
-                if (!argv.hasOwnProperty(option)) {
-                    argv[option] = remainArgv[option];
-                } else if (Array.isArray(argv[option])) {
-                    argv[option] = argv[option].concat(remainArgv[option]);
+            if (Object.prototype.hasOwnProperty.call(remainArgv, option)) {
+                if (!Object.prototype.hasOwnProperty.call(parsedArgv, option)) {
+                    parsedArgv[option] = remainArgv[option];
+                } else if (Array.isArray(parsedArgv[option])) {
+                    parsedArgv[option] = parsedArgv[option].concat(remainArgv[option]);
                 }
             }
         }
-        argv.argv.remain = remainArgv.argv.remain;     
-        argv.argv.cooked = argv.argv.cooked.splice(0, cookedNameIndex + 1).concat(remainArgv.argv.cooked);
+        parsedArgv.argv.remain = remainArgv.argv.remain;
+        parsedArgv.argv.cooked = parsedArgv.argv.cooked.splice(0, cookedNameIndex + 1).concat(remainArgv.argv.cooked);
     }
-    return argv
+    return parsedArgv
 }

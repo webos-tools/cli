@@ -47,6 +47,6 @@ module.exports = {
         'fail': false
     },
     "parserOptions": {
-        "ecmaVersion": 2017
+        "ecmaVersion": 2022
     }
 };
