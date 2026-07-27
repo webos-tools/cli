@@ -94,6 +94,7 @@ describe(aresCmd, function() {
 
     it('Generate two sample services for packaging', function(done) {
         const serviceid = ["com.webos.sample.app.service", "com.webos.sample.service1", "com.webos.sample.service2"];
+        let completed = 0;
         serviceid.forEach(function(svcId) {
             const svcPath = path.join(sampleServicePath, svcId);
             sampleServicePaths.push(path.join(sampleServicePath, svcId));
@@ -103,7 +104,11 @@ describe(aresCmd, function() {
                     common.detectNodeMessage(stderr);
                 }
                 expect(stdout).toContain("Generating");
-                done();
+                // Each exec runs in parallel; call done() only after all have finished
+                completed++;
+                if (completed === serviceid.length) {
+                    done();
+                }
             });
         });
     });

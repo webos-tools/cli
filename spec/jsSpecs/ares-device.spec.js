@@ -292,7 +292,6 @@ describe(aresCmd + ' --resource-monitor(-r)', function() {
                 expect(stdout).toContain("Create");
                 expect(stdout).toContain(options.pkgId);
                 expect(fs.existsSync(csvFilePath)).toBe(true);
-                done();
             }
             done();
         });

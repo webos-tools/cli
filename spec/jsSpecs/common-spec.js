@@ -6,7 +6,6 @@
 
 const path = require('path'),
     fs = require('fs'),
-    nopt = require('nopt'),
     exec = require('child_process').exec,
     shelljs = require('shelljs');
 
@@ -27,26 +26,19 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = commonSpec;
 }
 
-const knownOpts = {
-    "profile": String,
-    "device": String,
-    "ip": String,
-    "port": String,
-    "timeInterval": Number,
-    "passPhrase": String
-};
-const shortHands = {
-    "p": ["--profile"],
-    "d": ["--device"],
-    "ip": ["--ip"],
-    "port": ["--port"],
-    "ti": ["--timeInterval"],
-    "pp": ["--passPhrase"]
-};
-
 commonSpec.getOptions = function() {
     return new Promise(function(resolve, reject) {
-        const argv = nopt(knownOpts, shortHands, process.argv, 2);
+        // jasmine@5 rejects unknown CLI options, so test parameters are passed
+        // via environment variables instead of command-line flags.
+        //   e.g. ARES_PROFILE=ose ARES_DEVICE=webOSOSE ARES_IP=192.168.0.12 npm test
+        const argv = {
+            profile: process.env.ARES_PROFILE,
+            device: process.env.ARES_DEVICE,
+            ip: process.env.ARES_IP,
+            port: process.env.ARES_PORT,
+            timeInterval: process.env.ARES_TIMEINTERVAL,
+            passPhrase: process.env.ARES_PASSPHRASE
+        };
 
         if (argv.profile) {
             options.profile = argv.profile;
@@ -61,7 +53,7 @@ commonSpec.getOptions = function() {
             options.port = argv.port ? argv.port : 22;
         }
         if (argv.timeInterval) {
-            jasmine.DEFAULT_TIMEOUT_INTERVAL = argv.timeInterval;
+            jasmine.DEFAULT_TIMEOUT_INTERVAL = Number(argv.timeInterval);
         }
         //update options for signage profile
         if(options.profile === "signage"){

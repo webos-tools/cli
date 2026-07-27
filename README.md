@@ -108,49 +108,55 @@ You can test the @webos-tools/cli commands and their options to check their vali
 
 ### Performing the Test
 
-The following table lists the default configurations for the test.
+The test configurations are passed via environment variables. The following table lists the variables and their default values.
 
-| Parameter | Value     |
-| :-------: | :-------: |
-| profile   | ose       |
-| device    | emulator  |
-| ip        | 127.0.0.1 |
-| port      | 6622      |
+| Environment variable | Parameter  | Default   |
+| :------------------: | :--------: | :-------: |
+| `ARES_PROFILE`       | profile    | ose       |
+| `ARES_DEVICE`        | device     | emulator  |
+| `ARES_IP`            | ip         | 127.0.0.1 |
+| `ARES_PORT`          | port       | 6622      |
+| `ARES_TIMEINTERVAL`  | timeout    | 25000     |
+| `ARES_PASSPHRASE`    | passPhrase | (empty)   |
+
+> Note: In earlier versions these parameters were passed as command-line
+> flags (e.g. `jasmine --device=...`). Since `jasmine@5` rejects unknown
+> options, the test suite now reads them from environment variables.
 
 - Test with default configurations.
-    
+
     ``` shell
     $ jasmine
-    ```
-
-    or
-
-    ``` shell
-    $ jasmine --profile=ose --device=emulator --ip=127.0.0.1 --port=6622
     ```
 
 - Test with specific configurations. (The port number can be omitted when using port 22.)
 
     ``` shell
-    $ jasmine --profile=ose --device=webOSOSE --ip=192.168.0.12
+    $ ARES_PROFILE=ose ARES_DEVICE=webOSOSE ARES_IP=192.168.0.12 jasmine
     ```
 
 - Test with specific port configurations.
 
     ``` shell
-    $ jasmine --profile=ose --device=webOSOSE --ip=192.168.0.12 --port=24
+    $ ARES_PROFILE=ose ARES_DEVICE=webOSOSE ARES_IP=192.168.0.12 ARES_PORT=24 jasmine
     ```
 
 - Test ares-generate command.
 
     ``` shell
-    $ jasmine --profile=ose --device=webOSOSE --ip=192.168.0.12 --port=24 spec/jsSpec/ares-generate.js
+    $ ARES_PROFILE=ose ARES_DEVICE=webOSOSE ARES_IP=192.168.0.12 ARES_PORT=24 jasmine spec/jsSpecs/ares-generate.spec.js
     ```
 
 - Test the `tv` profile. `passPhrase` must be entered as an input parameter. See [Turning Developer Mode on](https://webostv.developer.lge.com/develop/getting-started/developer-mode-app#installing-developer-mode-app).
 
     ``` shell
-    $ jasmine --profile=tv --device=webOSTV --ip=192.168.0.12 --port=9922 --passPhrase=AB12CD
+    $ ARES_PROFILE=tv ARES_DEVICE=webOSTV ARES_IP=192.168.0.12 ARES_PORT=9922 ARES_PASSPHRASE=AB12CD jasmine
+    ```
+
+    On Windows `cmd`, set the variables with `set` first (PowerShell uses the `$env:` syntax):
+
+    ``` shell
+    > set ARES_PROFILE=tv&& set ARES_DEVICE=webOSTV&& set ARES_IP=192.168.0.12&& set ARES_PORT=9922&& set ARES_PASSPHRASE=AB12CD&& jasmine
     ```
 
 ## Contributing
