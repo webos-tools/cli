@@ -45,7 +45,7 @@
         "ssh2": "^1.17.0",
         "stream-buffers": "3.0.3",
         "strip-bom": "4.0.0",
-        "tar": "7.5.19",
+        "tar": "^7.5.22",
         "temp": "0.9.4",
         "terser": "5.48.0"
       },
@@ -71,7 +71,6 @@
         "eslint": "8.57.1",
         "eslint-plugin-import": "2.32.0",
         "jasmine": "5.7.0",
-        "jasmine-pretty-html-reporter-jasmine3.8": "0.2.5",
         "jasmine-spec-reporter": "7.0.0"
       },
       "engines": {
@@ -3376,15 +3375,6 @@
       "dev": true,
       "license": "MIT"
     },
-    "node_modules/jasmine-pretty-html-reporter-jasmine3.8": {
-      "version": "0.2.5",
-      "resolved": "https://registry.npmjs.org/jasmine-pretty-html-reporter-jasmine3.8/-/jasmine-pretty-html-reporter-jasmine3.8-0.2.5.tgz",
-      "integrity": "sha512-MbjwlL1ssRjJM93fM58nDnsO1/IO0VhH7FZ6uOlZShq47a8GjffCr4DBlN1P9NU6icXLxukbd/vaPJoKCIw8NQ==",
-      "dev": true,
-      "peerDependencies": {
-        "jasmine": "^3.8.0"
-      }
-    },
     "node_modules/jasmine-spec-reporter": {
       "version": "7.0.0",
       "resolved": "https://registry.npmjs.org/jasmine-spec-reporter/-/jasmine-spec-reporter-7.0.0.tgz",
@@ -5108,9 +5098,9 @@
       }
     },
     "node_modules/tar": {
-      "version": "7.5.19",
-      "resolved": "https://registry.npmjs.org/tar/-/tar-7.5.19.tgz",
-      "integrity": "sha512-4LeEWl96twnS2Q7Bz4MGqgazLqO+hJN63GZxXoIqh1T3VweYD997gbU1ItNsQafqqXTXd5WFyFdReLtwvRBNiw==",
+      "version": "7.5.22",
+      "resolved": "https://registry.npmjs.org/tar/-/tar-7.5.22.tgz",
+      "integrity": "sha512-MFO/QzvtAOmJbkhOaCTvbGcFN9L9b+JunIsDwaKljSOdcLMea3NJ1k9Usz/rjdfSXTq4dfzfeS7W4p4YOAAHeA==",
       "license": "BlueOak-1.0.0",
       "dependencies": {
         "@isaacs/fs-minipass": "^4.0.0",
@@ -5909,7 +5899,8 @@
       "version": "5.3.2",
       "resolved": "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.3.2.tgz",
       "integrity": "sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==",
-      "dev": true
+      "dev": true,
+      "requires": {}
     },
     "ajv": {
       "version": "6.15.0",
@@ -7861,12 +7852,6 @@
       "integrity": "sha512-QnurrtpKsPoixxG2R3d1xP0St/2kcX5oTZyDyQJMY+Vzi/HUlu1kGm+2V8Tz+9lV991leB1l0xcsyz40s9xOOw==",
       "dev": true
     },
-    "jasmine-pretty-html-reporter-jasmine3.8": {
-      "version": "0.2.5",
-      "resolved": "https://registry.npmjs.org/jasmine-pretty-html-reporter-jasmine3.8/-/jasmine-pretty-html-reporter-jasmine3.8-0.2.5.tgz",
-      "integrity": "sha512-MbjwlL1ssRjJM93fM58nDnsO1/IO0VhH7FZ6uOlZShq47a8GjffCr4DBlN1P9NU6icXLxukbd/vaPJoKCIw8NQ==",
-      "dev": true
-    },
     "jasmine-spec-reporter": {
       "version": "7.0.0",
       "resolved": "https://registry.npmjs.org/jasmine-spec-reporter/-/jasmine-spec-reporter-7.0.0.tgz",
@@ -8924,9 +8909,9 @@
       "dev": true
     },
     "tar": {
-      "version": "7.5.19",
-      "resolved": "https://registry.npmjs.org/tar/-/tar-7.5.19.tgz",
-      "integrity": "sha512-4LeEWl96twnS2Q7Bz4MGqgazLqO+hJN63GZxXoIqh1T3VweYD997gbU1ItNsQafqqXTXd5WFyFdReLtwvRBNiw==",
+      "version": "7.5.22",
+      "resolved": "https://registry.npmjs.org/tar/-/tar-7.5.22.tgz",
+      "integrity": "sha512-MFO/QzvtAOmJbkhOaCTvbGcFN9L9b+JunIsDwaKljSOdcLMea3NJ1k9Usz/rjdfSXTq4dfzfeS7W4p4YOAAHeA==",
       "requires": {
         "@isaacs/fs-minipass": "^4.0.0",
         "chownr": "^3.0.0",

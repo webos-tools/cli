@@ -14,7 +14,8 @@
     "jsSpecs/ares-shell.spec.js",
     "jsSpecs/ares.spec.js",
     "jsSpecs/ares-device.spec.js",
-    "jsSpecs/ares-log.spec.js"
+    "jsSpecs/ares-log.spec.js",
+    "jsSpecs/ares-novacom.spec.js"
   ],
   "helpers": [
     "helpers/**/*.js"

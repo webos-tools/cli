@@ -4,9 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const path = require('path');
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
-const HtmlReporter = require('jasmine-pretty-html-reporter-jasmine3.8').Reporter;
 
 jasmine.getEnv().configure({
     random: false,
@@ -60,6 +58,3 @@ jasmine.getEnv().addReporter(new SpecReporter({ // add jasmine-spec-reporter
     }
 }));
 
-jasmine.getEnv().addReporter(new HtmlReporter({
-    path: path.join(__dirname, '../../')
-}));

@@ -70,7 +70,7 @@
     "ssh2": "^1.17.0",
     "stream-buffers": "3.0.3",
     "strip-bom": "4.0.0",
-    "tar": "7.5.19",
+    "tar": "^7.5.22",
     "temp": "0.9.4",
     "terser": "5.48.0"
   },
@@ -78,7 +78,6 @@
     "eslint": "8.57.1",
     "eslint-plugin-import": "2.32.0",
     "jasmine": "5.7.0",
-    "jasmine-pretty-html-reporter-jasmine3.8": "0.2.5",
     "jasmine-spec-reporter": "7.0.0"
   },
   "keywords": [
