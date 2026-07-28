@@ -156,6 +156,46 @@ describe(aresCmd, function() {
     });
 });
 
+describe(aresCmd + ' Node.js version notice', function() {
+    beforeEach(function(done) {
+        common.removeOutDir(outputPath);
+        done();
+    });
+    afterEach(function(done) {
+        common.removeOutDir(outputPath);
+        done();
+    });
+
+    // The notice is only shown for profiles whose devices ship a bundled
+    // Node.js runtime (tv, signage), and only when a service is packaged.
+    it('Show the notice when packaging a service (tv/signage only)', function(done) {
+        exec(cmd + ` ${sampleAppPath} ${sampleServicePaths[0]} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            if (options.profile === "tv" || options.profile === "signage") {
+                expect(stdout).toContain("[Warning]");
+                expect(stdout).toContain("supported-nodejs-version");
+            } else {
+                expect(stdout).not.toContain("supported-nodejs-version");
+            }
+            expect(fs.existsSync(appPkgPath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Do not show the notice when packaging an app without a service', function(done) {
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).not.toContain("supported-nodejs-version");
+            expect(fs.existsSync(appPkgPath)).toBe(true);
+            done();
+        });
+    });
+});
+
 describe(aresCmd, function() {
     beforeEach(function(done) {
         common.removeOutDir(outputPath);

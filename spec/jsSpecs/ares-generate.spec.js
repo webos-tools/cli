@@ -384,6 +384,49 @@ describe(aresCmd + ' --servicename', function() {
     });
 });
 
+describe(aresCmd + ' Node.js version notice', function() {
+    beforeEach(function(done) {
+        common.removeOutDir(sampleServicePath);
+        common.removeOutDir(sampleAppPath);
+        done();
+    });
+    afterEach(function(done) {
+        common.removeOutDir(sampleServicePath);
+        common.removeOutDir(sampleAppPath);
+        done();
+    });
+
+    // The notice is only shown for profiles whose devices ship a bundled
+    // Node.js runtime (tv, signage).
+    it('Show the notice when generating a JS service (tv/signage only)', function(done) {
+        const serviceid = "com.domain.app.service";
+        exec(cmd + ` -t ${expectedTemplate.jsservice} -s ${serviceid} ${sampleServicePath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            if (options.profile === "tv" || options.profile === "signage") {
+                expect(stdout).toContain("[Warning]");
+                expect(stdout).toContain("supported-nodejs-version");
+            } else {
+                expect(stdout).not.toContain("supported-nodejs-version");
+            }
+            expect(error).toBeNull();
+            done();
+        });
+    });
+
+    it('Do not show the notice when generating a non-service template', function(done) {
+        exec(cmd + ` -t ${expectedTemplate.webapp} --no-query ${sampleAppPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).not.toContain("supported-nodejs-version");
+            expect(error).toBeNull();
+            done();
+        });
+    });
+});
+
 describe(aresCmd + ' negative TC', function() {
     it("Set invalid template type", function(done) {
         exec(cmd + ' -t invalidType sampleApp', function(error, stdout, stderr) {
