@@ -50,6 +50,7 @@
     "combined-stream": "1.0.8",
     "csv-writer": "1.6.0",
     "decompress": "4.2.1",
+    "decompress-targz": "^4.1.1",
     "easy-table": "1.1.1",
     "elfy": "1.0.0",
     "encoding": "0.1.13",
