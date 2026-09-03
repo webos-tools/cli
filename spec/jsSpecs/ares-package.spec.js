@@ -225,6 +225,97 @@ describe(aresCmd, function() {
     });
 });
 
+describe(aresCmd + ' requiredACG field notice', function() {
+    beforeEach(function(done) {
+        common.removeOutDir(outputPath);
+        done();
+    });
+    afterEach(function(done) {
+        common.removeOutDir(outputPath);
+        done();
+    });
+
+    // The notice is shown only for profiles that enforce ACG (tv, signage),
+    // and the guide URL differs by profile. Packaging is not blocked either way.
+    it('Warn when requiredACG field is missing (tv/signage only)', function(done) {
+        const appinfo = {
+            "id": "com.webos.sample.app",
+            "version": "1.0.0",
+            "vendor": "My Company",
+            "type": "web",
+            "main": "index.html",
+            "title": "new app",
+            "icon": "icon.png"
+        };
+        fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            if (options.profile === "tv") {
+                expect(stdout).toContain("[Warning]");
+                expect(stdout).toContain("requiredACG");
+                expect(stdout).toContain("webostv.developer.lge.com");
+            } else if (options.profile === "signage") {
+                expect(stdout).toContain("[Warning]");
+                expect(stdout).toContain("requiredACG");
+                expect(stdout).toContain("webossignage.developer.lge.com");
+            } else {
+                expect(stdout).not.toContain("The 'requiredACG' field is not defined");
+            }
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(appPkgPath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Do not warn when requiredACG field exists', function(done) {
+        const appinfo = {
+            "id": "com.webos.sample.app",
+            "version": "1.0.0",
+            "vendor": "My Company",
+            "type": "web",
+            "main": "index.html",
+            "title": "new app",
+            "icon": "icon.png",
+            "requiredACG": ["mediaGallery", "time"]
+        };
+        fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).not.toContain("The 'requiredACG' field is not defined");
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(appPkgPath)).toBe(true);
+            done();
+        });
+    });
+
+    it('Do not warn when requiredACG field is an empty array', function(done) {
+        const appinfo = {
+            "id": "com.webos.sample.app",
+            "version": "1.0.0",
+            "vendor": "My Company",
+            "type": "web",
+            "main": "index.html",
+            "title": "new app",
+            "icon": "icon.png",
+            "requiredACG": []
+        };
+        fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+            }
+            expect(stdout).not.toContain("The 'requiredACG' field is not defined");
+            expect(stdout).toContain("Success", error);
+            expect(fs.existsSync(appPkgPath)).toBe(true);
+            done();
+        });
+    });
+});
+
 describe(aresCmd, function() {
     const expectedFilePath = path.join(outputPath, "com.webos.sample_1.0.0_all.ipk");
     beforeAll(function(done) {
@@ -802,6 +893,35 @@ describe(aresCmd + ' negative TC for app packaging', function() {
                 expect(stderr).toContain("ares-package ERR! [Tips]: Invalid file <appinfo.json> :");
                 expect(stderr).toContain("ares-package ERR! [Tips]: type is not one of enum values: " +
                                          "web,stub,native,native_builtin,native_appshell,qml", error);
+            }
+            done();
+        });
+    });
+});
+
+describe(aresCmd + ' negative TC for app packaging', function() {
+    beforeEach(function(done) {
+        const appinfo = {
+            "id": "com.domain.app",
+            "version": "1.0.0",
+            "vendor": "My Company",
+            "type": "web",
+            "main": "index.html",
+            "title": "new app",
+            "icon": "icon.png",
+            "requiredACG": "mediaGallery"
+        };
+        fs.writeFileSync(appinfoPath, JSON.stringify(appinfo), 'utf8');
+        done();
+    });
+
+    it('Check to invalid requiredACG type (must be an array)', function(done) {
+        exec(cmd + ` ${sampleAppPath} -o ${outputPath}`, function(error, stdout, stderr) {
+            if (stderr && stderr.length > 0) {
+                common.detectNodeMessage(stderr);
+                stderr = stderr.trim().replace(/\s+['\n']/g, '\n');
+                expect(stderr).toContain("ares-package ERR! [Tips]: Invalid file <appinfo.json> :");
+                expect(stderr).toContain("ares-package ERR! [Tips]: requiredACG is not of a type(s) array", error);
             }
             done();
         });

@@ -307,6 +307,13 @@
             },
             "default": [],
             "description": "Icon and Color set for dynamic icon"
+        },
+        "requiredACG": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "List of Access Control Group (ACG) that the application requires to call the corresponding APIs."
         }
     },
     "required": [
